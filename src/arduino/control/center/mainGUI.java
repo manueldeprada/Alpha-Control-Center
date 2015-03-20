@@ -54,7 +54,7 @@ public class mainGUI extends javax.swing.JFrame {
                 .addGap(0, 15, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("tab1", jPanel2);
+        jTabbedPane4.addTab("modificado", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
