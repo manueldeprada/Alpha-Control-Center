@@ -22,6 +22,26 @@ public class mainGUI extends javax.swing.JFrame {
         methods.initialicePicker(picker);
         
     }
+    
+    public int mode = 0;
+    public void write(){
+        arduino.control.center.utils.methods.write(mode, picker);
+    }
+    public void loadpreviews(){
+        
+        arduino.control.center.utils.methods.loadpreview(1, panelColor1);
+        arduino.control.center.utils.methods.loadpreview(2, panelColor2);
+        arduino.control.center.utils.methods.loadpreview(3, panelColor3);
+        arduino.control.center.utils.methods.loadpreview(4, panelColor4);
+        arduino.control.center.utils.methods.loadpreview(5, panelColor5);
+        arduino.control.center.utils.methods.loadpreview(6, panelColor6);
+        arduino.control.center.utils.methods.loadpreview(7, panelColor7);
+        arduino.control.center.utils.methods.loadpreview(8, panelColor8);
+        arduino.control.center.utils.methods.loadpreview(9, panelColor9);
+        arduino.control.center.utils.methods.loadpreview(10, panelColor10);
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,46 +56,46 @@ public class mainGUI extends javax.swing.JFrame {
         colorTab = new javax.swing.JPanel();
         picker = new com.bric.swing.ColorPicker();
         favColorsPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jButton18 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jButton20 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jButton22 = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jButton17 = new javax.swing.JButton();
+        labelColor1 = new javax.swing.JLabel();
+        panelColor1 = new javax.swing.JPanel();
+        labelColor6 = new javax.swing.JLabel();
+        panelColor6 = new javax.swing.JPanel();
+        getButtonColor6 = new javax.swing.JButton();
+        setButtonColor6 = new javax.swing.JButton();
+        getButtonColor1 = new javax.swing.JButton();
+        setButtonColor1 = new javax.swing.JButton();
+        labelColor2 = new javax.swing.JLabel();
+        panelColor2 = new javax.swing.JPanel();
+        setButtonColor2 = new javax.swing.JButton();
+        labelColor3 = new javax.swing.JLabel();
+        panelColor3 = new javax.swing.JPanel();
+        getButtonColor2 = new javax.swing.JButton();
+        labelColor7 = new javax.swing.JLabel();
+        panelColor7 = new javax.swing.JPanel();
+        getButtonColor7 = new javax.swing.JButton();
+        setButtonColor7 = new javax.swing.JButton();
+        setButtonColor8 = new javax.swing.JButton();
+        labelColor8 = new javax.swing.JLabel();
+        getButtonColor8 = new javax.swing.JButton();
+        panelColor8 = new javax.swing.JPanel();
+        getButtonColor3 = new javax.swing.JButton();
+        setButtonColor3 = new javax.swing.JButton();
+        labelColor4 = new javax.swing.JLabel();
+        panelColor4 = new javax.swing.JPanel();
+        labelColor9 = new javax.swing.JLabel();
+        panelColor9 = new javax.swing.JPanel();
+        getButtonColor9 = new javax.swing.JButton();
+        setButtonColor9 = new javax.swing.JButton();
+        getButtonColor4 = new javax.swing.JButton();
+        setButtonColor4 = new javax.swing.JButton();
+        labelColor5 = new javax.swing.JLabel();
+        panelColor5 = new javax.swing.JPanel();
+        getButtonColor5 = new javax.swing.JButton();
+        setButtonColor5 = new javax.swing.JButton();
+        setButtonColor10 = new javax.swing.JButton();
+        labelColor10 = new javax.swing.JLabel();
+        panelColor10 = new javax.swing.JPanel();
+        getButtonColor10 = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
@@ -92,293 +112,293 @@ public class mainGUI extends javax.swing.JFrame {
 
         favColorsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Favourite colors")));
 
-        jLabel3.setText("Color 1");
+        labelColor1.setText("Color 1");
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor1Layout = new javax.swing.GroupLayout(panelColor1);
+        panelColor1.setLayout(panelColor1Layout);
+        panelColor1Layout.setHorizontalGroup(
+            panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor1Layout.setVerticalGroup(
+            panelColor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jLabel11.setText("Color 6");
+        labelColor6.setText("Color 6");
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor6Layout = new javax.swing.GroupLayout(panelColor6);
+        panelColor6.setLayout(panelColor6Layout);
+        panelColor6Layout.setHorizontalGroup(
+            panelColor6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor6Layout.setVerticalGroup(
+            panelColor6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton18.setText("Get");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor6.setText("Get");
+        getButtonColor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                getButtonColor6ActionPerformed(evt);
             }
         });
 
-        jButton16.setText("Set");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor6.setText("Set");
+        setButtonColor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                setButtonColor6ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Get");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor1.setText("Get");
+        getButtonColor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                getButtonColor1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Set");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor1.setText("Set");
+        setButtonColor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                setButtonColor1ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Color 2");
+        labelColor2.setText("Color 2");
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor2Layout = new javax.swing.GroupLayout(panelColor2);
+        panelColor2.setLayout(panelColor2Layout);
+        panelColor2Layout.setHorizontalGroup(
+            panelColor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor2Layout.setVerticalGroup(
+            panelColor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton5.setText("Set");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor2.setText("Set");
+        setButtonColor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                setButtonColor2ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Color 3");
+        labelColor3.setText("Color 3");
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor3Layout = new javax.swing.GroupLayout(panelColor3);
+        panelColor3.setLayout(panelColor3Layout);
+        panelColor3Layout.setHorizontalGroup(
+            panelColor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor3Layout.setVerticalGroup(
+            panelColor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton6.setText("Get");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor2.setText("Get");
+        getButtonColor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                getButtonColor2ActionPerformed(evt);
             }
         });
 
-        jLabel12.setText("Color 7");
+        labelColor7.setText("Color 7");
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor7Layout = new javax.swing.GroupLayout(panelColor7);
+        panelColor7.setLayout(panelColor7Layout);
+        panelColor7Layout.setHorizontalGroup(
+            panelColor7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor7Layout.setVerticalGroup(
+            panelColor7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton20.setText("Get");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor7.setText("Get");
+        getButtonColor7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                getButtonColor7ActionPerformed(evt);
             }
         });
 
-        jButton19.setText("Set");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor7.setText("Set");
+        setButtonColor7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                setButtonColor7ActionPerformed(evt);
             }
         });
 
-        jButton21.setText("Set");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor8.setText("Set");
+        setButtonColor8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                setButtonColor8ActionPerformed(evt);
             }
         });
 
-        jLabel13.setText("Color 8");
+        labelColor8.setText("Color 8");
 
-        jButton22.setText("Get");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor8.setText("Get");
+        getButtonColor8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                getButtonColor8ActionPerformed(evt);
             }
         });
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor8Layout = new javax.swing.GroupLayout(panelColor8);
+        panelColor8.setLayout(panelColor8Layout);
+        panelColor8Layout.setHorizontalGroup(
+            panelColor8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor8Layout.setVerticalGroup(
+            panelColor8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton8.setText("Get");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor3.setText("Get");
+        getButtonColor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                getButtonColor3ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Set");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor3.setText("Set");
+        setButtonColor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                setButtonColor3ActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Color 4");
+        labelColor4.setText("Color 4");
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor4Layout = new javax.swing.GroupLayout(panelColor4);
+        panelColor4.setLayout(panelColor4Layout);
+        panelColor4Layout.setHorizontalGroup(
+            panelColor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor4Layout.setVerticalGroup(
+            panelColor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jLabel9.setText("Color 9");
+        labelColor9.setText("Color 9");
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor9Layout = new javax.swing.GroupLayout(panelColor9);
+        panelColor9.setLayout(panelColor9Layout);
+        panelColor9Layout.setHorizontalGroup(
+            panelColor9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor9Layout.setVerticalGroup(
+            panelColor9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton14.setText("Get");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor9.setText("Get");
+        getButtonColor9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                getButtonColor9ActionPerformed(evt);
             }
         });
 
-        jButton13.setText("Set");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor9.setText("Set");
+        setButtonColor9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                setButtonColor9ActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Get");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor4.setText("Get");
+        getButtonColor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                getButtonColor4ActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Set");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor4.setText("Set");
+        setButtonColor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                setButtonColor4ActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Color 5");
+        labelColor5.setText("Color 5");
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor5Layout = new javax.swing.GroupLayout(panelColor5);
+        panelColor5.setLayout(panelColor5Layout);
+        panelColor5Layout.setHorizontalGroup(
+            panelColor5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor5Layout.setVerticalGroup(
+            panelColor5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton12.setText("Get");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor5.setText("Get");
+        getButtonColor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                getButtonColor5ActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Set");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor5.setText("Set");
+        setButtonColor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                setButtonColor5ActionPerformed(evt);
             }
         });
 
-        jButton15.setText("Set");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        setButtonColor10.setText("Set");
+        setButtonColor10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                setButtonColor10ActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Color 10");
+        labelColor10.setText("Color 10");
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelColor10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColor10Layout = new javax.swing.GroupLayout(panelColor10);
+        panelColor10.setLayout(panelColor10Layout);
+        panelColor10Layout.setHorizontalGroup(
+            panelColor10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColor10Layout.setVerticalGroup(
+            panelColor10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        jButton17.setText("Get");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        getButtonColor10.setText("Get");
+        getButtonColor10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                getButtonColor10ActionPerformed(evt);
             }
         });
 
@@ -391,68 +411,68 @@ public class mainGUI extends javax.swing.JFrame {
                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(setButtonColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(setButtonColor2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor2)
+                            .addComponent(labelColor3)
+                            .addComponent(setButtonColor3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor4)
+                            .addComponent(setButtonColor4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor5)
+                            .addComponent(setButtonColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(panelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelColor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelColor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(28, 28, 28)
                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addComponent(setButtonColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(getButtonColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(favColorsPanelLayout.createSequentialGroup()
                                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(labelColor10)
+                                    .addComponent(labelColor8)
+                                    .addComponent(labelColor9)
+                                    .addComponent(setButtonColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(setButtonColor8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(setButtonColor9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(setButtonColor10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(getButtonColor9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelColor10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelColor8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(panelColor9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(favColorsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
+                                .addComponent(labelColor7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         favColorsPanelLayout.setVerticalGroup(
@@ -461,84 +481,84 @@ public class mainGUI extends javax.swing.JFrame {
                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))
+                            .addComponent(setButtonColor1)
+                            .addComponent(getButtonColor1))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6))
+                            .addComponent(setButtonColor2)
+                            .addComponent(getButtonColor2))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8))
+                            .addComponent(setButtonColor3)
+                            .addComponent(getButtonColor3))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton9)
-                            .addComponent(jButton10))
+                            .addComponent(setButtonColor4)
+                            .addComponent(getButtonColor4))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton11)
-                            .addComponent(jButton12)))
+                            .addComponent(setButtonColor5)
+                            .addComponent(getButtonColor5)))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton16)
-                            .addComponent(jButton18))
+                            .addComponent(setButtonColor6)
+                            .addComponent(getButtonColor6))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton19)
-                            .addComponent(jButton20))
+                            .addComponent(setButtonColor7)
+                            .addComponent(getButtonColor7))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton21)
-                            .addComponent(jButton22))
+                            .addComponent(setButtonColor8)
+                            .addComponent(getButtonColor8))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton13)
-                            .addComponent(jButton14))
+                            .addComponent(setButtonColor9)
+                            .addComponent(getButtonColor9))
                         .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelColor10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton15)
-                            .addComponent(jButton17))))
+                            .addComponent(setButtonColor10)
+                            .addComponent(getButtonColor10))))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
@@ -681,7 +701,7 @@ public class mainGUI extends javax.swing.JFrame {
         write();        // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1StateChanged
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
         int color6R = Integer.parseInt(arduino.control.center.utils.config.getValue("color6R"));
         int color6G = Integer.parseInt(arduino.control.center.utils.config.getValue("color6G"));
         int color6B = Integer.parseInt(arduino.control.center.utils.config.getValue("color6B"));
@@ -689,19 +709,19 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color6);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_getButtonColor6ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void setButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor6ActionPerformed
         Color color6 = picker.getColor();
-        jPanel11.setBackground(color6);
+        panelColor6.setBackground(color6);
         arduino.control.center.utils.config.setValue("color6R", Integer.toString(color6.getRed()));
         arduino.control.center.utils.config.setValue("color6G", Integer.toString(color6.getGreen()));
         arduino.control.center.utils.config.setValue("color6B", Integer.toString(color6.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_setButtonColor6ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void getButtonColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor1ActionPerformed
         int color1R = Integer.parseInt(arduino.control.center.utils.config.getValue("color1R"));
         int color1G = Integer.parseInt(arduino.control.center.utils.config.getValue("color1G"));
         int color1B = Integer.parseInt(arduino.control.center.utils.config.getValue("color1B"));
@@ -709,29 +729,29 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color1);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_getButtonColor1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void setButtonColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor1ActionPerformed
         Color color1 = picker.getColor();
-        jPanel2.setBackground(color1);
+        panelColor1.setBackground(color1);
         arduino.control.center.utils.config.setValue("color1R", Integer.toString(color1.getRed()));
         arduino.control.center.utils.config.setValue("color1G", Integer.toString(color1.getGreen()));
         arduino.control.center.utils.config.setValue("color1B", Integer.toString(color1.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_setButtonColor1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void setButtonColor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor2ActionPerformed
         Color color2 = picker.getColor();
-        jPanel4.setBackground(color2);
+        panelColor2.setBackground(color2);
         arduino.control.center.utils.config.setValue("color2R", Integer.toString(color2.getRed()));
         arduino.control.center.utils.config.setValue("color2G", Integer.toString(color2.getGreen()));
         arduino.control.center.utils.config.setValue("color2B", Integer.toString(color2.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_setButtonColor2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void getButtonColor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor2ActionPerformed
         int color2R = Integer.parseInt(arduino.control.center.utils.config.getValue("color2R"));
         int color2G = Integer.parseInt(arduino.control.center.utils.config.getValue("color2G"));
         int color2B = Integer.parseInt(arduino.control.center.utils.config.getValue("color2B"));
@@ -739,9 +759,9 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color2);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_getButtonColor2ActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void getButtonColor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor7ActionPerformed
         int color9R = Integer.parseInt(arduino.control.center.utils.config.getValue("color9R"));
         int color9G = Integer.parseInt(arduino.control.center.utils.config.getValue("color9G"));
         int color9B = Integer.parseInt(arduino.control.center.utils.config.getValue("color9B"));
@@ -749,29 +769,29 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color9);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_getButtonColor7ActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void setButtonColor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor7ActionPerformed
         Color color7 = picker.getColor();
-        jPanel9.setBackground(color7);
+        panelColor7.setBackground(color7);
         arduino.control.center.utils.config.setValue("color7R", Integer.toString(color7.getRed()));
         arduino.control.center.utils.config.setValue("color7G", Integer.toString(color7.getGreen()));
         arduino.control.center.utils.config.setValue("color7B", Integer.toString(color7.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_setButtonColor7ActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void setButtonColor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor8ActionPerformed
         Color color8 = picker.getColor();
-        jPanel10.setBackground(color8);
+        panelColor8.setBackground(color8);
         arduino.control.center.utils.config.setValue("color8R", Integer.toString(color8.getRed()));
         arduino.control.center.utils.config.setValue("color8G", Integer.toString(color8.getGreen()));
         arduino.control.center.utils.config.setValue("color8B", Integer.toString(color8.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_setButtonColor8ActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void getButtonColor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor8ActionPerformed
         int color8R = Integer.parseInt(arduino.control.center.utils.config.getValue("color8R"));
         int color8G = Integer.parseInt(arduino.control.center.utils.config.getValue("color8G"));
         int color8B = Integer.parseInt(arduino.control.center.utils.config.getValue("color8B"));
@@ -779,9 +799,9 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color8);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }//GEN-LAST:event_getButtonColor8ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void getButtonColor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor3ActionPerformed
         int color3R = Integer.parseInt(arduino.control.center.utils.config.getValue("color3R"));
         int color3G = Integer.parseInt(arduino.control.center.utils.config.getValue("color3G"));
         int color3B = Integer.parseInt(arduino.control.center.utils.config.getValue("color3B"));
@@ -789,19 +809,19 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color3);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_getButtonColor3ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void setButtonColor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor3ActionPerformed
         Color color3 = picker.getColor();
-        jPanel5.setBackground(color3);
+        panelColor3.setBackground(color3);
         arduino.control.center.utils.config.setValue("color3R", Integer.toString(color3.getRed()));
         arduino.control.center.utils.config.setValue("color3G", Integer.toString(color3.getGreen()));
         arduino.control.center.utils.config.setValue("color3B", Integer.toString(color3.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_setButtonColor3ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void getButtonColor9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor9ActionPerformed
         int color9R = Integer.parseInt(arduino.control.center.utils.config.getValue("color9R"));
         int color9G = Integer.parseInt(arduino.control.center.utils.config.getValue("color9G"));
         int color9B = Integer.parseInt(arduino.control.center.utils.config.getValue("color9B"));
@@ -809,19 +829,19 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color9);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_getButtonColor9ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void setButtonColor9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor9ActionPerformed
         Color color9 = picker.getColor();
-        jPanel12.setBackground(color9);
+        panelColor9.setBackground(color9);
         arduino.control.center.utils.config.setValue("color9R", Integer.toString(color9.getRed()));
         arduino.control.center.utils.config.setValue("color9G", Integer.toString(color9.getGreen()));
         arduino.control.center.utils.config.setValue("color9B", Integer.toString(color9.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_setButtonColor9ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void getButtonColor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor4ActionPerformed
         int color4R = Integer.parseInt(arduino.control.center.utils.config.getValue("color4R"));
         int color4G = Integer.parseInt(arduino.control.center.utils.config.getValue("color4G"));
         int color4B = Integer.parseInt(arduino.control.center.utils.config.getValue("color4B"));
@@ -829,19 +849,19 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color4);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_getButtonColor4ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void setButtonColor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor4ActionPerformed
         Color color4 = picker.getColor();
-        jPanel6.setBackground(color4);
+        panelColor4.setBackground(color4);
         arduino.control.center.utils.config.setValue("color4R", Integer.toString(color4.getRed()));
         arduino.control.center.utils.config.setValue("color4G", Integer.toString(color4.getGreen()));
         arduino.control.center.utils.config.setValue("color4B", Integer.toString(color4.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_setButtonColor4ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void getButtonColor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor5ActionPerformed
         int color5R = Integer.parseInt(arduino.control.center.utils.config.getValue("color5R"));
         int color5G = Integer.parseInt(arduino.control.center.utils.config.getValue("color5G"));
         int color5B = Integer.parseInt(arduino.control.center.utils.config.getValue("color5B"));
@@ -849,29 +869,29 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color5);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_getButtonColor5ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void setButtonColor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor5ActionPerformed
         Color color5 = picker.getColor();
-        jPanel7.setBackground(color5);
+        panelColor5.setBackground(color5);
         arduino.control.center.utils.config.setValue("color5R", Integer.toString(color5.getRed()));
         arduino.control.center.utils.config.setValue("color5G", Integer.toString(color5.getGreen()));
         arduino.control.center.utils.config.setValue("color5B", Integer.toString(color5.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_setButtonColor5ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void setButtonColor10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor10ActionPerformed
         Color color10 = picker.getColor();
-        jPanel8.setBackground(color10);
+        panelColor10.setBackground(color10);
         arduino.control.center.utils.config.setValue("color10R", Integer.toString(color10.getRed()));
         arduino.control.center.utils.config.setValue("color10G", Integer.toString(color10.getGreen()));
         arduino.control.center.utils.config.setValue("color10B", Integer.toString(color10.getBlue()));
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_setButtonColor10ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void getButtonColor10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor10ActionPerformed
         int color10R = Integer.parseInt(arduino.control.center.utils.config.getValue("color10R"));
         int color10G = Integer.parseInt(arduino.control.center.utils.config.getValue("color10G"));
         int color10B = Integer.parseInt(arduino.control.center.utils.config.getValue("color10B"));
@@ -879,7 +899,7 @@ public class mainGUI extends javax.swing.JFrame {
         picker.setColor(color10);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_getButtonColor10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -922,57 +942,57 @@ public class mainGUI extends javax.swing.JFrame {
     private javax.swing.JPanel colorTab;
     private javax.swing.JButton connectButton;
     private javax.swing.JPanel favColorsPanel;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JButton getButtonColor1;
+    private javax.swing.JButton getButtonColor10;
+    private javax.swing.JButton getButtonColor2;
+    private javax.swing.JButton getButtonColor3;
+    private javax.swing.JButton getButtonColor4;
+    private javax.swing.JButton getButtonColor5;
+    private javax.swing.JButton getButtonColor6;
+    private javax.swing.JButton getButtonColor7;
+    private javax.swing.JButton getButtonColor8;
+    private javax.swing.JButton getButtonColor9;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JLabel labelColor1;
+    private javax.swing.JLabel labelColor10;
+    private javax.swing.JLabel labelColor2;
+    private javax.swing.JLabel labelColor3;
+    private javax.swing.JLabel labelColor4;
+    private javax.swing.JLabel labelColor5;
+    private javax.swing.JLabel labelColor6;
+    private javax.swing.JLabel labelColor7;
+    private javax.swing.JLabel labelColor8;
+    private javax.swing.JLabel labelColor9;
     private javax.swing.JMenuBar menubar;
+    private javax.swing.JPanel panelColor1;
+    private javax.swing.JPanel panelColor10;
+    private javax.swing.JPanel panelColor2;
+    private javax.swing.JPanel panelColor3;
+    private javax.swing.JPanel panelColor4;
+    private javax.swing.JPanel panelColor5;
+    private javax.swing.JPanel panelColor6;
+    private javax.swing.JPanel panelColor7;
+    private javax.swing.JPanel panelColor8;
+    private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
     private javax.swing.JButton refreshPortsButton;
+    private javax.swing.JButton setButtonColor1;
+    private javax.swing.JButton setButtonColor10;
+    private javax.swing.JButton setButtonColor2;
+    private javax.swing.JButton setButtonColor3;
+    private javax.swing.JButton setButtonColor4;
+    private javax.swing.JButton setButtonColor5;
+    private javax.swing.JButton setButtonColor6;
+    private javax.swing.JButton setButtonColor7;
+    private javax.swing.JButton setButtonColor8;
+    private javax.swing.JButton setButtonColor9;
     private javax.swing.JTabbedPane tabPanel;
     // End of variables declaration//GEN-END:variables
 }
