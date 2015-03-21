@@ -96,16 +96,27 @@ public class methods {
     
     
     public static void loadpreview(int number, JPanel panel){
-        
-if (config.getValue("color"+number+"R")!= null){
-    int colorR = Integer.parseInt(config.getValue("color10R"));
+        if (config.getValue("color"+number+"R") == ""){
+            
+        }else {
+if (config.getValue("color"+number+"R")!= null ){
+            int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
             int colorG = Integer.parseInt(config.getValue("color"+number+"G"));
             int colorB = Integer.parseInt(config.getValue("color"+number+"B"));
         Color color = new Color(colorR,colorG,colorB);
         panel.setBackground(color);
 }
- 
+        }
     
+    }
+    public static void cleanFavourites(){
+        for (int i= 0; i <10; i++){ 
+            config.setValue("color"+i+"R", "");
+            config.setValue("color"+i+"G", "");
+            config.setValue("color"+i+"B", "");
+
+            
+        }
     }
 
 
