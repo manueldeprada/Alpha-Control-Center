@@ -97,7 +97,7 @@ public class methods {
     
     public static void loadpreview(int number, JPanel panel){
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
-        
+        panel.setBackground(null);
         }else {
 if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
             int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
@@ -110,11 +110,10 @@ if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue(
     
     }
     public static void cleanFavourites(){
-        for (int i= 0; i <10; i++){ 
+        for (int i= 0; i <11; i++){ 
             config.setValue("color"+i+"R", "");
             config.setValue("color"+i+"G", "");
             config.setValue("color"+i+"B", "");
-
             
         }
     }

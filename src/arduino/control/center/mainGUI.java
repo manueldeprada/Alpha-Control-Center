@@ -58,6 +58,11 @@ public class mainGUI extends javax.swing.JFrame {
         tabPanel = new javax.swing.JTabbedPane();
         colorTab = new javax.swing.JPanel();
         picker = new com.bric.swing.ColorPicker();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         favColorsPanel = new javax.swing.JPanel();
         labelColor1 = new javax.swing.JLabel();
         panelColor1 = new javax.swing.JPanel();
@@ -100,10 +105,7 @@ public class mainGUI extends javax.swing.JFrame {
         panelColor10 = new javax.swing.JPanel();
         getButtonColor10 = new javax.swing.JButton();
         cleanButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
         ambilightTab = new javax.swing.JPanel();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
@@ -113,6 +115,29 @@ public class mainGUI extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setText("LED Mode");
+
+        jRadioButton1.setText("Fade");
+        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton1StateChanged(evt);
+            }
+        });
+
+        jRadioButton2.setText("Normal");
+        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton2StateChanged(evt);
+            }
+        });
+
+        jRadioButton3.setText("Music");
+        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton3StateChanged(evt);
+            }
+        });
 
         favColorsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Favourite colors")));
 
@@ -489,7 +514,7 @@ public class mainGUI extends javax.swing.JFrame {
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(cleanButton)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         favColorsPanelLayout.setVerticalGroup(
             favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -575,32 +600,24 @@ public class mainGUI extends javax.swing.JFrame {
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cleanButton))
         );
 
-        jLabel2.setText("LED Mode");
+        jTabbedPane1.addTab("Saved colors", favColorsPanel);
 
-        jRadioButton1.setText("Fade");
-        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton1StateChanged(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 408, Short.MAX_VALUE)
+        );
 
-        jRadioButton2.setText("Normal");
-        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton2StateChanged(evt);
-            }
-        });
-
-        jRadioButton3.setText("Music");
-        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton3StateChanged(evt);
-            }
-        });
+        jTabbedPane1.addTab("Secuences", jPanel1);
 
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
@@ -619,8 +636,8 @@ public class mainGUI extends javax.swing.JFrame {
                                 .addComponent(jRadioButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(favColorsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                 .addContainerGap())
         );
         colorTabLayout.setVerticalGroup(
@@ -637,8 +654,8 @@ public class mainGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(favColorsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabPanel.addTab("Color", colorTab);
@@ -647,7 +664,7 @@ public class mainGUI extends javax.swing.JFrame {
         ambilightTab.setLayout(ambilightTabLayout);
         ambilightTabLayout.setHorizontalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 828, Short.MAX_VALUE)
+            .addGap(0, 919, Short.MAX_VALUE)
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -917,6 +934,7 @@ public class mainGUI extends javax.swing.JFrame {
 
     private void cleanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanButtonActionPerformed
 arduino.control.center.utils.methods.cleanFavourites();
+
 loadpreviews();// TODO add your handling code here:
     }//GEN-LAST:event_cleanButtonActionPerformed
 
@@ -975,9 +993,11 @@ loadpreviews();// TODO add your handling code here:
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor2;
