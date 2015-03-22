@@ -7,6 +7,7 @@ package arduino.control.center;
 
 import arduino.control.center.utils.methods;
 import java.awt.Color;
+import static java.awt.Color.white;
 
 /**
  *
@@ -21,12 +22,14 @@ public class mainGUI extends javax.swing.JFrame {
         initComponents();
         methods.initialicePicker(picker);
         loadpreviews();
+        picker.setColor(white);
     }
     
     public int mode = 0;
     public void write(){
         arduino.control.center.utils.methods.write(mode, picker);
     }
+   
     public void loadpreviews(){
         
         arduino.control.center.utils.methods.loadpreview(1, panelColor1);
@@ -97,14 +100,14 @@ public class mainGUI extends javax.swing.JFrame {
         panelColor10 = new javax.swing.JPanel();
         getButtonColor10 = new javax.swing.JButton();
         cleanButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
         ambilightTab = new javax.swing.JPanel();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -484,9 +487,9 @@ public class mainGUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addGap(114, 114, 114)
                         .addComponent(cleanButton)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         favColorsPanelLayout.setVerticalGroup(
             favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,30 +575,70 @@ public class mainGUI extends javax.swing.JFrame {
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cleanButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(cleanButton))
         );
+
+        jLabel2.setText("LED Mode");
+
+        jRadioButton1.setText("Fade");
+        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton1StateChanged(evt);
+            }
+        });
+
+        jRadioButton2.setText("Normal");
+        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton2StateChanged(evt);
+            }
+        });
+
+        jRadioButton3.setText("Music");
+        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton3StateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
         colorTabLayout.setHorizontalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorTabLayout.createSequentialGroup()
-                .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(colorTabLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(colorTabLayout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(favColorsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         colorTabLayout.setVerticalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorTabLayout.createSequentialGroup()
-                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(favColorsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(picker, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(colorTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(favColorsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabPanel.addTab("Color", colorTab);
@@ -608,7 +651,7 @@ public class mainGUI extends javax.swing.JFrame {
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
+            .addGap(0, 445, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -619,29 +662,6 @@ public class mainGUI extends javax.swing.JFrame {
         PortsBox.setToolTipText("Avaliable Arduino Ports");
 
         connectButton.setText("Connect");
-
-        jLabel2.setText("LED Mode");
-
-        jRadioButton3.setText("Music");
-        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton3StateChanged(evt);
-            }
-        });
-
-        jRadioButton2.setText("Normal");
-        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton2StateChanged(evt);
-            }
-        });
-
-        jRadioButton1.setText("Fade");
-        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton1StateChanged(evt);
-            }
-        });
 
         jMenu1.setText("File");
         menubar.add(jMenu1);
@@ -658,22 +678,11 @@ public class mainGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 836, Short.MAX_VALUE)
+                    .addComponent(tabPanel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshPortsButton)
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(connectButton)))
                 .addContainerGap())
@@ -682,21 +691,13 @@ public class mainGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(refreshPortsButton)
-                        .addComponent(connectButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refreshPortsButton)
+                    .addComponent(connectButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -974,8 +975,6 @@ loadpreviews();// TODO add your handling code here:
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
