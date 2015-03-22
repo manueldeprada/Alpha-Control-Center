@@ -96,10 +96,10 @@ public class methods {
     
     
     public static void loadpreview(int number, JPanel panel){
-        if (config.getValue("color"+number+"R") == ""){
-            
+        if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
+        
         }else {
-if (config.getValue("color"+number+"R")!= null ){
+if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
             int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
             int colorG = Integer.parseInt(config.getValue("color"+number+"G"));
             int colorB = Integer.parseInt(config.getValue("color"+number+"B"));
