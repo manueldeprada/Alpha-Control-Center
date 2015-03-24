@@ -105,7 +105,9 @@ public class mainGUI extends javax.swing.JFrame {
         panelColor10 = new javax.swing.JPanel();
         getButtonColor10 = new javax.swing.JButton();
         cleanButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        SecuencesPanel = new javax.swing.JPanel();
+        SecuencesTitle = new javax.swing.JLabel();
+        SecuencesStartButton = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
@@ -606,18 +608,40 @@ public class mainGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Saved colors", favColorsPanel);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+        SecuencesTitle.setText("Secuences");
+
+        SecuencesStartButton.setText("Start");
+        SecuencesStartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SecuencesStartButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SecuencesPanelLayout = new javax.swing.GroupLayout(SecuencesPanel);
+        SecuencesPanel.setLayout(SecuencesPanelLayout);
+        SecuencesPanelLayout.setHorizontalGroup(
+            SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(SecuencesTitle))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SecuencesStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 408, Short.MAX_VALUE)
+        SecuencesPanelLayout.setVerticalGroup(
+            SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SecuencesTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SecuencesStartButton)
+                .addContainerGap(346, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Secuences", jPanel1);
+        jTabbedPane1.addTab("Secuences", SecuencesPanel);
 
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
@@ -637,7 +661,7 @@ public class mainGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton3)))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         colorTabLayout.setVerticalGroup(
@@ -938,6 +962,11 @@ arduino.control.center.utils.methods.cleanFavourites();
 loadpreviews();// TODO add your handling code here:
     }//GEN-LAST:event_cleanButtonActionPerformed
 
+    private void SecuencesStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesStartButtonActionPerformed
+arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
+ub.make(picker, 1);// TODO add your handling code here:
+    }//GEN-LAST:event_SecuencesStartButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -975,6 +1004,9 @@ loadpreviews();// TODO add your handling code here:
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox PortsBox;
+    private javax.swing.JPanel SecuencesPanel;
+    private javax.swing.JButton SecuencesStartButton;
+    private javax.swing.JLabel SecuencesTitle;
     private javax.swing.JPanel ambilightTab;
     private javax.swing.JButton cleanButton;
     private javax.swing.JPanel colorTab;
@@ -993,7 +1025,6 @@ loadpreviews();// TODO add your handling code here:
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;

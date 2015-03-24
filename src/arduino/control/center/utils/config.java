@@ -20,7 +20,12 @@ import java.util.Properties;
  */
 public class config {
     public static String getValue(String key){
-    File propfile = new File(path + "//settings.properties");
+        return getValue(key, new File(path + "//settings.properties"));
+    }
+    
+    
+    public static String getValue(String key, File file){
+    File propfile = file;
 Properties prop = new Properties();
 InputStream input = null;
 try {
@@ -47,7 +52,12 @@ try {
         return null;
     }
     public static void setValue(String key, String value){
-    File propfile = new File(path + "//settings.properties");
+        setValue(key, value, new File(path + "//settings.properties"));
+    }
+    
+    
+    public static void setValue(String key, String value, File file){
+    File propfile = file;
 
 OutputStream output = null;
 InputStream input = null;
