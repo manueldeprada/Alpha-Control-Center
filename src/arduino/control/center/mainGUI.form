@@ -863,7 +863,9 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SecuencesStartButton" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <Component id="SecuencesRecordButton" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="SecuencesPlayButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="152" max="32767" attributes="0"/>
@@ -876,7 +878,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="SecuencesTitle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="SecuencesStartButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SecuencesRecordButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SecuencesPlayButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace pref="346" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -888,12 +893,20 @@
                         <Property name="text" type="java.lang.String" value="Secuences"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="SecuencesStartButton">
+                    <Component class="javax.swing.JButton" name="SecuencesRecordButton">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Start"/>
+                        <Property name="text" type="java.lang.String" value="record"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SecuencesStartButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SecuencesRecordButtonActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="SecuencesPlayButton">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="play"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SecuencesPlayButtonActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

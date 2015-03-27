@@ -107,7 +107,8 @@ public class mainGUI extends javax.swing.JFrame {
         cleanButton = new javax.swing.JButton();
         SecuencesPanel = new javax.swing.JPanel();
         SecuencesTitle = new javax.swing.JLabel();
-        SecuencesStartButton = new javax.swing.JButton();
+        SecuencesRecordButton = new javax.swing.JButton();
+        SecuencesPlayButton = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
@@ -610,10 +611,17 @@ public class mainGUI extends javax.swing.JFrame {
 
         SecuencesTitle.setText("Secuences");
 
-        SecuencesStartButton.setText("Start");
-        SecuencesStartButton.addActionListener(new java.awt.event.ActionListener() {
+        SecuencesRecordButton.setText("record");
+        SecuencesRecordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SecuencesStartButtonActionPerformed(evt);
+                SecuencesRecordButtonActionPerformed(evt);
+            }
+        });
+
+        SecuencesPlayButton.setText("play");
+        SecuencesPlayButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SecuencesPlayButtonActionPerformed(evt);
             }
         });
 
@@ -628,7 +636,9 @@ public class mainGUI extends javax.swing.JFrame {
                         .addComponent(SecuencesTitle))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(SecuencesStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(SecuencesRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SecuencesPlayButton)))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
         SecuencesPanelLayout.setVerticalGroup(
@@ -637,7 +647,9 @@ public class mainGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(SecuencesTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SecuencesStartButton)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SecuencesRecordButton)
+                    .addComponent(SecuencesPlayButton))
                 .addContainerGap(346, Short.MAX_VALUE))
         );
 
@@ -962,50 +974,26 @@ arduino.control.center.utils.methods.cleanFavourites();
 loadpreviews();// TODO add your handling code here:
     }//GEN-LAST:event_cleanButtonActionPerformed
 
-    private void SecuencesStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesStartButtonActionPerformed
+    private void SecuencesRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesRecordButtonActionPerformed
 arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
-ub.make(picker, 1);// TODO add your handling code here:
-    }//GEN-LAST:event_SecuencesStartButtonActionPerformed
+ub.record(picker, 1);// TODO add your handling code here:
+    }//GEN-LAST:event_SecuencesRecordButtonActionPerformed
+
+    private void SecuencesPlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesPlayButtonActionPerformed
+     arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
+ub.play(picker, 1);   // TODO add your handling code here:
+    }//GEN-LAST:event_SecuencesPlayButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new mainGUI().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox PortsBox;
     private javax.swing.JPanel SecuencesPanel;
-    private javax.swing.JButton SecuencesStartButton;
+    private javax.swing.JButton SecuencesPlayButton;
+    private javax.swing.JButton SecuencesRecordButton;
     private javax.swing.JLabel SecuencesTitle;
     private javax.swing.JPanel ambilightTab;
     private javax.swing.JButton cleanButton;

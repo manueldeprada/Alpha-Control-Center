@@ -12,7 +12,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Properties;
+import java.util.TreeSet;
 
 /**
  *
@@ -64,8 +67,16 @@ InputStream input = null;
 try {
 
 
- input = new FileInputStream(propfile);		
- Properties prop = new Properties();
+ input = new FileInputStream(propfile);	
+ 
+ Properties prop = new Properties() {
+    @Override
+    public synchronized Enumeration<Object> keys() {
+        return Collections.enumeration(new TreeSet<Object>(super.keySet()));
+    }
+};
+
+ 
 		prop.load(input);// load a properties file
 		input.close();
  output = new FileOutputStream(propfile);
