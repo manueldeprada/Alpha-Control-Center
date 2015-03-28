@@ -612,7 +612,7 @@ public class mainGUI extends javax.swing.JFrame {
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cleanButton))
@@ -622,14 +622,14 @@ public class mainGUI extends javax.swing.JFrame {
 
         SecuencesTitle.setText("Secuences");
 
-        SecuencesRecordButton.setText("record");
+        SecuencesRecordButton.setText("Record");
         SecuencesRecordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SecuencesRecordButtonActionPerformed(evt);
             }
         });
 
-        SecuencesPlayButton.setText("play");
+        SecuencesPlayButton.setText("Play");
         SecuencesPlayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SecuencesPlayButtonActionPerformed(evt);
@@ -641,15 +641,14 @@ public class mainGUI extends javax.swing.JFrame {
         SecuencesPanelLayout.setHorizontalGroup(
             SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(SecuencesTitle))
-                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(SecuencesRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SecuencesPlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(65, 65, 65)
+                .addComponent(SecuencesRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addComponent(SecuencesPlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
+            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(SecuencesTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SecuencesPanelLayout.setVerticalGroup(
@@ -657,11 +656,11 @@ public class mainGUI extends javax.swing.JFrame {
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SecuencesTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SecuencesRecordButton)
                     .addComponent(SecuencesPlayButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Secuences", SecuencesPanel);
