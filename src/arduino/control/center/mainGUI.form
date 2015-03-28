@@ -115,21 +115,24 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="picker" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTabbedPane1" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="picker" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -194,104 +197,100 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="setButtonColor1" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="labelColor1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="panelColor1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="getButtonColor1" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="setButtonColor2" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="labelColor2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="labelColor3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="setButtonColor3" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="labelColor4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="setButtonColor4" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="labelColor5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="setButtonColor5" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="panelColor2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="getButtonColor2" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="getButtonColor3" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="panelColor3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="getButtonColor4" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="panelColor4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="getButtonColor5" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="panelColor5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="setButtonColor1" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="labelColor1" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="setButtonColor6" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="labelColor6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="getButtonColor6" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="panelColor6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="labelColor10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="labelColor8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="labelColor9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="setButtonColor7" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                                                          <Component id="setButtonColor8" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                                                          <Component id="setButtonColor9" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                                                          <Component id="setButtonColor10" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="getButtonColor9" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                          <Component id="getButtonColor10" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                          <Component id="panelColor10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="getButtonColor7" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                          <Component id="panelColor8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="getButtonColor8" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                                          <Component id="panelColor9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="labelColor7" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="panelColor7" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
+                                          <Component id="panelColor1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="getButtonColor1" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                                      <Component id="cleanButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="setButtonColor2" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="labelColor2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelColor3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="setButtonColor3" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="labelColor4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="setButtonColor4" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="labelColor5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="setButtonColor5" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="panelColor2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="getButtonColor2" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Component id="getButtonColor3" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Component id="panelColor3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="getButtonColor4" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Component id="panelColor4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="getButtonColor5" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="cleanButton" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="panelColor5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="separate" pref="19" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="setButtonColor6" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="labelColor6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="getButtonColor6" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Component id="panelColor6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="labelColor10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelColor8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelColor9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="setButtonColor7" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="setButtonColor8" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="setButtonColor9" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="setButtonColor10" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="getButtonColor9" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                                  <Component id="panelColor10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="getButtonColor7" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                                  <Component id="panelColor8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="getButtonColor8" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                                  <Component id="panelColor9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="getButtonColor10" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelColor7" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="panelColor7" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -396,7 +395,10 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="cleanButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -863,12 +865,12 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SecuencesRecordButton" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <Component id="SecuencesRecordButton" min="-2" pref="74" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SecuencesPlayButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="SecuencesPlayButton" min="-2" pref="63" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="152" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -882,7 +884,7 @@
                                   <Component id="SecuencesRecordButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="SecuencesPlayButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="346" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -908,6 +910,121 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SecuencesPlayButtonActionPerformed"/>
                       </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="FanPumpPanel">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Fans &amp; Pumps">
+                        <Property name="tabTitle" type="java.lang.String" value="Fans &amp; Pumps"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jSlider4" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jSlider3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jSlider2" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="142" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSlider2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSlider4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jSlider3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fan Channel 1"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="jSlider1">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fan Channel 2"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="jSlider2">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pump 1"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pump 2"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="jSlider3">
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="jSlider4">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel6">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Fans"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel7">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Pumps"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
