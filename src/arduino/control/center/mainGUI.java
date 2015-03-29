@@ -20,18 +20,19 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
      * Creates new form mainGUI
      */
     public mainGUI() {
-        initComponents();
+        
+        initComponents(); 
         methods.initialicePicker(picker);
         loadpreviews();
         picker.setColor(white);
-        jTextField5.setEditable(false);
-        jTextField6.setEditable(false);
-        jTextField7.setEditable(false);
-        jTextField8.setEditable(false);
+        rmpLabelFan1.setEditable(false);
+        rmpLabelPump1.setEditable(false);
+        rmpLabelFan2.setEditable(false);
+        rmpLabelPump2.setEditable(false);
     }
     
     public void receive(){
-        arduino.control.center.utils.methods.receive(jTextField5, jTextField6, jTextField7, jTextField8);
+        arduino.control.center.utils.methods.receive(rmpLabelFan1, rmpLabelPump1, rmpLabelFan2, rmpLabelPump2);
     }
     
     public int mode = 0;
@@ -120,24 +121,24 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
         SecuencesPlayButton = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         FanPumpPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel3 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jSlider3 = new javax.swing.JSlider();
-        jSlider4 = new javax.swing.JSlider();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        fan1label = new javax.swing.JLabel();
+        fan1slider = new javax.swing.JSlider();
+        fan2label = new javax.swing.JLabel();
+        fan2slider = new javax.swing.JSlider();
+        pump1label = new javax.swing.JLabel();
+        pump2label = new javax.swing.JLabel();
+        pump2slider = new javax.swing.JSlider();
+        pump1slider = new javax.swing.JSlider();
+        fansTitleLabel = new javax.swing.JLabel();
+        pumpsTitleLabel = new javax.swing.JLabel();
+        rpmlabel1 = new javax.swing.JLabel();
+        rpmlabel3 = new javax.swing.JLabel();
+        rpmlabel4 = new javax.swing.JLabel();
+        rpmlabel2 = new javax.swing.JLabel();
+        rmpLabelFan1 = new javax.swing.JTextField();
+        rmpLabelPump1 = new javax.swing.JTextField();
+        rmpLabelFan2 = new javax.swing.JTextField();
+        rmpLabelPump2 = new javax.swing.JTextField();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
@@ -629,7 +630,7 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cleanButton))
@@ -737,35 +738,35 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
 
         tabPanel.addTab("Ambilight", ambilightTab);
 
-        jLabel1.setText("Fan Channel 1");
+        fan1label.setText("Fan Channel 1");
 
-        jLabel3.setText("Fan Channel 2");
+        fan2label.setText("Fan Channel 2");
 
-        jLabel4.setText("Pump 1");
+        pump1label.setText("Pump 1");
 
-        jLabel5.setText("Pump 2");
+        pump2label.setText("Pump 2");
 
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel6.setText("Fans");
+        fansTitleLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        fansTitleLabel.setText("Fans");
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel7.setText("Pumps");
+        pumpsTitleLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        pumpsTitleLabel.setText("Pumps");
 
-        jLabel8.setText("RPM");
+        rpmlabel1.setText("RPM");
 
-        jLabel9.setText("RPM");
+        rpmlabel3.setText("RPM");
 
-        jLabel10.setText("RPM");
+        rpmlabel4.setText("RPM");
 
-        jLabel11.setText("RPM");
+        rpmlabel2.setText("RPM");
 
-        jTextField5.setText("0000");
+        rmpLabelFan1.setText("0000");
 
-        jTextField6.setText("0000");
+        rmpLabelPump1.setText("0000");
 
-        jTextField7.setText("0000");
+        rmpLabelFan2.setText("0000");
 
-        jTextField8.setText("0000");
+        rmpLabelPump2.setText("0000");
 
         javax.swing.GroupLayout FanPumpPanelLayout = new javax.swing.GroupLayout(FanPumpPanel);
         FanPumpPanel.setLayout(FanPumpPanelLayout);
@@ -776,8 +777,8 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
+                            .addComponent(pumpsTitleLabel)
+                            .addComponent(fansTitleLabel))
                         .addGap(170, 170, 170))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(FanPumpPanelLayout.createSequentialGroup()
@@ -785,81 +786,81 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
                             .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                     .addGap(12, 12, 12)
-                                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel8))
-                                .addComponent(jLabel1))
+                                    .addComponent(rpmlabel1))
+                                .addComponent(fan1label))
                             .addGap(150, 150, 150)
                             .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
+                                .addComponent(fan2label)
                                 .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                     .addGap(12, 12, 12)
-                                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(3, 3, 3)
-                                    .addComponent(jLabel11)))
+                                    .addComponent(rpmlabel2)))
                             .addContainerGap(146, Short.MAX_VALUE))
                         .addGroup(FanPumpPanelLayout.createSequentialGroup()
                             .addGap(12, 12, 12)
                             .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                     .addGap(12, 12, 12)
-                                    .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9))
-                                .addComponent(jLabel4))
+                                    .addComponent(rpmlabel3))
+                                .addComponent(pump1label))
                             .addGap(160, 160, 160)
                             .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
+                                .addComponent(pump2label)
                                 .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                     .addGap(12, 12, 12)
-                                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pump2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rmpLabelPump2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(4, 4, 4)
-                                    .addComponent(jLabel10)))
+                                    .addComponent(rpmlabel4)))
                             .addGap(0, 0, Short.MAX_VALUE)))))
         );
         FanPumpPanelLayout.setVerticalGroup(
             FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel6)
+                .addComponent(fansTitleLabel)
                 .addGap(26, 26, 26)
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
+                            .addComponent(fan1label)
+                            .addComponent(fan2label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                            .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rpmlabel1)
+                    .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rpmlabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addComponent(pumpsTitleLabel)
                 .addGap(37, 37, 37)
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(pump1label)
+                            .addComponent(pump2label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pump2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(rpmlabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rmpLabelPump1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rmpLabelPump2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rpmlabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
@@ -1156,6 +1157,11 @@ ub.play(picker, 1);   // TODO add your handling code here:
     private javax.swing.JButton cleanButton;
     private javax.swing.JPanel colorTab;
     private javax.swing.JButton connectButton;
+    private javax.swing.JLabel fan1label;
+    private javax.swing.JSlider fan1slider;
+    private javax.swing.JLabel fan2label;
+    private javax.swing.JSlider fan2slider;
+    private javax.swing.JLabel fansTitleLabel;
     private javax.swing.JPanel favColorsPanel;
     private javax.swing.JButton getButtonColor1;
     private javax.swing.JButton getButtonColor10;
@@ -1167,31 +1173,13 @@ ub.play(picker, 1);   // TODO add your handling code here:
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor2;
@@ -1214,7 +1202,20 @@ ub.play(picker, 1);   // TODO add your handling code here:
     private javax.swing.JPanel panelColor8;
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
+    private javax.swing.JLabel pump1label;
+    private javax.swing.JSlider pump1slider;
+    private javax.swing.JLabel pump2label;
+    private javax.swing.JSlider pump2slider;
+    private javax.swing.JLabel pumpsTitleLabel;
     private javax.swing.JButton refreshPortsButton;
+    private javax.swing.JTextField rmpLabelFan1;
+    private javax.swing.JTextField rmpLabelFan2;
+    private javax.swing.JTextField rmpLabelPump1;
+    private javax.swing.JTextField rmpLabelPump2;
+    private javax.swing.JLabel rpmlabel1;
+    private javax.swing.JLabel rpmlabel2;
+    private javax.swing.JLabel rpmlabel3;
+    private javax.swing.JLabel rpmlabel4;
     private javax.swing.JButton setButtonColor1;
     private javax.swing.JButton setButtonColor10;
     private javax.swing.JButton setButtonColor2;
