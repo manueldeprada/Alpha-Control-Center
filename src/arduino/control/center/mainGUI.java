@@ -37,7 +37,7 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
     
     public int mode = 0;
     public void write(){
-        arduino.control.center.utils.methods.write(mode, picker);
+        arduino.control.center.utils.methods.write(mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
     }
    
     public void loadpreviews(){
