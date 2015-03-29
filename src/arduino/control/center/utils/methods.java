@@ -64,17 +64,20 @@ public class methods {
     
     public static void receive(JTextField jTextField5, JTextField jTextField6, JTextField jTextField7, JTextField jTextField8){
     if (Arduino.isMessageAvailable()){
-        if (Arduino.printMessage().contains("Fan 1")){
-        jTextField5.setText(Arduino.printMessage());
+        
+        String message = Arduino.printMessage();
+        
+        if (message.contains("Fan 1")){
+        jTextField5.setText(message);
         }
-        else if (Arduino.printMessage().contains("Fan 2")){
-        jTextField6.setText(Arduino.printMessage());
+        else if (message.contains("Fan 2")){
+        jTextField6.setText(message);
         }
-        else if (Arduino.printMessage().contains("Pump 1")){
-        jTextField7.setText(Arduino.printMessage());
+        else if (message.contains("Pump 1")){
+        jTextField7.setText(message);
         }
-        else if (Arduino.printMessage().contains("Pump 2")){
-        jTextField8.setText(Arduino.printMessage());
+        else if (message.contains("Pump 2")){
+        jTextField8.setText(message);
         }
        }
     }
