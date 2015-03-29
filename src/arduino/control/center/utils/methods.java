@@ -11,6 +11,7 @@ import java.awt.Window;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -61,7 +62,11 @@ public class methods {
 
 }
     
-    
+    public static void receive(JTextField jTextField5){
+    if (Arduino.isMessageAvailable()){
+        jTextField5.setText(Arduino.printMessage());
+        }
+    }
     public static void write(int mode, ColorPicker picker) {
   
         if (mode == 0){ //normal
@@ -116,9 +121,5 @@ if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue(
             config.setValue("color"+i+"B", "");
             
         }
-    }
-
-
-
-
+    }    
 }
