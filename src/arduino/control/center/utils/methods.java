@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package arduino.control.center.utils;
-
+import javax.swing.JSlider;
 import com.bric.swing.ColorPicker;
 import java.awt.Color;
 import java.awt.Window;
@@ -23,6 +23,7 @@ public class methods {
     
     //Variable declarations
     static int R = 0, G = 0, B = 0;
+    static int Fan1, Fan2, Pump1, Pump2;
     static String OutputR, OutputG, OutputB;
     static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
@@ -81,7 +82,7 @@ public class methods {
         }
        }
     }
-    public static void write(int mode, ColorPicker picker) {
+    public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
             
@@ -111,6 +112,18 @@ public class methods {
 
 
         }
+        Fan1 = fan1slider.getValue();
+        Fan2 = fan2slider.getValue();
+        Pump1 = pump1slider.getValue();
+        Pump2 = pump2slider.getValue();
+        
+        try {
+            Arduino.sendData(Integer.toString(Fan1));
+            Arduino.sendData(Integer.toString(Fan2));
+            Arduino.sendData(Integer.toString(Pump1));
+            Arduino.sendData(Integer.toString(Pump2));
+            } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
+
 }
     
     
