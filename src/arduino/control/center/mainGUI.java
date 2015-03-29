@@ -24,10 +24,14 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
         methods.initialicePicker(picker);
         loadpreviews();
         picker.setColor(white);
+        jTextField5.setEditable(false);
+        jTextField6.setEditable(false);
+        jTextField7.setEditable(false);
+        jTextField8.setEditable(false);
     }
     
     public void receive(){
-        arduino.control.center.utils.methods.receive(jTextField5);
+        arduino.control.center.utils.methods.receive(jTextField5, jTextField6, jTextField7, jTextField8);
     }
     
     public int mode = 0;

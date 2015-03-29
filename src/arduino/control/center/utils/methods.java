@@ -62,10 +62,21 @@ public class methods {
 
 }
     
-    public static void receive(JTextField jTextField5){
+    public static void receive(JTextField jTextField5, JTextField jTextField6, JTextField jTextField7, JTextField jTextField8){
     if (Arduino.isMessageAvailable()){
+        if (Arduino.printMessage().contains("Fan 1")){
         jTextField5.setText(Arduino.printMessage());
         }
+        else if (Arduino.printMessage().contains("Fan 2")){
+        jTextField6.setText(Arduino.printMessage());
+        }
+        else if (Arduino.printMessage().contains("Pump 1")){
+        jTextField7.setText(Arduino.printMessage());
+        }
+        else if (Arduino.printMessage().contains("Pump 2")){
+        jTextField8.setText(Arduino.printMessage());
+        }
+       }
     }
     public static void write(int mode, ColorPicker picker) {
   
