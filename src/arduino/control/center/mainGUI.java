@@ -29,7 +29,12 @@ boolean connected = false;
         initComponents(); 
         methods.initialicePicker(picker);
         loadpreviews();
+        PortsBox.removeAllItems();
         PortsBox.addItem(methods.getPorts());
+        foreach(String a in methods.getPorts())
+  {
+    PortsBox.Items.Add(a);
+  }
         picker.setColor(white);
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
