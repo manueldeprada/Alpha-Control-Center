@@ -21,9 +21,11 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
      */
     public mainGUI() {
         
+               
         initComponents(); 
         methods.initialicePicker(picker);
         loadpreviews();
+        PortsBox.addItem(methods.getPorts());
         picker.setColor(white);
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
