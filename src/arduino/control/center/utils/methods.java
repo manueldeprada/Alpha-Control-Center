@@ -23,7 +23,7 @@ public class methods {
     
     //Variable declarations
     static int R = 0, G = 0, B = 0;
-    static int Fan1, Fan2, Pump1, Pump2;
+    static int Fan1, Pump1, Pump2;
     static String OutputR, OutputG, OutputB;
     static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
@@ -33,32 +33,29 @@ public class methods {
     }
     
         private static void SetData() {
-        /*OutputR = "1";
-        OutputG = "2";
-        OutputB = "3";*/
 
         if (R < 10) {
-        OutputR = OutputR + "00" + R;
+        OutputR = "00" + R;
         } else if (R < 100) {
-        OutputR = OutputR + "0" + R;
+        OutputR = "0" + R;
         } else {
-        OutputR = OutputR + R;
+        OutputR = R;
         }
 
         if (G < 10) {
-        OutputG = OutputG + "00" + G;
+        OutputG = "00" + G;
         } else if (G < 100) {
-        OutputG = OutputG + "0" + G;
+        OutputG = "0" + G;
         } else {
-        OutputG = OutputG + G;
+        OutputG = G;
         }
 
         if (B < 10) {
-        OutputB = OutputB + "00" + B;
+        OutputB = "00" + B;
         } else if (B < 100) {
-        OutputB = OutputB + "0" + B;
+        OutputB = "0" + B;
         } else {
-        OutputB = OutputB + B;
+        OutputB = B;
         }
 
 }
@@ -93,7 +90,7 @@ public class methods {
             SetData();
                 try {
                     
-                    Arduino.sendData(OutputR + "," + OutputG + "," + OutputB + "," + "0" + "," + "0" + "," + "0" + ".");
+                    Arduino.sendData(OutputR + OutputG + OutputB + Integer.toString(Fan1) + Integer.toString(Pump1) + Integer.toString(Pump2));
 
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
@@ -112,17 +109,10 @@ public class methods {
 
 
         }
+        
         Fan1 = fan1slider.getValue();
-        Fan2 = fan2slider.getValue();
         Pump1 = pump1slider.getValue();
         Pump2 = pump2slider.getValue();
-        
-        try {
-            Arduino.sendData(Integer.toString(Fan1));
-            Arduino.sendData(Integer.toString(Fan2));
-            Arduino.sendData(Integer.toString(Pump1));
-            Arduino.sendData(Integer.toString(Pump2));
-            } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
 }
     
