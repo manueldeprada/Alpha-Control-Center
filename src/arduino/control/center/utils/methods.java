@@ -39,7 +39,7 @@ public class methods {
         } else if (R < 100) {
         OutputR = "0" + R;
         } else {
-        OutputR = R;
+        OutputR = Integer.toOctalString(R);
         }
 
         if (G < 10) {
@@ -47,7 +47,7 @@ public class methods {
         } else if (G < 100) {
         OutputG = "0" + G;
         } else {
-        OutputG = G;
+        OutputG = Integer.toString(G);
         }
 
         if (B < 10) {
@@ -55,7 +55,7 @@ public class methods {
         } else if (B < 100) {
         OutputB = "0" + B;
         } else {
-        OutputB = B;
+        OutputB = Integer.toString(B);
         }
 
 }
