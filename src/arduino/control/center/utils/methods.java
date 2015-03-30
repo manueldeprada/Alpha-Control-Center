@@ -8,6 +8,7 @@ import javax.swing.JSlider;
 import com.bric.swing.ColorPicker;
 import java.awt.Color;
 import java.awt.Window;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -116,7 +117,12 @@ public class methods {
 
 }
     
-    
+    public static String[] getPorts() {
+        List<String> ports = Arduino.getSerialPorts();
+        String[] array = ports.toArray(new String[ports.size()]);
+        return array;
+
+    }
     public static void loadpreview(int number, JPanel panel){
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
         panel.setBackground(null);

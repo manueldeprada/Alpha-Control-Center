@@ -8,6 +8,9 @@ package arduino.control.center;
 import arduino.control.center.utils.methods;
 import java.awt.Color;
 import static java.awt.Color.white;
+import java.awt.Window;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -16,6 +19,7 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
  */
 public class mainGUI extends javax.swing.JFrame {
 static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
+boolean connected = false;
     /**
      * Creates new form mainGUI
      */
@@ -634,7 +638,7 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cleanButton)
                 .addContainerGap())
         );
@@ -874,6 +878,11 @@ static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
         PortsBox.setToolTipText("Avaliable Arduino Ports");
 
         connectButton.setText("Connect");
+        connectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                connectButtonActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
         menubar.add(jMenu1);
@@ -1142,6 +1151,33 @@ ub.record(picker, 1);// TODO add your handling code here:
      arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
 ub.play(picker, 1);   // TODO add your handling code here:
     }//GEN-LAST:event_SecuencesPlayButtonActionPerformed
+
+    private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
+if (connected) {
+            try {
+                Arduino.killArduinoConnection();
+                connectButton.setText("Connect");
+                connected = false;
+                picker.setEnabled(false);
+            } catch (Exception ex) {
+                Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+
+            try {
+                Arduino.arduinoTX(PortsBox.getSelectedItem().toString(), 9600);
+                connectButton.setText("Disconnect");
+                jRadioButton1.setEnabled(true);
+                jRadioButton2.setEnabled(true);
+                jRadioButton3.setEnabled(true);
+                picker.setEnabled(true);
+                connected = true;
+            } catch (Exception ex) {
+                Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_connectButtonActionPerformed
 
     /**
      * @param args the command line arguments
