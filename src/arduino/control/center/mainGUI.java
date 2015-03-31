@@ -20,6 +20,7 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
 public class mainGUI extends javax.swing.JFrame {
 static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
 boolean connected = false;
+public int mode = 0;
     /**
      * Creates new form mainGUI
      */
@@ -30,27 +31,22 @@ boolean connected = false;
         methods.initialicePicker(picker);
         loadpreviews();
         PortsBox.removeAllItems();
-        PortsBox.addItem(methods.getPorts());
-        foreach(String a in methods.getPorts())
-  {
-    PortsBox.Items.Add(a);
-  }
-        picker.setColor(white);
+        Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
         rmpLabelFan2.setEditable(false);
         rmpLabelPump2.setEditable(false);
     }
-    
+    /*
     public void receive(){
         arduino.control.center.utils.methods.receive(rmpLabelFan1, rmpLabelPump1, rmpLabelFan2, rmpLabelPump2);
     }
-    
-    public int mode = 0;
+    */
+    /*
     public void write(){
         arduino.control.center.utils.methods.write(mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
     }
-   
+   */
     public void loadpreviews(){
         
         arduino.control.center.utils.methods.loadpreview(1, panelColor1);
@@ -153,11 +149,17 @@ boolean connected = false;
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("LED Mode");
@@ -879,6 +881,11 @@ boolean connected = false;
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
 
         refreshPortsButton.setText("Refresh");
+        refreshPortsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshPortsButtonActionPerformed(evt);
+            }
+        });
 
         PortsBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         PortsBox.setToolTipText("Avaliable Arduino Ports");
@@ -887,6 +894,13 @@ boolean connected = false;
         connectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Send Data");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -913,6 +927,8 @@ boolean connected = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshPortsButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(connectButton)))
                 .addContainerGap())
         );
@@ -925,7 +941,8 @@ boolean connected = false;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshPortsButton)
-                    .addComponent(connectButton))
+                    .addComponent(connectButton)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -933,15 +950,15 @@ boolean connected = false;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton3StateChanged
-        write();        // TODO add your handling code here:
+       // write();        // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3StateChanged
 
     private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
-        write();        // TODO add your handling code here:
+     //   write();        // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2StateChanged
 
     private void jRadioButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton1StateChanged
-        write();        // TODO add your handling code here:
+      //  write();        // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1StateChanged
 
     private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
@@ -1187,6 +1204,22 @@ if (connected) {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_connectButtonActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        arduino.control.center.utils.config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
+        arduino.control.center.utils.config.setValue("colorG", Integer.toString(picker.getColor().getBlue()));
+        arduino.control.center.utils.config.setValue("colorB", Integer.toString(picker.getColor().getGreen()));     // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
+    private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
+       Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i)); // TODO add your handling code here:
+    }//GEN-LAST:event_refreshPortsButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+arduino.control.center.utils.methods ub = new arduino.control.center.utils.methods();   
+
+ub.writeFirmata();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1219,6 +1252,7 @@ if (connected) {
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
