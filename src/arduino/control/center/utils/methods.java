@@ -29,8 +29,19 @@ public class methods {
     static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
     
-    public static void initialicePicker(ColorPicker ub){
-        ub.setHexControlsVisible(false);
+    public static void initialicePicker(ColorPicker picker){
+        picker.setHexControlsVisible(false);
+        if (config.getValue("colorR") == null){
+            picker.setColor(Color.white);
+            }
+            else {
+            int rx = Integer.parseInt(config.getValue("colorR"));
+            int rg = Integer.parseInt(config.getValue("colorG"));
+            int rb = Integer.parseInt(config.getValue("colorB"));
+
+            Color x = new Color(rx,rg,rb);
+            picker.setColor(x);
+        }
     }
     
         private static void SetData() {

@@ -23,7 +23,7 @@ import java.util.TreeSet;
  */
 public class config {
     public static String getValue(String key){
-        return getValue(key, new File(path + "//settings.properties"));
+        return getValue(key, new File(path + File.separator+"settings.properties"));
     }
     
     
@@ -55,7 +55,7 @@ try {
         return null;
     }
     public static void setValue(String key, String value){
-        setValue(key, value, new File(path + "//settings.properties"));
+        setValue(key, value, new File(path + File.separator+"settings.properties"));
     }
     
     

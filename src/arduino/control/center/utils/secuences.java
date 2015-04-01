@@ -87,7 +87,7 @@ public class secuences {
             Executors.newScheduledThreadPool(1);
     
     public void record(ColorPicker picker1, int number){
-        file = new File(path + "/secuence"+number+".properties");
+        file = new File(path + File.separator+"secuence"+number+".properties");
         file.setWritable(true);
         try {       file.createNewFile();    } catch (IOException ex) {   Logger.getLogger(secuences.class.getName()).log(Level.SEVERE, null, ex); }
         Color initial = picker1.getColor();
@@ -105,7 +105,7 @@ public class secuences {
 
     }
     public void play(ColorPicker picker1, int number){
-        file = new File(path + "/secuence"+number+".properties");
+        file = new File(path + File.separator+"secuence"+number+".properties");
         
         
         int initR = Integer.parseInt(config.getValue("initialR", file));
