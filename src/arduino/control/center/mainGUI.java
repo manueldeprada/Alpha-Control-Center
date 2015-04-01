@@ -25,17 +25,16 @@ boolean connected = false;
 public int mode = 0;
 
 
-    PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, methods.Arduino);
 
     SerialPortEventListener evento = new SerialPortEventListener() {
 
     @Override
     public void serialEvent(SerialPortEvent spe) {
-        if (methods.Arduino.isMessageAvailable()== true){
-            rmpLabelFan1.setText(multi.getMessage(1));
-            rmpLabelPump1.setText(multi.getMessage(2));
-            rmpLabelPump2.setText(multi.getMessage(3));
-            multi.flushBuffer();
+        if (methods.multi.DataReceptionCompleted()== true){
+            rmpLabelFan1.setText(methods.multi.getMessage(1));
+            rmpLabelPump1.setText(methods.multi.getMessage(2));
+            rmpLabelPump2.setText(methods.multi.getMessage(3));
+            methods.multi.flushBuffer();
         }
     }
 };
