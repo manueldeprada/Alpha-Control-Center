@@ -61,17 +61,11 @@ public int mode = 0;
         
         PortsBox.removeAllItems();
         methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
-        /*
+        
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
         rmpLabelPump2.setEditable(false);
-        rmpLabelFan1.setVisible(false);
-        rmpLabelPump1.setVisible(false);
-        rmpLabelPump2.setVisible(false);
-        rpmlabel1.setVisible(false);
-        rpmlabel3.setVisible(false);
-        rpmlabel4.setVisible(false);
-        */
+        
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
 
 @Override
