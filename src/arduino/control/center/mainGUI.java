@@ -149,6 +149,7 @@ boolean connected = false;
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
+        sendbutton = new javax.swing.JButton();
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -896,6 +897,13 @@ boolean connected = false;
             }
         });
 
+        sendbutton.setText("Send");
+        sendbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendbuttonActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         menubar.add(jMenu1);
 
@@ -919,6 +927,8 @@ boolean connected = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshPortsButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sendbutton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(connectButton)))
                 .addContainerGap())
         );
@@ -931,7 +941,8 @@ boolean connected = false;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshPortsButton)
-                    .addComponent(connectButton))
+                    .addComponent(connectButton)
+                    .addComponent(sendbutton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1204,6 +1215,10 @@ if (connected) {
         Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
+    private void sendbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendbuttonActionPerformed
+    methods.write(0, picker, fan1slider, fan2slider, pump1slider, pump2slider);        // TODO add your handling code here:
+    }//GEN-LAST:event_sendbuttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1279,6 +1294,7 @@ if (connected) {
     private javax.swing.JLabel rpmlabel2;
     private javax.swing.JLabel rpmlabel3;
     private javax.swing.JLabel rpmlabel4;
+    private javax.swing.JButton sendbutton;
     private javax.swing.JButton setButtonColor1;
     private javax.swing.JButton setButtonColor10;
     private javax.swing.JButton setButtonColor2;

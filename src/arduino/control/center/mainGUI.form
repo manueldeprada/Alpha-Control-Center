@@ -55,6 +55,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="refreshPortsButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="sendbutton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="connectButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -72,6 +74,7 @@
                   <Component id="PortsBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="refreshPortsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="connectButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sendbutton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -1191,6 +1194,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="sendbutton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Send"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendbuttonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
