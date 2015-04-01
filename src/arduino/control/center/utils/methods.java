@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
+import panamahitek.Arduino.PanamaHitek_multiMessage;
 
 /**
  *
@@ -27,7 +28,7 @@ public class methods {
     static String OutputR, OutputG, OutputB;
     static String OutputFan1, OutputPump1, OutputPump2;
     public static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
-    
+    public static PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, Arduino);
     
     public static void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
