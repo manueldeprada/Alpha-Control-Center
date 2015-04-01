@@ -93,7 +93,7 @@ public class methods {
     }
     
     
-    public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
+    public static void write(PanamaHitek_Arduino Arduinoo, int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
             
@@ -115,7 +115,7 @@ public class methods {
         String send = OutputR + OutputG + OutputB + Integer.toString(Fan1) + Integer.toString(Pump1) + Integer.toString(Pump2);
         try {
                     
-                    Arduino.sendData(send);
+                    Arduinoo.sendData(send);
 
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
