@@ -26,6 +26,7 @@ public class methods {
     static int R = 0, G = 0, B = 0;
     static int Fan1, Pump1, Pump2;
     static String OutputR, OutputG, OutputB;
+    static String OutputFan1, OutputPump1, OutputPump2;
     static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
     
@@ -71,17 +72,43 @@ public class methods {
         }
 
 }
+        private static void SetData2() {
+        
+        
+
+        if (Fan1 < 10) {
+        OutputFan1 = "00" + Fan1;
+        } else if (Fan1 < 100) {
+        OutputFan1 = "0" + Fan1;
+        } else {
+        OutputFan1 = Integer.toString(Fan1);
+        }
+
+        if (Pump1 < 10) {
+        OutputPump1 = "00" + Pump1;
+        } else if (Pump1 < 100) {
+        OutputPump1 = "0" + Pump1;
+        } else {
+        OutputPump1 = Integer.toString(Pump1);
+        }
+
+        if (Pump2 < 10) {
+        OutputPump2 = "00" + Pump2;
+        } else if (Pump2 < 100) {
+        OutputPump2 = "0" + Pump2;
+        } else {
+        OutputPump2 = Integer.toString(Pump2);
+        }
+
+}
     
-    public static void receive(JTextField jTextField5, JTextField jTextField6, JTextField jTextField7, JTextField jTextField8){
+    public static void receive(JTextField jTextField5, JTextField jTextField7, JTextField jTextField8){
     if (Arduino.isMessageAvailable()){
         
         String message = Arduino.printMessage();
         
         if (message.contains("Fan 1")){
         jTextField5.setText(message);
-        }
-        else if (message.contains("Fan 2")){
-        jTextField6.setText(message);
         }
         else if (message.contains("Pump 1")){
         jTextField7.setText(message);
@@ -93,15 +120,19 @@ public class methods {
     }
     
     
-    public static void write(PanamaHitek_Arduino Arduinoo, int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
+    public static void write(PanamaHitek_Arduino Arduinoo, int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
             
             R = picker.getColor().getRed();
             G = picker.getColor().getGreen();
             B = picker.getColor().getBlue();
+            Fan1 = fan1slider.getValue()*255/100;
+            Pump1 = pump1slider.getValue()*255/100;
+            Pump2 = pump2slider.getValue()*255/100;
             
             SetData();
+            SetData2();
                                
             }else if (mode == 1){ //fade 
                
@@ -109,12 +140,10 @@ public class methods {
                
         }
         
-        Fan1 = fan1slider.getValue()*255/100;
-        Pump1 = pump1slider.getValue()*255/100;
-        Pump2 = pump2slider.getValue()*255/100;
-        String send = OutputR + OutputG + OutputB + Integer.toString(Fan1) + Integer.toString(Pump1) + Integer.toString(Pump2);
+        
+        String send = OutputR + OutputG + OutputB + OutputFan1 + OutputPump1 + OutputPump2;
         try {
-                    
+                    System.out.println(send);
                     Arduinoo.sendData(send);
 
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
