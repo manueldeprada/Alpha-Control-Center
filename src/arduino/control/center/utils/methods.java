@@ -102,31 +102,22 @@ public class methods {
             B = picker.getColor().getBlue();
             
             SetData();
-                try {
-                    
-                    Arduino.sendData(OutputR + OutputG + OutputB + Integer.toString(Fan1) + Integer.toString(Pump1) + Integer.toString(Pump2));
-
-                } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
-
-                
+                               
             }else if (mode == 1){ //fade 
-                try {
-                    
-            } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
-
-                
-
+               
             }else if (mode == 2){ //ambilight
-                try {
-                    
-            } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
-
-
+               
         }
         
         Fan1 = fan1slider.getValue()*255/100;
         Pump1 = pump1slider.getValue()*255/100;
         Pump2 = pump2slider.getValue()*255/100;
+        String send = OutputR + OutputG + OutputB + Integer.toString(Fan1) + Integer.toString(Pump1) + Integer.toString(Pump2);
+        try {
+                    
+                    Arduino.sendData(send);
+
+                } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
 }
     
