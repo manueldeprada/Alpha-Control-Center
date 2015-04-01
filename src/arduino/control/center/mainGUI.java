@@ -1200,7 +1200,8 @@ if (connected) {
     }//GEN-LAST:event_formWindowClosing
 
     private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
-   Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
+   PortsBox.removeAllItems();
+        Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
     /**
