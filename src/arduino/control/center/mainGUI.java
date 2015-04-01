@@ -10,6 +10,8 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import java.awt.Color;
 import java.awt.Window;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
@@ -71,7 +73,14 @@ public int mode = 0;
         rpmlabel3.setVisible(false);
         rpmlabel4.setVisible(false);
         */
-        
+        picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
+
+@Override
+public void propertyChange(PropertyChangeEvent evt) {
+
+
+}
+});
     }
     
     
