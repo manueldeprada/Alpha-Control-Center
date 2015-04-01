@@ -7,18 +7,12 @@ package arduino.control.center.utils;
 import javax.swing.JSlider;
 import com.bric.swing.ColorPicker;
 import java.awt.Color;
-import static java.awt.Color.white;
 import java.awt.Window;
-import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import org.firmata4j.IODevice;
-import org.firmata4j.Pin;
-import org.firmata4j.firmata.FirmataDevice;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -32,51 +26,11 @@ public class methods {
     static int R = 0, G = 0, B = 0;
     static int Fan1, Pump1, Pump2;
     static String OutputR, OutputG, OutputB;
-    //static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
-    IODevice device;
-    
-    
-    
-    public void writeFirmata(){
-        try {
-            
-            
-            device.sendMessage(Integer.toString(R) + Integer.toString(G)+ Integer.toString(B));
-        
-        
-        } catch (IOException ex) {
-            Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    
-    
-    public void startFirmata(JComboBox box){
-        device = new FirmataDevice(box.getSelectedItem().toString());
-        try {
-            device.ensureInitializationIsDone();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    
-    
-    public static void initialicePicker(ColorPicker picker){
-        picker.setHexControlsVisible(false);
-         if (config.getValue("colorR") == null){
-            picker.setColor(Color.white);
-            }
-            else {
-            int rx = Integer.parseInt(config.getValue("colorR"));
-            int rg = Integer.parseInt(config.getValue("colorG"));
-            int rb = Integer.parseInt(config.getValue("colorB"));
+    static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
-            Color x = new Color(rx,rg,rb);
-            picker.setColor(x);
-        }
-        
+    
+    public static void initialicePicker(ColorPicker ub){
+        ub.setHexControlsVisible(false);
     }
     
         private static void SetData() {
@@ -106,7 +60,7 @@ public class methods {
         }
 
 }
-   /*
+    
     public static void receive(JTextField jTextField5, JTextField jTextField6, JTextField jTextField7, JTextField jTextField8){
     if (Arduino.isMessageAvailable()){
         
@@ -126,10 +80,6 @@ public class methods {
         }
        }
     }
-    
-    */
-    
-   /* 
     public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
@@ -166,8 +116,13 @@ public class methods {
         Pump2 = pump2slider.getValue();
 
 }
-  */  
     
+    public static String[] getPorts() {
+        List<String> ports = Arduino.getSerialPorts();
+        String[] array = ports.toArray(new String[ports.size()]);
+        return array;
+
+    }
     public static void loadpreview(int number, JPanel panel){
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
         panel.setBackground(null);
