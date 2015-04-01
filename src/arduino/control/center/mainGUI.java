@@ -44,7 +44,7 @@ boolean connected = false;
     
     public int mode = 0;
     public void write(){
-        arduino.control.center.utils.methods.write(mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
+        arduino.control.center.utils.methods.write(Arduino, mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
     }
    
     public void loadpreviews(){
@@ -1216,7 +1216,7 @@ if (connected) {
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
     private void sendbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendbuttonActionPerformed
-    methods.write(0, picker, fan1slider, fan2slider, pump1slider, pump2slider);        // TODO add your handling code here:
+    methods.write(Arduino, 0, picker, fan1slider, fan2slider, pump1slider, pump2slider);        // TODO add your handling code here:
     }//GEN-LAST:event_sendbuttonActionPerformed
 
     /**
