@@ -6,6 +6,7 @@
 package arduino.control.center;
 
 import arduino.control.center.utils.methods;
+import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import java.awt.Color;
@@ -71,10 +72,22 @@ public int mode = 0;
 @Override
 public void propertyChange(PropertyChangeEvent evt) {
 
-
-}
+write();
+        }
 });
     }
+    
+        public void  Flash(ColorPicker picker) {
+    int N=500000;
+    float gHue = Color.RGBtoHSB(0, 1, 0, null)[0];
+    float bHue = Color.RGBtoHSB(0, 0, 1, null)[0];
+    for (int i = 0; i < N; i++) {
+        picker.setColor(Color.getHSBColor(gHue + (i * (bHue - gHue) / N), 1, 1));
+    }
+    for (int i = 0; i < N; i++) {
+        picker.setColor(Color.getHSBColor(bHue - (i * (bHue - gHue) / N), 1, 1));
+    }
+}
     
     
     /*public void receive(){
@@ -166,6 +179,7 @@ public void propertyChange(PropertyChangeEvent evt) {
         SecuencesTitle = new javax.swing.JLabel();
         SecuencesRecordButton = new javax.swing.JButton();
         SecuencesPlayButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
@@ -201,13 +215,18 @@ public void propertyChange(PropertyChangeEvent evt) {
         jLabel2.setText("LED Mode");
 
         jRadioButton1.setText("Fade");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton1StateChanged(evt);
             }
         });
 
         jRadioButton2.setText("Normal");
+        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton2StateChanged(evt);
+            }
+        });
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -215,9 +234,9 @@ public void propertyChange(PropertyChangeEvent evt) {
         });
 
         jRadioButton3.setText("Music");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton3StateChanged(evt);
             }
         });
 
@@ -735,6 +754,13 @@ public void propertyChange(PropertyChangeEvent evt) {
 
         jTabbedPane1.addTab("Secuences", SecuencesPanel);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
         colorTabLayout.setHorizontalGroup(
@@ -749,8 +775,13 @@ public void propertyChange(PropertyChangeEvent evt) {
                         .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jRadioButton2)
                             .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)))
+                        .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(colorTabLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton3))
+                            .addGroup(colorTabLayout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(jButton1)))))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -760,7 +791,9 @@ public void propertyChange(PropertyChangeEvent evt) {
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
@@ -783,7 +816,7 @@ public void propertyChange(PropertyChangeEvent evt) {
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 482, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -858,7 +891,7 @@ public void propertyChange(PropertyChangeEvent evt) {
                                     .addComponent(rmpLabelPump2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(4, 4, 4)
                                     .addComponent(rpmlabel4)))
-                            .addGap(0, 30, Short.MAX_VALUE)))))
+                            .addGap(0, 0, Short.MAX_VALUE)))))
         );
         FanPumpPanelLayout.setVerticalGroup(
             FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -889,7 +922,7 @@ public void propertyChange(PropertyChangeEvent evt) {
                     .addComponent(rmpLabelPump2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rpmlabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(rpmlabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
@@ -962,18 +995,6 @@ public void propertyChange(PropertyChangeEvent evt) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3StateChanged
-        write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3StateChanged
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
-        write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2StateChanged
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1StateChanged
-        write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1StateChanged
 
     private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
         int color6R = Integer.parseInt(arduino.control.center.utils.config.getValue("color6R"));
@@ -1233,6 +1254,26 @@ if (connected) {
     write();        // TODO add your handling code here:
     }//GEN-LAST:event_sendbuttonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+Flash(picker);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton3StateChanged
+        write();        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3StateChanged
+
+    private void jRadioButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton1StateChanged
+        write();        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1StateChanged
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
+        write();        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1264,6 +1305,7 @@ if (connected) {
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
