@@ -1194,9 +1194,9 @@ if (connected) {
     }//GEN-LAST:event_connectButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-arduino.control.center.utils.config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
-        arduino.control.center.utils.config.setValue("colorG", Integer.toString(picker.getColor().getBlue()));
-        arduino.control.center.utils.config.setValue("colorB", Integer.toString(picker.getColor().getGreen()));        // TODO add your handling code here:
+        arduino.control.center.utils.config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
+        arduino.control.center.utils.config.setValue("colorG", Integer.toString(picker.getColor().getGreen()));
+        arduino.control.center.utils.config.setValue("colorB", Integer.toString(picker.getColor().getBlue()));        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
     private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
