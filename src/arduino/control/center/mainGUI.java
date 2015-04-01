@@ -30,12 +30,8 @@ boolean connected = false;
         methods.initialicePicker(picker);
         loadpreviews();
         PortsBox.removeAllItems();
-        PortsBox.addItem(methods.getPorts());
-        foreach(String a in methods.getPorts())
-  {
-    PortsBox.Items.Add(a);
-  }
-        picker.setColor(white);
+        Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
         rmpLabelFan2.setEditable(false);
@@ -158,6 +154,11 @@ boolean connected = false;
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("LED Mode");
@@ -879,6 +880,11 @@ boolean connected = false;
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
 
         refreshPortsButton.setText("Refresh");
+        refreshPortsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshPortsButtonActionPerformed(evt);
+            }
+        });
 
         PortsBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         PortsBox.setToolTipText("Avaliable Arduino Ports");
@@ -1186,6 +1192,16 @@ if (connected) {
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_connectButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+arduino.control.center.utils.config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
+        arduino.control.center.utils.config.setValue("colorG", Integer.toString(picker.getColor().getBlue()));
+        arduino.control.center.utils.config.setValue("colorB", Integer.toString(picker.getColor().getGreen()));        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
+    private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
+   Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
+    }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
     /**
      * @param args the command line arguments
