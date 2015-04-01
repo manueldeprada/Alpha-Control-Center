@@ -91,9 +91,6 @@ public class methods {
         }
        }
     }
-    public int formatSlider(int i){
-        return (255*i)/100;
-    }
     
     
     public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
@@ -127,9 +124,9 @@ public class methods {
 
         }
         
-        Fan1 = fan1slider.getValue();
-        Pump1 = pump1slider.getValue();
-        Pump2 = pump2slider.getValue();
+        Fan1 = fan1slider.getValue()*255/100;
+        Pump1 = pump1slider.getValue()*255/100;
+        Pump2 = pump2slider.getValue()*255/100;
 
 }
     
