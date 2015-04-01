@@ -27,7 +27,7 @@ public class methods {
     static int Fan1, Pump1, Pump2;
     static String OutputR, OutputG, OutputB;
     static String OutputFan1, OutputPump1, OutputPump2;
-    static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
+    public static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
 
     
     public static void initialicePicker(ColorPicker picker){
@@ -120,7 +120,7 @@ public class methods {
     }
     
     
-    public static void write(PanamaHitek_Arduino Arduinoo, int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
+    public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
             
@@ -144,7 +144,7 @@ public class methods {
         String send = OutputR + OutputG + OutputB + OutputFan1 + OutputPump1 + OutputPump2;
         try {
                     System.out.println(send);
-                    Arduinoo.sendData(send);
+                    Arduino.sendData(send);
 
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
