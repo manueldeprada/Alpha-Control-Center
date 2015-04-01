@@ -18,8 +18,8 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
  * @author prada
  */
 public class mainGUI extends javax.swing.JFrame {
+static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino();
 boolean connected = false;
-methods methods = new methods();
     /**
      * Creates new form mainGUI
      */
@@ -30,7 +30,7 @@ methods methods = new methods();
         methods.initialicePicker(picker);
         loadpreviews();
         PortsBox.removeAllItems();
-        methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
         
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
@@ -44,7 +44,7 @@ methods methods = new methods();
     
     public int mode = 0;
     public void write(){
-        arduino.control.center.utils.methods.write(mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
+        arduino.control.center.utils.methods.write(Arduino, mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);
     }
    
     public void loadpreviews(){
@@ -1180,7 +1180,7 @@ ub.play(picker, 1);   // TODO add your handling code here:
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
 if (connected) {
             try {
-                methods.Arduino.killArduinoConnection();
+                Arduino.killArduinoConnection();
                 connectButton.setText("Connect");
                 connected = false;
                 picker.setEnabled(false);
@@ -1191,7 +1191,7 @@ if (connected) {
         } else {
 
             try {
-                methods.Arduino.arduinoTX(PortsBox.getSelectedItem().toString(), 9600);
+                Arduino.arduinoTX(PortsBox.getSelectedItem().toString(), 9600);
                 connectButton.setText("Disconnect");
                 jRadioButton1.setEnabled(true);
                 jRadioButton2.setEnabled(true);
@@ -1212,11 +1212,11 @@ if (connected) {
 
     private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
    PortsBox.removeAllItems();
-        methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
+        Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
     private void sendbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendbuttonActionPerformed
-    methods.write( mode, picker, fan1slider, fan2slider, pump1slider, pump2slider);        // TODO add your handling code here:
+    methods.write(Arduino, 0, picker, fan1slider, fan2slider, pump1slider, pump2slider);        // TODO add your handling code here:
     }//GEN-LAST:event_sendbuttonActionPerformed
 
     /**
