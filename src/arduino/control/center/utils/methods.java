@@ -91,6 +91,11 @@ public class methods {
         }
        }
     }
+    public int formatSlider(int i){
+        return (255*i)/100;
+    }
+    
+    
     public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
