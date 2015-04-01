@@ -6,12 +6,13 @@
 package arduino.control.center;
 
 import arduino.control.center.utils.methods;
+import gnu.io.SerialPortEvent;
+import gnu.io.SerialPortEventListener;
 import java.awt.Color;
 import java.awt.Window;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonModel;
-import panamahitek.Arduino.PanamaHitek_Arduino;
+import panamahitek.Arduino.PanamaHitek_multiMessage;
 
 /**
  *
@@ -20,11 +21,27 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
 public class mainGUI extends javax.swing.JFrame {
 boolean connected = false;
 public int mode = 0;
+
+
+    PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, methods.Arduino);
+
+    SerialPortEventListener evento = new SerialPortEventListener() {
+
+    @Override
+    public void serialEvent(SerialPortEvent spe) {
+        if (methods.Arduino.isMessageAvailable()== true){
+            rmpLabelFan1.setText(multi.getMessage(1));
+            rmpLabelPump1.setText(multi.getMessage(2));
+            rmpLabelPump2.setText(multi.getMessage(3));
+            multi.flushBuffer();
+        }
+    }
+};
+    
     /**
      * Creates new form mainGUI
      */
     public mainGUI() {
-        
         initComponents(); 
         methods.initialicePicker(picker);
         loadpreviews();
@@ -43,6 +60,7 @@ public int mode = 0;
         
         PortsBox.removeAllItems();
         methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        /*
         rmpLabelFan1.setEditable(false);
         rmpLabelPump1.setEditable(false);
         rmpLabelPump2.setEditable(false);
@@ -52,13 +70,14 @@ public int mode = 0;
         rpmlabel1.setVisible(false);
         rpmlabel3.setVisible(false);
         rpmlabel4.setVisible(false);
+        */
         
     }
     
     
-    public void receive(){
+    /*public void receive(){
         arduino.control.center.utils.methods.receive(rmpLabelFan1, rmpLabelPump1, rmpLabelPump2);
-    }
+    }*/
     
     
     public void write(){
@@ -1184,7 +1203,7 @@ if (connected) {
         } else {
 
             try {
-                methods.Arduino.arduinoTX(PortsBox.getSelectedItem().toString(), 9600);
+                methods.Arduino.arduinoRXTX(PortsBox.getSelectedItem().toString(), 9600, evento);
                 connectButton.setText("Disconnect");
                 jRadioButton1.setEnabled(true);
                 jRadioButton2.setEnabled(true);

@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -28,7 +27,7 @@ public class methods {
     static String OutputR, OutputG, OutputB;
     static String OutputFan1, OutputPump1, OutputPump2;
     public static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
-
+    
     
     public static void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
@@ -102,7 +101,7 @@ public class methods {
 
 }
     
-    public static void receive(JTextField jTextField5, JTextField jTextField7, JTextField jTextField8){
+    /*public static void receive(JTextField jTextField5, JTextField jTextField7, JTextField jTextField8){
     if (Arduino.isMessageAvailable()){
         
         String message = Arduino.printMessage();
@@ -117,7 +116,7 @@ public class methods {
         jTextField8.setText(message);
         }
        }
-    }
+    }*/
     
     
     public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
