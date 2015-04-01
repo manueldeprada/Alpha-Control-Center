@@ -31,9 +31,9 @@ public int mode = 0;
     @Override
     public void serialEvent(SerialPortEvent spe) {
         if (methods.multi.DataReceptionCompleted()== true){
-            rmpLabelFan1.setText(methods.multi.getMessage(1));
-            rmpLabelPump1.setText(methods.multi.getMessage(2));
-            rmpLabelPump2.setText(methods.multi.getMessage(3));
+            rmpLabelFan1.setText(methods.multi.getMessage(0));
+            rmpLabelPump1.setText(methods.multi.getMessage(1));
+            rmpLabelPump2.setText(methods.multi.getMessage(2));
             methods.multi.flushBuffer();
         }
     }
