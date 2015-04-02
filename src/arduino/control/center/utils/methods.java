@@ -6,11 +6,16 @@
 package arduino.control.center.utils;
 import javax.swing.JSlider;
 import com.bric.swing.ColorPicker;
+import gnu.io.SerialPortEvent;
+import gnu.io.SerialPortEventListener;
 import java.awt.Color;
 import java.awt.Window;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
@@ -23,14 +28,15 @@ public class methods {
     
     
     //Variable declarations
-    static int R = 0, G = 0, B = 0;
-    static int Fan1, Pump1, Pump2;
-    static String OutputR, OutputG, OutputB;
-    static String OutputFan1, OutputPump1, OutputPump2;
-    public static PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
-    public static PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, Arduino);
+     int R = 0, G = 0, B = 0;
+     int Fan1, Pump1, Pump2;
+     String OutputR, OutputG, OutputB;
+     String OutputFan1, OutputPump1, OutputPump2;
+    private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
+    private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, Arduino);
+    private boolean connected = false;
     
-    public static void initialicePicker(ColorPicker picker){
+    public  void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
         if (config.getValue("colorR") == null){
             picker.setColor(Color.white);
@@ -43,9 +49,10 @@ public class methods {
             Color x = new Color(rx,rg,rb);
             picker.setColor(x);
         }
+        
     }
     
-        private static void SetData() {
+        private  void SetData() {
 
         if (R < 10) {
         OutputR = "00" + R;
@@ -72,7 +79,7 @@ public class methods {
         }
 
 }
-        private static void SetData2() {
+        private  void SetData2() {
         
         
 
@@ -120,7 +127,7 @@ public class methods {
     }*/
     
     
-    public static void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
+    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
   
         if (mode == 0){ //normal
             
@@ -150,13 +157,45 @@ public class methods {
 
 }
     
-    public static String[] getPorts() {
+    public PanamaHitek_Arduino getArduino(){
+        return Arduino;
+    }
+    
+    public PanamaHitek_multiMessage getMulti(){
+        return multi;
+    }
+    
+    
+    public boolean isConnected(){
+        return connected;
+    }
+    
+    public void connect(SerialPortEventListener evento, JComboBox PortsBox){
+        
+         try {
+             Arduino.arduinoRXTX(PortsBox.getSelectedItem().toString(), 9600, evento);
+             connected = true;
+         } catch (Exception ex) {
+             Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    }
+    public void disconnect(){
+         try {
+             Arduino.killArduinoConnection();
+             connected = false;
+         } catch (Exception ex) {
+             Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
+    
+    public String[] getPorts() {
         List<String> ports = Arduino.getSerialPorts();
         String[] array = ports.toArray(new String[ports.size()]);
         return array;
 
     }
-    public static void loadpreview(int number, JPanel panel){
+    public void loadpreview(int number, JPanel panel){
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
         panel.setBackground(null);
         }else {
@@ -170,7 +209,7 @@ if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue(
         }
     
     }
-    public static void cleanFavourites(){
+    public void cleanFavourites(){
         for (int i= 0; i <11; i++){ 
             config.setValue("color"+i+"R", "");
             config.setValue("color"+i+"G", "");
