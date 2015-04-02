@@ -22,20 +22,19 @@ import panamahitek.Arduino.PanamaHitek_multiMessage;
  * @author prada
  */
 public class mainGUI extends javax.swing.JFrame {
-boolean connected = false;
 public int mode = 0;
-
-
+methods methods = new methods();
+boolean testmode = false;
 
     SerialPortEventListener evento = new SerialPortEventListener() {
 
     @Override
     public void serialEvent(SerialPortEvent spe) {
-        if (methods.multi.DataReceptionCompleted()== true){
-            rmpLabelFan1.setText(methods.multi.getMessage(0));
-            rmpLabelPump1.setText(methods.multi.getMessage(1));
-            rmpLabelPump2.setText(methods.multi.getMessage(2));
-            methods.multi.flushBuffer();
+        if (methods.getMulti().DataReceptionCompleted()== true){
+            rmpLabelFan1.setText(methods.getMulti().getMessage(0));
+            rmpLabelPump1.setText(methods.getMulti().getMessage(1));
+            rmpLabelPump2.setText(methods.getMulti().getMessage(2));
+            methods.getMulti().flushBuffer();
         }
     }
 };
@@ -46,35 +45,16 @@ public int mode = 0;
     public mainGUI() {
         initComponents(); 
         methods.initialicePicker(picker);
-        loadpreviews();
-        
-        buttonGroup1.add(jRadioButton1);
-        buttonGroup1.add(jRadioButton2);
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton2.setSelected(true);
-        
-        if (connected!= true){
-        jRadioButton1.setEnabled(false);
-        jRadioButton2.setEnabled(false);
-        jRadioButton3.setEnabled(false);
-        picker.setEnabled(false);
-        }
-        
-        PortsBox.removeAllItems();
-        methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));
-        
-        rmpLabelFan1.setEditable(false);
-        rmpLabelPump1.setEditable(false);
-        rmpLabelPump2.setEditable(false);
-        
+        initPanel();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
-
-@Override
-public void propertyChange(PropertyChangeEvent evt) {
-
-write();
-        }
-});
+   
+        @Override
+        public void propertyChange(PropertyChangeEvent evt) {
+            PickerColorChanged(evt);}}); 
+    
+    
+    
+    
     }
     
         public void  Flash(ColorPicker picker) {
@@ -90,29 +70,58 @@ write();
 }
     
     
-    /*public void receive(){
-        arduino.control.center.utils.methods.receive(rmpLabelFan1, rmpLabelPump1, rmpLabelPump2);
-    }*/
-    
     
     public void write(){
-        arduino.control.center.utils.methods.write(mode, picker, fan1slider, pump1slider, pump2slider);
+       
+        if (methods.isConnected()){
+           methods.write(mode, picker, fan1slider, pump1slider, pump2slider);
+
+        }
+        
     }
    
     public void loadpreviews(){
         
-        arduino.control.center.utils.methods.loadpreview(1, panelColor1);
-        arduino.control.center.utils.methods.loadpreview(2, panelColor2);
-        arduino.control.center.utils.methods.loadpreview(3, panelColor3);
-        arduino.control.center.utils.methods.loadpreview(4, panelColor4);
-        arduino.control.center.utils.methods.loadpreview(5, panelColor5);
-        arduino.control.center.utils.methods.loadpreview(6, panelColor6);
-        arduino.control.center.utils.methods.loadpreview(7, panelColor7);
-        arduino.control.center.utils.methods.loadpreview(8, panelColor8);
-        arduino.control.center.utils.methods.loadpreview(9, panelColor9);
-        arduino.control.center.utils.methods.loadpreview(10,panelColor10);
+        methods.loadpreview(1, panelColor1);
+        methods.loadpreview(2, panelColor2);
+        methods.loadpreview(3, panelColor3);
+        methods.loadpreview(4, panelColor4);
+        methods.loadpreview(5, panelColor5);
+        methods.loadpreview(6, panelColor6);
+        methods.loadpreview(7, panelColor7);
+        methods.loadpreview(8, panelColor8);
+        methods.loadpreview(9, panelColor9);
+        methods.loadpreview(10,panelColor10);
         
         
+    }
+    
+    
+    private void initPanel(){
+        loadpreviews();
+        
+        buttonGroup1.add(fadeRadioButton);
+        buttonGroup1.add(normalRadioButton);
+        buttonGroup1.add(musicRadioButton);
+        normalRadioButton.setSelected(true);
+        
+        if (!methods.isConnected()){
+        fadeRadioButton.setEnabled(false);
+        normalRadioButton.setEnabled(false);
+        musicRadioButton.setEnabled(false);
+        notConnectedLabel.setVisible(true);
+
+        picker.setEnabled(testmode);
+
+        
+        }
+        
+        PortsBox.removeAllItems();
+        methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        
+        rmpLabelFan1.setEditable(false);
+        rmpLabelPump1.setEditable(false);
+        rmpLabelPump2.setEditable(false);
     }
 
     /**
@@ -128,11 +137,11 @@ write();
         tabPanel = new javax.swing.JTabbedPane();
         colorTab = new javax.swing.JPanel();
         picker = new com.bric.swing.ColorPicker();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        ledModeLabel = new javax.swing.JLabel();
+        fadeRadioButton = new javax.swing.JRadioButton();
+        normalRadioButton = new javax.swing.JRadioButton();
+        musicRadioButton = new javax.swing.JRadioButton();
+        colors_secuencesPanel = new javax.swing.JTabbedPane();
         favColorsPanel = new javax.swing.JPanel();
         labelColor1 = new javax.swing.JLabel();
         panelColor1 = new javax.swing.JPanel();
@@ -179,7 +188,7 @@ write();
         SecuencesTitle = new javax.swing.JLabel();
         SecuencesRecordButton = new javax.swing.JButton();
         SecuencesPlayButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        testButton = new javax.swing.JButton();
         ambilightTab = new javax.swing.JPanel();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
@@ -200,6 +209,7 @@ write();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
         sendbutton = new javax.swing.JButton();
+        notConnectedLabel = new javax.swing.JLabel();
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -211,32 +221,38 @@ write();
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("LED Mode");
-
-        jRadioButton1.setText("Fade");
-        jRadioButton1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton1StateChanged(evt);
+        picker.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pickerPropertyChange(evt);
             }
         });
 
-        jRadioButton2.setText("Normal");
-        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+        ledModeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ledModeLabel.setText("LED Mode");
+
+        fadeRadioButton.setText("Fade");
+        fadeRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton2StateChanged(evt);
+                fadeRadioButtonStateChanged(evt);
             }
         });
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+
+        normalRadioButton.setText("Normal");
+        normalRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                normalRadioButtonStateChanged(evt);
+            }
+        });
+        normalRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                normalRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Music");
-        jRadioButton3.addChangeListener(new javax.swing.event.ChangeListener() {
+        musicRadioButton.setText("Music");
+        musicRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jRadioButton3StateChanged(evt);
+                musicRadioButtonStateChanged(evt);
             }
         });
 
@@ -706,7 +722,7 @@ write();
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Saved colors", favColorsPanel);
+        colors_secuencesPanel.addTab("Saved colors", favColorsPanel);
 
         SecuencesTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SecuencesTitle.setText("Secuences");
@@ -752,12 +768,12 @@ write();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Secuences", SecuencesPanel);
+        colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        testButton.setText("test");
+        testButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                testButtonActionPerformed(evt);
             }
         });
 
@@ -770,20 +786,20 @@ write();
                     .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(colorTabLayout.createSequentialGroup()
                         .addGap(135, 135, 135)
-                        .addComponent(jRadioButton1)
+                        .addComponent(fadeRadioButton)
                         .addGap(18, 18, 18)
                         .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jLabel2))
+                            .addComponent(normalRadioButton)
+                            .addComponent(ledModeLabel))
                         .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(colorTabLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3))
+                                .addComponent(musicRadioButton))
                             .addGroup(colorTabLayout.createSequentialGroup()
                                 .addGap(88, 88, 88)
-                                .addComponent(jButton1)))))
+                                .addComponent(testButton)))))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1)
+                .addComponent(colors_secuencesPanel)
                 .addContainerGap())
         );
         colorTabLayout.setVerticalGroup(
@@ -792,17 +808,17 @@ write();
                 .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton1))
+                    .addComponent(ledModeLabel)
+                    .addComponent(testButton))
                 .addGap(18, 18, 18)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(fadeRadioButton)
+                    .addComponent(normalRadioButton)
+                    .addComponent(musicRadioButton))
                 .addGap(33, 33, 33))
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(colors_secuencesPanel)
                 .addContainerGap())
         );
 
@@ -951,6 +967,10 @@ write();
             }
         });
 
+        notConnectedLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        notConnectedLabel.setForeground(new java.awt.Color(225, 2, 27));
+        notConnectedLabel.setText("Not connected!!");
+
         jMenu1.setText("File");
         menubar.add(jMenu1);
 
@@ -973,6 +993,8 @@ write();
                         .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshPortsButton)
+                        .addGap(196, 196, 196)
+                        .addComponent(notConnectedLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sendbutton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -989,13 +1011,16 @@ write();
                     .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshPortsButton)
                     .addComponent(connectButton)
-                    .addComponent(sendbutton))
+                    .addComponent(sendbutton)
+                    .addComponent(notConnectedLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
         int color6R = Integer.parseInt(arduino.control.center.utils.config.getValue("color6R"));
         int color6G = Integer.parseInt(arduino.control.center.utils.config.getValue("color6G"));
@@ -1076,6 +1101,11 @@ write();
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor7ActionPerformed
 
+    private void PickerColorChanged(java.beans.PropertyChangeEvent evt){
+        System.out.println("a");
+    }
+    
+    
     private void setButtonColor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor8ActionPerformed
         Color color8 = picker.getColor();
         panelColor8.setBackground(color8);
@@ -1197,7 +1227,7 @@ write();
     }//GEN-LAST:event_getButtonColor10ActionPerformed
 
     private void cleanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanButtonActionPerformed
-arduino.control.center.utils.methods.cleanFavourites();
+methods.cleanFavourites();
 
 loadpreviews();// TODO add your handling code here:
     }//GEN-LAST:event_cleanButtonActionPerformed
@@ -1213,26 +1243,29 @@ ub.play(picker, 1);   // TODO add your handling code here:
     }//GEN-LAST:event_SecuencesPlayButtonActionPerformed
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
-if (connected) {
-            try {
-                methods.Arduino.killArduinoConnection();
+if (methods.isConnected()) {
+    
+                methods.disconnect();
+                notConnectedLabel.setVisible(true);
                 connectButton.setText("Connect");
-                connected = false;
                 picker.setEnabled(false);
-            } catch (Exception ex) {
-                Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                fadeRadioButton.setEnabled(false);
+                normalRadioButton.setEnabled(false);
+                musicRadioButton.setEnabled(false);
+            
+            
 
         } else {
 
             try {
-                methods.Arduino.arduinoRXTX(PortsBox.getSelectedItem().toString(), 9600, evento);
+                methods.connect(evento, PortsBox);
                 connectButton.setText("Disconnect");
-                jRadioButton1.setEnabled(true);
-                jRadioButton2.setEnabled(true);
-                jRadioButton3.setEnabled(true);
+                fadeRadioButton.setEnabled(true);
+                normalRadioButton.setEnabled(true);
+                musicRadioButton.setEnabled(true);
                 picker.setEnabled(true);
-                connected = true;
+                notConnectedLabel.setVisible(false);
+
             } catch (Exception ex) {
                 Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1247,32 +1280,36 @@ if (connected) {
 
     private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
    PortsBox.removeAllItems();
-        methods.Arduino.getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
+        methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
     private void sendbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendbuttonActionPerformed
     write();        // TODO add your handling code here:
     }//GEN-LAST:event_sendbuttonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
 Flash(picker);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_testButtonActionPerformed
 
-    private void jRadioButton3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton3StateChanged
+    private void musicRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicRadioButtonStateChanged
         write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3StateChanged
+    }//GEN-LAST:event_musicRadioButtonStateChanged
 
-    private void jRadioButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton1StateChanged
+    private void fadeRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fadeRadioButtonStateChanged
         write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1StateChanged
+    }//GEN-LAST:event_fadeRadioButtonStateChanged
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void normalRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_normalRadioButtonActionPerformed
 
-    private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
+    private void normalRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_normalRadioButtonStateChanged
         write();        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2StateChanged
+    }//GEN-LAST:event_normalRadioButtonStateChanged
+
+    private void pickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pickerPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pickerPropertyChange
 
     /**
      * @param args the command line arguments
@@ -1290,7 +1327,9 @@ Flash(picker);        // TODO add your handling code here:
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cleanButton;
     private javax.swing.JPanel colorTab;
+    private javax.swing.JTabbedPane colors_secuencesPanel;
     private javax.swing.JButton connectButton;
+    private javax.swing.JRadioButton fadeRadioButton;
     private javax.swing.JLabel fan1label;
     private javax.swing.JSlider fan1slider;
     private javax.swing.JLabel fansTitleLabel;
@@ -1305,14 +1344,8 @@ Flash(picker);        // TODO add your handling code here:
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor2;
@@ -1323,7 +1356,11 @@ Flash(picker);        // TODO add your handling code here:
     private javax.swing.JLabel labelColor7;
     private javax.swing.JLabel labelColor8;
     private javax.swing.JLabel labelColor9;
+    private javax.swing.JLabel ledModeLabel;
     private javax.swing.JMenuBar menubar;
+    private javax.swing.JRadioButton musicRadioButton;
+    private javax.swing.JRadioButton normalRadioButton;
+    private javax.swing.JLabel notConnectedLabel;
     private javax.swing.JPanel panelColor1;
     private javax.swing.JPanel panelColor10;
     private javax.swing.JPanel panelColor2;
@@ -1359,5 +1396,6 @@ Flash(picker);        // TODO add your handling code here:
     private javax.swing.JButton setButtonColor8;
     private javax.swing.JButton setButtonColor9;
     private javax.swing.JTabbedPane tabPanel;
+    private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
 }
