@@ -176,6 +176,7 @@
                 <Property name="text" type="java.lang.String" value="Fade"/>
               </Properties>
               <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="fadeRadioButtonItemStateChanged"/>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fadeRadioButtonStateChanged"/>
               </Events>
             </Component>
@@ -184,6 +185,7 @@
                 <Property name="text" type="java.lang.String" value="Normal"/>
               </Properties>
               <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="normalRadioButtonItemStateChanged"/>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="normalRadioButtonStateChanged"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="normalRadioButtonActionPerformed"/>
               </Events>
@@ -193,6 +195,7 @@
                 <Property name="text" type="java.lang.String" value="Music"/>
               </Properties>
               <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="musicRadioButtonItemStateChanged"/>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="musicRadioButtonStateChanged"/>
               </Events>
             </Component>

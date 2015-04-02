@@ -22,11 +22,11 @@ import panamahitek.Arduino.PanamaHitek_multiMessage;
  * @author prada
  */
 public class mainGUI extends javax.swing.JFrame {
-public int mode = 0;
-methods methods = new methods();
-boolean testmode = false;
+private int mode = 0;
+private methods methods = new methods();
+private boolean testmode = false;
 
-    SerialPortEventListener evento = new SerialPortEventListener() {
+    private SerialPortEventListener evento = new SerialPortEventListener() {
 
     @Override
     public void serialEvent(SerialPortEvent spe) {
@@ -231,6 +231,11 @@ boolean testmode = false;
         ledModeLabel.setText("LED Mode");
 
         fadeRadioButton.setText("Fade");
+        fadeRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fadeRadioButtonItemStateChanged(evt);
+            }
+        });
         fadeRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 fadeRadioButtonStateChanged(evt);
@@ -238,6 +243,11 @@ boolean testmode = false;
         });
 
         normalRadioButton.setText("Normal");
+        normalRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                normalRadioButtonItemStateChanged(evt);
+            }
+        });
         normalRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 normalRadioButtonStateChanged(evt);
@@ -250,6 +260,11 @@ boolean testmode = false;
         });
 
         musicRadioButton.setText("Music");
+        musicRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                musicRadioButtonItemStateChanged(evt);
+            }
+        });
         musicRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 musicRadioButtonStateChanged(evt);
@@ -1102,7 +1117,11 @@ boolean testmode = false;
     }//GEN-LAST:event_setButtonColor7ActionPerformed
 
     private void PickerColorChanged(java.beans.PropertyChangeEvent evt){
-        System.out.println("a");
+
+    if (methods.isConnected()) {
+        write();
+    }
+    
     }
     
     
@@ -1292,11 +1311,9 @@ Flash(picker);        // TODO add your handling code here:
     }//GEN-LAST:event_testButtonActionPerformed
 
     private void musicRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicRadioButtonStateChanged
-        write();        // TODO add your handling code here:
     }//GEN-LAST:event_musicRadioButtonStateChanged
 
     private void fadeRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fadeRadioButtonStateChanged
-        write();        // TODO add your handling code here:
     }//GEN-LAST:event_fadeRadioButtonStateChanged
 
     private void normalRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalRadioButtonActionPerformed
@@ -1304,12 +1321,24 @@ Flash(picker);        // TODO add your handling code here:
     }//GEN-LAST:event_normalRadioButtonActionPerformed
 
     private void normalRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_normalRadioButtonStateChanged
-        write();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_normalRadioButtonStateChanged
 
     private void pickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pickerPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_pickerPropertyChange
+
+    private void normalRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_normalRadioButtonItemStateChanged
+write();        // TODO add your handling code here:
+    }//GEN-LAST:event_normalRadioButtonItemStateChanged
+
+    private void fadeRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fadeRadioButtonItemStateChanged
+write();        // TODO add your handling code here:
+    }//GEN-LAST:event_fadeRadioButtonItemStateChanged
+
+    private void musicRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_musicRadioButtonItemStateChanged
+write();        // TODO add your handling code here:
+    }//GEN-LAST:event_musicRadioButtonItemStateChanged
 
     /**
      * @param args the command line arguments
