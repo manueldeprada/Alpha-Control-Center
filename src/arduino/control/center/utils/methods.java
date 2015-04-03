@@ -109,23 +109,6 @@ public class methods {
 
 }
     
-    /*public static void receive(JTextField jTextField5, JTextField jTextField7, JTextField jTextField8){
-    if (Arduino.isMessageAvailable()){
-        
-        String message = Arduino.printMessage();
-        
-        if (message.contains("Fan 1")){
-        jTextField5.setText(message);
-        }
-        else if (message.contains("Pump 1")){
-        jTextField7.setText(message);
-        }
-        else if (message.contains("Pump 2")){
-        jTextField8.setText(message);
-        }
-       }
-    }*/
-    
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
   
