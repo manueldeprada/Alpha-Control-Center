@@ -47,6 +47,7 @@ private boolean testmode = false;
         methods.initialicePicker(picker);
         initPanel();
         sliders();
+        ports();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
@@ -73,6 +74,10 @@ private boolean testmode = false;
         
     public void sliders(){
             methods.sliders(fan1slider, fan2slider, pump1slider);
+    }
+    
+    public void ports(){
+            methods.ports(PortsBox);
     }
     
     
@@ -867,9 +872,27 @@ private boolean testmode = false;
 
         fan1label.setText("Channel 1");
 
+        fan1slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                fan1sliderStateChanged(evt);
+            }
+        });
+
         pump1label.setText("Pump 1");
 
         pump2label.setText("Channel 2");
+
+        fan2slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                fan2sliderStateChanged(evt);
+            }
+        });
+
+        pump1slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                pump1sliderStateChanged(evt);
+            }
+        });
 
         fansTitleLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         fansTitleLabel.setText("Fans");
@@ -1313,6 +1336,7 @@ if (methods.isConnected()) {
         arduino.control.center.utils.config.setValue("Fan1", Integer.toString(fan1slider.getValue()));
         arduino.control.center.utils.config.setValue("Fan2", Integer.toString(fan2slider.getValue()));
         arduino.control.center.utils.config.setValue("Pump1", Integer.toString(pump1slider.getValue()));
+        arduino.control.center.utils.config.setValue("Port", PortsBox.getSelectedItem().toString());
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
@@ -1359,6 +1383,21 @@ write();        // TODO add your handling code here:
 write();        // TODO add your handling code here:
     }//GEN-LAST:event_musicRadioButtonItemStateChanged
 
+    private void fan1sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fan1sliderStateChanged
+write();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fan1sliderStateChanged
+
+    private void fan2sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fan2sliderStateChanged
+write();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fan2sliderStateChanged
+
+    private void pump1sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pump1sliderStateChanged
+write();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pump1sliderStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1395,6 +1434,10 @@ write();        // TODO add your handling code here:
     private javax.swing.JButton getButtonColor9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor2;

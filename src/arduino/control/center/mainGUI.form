@@ -1104,6 +1104,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSlider" name="fan1slider">
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan1sliderStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="pump1label">
               <Properties>
@@ -1116,8 +1119,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSlider" name="fan2slider">
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan2sliderStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSlider" name="pump1slider">
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="pump1sliderStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="fansTitleLabel">
               <Properties>

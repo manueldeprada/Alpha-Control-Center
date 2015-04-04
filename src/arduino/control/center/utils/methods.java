@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
+import java.lang.Object;
 
 /**
  *
@@ -67,6 +68,19 @@ public class methods {
         pump1slider.setValue(P1);
         }
     }
+    
+    
+    public void ports(JComboBox PortsBox){
+        
+        if (config.getValue("Port") == null){
+            
+        }
+        else{
+            
+            PortsBox.setSelectedItem(config.getValue("Port"));
+        }
+    }
+    
     
         private  void SetData() {
 
