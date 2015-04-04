@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
 import java.lang.Object;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,7 +35,7 @@ public class methods {
      String OutputR, OutputG, OutputB;
      String OutputFan1, OutputFan2, OutputPump1;
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
-    private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, Arduino);
+    private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
     private boolean connected = false;
     
     public void initialicePicker(ColorPicker picker){
@@ -69,6 +70,22 @@ public class methods {
         }
     }
     
+    public void rpm(JTextField fan1max, JTextField fan2max, JTextField pump1max){
+        if (config.getValue("Fan1max") == null || config.getValue("Fan2max") == null || config.getValue("Pump1max") == null){
+        fan1max.setText("0");
+        fan2max.setText("0");
+        pump1max.setText("0");    
+        }
+        else{
+            String F1max = config.getValue("Fan1max");
+            String F2max = config.getValue("Fan2max");
+            String P1max = config.getValue("Pump1max");
+        fan1max.setText(F1max);
+        fan2max.setText(F2max);
+        pump1max.setText(P1max);
+        }
+    }
+    
     
     public void ports(JComboBox PortsBox){
         
@@ -78,6 +95,23 @@ public class methods {
         else{
             
             PortsBox.setSelectedItem(config.getValue("Port"));
+        }
+    }
+    
+    public void rpmData(JTextField rmpLabelFan1, JTextField rmpLabelFan2, JTextField rmpLabelPump1, JTextField fan1max, JTextField fan2max, JTextField pump1max, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider){
+        if (Integer.parseInt(fan1max.getText())>0 || Integer.parseInt(fan2max.getText())>0 || Integer.parseInt(pump1max.getText())>0){
+            int rpm1 = Integer.parseInt(fan1max.getText());
+            int rpm2 = Integer.parseInt(fan2max.getText());
+            int rpm3 = Integer.parseInt(pump1max.getText());
+            int F1S = fan1slider.getValue()*rpm1/100;
+            int F2S = fan2slider.getValue()*rpm2/100;
+            int P1S = pump1slider.getValue()*rpm3/100;
+            String OutputRPM1 = Integer.toString(F1S);
+            String OutputRPM2 = Integer.toString(F2S);
+            String OutputRPM3 = Integer.toString(P1S);
+            rmpLabelFan1.setText(OutputRPM1);
+            rmpLabelFan2.setText(OutputRPM2);
+            rmpLabelPump1.setText(OutputRPM3);
         }
     }
     

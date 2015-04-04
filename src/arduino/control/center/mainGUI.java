@@ -31,9 +31,12 @@ private boolean testmode = false;
     @Override
     public void serialEvent(SerialPortEvent spe) {
         if (methods.getMulti().DataReceptionCompleted()== true){
-            rmpLabelFan1.setText(methods.getMulti().getMessage(0));
-            rmpLabelPump1.setText(methods.getMulti().getMessage(1));
-            rmpLabelPump2.setText(methods.getMulti().getMessage(2));
+            Temp1.setText(methods.getMulti().getMessage(0));
+            Temp2.setText(methods.getMulti().getMessage(1));
+            Temp3.setText(methods.getMulti().getMessage(2));
+            Temp4.setText(methods.getMulti().getMessage(3));
+            Temp5.setText(methods.getMulti().getMessage(4));
+            Temp6.setText(methods.getMulti().getMessage(5));
             methods.getMulti().flushBuffer();
         }
     }
@@ -48,6 +51,7 @@ private boolean testmode = false;
         initPanel();
         sliders();
         ports();
+        rpmData();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
@@ -80,7 +84,13 @@ private boolean testmode = false;
             methods.ports(PortsBox);
     }
     
+    public void rpmData(){
+            methods.rpmData(rmpLabelFan1, rmpLabelFan2, rmpLabelPump1, fan1max, fan2max, pump1max, fan1slider, fan2slider, pump1slider);
+    }
     
+    public void rpm(){
+            methods.rpm(fan1max, fan2max, pump1max);
+    }
     
     public void write(){
        
@@ -123,7 +133,7 @@ private boolean testmode = false;
         notConnectedLabel.setVisible(true);
         SecuencesRecordButton.setEnabled(false);
         SecuencesPlayButton.setEnabled(false);
-          
+        Refresh2.setEnabled(false);
         picker.setEnabled(testmode);
 
         
@@ -131,10 +141,6 @@ private boolean testmode = false;
         
         PortsBox.removeAllItems();
         methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));
-        
-        rmpLabelFan1.setEditable(false);
-        rmpLabelPump1.setEditable(false);
-        rmpLabelPump2.setEditable(false);
     }
 
     /**
@@ -217,7 +223,33 @@ private boolean testmode = false;
         rpmlabel4 = new javax.swing.JLabel();
         rmpLabelFan1 = new javax.swing.JTextField();
         rmpLabelPump1 = new javax.swing.JTextField();
-        rmpLabelPump2 = new javax.swing.JTextField();
+        rmpLabelFan2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        Temp1 = new javax.swing.JTextField();
+        Temp2 = new javax.swing.JTextField();
+        Temp3 = new javax.swing.JTextField();
+        Temp4 = new javax.swing.JTextField();
+        Temp5 = new javax.swing.JTextField();
+        Temp6 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        Refresh2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        pump1max = new javax.swing.JTextField();
+        fan1max = new javax.swing.JTextField();
+        fan2max = new javax.swing.JTextField();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
@@ -747,7 +779,7 @@ private boolean testmode = false;
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(cleanButton)
                 .addContainerGap())
         );
@@ -865,7 +897,7 @@ private boolean testmode = false;
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -906,11 +938,84 @@ private boolean testmode = false;
 
         rpmlabel4.setText("RPM");
 
+        rmpLabelFan1.setEditable(false);
         rmpLabelFan1.setText("0000");
 
+        rmpLabelPump1.setEditable(false);
         rmpLabelPump1.setText("0000");
 
-        rmpLabelPump2.setText("0000");
+        rmpLabelFan2.setEditable(false);
+        rmpLabelFan2.setText("0000");
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel1.setText("Temperatures");
+
+        Temp1.setEditable(false);
+        Temp1.setText("0");
+
+        Temp2.setEditable(false);
+        Temp2.setText("0");
+
+        Temp3.setEditable(false);
+        Temp3.setText("0");
+
+        Temp4.setEditable(false);
+        Temp4.setText("0");
+
+        Temp5.setEditable(false);
+        Temp5.setText("0");
+
+        Temp6.setEditable(false);
+        Temp6.setText("0");
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel2.setText("Temp 1");
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel3.setText("Temp 2");
+
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel4.setText("Temp 3");
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel5.setText("Temp 4");
+
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel6.setText("Temp 5");
+
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
+        jLabel7.setText("Temp 6");
+
+        jLabel8.setText("ºC");
+
+        jLabel9.setText("ºC");
+
+        jLabel10.setText("ºC");
+
+        jLabel11.setText("ºC");
+
+        jLabel12.setText("ºC");
+
+        jLabel13.setText("ºC");
+
+        Refresh2.setText("Refresh");
+        Refresh2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Refresh2ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Max. RPM Channel 1");
+
+        jLabel15.setText("Max. RPM Channel 2");
+
+        jLabel16.setText("Max. RPM");
+
+        pump1max.setText("0");
+
+        fan1max.setText("0");
+
+        fan2max.setText("0");
 
         javax.swing.GroupLayout FanPumpPanelLayout = new javax.swing.GroupLayout(FanPumpPanel);
         FanPumpPanel.setLayout(FanPumpPanelLayout);
@@ -918,78 +1023,170 @@ private boolean testmode = false;
             FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FanPumpPanelLayout.createSequentialGroup()
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pumpsTitleLabel)
-                            .addComponent(fansTitleLabel))
-                        .addGap(170, 170, 170))
+                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pump1label)
-                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rpmlabel3))))
                             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fan1label)
+                                    .addComponent(pump2label)
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                                .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                                .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rpmlabel4)
+                                            .addComponent(rpmlabel3)))
                                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                                         .addGap(12, 12, 12)
                                         .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rpmlabel1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rpmlabel1))
                                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(pump2label))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rmpLabelPump2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(pump1label))
+                                    .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FanPumpPanelLayout.createSequentialGroup()
+                                            .addComponent(jLabel14)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(fan1max))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FanPumpPanelLayout.createSequentialGroup()
+                                            .addComponent(jLabel15)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(fan2max, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(pump1max, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pumpsTitleLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp1)))
+                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                        .addComponent(fansTitleLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
+                        .addGap(86, 86, 86)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp4)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Temp6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rpmlabel4)
-                        .addGap(70, 70, 70))))
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel8))))
+                .addGap(84, 84, 84))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Refresh2)
+                .addGap(144, 144, 144))
         );
         FanPumpPanelLayout.setVerticalGroup(
             FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(fansTitleLabel)
-                .addGap(26, 26, 26)
-                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Temp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Temp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel13))
+                        .addGap(69, 69, 69)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Temp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Temp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14)
+                            .addComponent(fan1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Temp5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Temp6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel8))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fan1label)
-                            .addComponent(pump2label))
+                            .addComponent(fansTitleLabel)
+                            .addComponent(jLabel1))
+                        .addGap(26, 26, 26)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                .addComponent(fan1label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rpmlabel1))
+                        .addGap(36, 36, 36)
+                        .addComponent(pump2label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fan2slider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rpmlabel1)
-                    .addComponent(rmpLabelPump2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rpmlabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addComponent(pumpsTitleLabel)
-                .addGap(37, 37, 37)
-                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
-                        .addComponent(pump1label)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rpmlabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(fan2max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addComponent(pumpsTitleLabel)
+                        .addGap(28, 28, 28)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                .addComponent(pump1label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rpmlabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(rmpLabelPump1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rpmlabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addComponent(Refresh2)
+                        .addGap(1, 1, 1)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(pump1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53))))
         );
 
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
@@ -1155,10 +1352,9 @@ private boolean testmode = false;
 
     private void PickerColorChanged(java.beans.PropertyChangeEvent evt){
 
-    if (methods.isConnected()) {
-        write();
-    }
-    
+        if (methods.isConnected()) {
+            write();
+        }
     }
     
     
@@ -1310,6 +1506,7 @@ if (methods.isConnected()) {
                 musicRadioButton.setEnabled(false);
                 SecuencesRecordButton.setEnabled(false);
                 SecuencesPlayButton.setEnabled(false);
+                Refresh2.setEnabled(false);
             
 
         } else {
@@ -1322,6 +1519,7 @@ if (methods.isConnected()) {
                 musicRadioButton.setEnabled(true);
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
+                Refresh2.setEnabled(true);
 
             } catch (Exception ex) {
                 Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
@@ -1336,7 +1534,12 @@ if (methods.isConnected()) {
         arduino.control.center.utils.config.setValue("Fan1", Integer.toString(fan1slider.getValue()));
         arduino.control.center.utils.config.setValue("Fan2", Integer.toString(fan2slider.getValue()));
         arduino.control.center.utils.config.setValue("Pump1", Integer.toString(pump1slider.getValue()));
+        arduino.control.center.utils.config.setValue("Fan1max", fan1max.getText());
+        arduino.control.center.utils.config.setValue("Fan2max", fan2max.getText());
+        arduino.control.center.utils.config.setValue("Pump1max", pump1max.getText());
+        if (methods.isConnected()){
         arduino.control.center.utils.config.setValue("Port", PortsBox.getSelectedItem().toString());
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
@@ -1385,18 +1588,27 @@ write();        // TODO add your handling code here:
 
     private void fan1sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fan1sliderStateChanged
 write();
+rpmData();
         // TODO add your handling code here:
     }//GEN-LAST:event_fan1sliderStateChanged
 
     private void fan2sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fan2sliderStateChanged
 write();
+rpmData();
         // TODO add your handling code here:
     }//GEN-LAST:event_fan2sliderStateChanged
 
     private void pump1sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pump1sliderStateChanged
 write();
+rpmData();
         // TODO add your handling code here:
     }//GEN-LAST:event_pump1sliderStateChanged
+
+    private void Refresh2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh2ActionPerformed
+write();
+rpmData();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Refresh2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1406,10 +1618,17 @@ write();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FanPumpPanel;
     private javax.swing.JComboBox PortsBox;
+    private javax.swing.JButton Refresh2;
     private javax.swing.JPanel SecuencesPanel;
     private javax.swing.JButton SecuencesPlayButton;
     private javax.swing.JButton SecuencesRecordButton;
     private javax.swing.JLabel SecuencesTitle;
+    private javax.swing.JTextField Temp1;
+    private javax.swing.JTextField Temp2;
+    private javax.swing.JTextField Temp3;
+    private javax.swing.JTextField Temp4;
+    private javax.swing.JTextField Temp5;
+    private javax.swing.JTextField Temp6;
     private javax.swing.JPanel ambilightTab;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cleanButton;
@@ -1418,7 +1637,9 @@ write();
     private javax.swing.JButton connectButton;
     private javax.swing.JRadioButton fadeRadioButton;
     private javax.swing.JLabel fan1label;
+    private javax.swing.JTextField fan1max;
     private javax.swing.JSlider fan1slider;
+    private javax.swing.JTextField fan2max;
     private javax.swing.JSlider fan2slider;
     private javax.swing.JLabel fansTitleLabel;
     private javax.swing.JPanel favColorsPanel;
@@ -1432,12 +1653,24 @@ write();
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor2;
@@ -1465,13 +1698,14 @@ write();
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
     private javax.swing.JLabel pump1label;
+    private javax.swing.JTextField pump1max;
     private javax.swing.JSlider pump1slider;
     private javax.swing.JLabel pump2label;
     private javax.swing.JLabel pumpsTitleLabel;
     private javax.swing.JButton refreshPortsButton;
     private javax.swing.JTextField rmpLabelFan1;
+    private javax.swing.JTextField rmpLabelFan2;
     private javax.swing.JTextField rmpLabelPump1;
-    private javax.swing.JTextField rmpLabelPump2;
     private javax.swing.JLabel rpmlabel1;
     private javax.swing.JLabel rpmlabel3;
     private javax.swing.JLabel rpmlabel4;
