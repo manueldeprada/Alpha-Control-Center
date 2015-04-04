@@ -29,14 +29,14 @@ public class methods {
     
     //Variable declarations
      int R = 0, G = 0, B = 0;
-     int Fan1, Pump1, Pump2;
+     int Fan1, Fan2, Pump1;
      String OutputR, OutputG, OutputB;
-     String OutputFan1, OutputPump1, OutputPump2;
+     String OutputFan1, OutputFan2, OutputPump1;
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(3, Arduino);
     private boolean connected = false;
     
-    public  void initialicePicker(ColorPicker picker){
+    public void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
         if (config.getValue("colorR") == null){
             picker.setColor(Color.white);
@@ -50,6 +50,22 @@ public class methods {
             picker.setColor(x);
         }
         
+    }
+    
+    public void sliders(JSlider fan1slider, JSlider fan2slider, JSlider pump1slider){
+        if (config.getValue("Fan1") == null || config.getValue("Fan2") == null || config.getValue("Pump1") == null){
+        fan1slider.setValue(50);
+        fan2slider.setValue(50);
+        pump1slider.setValue(50);    
+        }
+        else{
+        int F1 = Integer.parseInt(config.getValue("Fan1"));
+        int F2 = Integer.parseInt(config.getValue("Fan2"));
+        int P1 = Integer.parseInt(config.getValue("Pump1"));
+        fan1slider.setValue(F1);
+        fan2slider.setValue(F2);
+        pump1slider.setValue(P1);
+        }
     }
     
         private  void SetData() {
@@ -80,8 +96,6 @@ public class methods {
 
 }
         private  void SetData2() {
-        
-        
 
         if (Fan1 < 10) {
         OutputFan1 = "00" + Fan1;
@@ -89,6 +103,14 @@ public class methods {
         OutputFan1 = "0" + Fan1;
         } else {
         OutputFan1 = Integer.toString(Fan1);
+        }
+
+        if (Fan2 < 10) {
+        OutputFan2 = "00" + Fan2;
+        } else if (Fan2 < 100) {
+        OutputFan2 = "0" + Fan2;
+        } else {
+        OutputFan2 = Integer.toString(Fan2);
         }
 
         if (Pump1 < 10) {
@@ -99,18 +121,10 @@ public class methods {
         OutputPump1 = Integer.toString(Pump1);
         }
 
-        if (Pump2 < 10) {
-        OutputPump2 = "00" + Pump2;
-        } else if (Pump2 < 100) {
-        OutputPump2 = "0" + Pump2;
-        } else {
-        OutputPump2 = Integer.toString(Pump2);
-        }
-
 }
     
     
-    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider pump1slider, JSlider pump2slider) {
+    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider) {
   
         if (mode == 0){ //normal
             
@@ -118,8 +132,8 @@ public class methods {
             G = picker.getColor().getGreen();
             B = picker.getColor().getBlue();
             Fan1 = fan1slider.getValue()*255/100;
+            Fan2 = fan2slider.getValue()*255/100;
             Pump1 = pump1slider.getValue()*255/100;
-            Pump2 = pump2slider.getValue()*255/100;
             
             SetData();
             SetData2();
@@ -131,7 +145,7 @@ public class methods {
         }
         
         
-        String send = OutputR + OutputG + OutputB + OutputFan1 + OutputPump1 + OutputPump2;
+        String send = OutputR + OutputG + OutputB + OutputFan1 + OutputFan2 + OutputPump1;
         try {
                     System.out.println(send);
                     Arduino.sendData(send);
@@ -182,7 +196,7 @@ public class methods {
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
         panel.setBackground(null);
         }else {
-if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
+    if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
             int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
             int colorG = Integer.parseInt(config.getValue("color"+number+"G"));
             int colorB = Integer.parseInt(config.getValue("color"+number+"B"));
