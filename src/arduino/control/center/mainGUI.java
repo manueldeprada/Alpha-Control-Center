@@ -106,7 +106,7 @@ private boolean testmode = false;
     
     public void write(){
         if (methods.isConnected()){
-           methods.write(mode, picker, fan1slider, pump1slider, fan2slider);
+           methods.write(mode, picker, fan1slider, pump1slider, fan2slider, LedC1, LedC2, LedC3,LedC4);
         }
     }
    
