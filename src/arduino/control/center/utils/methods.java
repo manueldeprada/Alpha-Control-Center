@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Window;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,15 +33,15 @@ public class methods {
     //Variable declarations
     
      int Fan1, Fan2, Pump1;
-     
+     public static String path = System.getProperty("user.dir"); 
      String OutputFan1, OutputFan2, OutputPump1;
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
     private boolean connected = false;
-    private String[] output1 = {null,null,null};
-    private String[] output2 = {null,null,null};
-    private String[] output3 = {null,null,null};
-    private String[] output4 = {null,null,null};
+    private String[] channel1 = {null,null,null};
+    private String[] channel2 = {null,null,null};
+    private String[] channel3 = {null,null,null};
+    private String[] channel4 = {null,null,null};
      
    
 
@@ -56,7 +57,48 @@ public class methods {
 
             Color x = new Color(rx,rg,rb);
             picker.setColor(x);
+            
         }
+    }
+    public void initialiceArrays(ColorPicker picker){
+        
+        if (config.getValue("channel1R")==null || config.getValue("channel1R")==""){
+            channel1[0]= Integer.toString(picker.getColor().getRed());
+        channel1[1]= Integer.toString(picker.getColor().getGreen());
+        channel1[2]= Integer.toString(picker.getColor().getBlue());
+        
+        channel2[0]=channel1[0];
+        channel2[1]=channel1[1];
+        channel2[2]=channel1[2];
+        
+        channel3[0]=channel1[0];
+        channel3[1]=channel1[1];
+        channel3[2]=channel1[2];
+        
+        channel4[0]=channel1[0];
+        channel4[1]=channel1[1];
+        channel4[2]=channel1[2];
+        }else{
+        channel1[0]= config.getValue("channel1R");
+        channel1[1]= config.getValue("channel1G");
+        channel1[2]= config.getValue("channel1B");
+        
+        channel2[0]= config.getValue("channel2R");
+        channel2[1]= config.getValue("channel2G");
+        channel2[2]= config.getValue("channel2B");
+        
+        
+        channel3[0]= config.getValue("channel3R");
+        channel3[1]= config.getValue("channel3G");
+        channel3[2]= config.getValue("channel3B");
+        
+        
+        channel4[0]= config.getValue("channel4R");
+        channel4[1]= config.getValue("channel4G");
+        channel4[2]= config.getValue("channel4B");
+        }
+        
+        
     }
     
     public void sliders(JSlider fan1slider, JSlider fan2slider, JSlider pump1slider){
@@ -117,7 +159,11 @@ public class methods {
         }
     }
     
-    private  String[] SetData(int rx, int gx, int bx) {
+    private  String[] SetData(String[] font) {
+        
+        int rx = Integer.parseInt(font[0]);        
+        int gx = Integer.parseInt(font[1]);
+        int bx = Integer.parseInt(font[2]);
 String OutputR, OutputG, OutputB;
       
         if (rx < 10) {
@@ -180,36 +226,50 @@ String OutputR, OutputG, OutputB;
     
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4) {
-  
+  String[] output1;
+  String[] output2;
+  String[] output3;
         if (mode == 0){ //normal
             
             if (c1.isSelected()){
                 int R = picker.getColor().getRed();
             int G = picker.getColor().getGreen();
             int B = picker.getColor().getBlue();
-                output1 = SetData(R,G,B);
+                channel1[0] = Integer.toString(R);
+                channel1[1] = Integer.toString(G);
+                channel1[2] = Integer.toString(B);
+                
+                
             } 
             if (c2.isSelected()){
                 int R = picker.getColor().getRed();
             int G = picker.getColor().getGreen();
             int B = picker.getColor().getBlue();
-                output2 = SetData(R,G,B);
+                channel2[0] = Integer.toString(R);
+                channel2[1] = Integer.toString(G);
+                channel2[2] = Integer.toString(B);
             }
             if (c3.isSelected()){
                 int R = picker.getColor().getRed();
             int G = picker.getColor().getGreen();
             int B = picker.getColor().getBlue();
-                output3 = SetData(R,G,B);
+                channel3[0] = Integer.toString(R);
+                channel3[1] = Integer.toString(G);
+                channel3[2] = Integer.toString(B);
             }
             if (c4.isSelected()){
                 int R = picker.getColor().getRed();
             int G = picker.getColor().getGreen();
             int B = picker.getColor().getBlue();
-                output4 = SetData(R,G,B);
+                channel3[0] = Integer.toString(R);
+                channel3[1] = Integer.toString(G);
+                channel3[2] = Integer.toString(B);
             }
             
             
-            
+            output1 = SetData(channel1);
+            output2 = SetData(channel2);
+            output3 = SetData(channel3);
             
             Fan1 = fan1slider.getValue()*255/100;
             Fan2 = fan2slider.getValue()*255/100;
@@ -225,7 +285,7 @@ String OutputR, OutputG, OutputB;
         }
         
         
-        String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + OutputFan1 + OutputFan2 + OutputPump1;
+        String send = channel1[0] + channel1[1] + channel1[2] + channel2[0] + channel2[1] + channel2[2] +  channel3[0] + channel3[1] + channel3[2] + channel4[0] + channel4[1] + channel4[2] + OutputFan1 + OutputFan2 + OutputPump1;
         try {
                     System.out.println(send);
                     Arduino.sendData(send);
@@ -242,6 +302,19 @@ String OutputR, OutputG, OutputB;
         return multi;
     }
     
+    public String[] getChannel(int i){
+       if (i==1){
+           return channel1;
+       }else if(i==2){
+           return channel2;
+       }else if (i==3){
+           return channel3;
+       }else if (i==4){
+           return channel4;
+       }else{
+           return null;
+       }
+   }
     
     public boolean isConnected(){
         return connected;

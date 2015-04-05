@@ -49,6 +49,7 @@ private boolean testmode = false;
     public mainGUI() {
         initComponents(); 
         methods.initialicePicker(picker);
+        methods.initialiceArrays(picker);
         initPanel();
         sliders();
         ports();
@@ -1748,6 +1749,23 @@ if (methods.isConnected()) {
         if (methods.isConnected()){
         arduino.control.center.utils.config.setValue("Port", PortsBox.getSelectedItem().toString());
         }
+        arduino.control.center.utils.config.setValue("channel1R", methods.getChannel(1)[0]);
+        arduino.control.center.utils.config.setValue("channel1G", methods.getChannel(1)[1]);
+        arduino.control.center.utils.config.setValue("channel1B", methods.getChannel(1)[2]);
+        
+        arduino.control.center.utils.config.setValue("channel2R", methods.getChannel(2)[0]);
+        arduino.control.center.utils.config.setValue("channel2G", methods.getChannel(2)[1]);
+        arduino.control.center.utils.config.setValue("channel2B", methods.getChannel(2)[2]);
+        
+        arduino.control.center.utils.config.setValue("channel3R", methods.getChannel(3)[0]);
+        arduino.control.center.utils.config.setValue("channel3G", methods.getChannel(3)[1]);
+        arduino.control.center.utils.config.setValue("channel3B", methods.getChannel(3)[2]);
+        
+        arduino.control.center.utils.config.setValue("channel4R", methods.getChannel(4)[0]);
+        arduino.control.center.utils.config.setValue("channel4G", methods.getChannel(4)[1]);
+        arduino.control.center.utils.config.setValue("channel4B", methods.getChannel(4)[2]);
+        
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
