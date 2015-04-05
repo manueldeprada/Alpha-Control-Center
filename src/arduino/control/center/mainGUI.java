@@ -100,9 +100,9 @@ ScheduledExecutorService executor =
     
     public void write(){
         if (methods.isConnected()){
-           methods.write(mode, picker, fan1slider, pump1slider, fan2slider, LedC1, LedC2, LedC3,LedC4,testmode);
+           methods.write(mode, picker, fan1slider, fan2slider, pump1slider,  LedC1, LedC2, LedC3,LedC4,testmode);
         }else if (testmode){
-            methods.write(mode, picker, fan1slider, pump1slider, fan2slider, LedC1, LedC2, LedC3,LedC4,testmode);
+            methods.write(mode, picker, fan1slider, fan2slider,pump1slider, LedC1, LedC2, LedC3,LedC4,testmode);
         }
     }
    
