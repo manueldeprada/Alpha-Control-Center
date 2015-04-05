@@ -1182,6 +1182,11 @@ ScheduledExecutorService executor =
         });
 
         refreshSecondsSpinner.setValue(refreshTime());
+        refreshSecondsSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                refreshSecondsSpinnerStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout FanPumpPanelLayout = new javax.swing.GroupLayout(FanPumpPanel);
         FanPumpPanel.setLayout(FanPumpPanelLayout);
@@ -1887,10 +1892,17 @@ rpmData();
             refreshSecondsSpinner.setEnabled(false);
             jLabel19.setEnabled(false);
             jLabel18.setEnabled(false);
+            executor.shutdown();
         }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_RefreshCheckBoxActionPerformed
+
+    private void refreshSecondsSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_refreshSecondsSpinnerStateChanged
+executor.shutdown();  
+            executor.scheduleAtFixedRate(refreshTemp, 0, Long.parseLong(refreshSecondsSpinner.getValue().toString()), TimeUnit.SECONDS);
+// TODO add your handling code here:
+    }//GEN-LAST:event_refreshSecondsSpinnerStateChanged
 
     
     Runnable refreshTemp = new Runnable() {

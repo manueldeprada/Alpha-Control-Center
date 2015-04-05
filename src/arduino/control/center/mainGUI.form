@@ -1722,6 +1722,9 @@
                   <Connection code="refreshTime()" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="refreshSecondsSpinnerStateChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
