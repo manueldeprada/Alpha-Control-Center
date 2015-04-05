@@ -223,7 +223,7 @@ String OutputR, OutputG, OutputB;
         OutputPump1 = Integer.toString(Pump1);
         }
     }
-    
+    255, 255, 255  ,,,   255 ,255, 255   ,,,    255, 255 ,255   ,,,     175 ,255, 235  ,,,    255, 255, 255
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4) {
   String[] output1;
@@ -261,9 +261,9 @@ String OutputR, OutputG, OutputB;
                 int R = picker.getColor().getRed();
             int G = picker.getColor().getGreen();
             int B = picker.getColor().getBlue();
-                channel3[0] = Integer.toString(R);
-                channel3[1] = Integer.toString(G);
-                channel3[2] = Integer.toString(B);
+                channel4[0] = Integer.toString(R);
+                channel4[1] = Integer.toString(G);
+                channel4[2] = Integer.toString(B);
             }
             
             
