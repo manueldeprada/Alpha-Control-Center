@@ -37,10 +37,10 @@ public class methods {
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
     private boolean connected = false;
-    private String[] output1 = {null,null,null,null};
-    private String[] output2 = {null,null,null,null};
-    private String[] output3 = {null,null,null,null};
-    private String[] output4 = {null,null,null,null};
+    private String[] output1 = {null,null,null};
+    private String[] output2 = {null,null,null};
+    private String[] output3 = {null,null,null};
+    private String[] output4 = {null,null,null};
      
     
     public void initialicePicker(ColorPicker picker){
@@ -143,7 +143,7 @@ String OutputR, OutputG, OutputB;
         OutputB = Integer.toString(bx);
         
         }
-        String[] output = new String[2];
+        String[] output = new String[3];
         output[0] = OutputR;
         output[1] = OutputG;
         output[2] = OutputB;
