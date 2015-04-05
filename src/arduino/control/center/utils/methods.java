@@ -30,9 +30,9 @@ public class methods {
     
     
     //Variable declarations
-     int R = 0, G = 0, B = 0;
+    
      int Fan1, Fan2, Pump1;
-     String OutputR, OutputG, OutputB;
+     
      String OutputFan1, OutputFan2, OutputPump1;
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
@@ -111,31 +111,38 @@ public class methods {
         }
     }
     
-    private  void SetData() {
-
+    private  String[] SetData(int rx, int gx, int bx) {
+String OutputR, OutputG, OutputB;
+      int R = 0, G = 0, B = 0;
         if (R < 10) {
-        OutputR = "00" + R;
-        } else if (R < 100) {
-        OutputR = "0" + R;
+        OutputR = "00" + rx;
+        } else if (rx < 100) {
+        OutputR = "0" + rx;
         } else {
-        OutputR = Integer.toString(R);
+        OutputR = Integer.toString(rx);
         }
 
-        if (G < 10) {
-        OutputG = "00" + G;
-        } else if (G < 100) {
-        OutputG = "0" + G;
+        if (gx < 10) {
+        OutputG = "00" + gx;
+        } else if (gx < 100) {
+        OutputG = "0" + gx;
         } else {
-        OutputG = Integer.toString(G);
+        OutputG = Integer.toString(gx);
         }
 
         if (B < 10) {
-        OutputB = "00" + B;
-        } else if (B < 100) {
-        OutputB = "0" + B;
+        OutputB = "00" + bx;
+        } else if (bx < 100) {
+        OutputB = "0" + bx;
         } else {
-        OutputB = Integer.toString(B);
+        OutputB = Integer.toString(bx);
+        
         }
+        String[] output = new String[2];
+        output[0] = OutputR;
+        output[1] = OutputG;
+        output[2] = OutputB;
+        return output;
     }
 
     private  void SetData2() {
@@ -166,18 +173,46 @@ public class methods {
     }
     
     
-    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider) {
-  
+    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4) {
+  String[] output1 = null;
+  String[] output2 = null;
+  String[] output3 = null;
+  String[] output4 = null;
         if (mode == 0){ //normal
             
-            R = picker.getColor().getRed();
-            G = picker.getColor().getGreen();
-            B = picker.getColor().getBlue();
+            if (c1.isSelected()){
+                int R = picker.getColor().getRed();
+            int G = picker.getColor().getGreen();
+            int B = picker.getColor().getBlue();
+                output1 = SetData(R,G,B);
+            } 
+            if (c2.isSelected()){
+                int R = picker.getColor().getRed();
+            int G = picker.getColor().getGreen();
+            int B = picker.getColor().getBlue();
+                output2 = SetData(R,G,B);
+            }
+            if (c3.isSelected()){
+                int R = picker.getColor().getRed();
+            int G = picker.getColor().getGreen();
+            int B = picker.getColor().getBlue();
+                output3 = SetData(R,G,B);
+            }
+            if (c4.isSelected()){
+                int R = picker.getColor().getRed();
+            int G = picker.getColor().getGreen();
+            int B = picker.getColor().getBlue();
+                output4 = SetData(R,G,B);
+            }
+            
+            
+            
+            
             Fan1 = fan1slider.getValue()*255/100;
             Fan2 = fan2slider.getValue()*255/100;
             Pump1 = pump1slider.getValue()*255/100;
             
-            SetData();
+            
             SetData2();
                                
             }else if (mode == 1){ //fade 
@@ -187,7 +222,7 @@ public class methods {
         }
         
         
-        String send = OutputR + OutputG + OutputB + OutputFan1 + OutputFan2 + OutputPump1;
+        String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + OutputFan1 + OutputFan2 + OutputPump1;
         try {
                     System.out.println(send);
                     Arduino.sendData(send);
