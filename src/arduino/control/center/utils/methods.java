@@ -32,7 +32,6 @@ public class methods {
     
     //Variable declarations
     
-     int Fan1, Fan2, Pump1;
      public static String path = System.getProperty("user.dir"); 
      String OutputFan1, OutputFan2, OutputPump1;
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
@@ -197,7 +196,7 @@ String OutputR, OutputG, OutputB;
         return output;
     }
 
-    private  void SetData2() {
+    private  String[] SetData2(int Fan1, int Fan2, int Pump1) {
 
         if (Fan1 < 10) {
         OutputFan1 = "00" + Fan1;
@@ -222,13 +221,20 @@ String OutputR, OutputG, OutputB;
         } else {
         OutputPump1 = Integer.toString(Pump1);
         }
+        String[] output = new String[3];
+        output[0] = OutputFan1;
+        output[1] = OutputFan2;
+        output[2] = OutputPump1;
+        return output;
+        
     }
     
-    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4) {
+    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode) {
   String[] output1;
   String[] output2;
   String[] output3;
   String[] output4;
+  String[] motors = {"000", "000","000"};
         if (mode == 0){ //normal
             
             if (c1.isSelected()){
@@ -272,12 +278,12 @@ String OutputR, OutputG, OutputB;
             output3 = SetData(channel3);
             output4 = SetData(channel4);
             
-            Fan1 = fan1slider.getValue()*255/100;
-            Fan2 = fan2slider.getValue()*255/100;
-            Pump1 = pump1slider.getValue()*255/100;
+            int Fan1 = fan1slider.getValue()*255/100;
+            int Fan2 = fan2slider.getValue()*255/100;
+            int Pump1 = pump1slider.getValue()*255/100;
             
             
-            SetData2();
+            motors = SetData2(Fan1, Fan2, Pump1);
                                
             }else if (mode == 1){ //fade 
                
@@ -286,11 +292,12 @@ String OutputR, OutputG, OutputB;
         }
         
         
-        String send = channel1[0] + channel1[1] + channel1[2] + channel2[0] + channel2[1] + channel2[2] +  channel3[0] + channel3[1] + channel3[2] + channel4[0] + channel4[1] + channel4[2] + OutputFan1 + OutputFan2 + OutputPump1;
+        String send = channel1[0] + channel1[1] + channel1[2] + channel2[0] + channel2[1] + channel2[2] +  channel3[0] + channel3[1] + channel3[2] + channel4[0] + channel4[1] + channel4[2] + motors[0] + motors[1] + motors[2];
         try {
                     System.out.println(send);
+                    if(!testmode){
                     Arduino.sendData(send);
-
+                    }
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
 }
