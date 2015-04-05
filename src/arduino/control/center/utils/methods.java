@@ -37,6 +37,11 @@ public class methods {
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
     private boolean connected = false;
+    private String[] output1 = {null,null,null,null};
+    private String[] output2 = {null,null,null,null};
+    private String[] output3 = {null,null,null,null};
+    private String[] output4 = {null,null,null,null};
+     
     
     public void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
@@ -174,10 +179,7 @@ String OutputR, OutputG, OutputB;
     
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4) {
-  String[] output1 = null;
-  String[] output2 = null;
-  String[] output3 = null;
-  String[] output4 = null;
+  
         if (mode == 0){ //normal
             
             if (c1.isSelected()){
