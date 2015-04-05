@@ -15,6 +15,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
 
 /**
@@ -52,16 +53,14 @@ private boolean testmode = false;
         sliders();
         ports();
         rpmData();
+        autoRefresh();
+        rpm();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             PickerColorChanged(evt);}}); 
-    
-    
-    
-    
-    }
+        }
     
     public void  Flash(ColorPicker picker) {
         int N=500000;
@@ -77,32 +76,41 @@ private boolean testmode = false;
         
         
     public void sliders(){
-            methods.sliders(fan1slider, fan2slider, pump1slider);
+        methods.sliders(fan1slider, fan2slider, pump1slider);
     }
     
     public void ports(){
-            methods.ports(PortsBox);
+        methods.ports(PortsBox);
     }
     
     public void rpmData(){
-            methods.rpmData(rmpLabelFan1, rmpLabelFan2, rmpLabelPump1, fan1max, fan2max, pump1max, fan1slider, fan2slider, pump1slider);
+        methods.rpmData(rmpLabelFan1, rmpLabelFan2, rmpLabelPump1, fan1max, fan2max, pump1max, fan1slider, fan2slider, pump1slider);
     }
     
     public void rpm(){
-            methods.rpm(fan1max, fan2max, pump1max);
+        methods.rpm(fan1max, fan2max, pump1max);
+    }
+    
+    public void autoRefresh(){
+        while(RefreshCheckBox.isSelected()){
+            write();
+            rpmData();
+            long time = Long.parseLong(refreshSeconds.getText());
+            try{
+                Thread.sleep(time);
+            }
+            catch(InterruptedException ex){
+            }
+        }
     }
     
     public void write(){
-       
         if (methods.isConnected()){
            methods.write(mode, picker, fan1slider, pump1slider, fan2slider);
-
         }
-        
     }
    
     public void loadpreviews(){
-        
         methods.loadpreview(1, panelColor1);
         methods.loadpreview(2, panelColor2);
         methods.loadpreview(3, panelColor3);
@@ -113,10 +121,9 @@ private boolean testmode = false;
         methods.loadpreview(8, panelColor8);
         methods.loadpreview(9, panelColor9);
         methods.loadpreview(10,panelColor10);
-        
-        
+        methods.loadpreview(11,panelColor11);
+        methods.loadpreview(12,panelColor12);
     }
-    
     
     private void initPanel(){
         loadpreviews();
@@ -127,17 +134,18 @@ private boolean testmode = false;
         normalRadioButton.setSelected(true);
         
         if (!methods.isConnected()){
-        fadeRadioButton.setEnabled(false);
-        normalRadioButton.setEnabled(false);
-        musicRadioButton.setEnabled(false);
-        notConnectedLabel.setVisible(true);
-        SecuencesRecordButton.setEnabled(false);
-        SecuencesPlayButton.setEnabled(false);
-        Refresh2.setEnabled(false);
-        picker.setEnabled(testmode);
-
-        
+            fadeRadioButton.setEnabled(false);
+            normalRadioButton.setEnabled(false);
+            musicRadioButton.setEnabled(false);
+            notConnectedLabel.setVisible(true);
+            SecuencesRecordButton.setEnabled(false);
+            SecuencesPlayButton.setEnabled(false);
+            Refresh2.setEnabled(false);
+            picker.setEnabled(testmode);
         }
+        refreshSeconds.setEnabled(false);
+        jLabel19.setEnabled(false);
+        jLabel18.setEnabled(false);
         
         PortsBox.removeAllItems();
         methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));
@@ -203,11 +211,24 @@ private boolean testmode = false;
         panelColor10 = new javax.swing.JPanel();
         getButtonColor10 = new javax.swing.JButton();
         cleanButton = new javax.swing.JButton();
+        labelColor11 = new javax.swing.JLabel();
+        getButtonColor11 = new javax.swing.JButton();
+        panelColor11 = new javax.swing.JPanel();
+        setButtonColor11 = new javax.swing.JButton();
+        labelColor12 = new javax.swing.JLabel();
+        getButtonColor12 = new javax.swing.JButton();
+        panelColor12 = new javax.swing.JPanel();
+        setButtonColor12 = new javax.swing.JButton();
         SecuencesPanel = new javax.swing.JPanel();
         SecuencesTitle = new javax.swing.JLabel();
         SecuencesRecordButton = new javax.swing.JButton();
         SecuencesPlayButton = new javax.swing.JButton();
         testButton = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        LedC1 = new javax.swing.JCheckBox();
+        LedC2 = new javax.swing.JCheckBox();
+        LedC3 = new javax.swing.JCheckBox();
+        LedC4 = new javax.swing.JCheckBox();
         ambilightTab = new javax.swing.JPanel();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
@@ -250,6 +271,10 @@ private boolean testmode = false;
         pump1max = new javax.swing.JTextField();
         fan1max = new javax.swing.JTextField();
         fan2max = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        refreshSeconds = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        RefreshCheckBox = new javax.swing.JCheckBox();
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
@@ -274,7 +299,7 @@ private boolean testmode = false;
             }
         });
 
-        ledModeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ledModeLabel.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         ledModeLabel.setText("LED Mode");
 
         fadeRadioButton.setText("Fade");
@@ -617,88 +642,164 @@ private boolean testmode = false;
             }
         });
 
+        labelColor11.setText("Color 11");
+
+        getButtonColor11.setText("Get");
+        getButtonColor11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getButtonColor11ActionPerformed(evt);
+            }
+        });
+
+        panelColor11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout panelColor11Layout = new javax.swing.GroupLayout(panelColor11);
+        panelColor11.setLayout(panelColor11Layout);
+        panelColor11Layout.setHorizontalGroup(
+            panelColor11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+        );
+        panelColor11Layout.setVerticalGroup(
+            panelColor11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
+
+        setButtonColor11.setText("Set");
+        setButtonColor11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setButtonColor11ActionPerformed(evt);
+            }
+        });
+
+        labelColor12.setText("Color 12");
+
+        getButtonColor12.setText("Get");
+        getButtonColor12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getButtonColor12ActionPerformed(evt);
+            }
+        });
+
+        panelColor12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout panelColor12Layout = new javax.swing.GroupLayout(panelColor12);
+        panelColor12.setLayout(panelColor12Layout);
+        panelColor12Layout.setHorizontalGroup(
+            panelColor12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+        );
+        panelColor12Layout.setVerticalGroup(
+            panelColor12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
+
+        setButtonColor12.setText("Set");
+        setButtonColor12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setButtonColor12ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout favColorsPanelLayout = new javax.swing.GroupLayout(favColorsPanel);
         favColorsPanel.setLayout(favColorsPanelLayout);
         favColorsPanelLayout.setHorizontalGroup(
             favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(favColorsPanelLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(cleanButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(setButtonColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getButtonColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(setButtonColor2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor2)
-                            .addComponent(labelColor3)
-                            .addComponent(setButtonColor3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor4)
-                            .addComponent(setButtonColor4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor5)
-                            .addComponent(setButtonColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getButtonColor2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getButtonColor3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelColor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getButtonColor4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelColor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getButtonColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(46, 46, 46)
-                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(setButtonColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelColor1)
+                            .addComponent(setButtonColor1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(getButtonColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor1)))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelColor2)
+                            .addComponent(labelColor3)
+                            .addComponent(labelColor4)
+                            .addComponent(labelColor5)
+                            .addComponent(setButtonColor3)
+                            .addComponent(setButtonColor4)
+                            .addComponent(setButtonColor5)
+                            .addComponent(setButtonColor2))
+                        .addGap(7, 7, 7)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelColor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor2)
+                            .addComponent(getButtonColor3)
+                            .addComponent(panelColor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor4)
+                            .addComponent(panelColor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getButtonColor5)
+                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(setButtonColor6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(getButtonColor6)
+                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(favColorsPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(favColorsPanelLayout.createSequentialGroup()
                                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelColor10)
                                     .addComponent(labelColor8)
                                     .addComponent(labelColor9)
-                                    .addComponent(setButtonColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(setButtonColor8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(setButtonColor9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(setButtonColor10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(setButtonColor7)
+                                    .addComponent(setButtonColor8)
+                                    .addComponent(setButtonColor9)
+                                    .addComponent(setButtonColor10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(getButtonColor9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor9)
                                     .addComponent(panelColor10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(getButtonColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor7)
                                     .addComponent(panelColor8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(getButtonColor8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor8)
                                     .addComponent(panelColor9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(getButtonColor10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(getButtonColor10)))
                             .addGroup(favColorsPanelLayout.createSequentialGroup()
                                 .addComponent(labelColor7)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
+                                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelColor11)
+                                    .addComponent(setButtonColor11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelColor11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor11)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
+                                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelColor12)
+                                    .addComponent(setButtonColor12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelColor12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(getButtonColor12))))
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, favColorsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cleanButton)
+                .addGap(100, 100, 100))
         );
         favColorsPanelLayout.setVerticalGroup(
             favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(favColorsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(panelColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -730,24 +831,8 @@ private boolean testmode = false;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor4)
-                            .addComponent(getButtonColor4))
-                        .addGap(18, 18, 18)
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(setButtonColor5)
-                            .addComponent(getButtonColor5)))
+                            .addComponent(getButtonColor4)))
                     .addGroup(favColorsPanelLayout.createSequentialGroup()
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(setButtonColor6)
-                            .addComponent(getButtonColor6))
-                        .addGap(18, 18, 18)
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(panelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelColor7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -779,7 +864,43 @@ private boolean testmode = false;
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor10)
                             .addComponent(getButtonColor10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(favColorsPanelLayout.createSequentialGroup()
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(setButtonColor5)
+                            .addComponent(getButtonColor5)))
+                    .addGroup(favColorsPanelLayout.createSequentialGroup()
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelColor11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(setButtonColor11)
+                            .addComponent(getButtonColor11))))
+                .addGap(18, 18, 18)
+                .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(favColorsPanelLayout.createSequentialGroup()
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(setButtonColor6)
+                            .addComponent(getButtonColor6)))
+                    .addGroup(favColorsPanelLayout.createSequentialGroup()
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelColor12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelColor12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(setButtonColor12)
+                            .addComponent(getButtonColor12))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(cleanButton)
                 .addContainerGap())
         );
@@ -810,7 +931,7 @@ private boolean testmode = false;
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(SecuencesRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(SecuencesPlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
@@ -839,27 +960,55 @@ private boolean testmode = false;
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel17.setText("LED Channels");
+
+        LedC1.setText("Channel 1");
+
+        LedC2.setText("Channel 2");
+
+        LedC3.setText("Channel 3");
+        LedC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LedC3ActionPerformed(evt);
+            }
+        });
+
+        LedC4.setText("Channel 4");
+
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
         colorTabLayout.setHorizontalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(colorTabLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(fadeRadioButton)
-                        .addGap(18, 18, 18)
+                        .addGap(126, 126, 126)
                         .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(normalRadioButton)
-                            .addComponent(ledModeLabel))
-                        .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ledModeLabel)
                             .addGroup(colorTabLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(musicRadioButton))
-                            .addGroup(colorTabLayout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addComponent(testButton)))))
+                                .addComponent(fadeRadioButton)
+                                .addGap(35, 35, 35)
+                                .addComponent(normalRadioButton)))
+                        .addGap(36, 36, 36)
+                        .addComponent(musicRadioButton))
+                    .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
+                            .addGap(74, 74, 74)
+                            .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
+                                    .addComponent(LedC1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(LedC2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(LedC3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(LedC4))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
+                                    .addGap(133, 133, 133)
+                                    .addComponent(jLabel17)))))
+                    .addComponent(testButton))
                 .addGap(18, 18, 18)
                 .addComponent(colors_secuencesPanel)
                 .addContainerGap())
@@ -867,22 +1016,26 @@ private boolean testmode = false;
         colorTabLayout.setVerticalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorTabLayout.createSequentialGroup()
-                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(colorTabLayout.createSequentialGroup()
-                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ledModeLabel))
-                    .addGroup(colorTabLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(testButton)))
+                .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fadeRadioButton)
+                    .addComponent(LedC1)
+                    .addComponent(LedC2)
+                    .addComponent(LedC3)
+                    .addComponent(LedC4))
+                .addGap(36, 36, 36)
+                .addComponent(ledModeLabel)
+                .addGap(18, 18, 18)
+                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(normalRadioButton)
-                    .addComponent(musicRadioButton))
-                .addGap(33, 33, 33))
+                    .addComponent(musicRadioButton)
+                    .addComponent(fadeRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(testButton))
             .addGroup(colorTabLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(colors_secuencesPanel)
                 .addContainerGap())
         );
@@ -897,7 +1050,7 @@ private boolean testmode = false;
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGap(0, 554, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -926,10 +1079,10 @@ private boolean testmode = false;
             }
         });
 
-        fansTitleLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        fansTitleLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         fansTitleLabel.setText("Fans");
 
-        pumpsTitleLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        pumpsTitleLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         pumpsTitleLabel.setText("Pumps");
 
         rpmlabel1.setText("RPM");
@@ -947,7 +1100,7 @@ private boolean testmode = false;
         rmpLabelFan2.setEditable(false);
         rmpLabelFan2.setText("0000");
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel1.setText("Temperatures");
 
         Temp1.setEditable(false);
@@ -1017,6 +1170,19 @@ private boolean testmode = false;
 
         fan2max.setText("0");
 
+        jLabel18.setText("Refresh each");
+
+        refreshSeconds.setText("5");
+
+        jLabel19.setText("seconds");
+
+        RefreshCheckBox.setText("Refresh automatically");
+        RefreshCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshCheckBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FanPumpPanelLayout = new javax.swing.GroupLayout(FanPumpPanel);
         FanPumpPanel.setLayout(FanPumpPanelLayout);
         FanPumpPanelLayout.setHorizontalGroup(
@@ -1024,6 +1190,20 @@ private boolean testmode = false;
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                        .addComponent(fansTitleLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(86, 86, 86)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Temp2)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)))
+                        .addGap(84, 84, 84))
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FanPumpPanelLayout.createSequentialGroup()
@@ -1070,43 +1250,60 @@ private boolean testmode = false;
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(pump1max, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(pumpsTitleLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp3)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp1)))
-                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                        .addComponent(fansTitleLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13))
-                        .addGap(86, 86, 86)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Temp6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel8))))
-                .addGap(84, 84, 84))
+                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Temp1))
+                                        .addGap(243, 243, 243))
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(169, 169, 169))
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Temp5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(Temp3)
+                                                    .addComponent(jLabel4))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel10)
+                                                .addGap(86, 86, 86)
+                                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(Temp4)
+                                                    .addComponent(jLabel5))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel12))
+                                            .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                                .addGap(43, 43, 43)
+                                                .addComponent(jLabel11)
+                                                .addGap(86, 86, 86)
+                                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(Temp6))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel8)))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
+                                        .addComponent(Refresh2)
+                                        .addGap(148, 148, 148))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
+                                        .addComponent(RefreshCheckBox)
+                                        .addGap(118, 118, 118))))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Refresh2)
-                .addGap(144, 144, 144))
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(refreshSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel19)
+                .addGap(101, 101, 101))
         );
         FanPumpPanelLayout.setVerticalGroup(
             FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1124,19 +1321,11 @@ private boolean testmode = false;
                             .addComponent(Temp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel13))
-                        .addGap(69, 69, 69)
+                        .addGap(89, 89, 89)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Temp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Temp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel12)
                             .addComponent(jLabel14)
                             .addComponent(fan1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(74, 74, 74)
+                        .addGap(24, 24, 24)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
@@ -1146,47 +1335,68 @@ private boolean testmode = false;
                             .addComponent(Temp6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
                             .addComponent(jLabel8))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fansTitleLabel)
                             .addComponent(jLabel1))
-                        .addGap(26, 26, 26)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                .addComponent(fan1label)
+                                .addGap(26, 26, 26)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addComponent(fan1label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rpmlabel1))
+                                .addGap(36, 36, 36)
+                                .addComponent(pump2label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fan1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rmpLabelFan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rpmlabel1))
-                        .addGap(36, 36, 36)
-                        .addComponent(pump2label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rpmlabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(fan2max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addComponent(pumpsTitleLabel)
-                        .addGap(28, 28, 28)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rpmlabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(fan2max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(36, 36, 36)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(pumpsTitleLabel)
+                                    .addComponent(Refresh2))
+                                .addGap(20, 20, 20)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(FanPumpPanelLayout.createSequentialGroup()
+                                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(pump1label)
+                                            .addComponent(RefreshCheckBox))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rpmlabel3))
+                                .addGap(30, 30, 30)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(pump1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(53, 53, 53))
                             .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                .addComponent(pump1label)
+                                .addGap(148, 148, 148)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pump1slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rmpLabelPump1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rpmlabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Refresh2)
-                        .addGap(1, 1, 1)
-                        .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(pump1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(53, 53, 53))))
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Temp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Temp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(refreshSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))
+                                .addGap(93, 93, 93))))))
         );
 
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
@@ -1267,8 +1477,6 @@ private boolean testmode = false;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    
     
     private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
         int color6R = Integer.parseInt(arduino.control.center.utils.config.getValue("color6R"));
@@ -1610,6 +1818,65 @@ rpmData();
         // TODO add your handling code here:
     }//GEN-LAST:event_Refresh2ActionPerformed
 
+    private void LedC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LedC3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LedC3ActionPerformed
+
+    private void getButtonColor11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor11ActionPerformed
+        int color11R = Integer.parseInt(arduino.control.center.utils.config.getValue("color11R"));
+        int color11G = Integer.parseInt(arduino.control.center.utils.config.getValue("color11G"));
+        int color11B = Integer.parseInt(arduino.control.center.utils.config.getValue("color11B"));
+        Color color11 = new Color(color11R,color11G,color11B);
+        picker.setColor(color11);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getButtonColor11ActionPerformed
+
+    private void setButtonColor11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor11ActionPerformed
+        Color color11 = picker.getColor();
+        panelColor11.setBackground(color11);
+        arduino.control.center.utils.config.setValue("color11R", Integer.toString(color11.getRed()));
+        arduino.control.center.utils.config.setValue("color11G", Integer.toString(color11.getGreen()));
+        arduino.control.center.utils.config.setValue("color11B", Integer.toString(color11.getBlue()));
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setButtonColor11ActionPerformed
+
+    private void getButtonColor12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor12ActionPerformed
+        int color12R = Integer.parseInt(arduino.control.center.utils.config.getValue("color12R"));
+        int color12G = Integer.parseInt(arduino.control.center.utils.config.getValue("color12G"));
+        int color12B = Integer.parseInt(arduino.control.center.utils.config.getValue("color12B"));
+        Color color12 = new Color(color12R,color12G,color12B);
+        picker.setColor(color12);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getButtonColor12ActionPerformed
+
+    private void setButtonColor12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor12ActionPerformed
+        Color color12 = picker.getColor();
+        panelColor12.setBackground(color12);
+        arduino.control.center.utils.config.setValue("color12R", Integer.toString(color12.getRed()));
+        arduino.control.center.utils.config.setValue("color12G", Integer.toString(color12.getGreen()));
+        arduino.control.center.utils.config.setValue("color12B", Integer.toString(color12.getBlue()));
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setButtonColor12ActionPerformed
+
+    private void RefreshCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshCheckBoxActionPerformed
+        if (RefreshCheckBox.isSelected()){
+            refreshSeconds.setEnabled(true);
+            jLabel19.setEnabled(true);
+            jLabel18.setEnabled(true);
+        }
+        else{
+            refreshSeconds.setEnabled(false);
+            jLabel19.setEnabled(false);
+            jLabel18.setEnabled(false);
+        }
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_RefreshCheckBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1617,8 +1884,13 @@ rpmData();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FanPumpPanel;
+    private javax.swing.JCheckBox LedC1;
+    private javax.swing.JCheckBox LedC2;
+    private javax.swing.JCheckBox LedC3;
+    private javax.swing.JCheckBox LedC4;
     private javax.swing.JComboBox PortsBox;
     private javax.swing.JButton Refresh2;
+    private javax.swing.JCheckBox RefreshCheckBox;
     private javax.swing.JPanel SecuencesPanel;
     private javax.swing.JButton SecuencesPlayButton;
     private javax.swing.JButton SecuencesRecordButton;
@@ -1645,6 +1917,8 @@ rpmData();
     private javax.swing.JPanel favColorsPanel;
     private javax.swing.JButton getButtonColor1;
     private javax.swing.JButton getButtonColor10;
+    private javax.swing.JButton getButtonColor11;
+    private javax.swing.JButton getButtonColor12;
     private javax.swing.JButton getButtonColor2;
     private javax.swing.JButton getButtonColor3;
     private javax.swing.JButton getButtonColor4;
@@ -1661,6 +1935,9 @@ rpmData();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1673,6 +1950,8 @@ rpmData();
     private javax.swing.JMenu jMenu2;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
+    private javax.swing.JLabel labelColor11;
+    private javax.swing.JLabel labelColor12;
     private javax.swing.JLabel labelColor2;
     private javax.swing.JLabel labelColor3;
     private javax.swing.JLabel labelColor4;
@@ -1688,6 +1967,8 @@ rpmData();
     private javax.swing.JLabel notConnectedLabel;
     private javax.swing.JPanel panelColor1;
     private javax.swing.JPanel panelColor10;
+    private javax.swing.JPanel panelColor11;
+    private javax.swing.JPanel panelColor12;
     private javax.swing.JPanel panelColor2;
     private javax.swing.JPanel panelColor3;
     private javax.swing.JPanel panelColor4;
@@ -1703,6 +1984,7 @@ rpmData();
     private javax.swing.JLabel pump2label;
     private javax.swing.JLabel pumpsTitleLabel;
     private javax.swing.JButton refreshPortsButton;
+    private javax.swing.JTextField refreshSeconds;
     private javax.swing.JTextField rmpLabelFan1;
     private javax.swing.JTextField rmpLabelFan2;
     private javax.swing.JTextField rmpLabelPump1;
@@ -1712,6 +1994,8 @@ rpmData();
     private javax.swing.JButton sendbutton;
     private javax.swing.JButton setButtonColor1;
     private javax.swing.JButton setButtonColor10;
+    private javax.swing.JButton setButtonColor11;
+    private javax.swing.JButton setButtonColor12;
     private javax.swing.JButton setButtonColor2;
     private javax.swing.JButton setButtonColor3;
     private javax.swing.JButton setButtonColor4;

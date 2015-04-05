@@ -15,11 +15,11 @@ import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
-import java.lang.Object;
 import javax.swing.JTextField;
 
 /**
@@ -51,7 +51,6 @@ public class methods {
             Color x = new Color(rx,rg,rb);
             picker.setColor(x);
         }
-        
     }
     
     public void sliders(JSlider fan1slider, JSlider fan2slider, JSlider pump1slider){
@@ -88,12 +87,9 @@ public class methods {
     
     
     public void ports(JComboBox PortsBox){
-        
-        if (config.getValue("Port") == null){
-            
+        if (config.getValue("Port") == null){       
         }
         else{
-            
             PortsBox.setSelectedItem(config.getValue("Port"));
         }
     }
@@ -115,8 +111,7 @@ public class methods {
         }
     }
     
-    
-        private  void SetData() {
+    private  void SetData() {
 
         if (R < 10) {
         OutputR = "00" + R;
@@ -141,9 +136,9 @@ public class methods {
         } else {
         OutputB = Integer.toString(B);
         }
+    }
 
-}
-        private  void SetData2() {
+    private  void SetData2() {
 
         if (Fan1 < 10) {
         OutputFan1 = "00" + Fan1;
@@ -168,8 +163,7 @@ public class methods {
         } else {
         OutputPump1 = Integer.toString(Pump1);
         }
-
-}
+    }
     
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider) {
@@ -244,18 +238,18 @@ public class methods {
         if ("".equals(config.getValue("color"+number+"R")) || (config.getValue("color"+number+"R")) == null){
         panel.setBackground(null);
         }else {
-    if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
-            int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
-            int colorG = Integer.parseInt(config.getValue("color"+number+"G"));
-            int colorB = Integer.parseInt(config.getValue("color"+number+"B"));
-        Color color = new Color(colorR,colorG,colorB);
-        panel.setBackground(color);
-}
+            if (config.getValue("color"+number+"R")!= null || !"und".equals(config.getValue("color"+number+"R")) ){
+                int colorR = Integer.parseInt(config.getValue("color"+number+"R"));
+                int colorG = Integer.parseInt(config.getValue("color"+number+"G"));
+                int colorB = Integer.parseInt(config.getValue("color"+number+"B"));
+                Color color = new Color(colorR,colorG,colorB);
+                panel.setBackground(color);
+            }
         }
-    
     }
+    
     public void cleanFavourites(){
-        for (int i= 0; i <11; i++){ 
+        for (int i= 0; i <13; i++){ 
             config.setValue("color"+i+"R", "");
             config.setValue("color"+i+"G", "");
             config.setValue("color"+i+"B", "");
