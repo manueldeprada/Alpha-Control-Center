@@ -42,7 +42,8 @@ public class methods {
     private String[] output3 = {null,null,null};
     private String[] output4 = {null,null,null};
      
-    
+   
+
     public void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
         if (config.getValue("colorR") == null){
@@ -118,8 +119,8 @@ public class methods {
     
     private  String[] SetData(int rx, int gx, int bx) {
 String OutputR, OutputG, OutputB;
-      int R = 0, G = 0, B = 0;
-        if (R < 10) {
+      
+        if (rx < 10) {
         OutputR = "00" + rx;
         } else if (rx < 100) {
         OutputR = "0" + rx;
@@ -135,7 +136,7 @@ String OutputR, OutputG, OutputB;
         OutputG = Integer.toString(gx);
         }
 
-        if (B < 10) {
+        if (bx < 10) {
         OutputB = "00" + bx;
         } else if (bx < 100) {
         OutputB = "0" + bx;
