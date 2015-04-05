@@ -38,10 +38,10 @@ public class methods {
     private  PanamaHitek_Arduino Arduino = new PanamaHitek_Arduino(); //Variable para //instanciar la librería Arduino
     private  PanamaHitek_multiMessage multi = new PanamaHitek_multiMessage(6, Arduino);
     private boolean connected = false;
-    private String[] channel1 = {null,null,null};
-    private String[] channel2 = {null,null,null};
-    private String[] channel3 = {null,null,null};
-    private String[] channel4 = {null,null,null};
+    private String[] channel1 = {"000","000","000"};
+    private String[] channel2 = {"000","000","000"};
+    private String[] channel3 = {"000","000","000"};
+    private String[] channel4 = {"000","000","000"};
      
    
 
