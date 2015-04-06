@@ -95,6 +95,7 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
     public void recorderStop(JPanel panel){
         recorderexecutor.shutdown();
         config.setValue("endTime", Long.toString(chr.getTime()), file);
+        config.setValue("iFinal", Integer.toString(i), file);
         chr.stop();
         
         for(int u= 0;u<50;u++){

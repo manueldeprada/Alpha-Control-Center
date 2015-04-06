@@ -5,6 +5,7 @@
  */
 package arduino.control.center;
 
+import arduino.control.center.utils.config;
 import arduino.control.center.utils.methods;
 import static arduino.control.center.utils.secuences.path;
 import com.bric.swing.ColorPicker;
@@ -61,6 +62,7 @@ ScheduledExecutorService executor =
      * Creates new form mainGUI
      */
     public mainGUI() {
+        //loadSecuencePreview();
         initComponents(); 
         makeJPanels(bigpanel);
         methods.initialicePicker(picker);
@@ -88,7 +90,18 @@ ScheduledExecutorService executor =
             picker.setColor(Color.getHSBColor(bHue - (i * (bHue - gHue) / N), 1, 1));
         }
     }
-        
+        public void loadSecuencePreview(){
+            File file = new File(path + File.separator+"secuence"+1+".properties");
+            int period = Integer.parseInt(config.getValue("iFinal", file))/50;
+            for(int u= 0;u<50;u++){
+            
+            int rd = Integer.parseInt(config.getValue("c"+period*u+"r", file));
+            int gd = Integer.parseInt(config.getValue("c"+period*u+"g", file));
+            int bd = Integer.parseInt(config.getValue("c"+period*u+"b", file));
+                    bigpanel.getComponent(u).setBackground(new Color(rd,gd,bd));
+
+        }
+        }
         
     public void sliders(){
         methods.sliders(fan1slider, fan2slider, pump1slider);
@@ -170,56 +183,58 @@ ScheduledExecutorService executor =
         
         
               int i = 2;
-               p1.setPreferredSize(new Dimension(i,35));
-               p2.setPreferredSize(new Dimension(i,35));
-               p3.setPreferredSize(new Dimension(i,35));
-               p4.setPreferredSize(new Dimension(i,35));
-               p5.setPreferredSize(new Dimension(i,35));
-               p6.setPreferredSize(new Dimension(i,35));
-               p7.setPreferredSize(new Dimension(i,35));
-               p8.setPreferredSize(new Dimension(i,35));
-               p9.setPreferredSize(new Dimension(i,35));
-               p10.setPreferredSize(new Dimension(i,35));
-               p11.setPreferredSize(new Dimension(i,35));
-               p12.setPreferredSize(new Dimension(i,35));
-               p13.setPreferredSize(new Dimension(i,35));
-               p14.setPreferredSize(new Dimension(i,35));
-               p15.setPreferredSize(new Dimension(i,35));
-               p16.setPreferredSize(new Dimension(i,35));
-               p17.setPreferredSize(new Dimension(i,35));
-               p18.setPreferredSize(new Dimension(i,35));
-               p19.setPreferredSize(new Dimension(i,35));
-               p20.setPreferredSize(new Dimension(i,35));
-               p21.setPreferredSize(new Dimension(i,35));
-               p22.setPreferredSize(new Dimension(i,35));
-               p23.setPreferredSize(new Dimension(i,35));
-               p24.setPreferredSize(new Dimension(i,35));
-               p25.setPreferredSize(new Dimension(i,35));
-               p26.setPreferredSize(new Dimension(i,35));
-               p27.setPreferredSize(new Dimension(i,35));
-               p28.setPreferredSize(new Dimension(i,35));
-               p29.setPreferredSize(new Dimension(i,35));
-               p30.setPreferredSize(new Dimension(i,35));
-               p31.setPreferredSize(new Dimension(i,35));
-               p32.setPreferredSize(new Dimension(i,35));
-               p33.setPreferredSize(new Dimension(i,35));
-               p34.setPreferredSize(new Dimension(i,35));
-               p35.setPreferredSize(new Dimension(i,35));
-               p36.setPreferredSize(new Dimension(i,35));
-               p37.setPreferredSize(new Dimension(i,35));
-               p38.setPreferredSize(new Dimension(i,35));
-               p39.setPreferredSize(new Dimension(i,35));
-               p40.setPreferredSize(new Dimension(i,35));
-               p41.setPreferredSize(new Dimension(i,35));
-               p42.setPreferredSize(new Dimension(i,35));
-               p43.setPreferredSize(new Dimension(i,35));
-               p44.setPreferredSize(new Dimension(i,35));
-               p45.setPreferredSize(new Dimension(i,35));
-               p46.setPreferredSize(new Dimension(i,35));
-               p47.setPreferredSize(new Dimension(i,35));
-               p48.setPreferredSize(new Dimension(i,35));
-               p49.setPreferredSize(new Dimension(i,35));
-               p50.setPreferredSize(new Dimension(i,35));
+              int a = 35;
+              
+               p1.setPreferredSize(new Dimension(i,a));
+               p2.setPreferredSize(new Dimension(i,a));
+               p3.setPreferredSize(new Dimension(i,a));
+               p4.setPreferredSize(new Dimension(i,a));
+               p5.setPreferredSize(new Dimension(i,a));
+               p6.setPreferredSize(new Dimension(i,a));
+               p7.setPreferredSize(new Dimension(i,a));
+               p8.setPreferredSize(new Dimension(i,a));
+               p9.setPreferredSize(new Dimension(i,a));
+               p10.setPreferredSize(new Dimension(i,a));
+               p11.setPreferredSize(new Dimension(i,a));
+               p12.setPreferredSize(new Dimension(i,a));
+               p13.setPreferredSize(new Dimension(i,a));
+               p14.setPreferredSize(new Dimension(i,a));
+               p15.setPreferredSize(new Dimension(i,a));
+               p16.setPreferredSize(new Dimension(i,a));
+               p17.setPreferredSize(new Dimension(i,a));
+               p18.setPreferredSize(new Dimension(i,a));
+               p19.setPreferredSize(new Dimension(i,a));
+               p20.setPreferredSize(new Dimension(i,a));
+               p21.setPreferredSize(new Dimension(i,a));
+               p22.setPreferredSize(new Dimension(i,a));
+               p23.setPreferredSize(new Dimension(i,a));
+               p24.setPreferredSize(new Dimension(i,a));
+               p25.setPreferredSize(new Dimension(i,a));
+               p26.setPreferredSize(new Dimension(i,a));
+               p27.setPreferredSize(new Dimension(i,a));
+               p28.setPreferredSize(new Dimension(i,a));
+               p29.setPreferredSize(new Dimension(i,a));
+               p30.setPreferredSize(new Dimension(i,a));
+               p31.setPreferredSize(new Dimension(i,a));
+               p32.setPreferredSize(new Dimension(i,a));
+               p33.setPreferredSize(new Dimension(i,a));
+               p34.setPreferredSize(new Dimension(i,a));
+               p35.setPreferredSize(new Dimension(i,a));
+               p36.setPreferredSize(new Dimension(i,a));
+               p37.setPreferredSize(new Dimension(i,a));
+               p38.setPreferredSize(new Dimension(i,a));
+               p39.setPreferredSize(new Dimension(i,a));
+               p40.setPreferredSize(new Dimension(i,a));
+               p41.setPreferredSize(new Dimension(i,a));
+               p42.setPreferredSize(new Dimension(i,a));
+               p43.setPreferredSize(new Dimension(i,a));
+               p44.setPreferredSize(new Dimension(i,a));
+               p45.setPreferredSize(new Dimension(i,a));
+               p46.setPreferredSize(new Dimension(i,a));
+               p47.setPreferredSize(new Dimension(i,a));
+               p48.setPreferredSize(new Dimension(i,a));
+               p49.setPreferredSize(new Dimension(i,a));
+               p50.setPreferredSize(new Dimension(i,a));
       
                
         bigPanel.add(p1);
