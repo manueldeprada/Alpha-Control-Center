@@ -62,7 +62,7 @@ public class methods {
     public void initialiceArrays(ColorPicker picker){
         
         if (config.getValue("channel1R")==null || config.getValue("channel1R")==""){
-            channel1[0]= Integer.toString(picker.getColor().getRed());
+        channel1[0]= Integer.toString(picker.getColor().getRed());
         channel1[1]= Integer.toString(picker.getColor().getGreen());
         channel1[2]= Integer.toString(picker.getColor().getBlue());
         
@@ -113,6 +113,15 @@ public class methods {
         fan1slider.setValue(F1);
         fan2slider.setValue(F2);
         pump1slider.setValue(P1);
+        }
+    }
+    
+    public void refreshMode(JCheckBox RefreshCheckBox){
+        if ("0".equals(config.getValue("refreshMode"))){
+            RefreshCheckBox.setSelected(false);
+        }
+        if ("1".equals(config.getValue("refreshMode"))){
+            RefreshCheckBox.setSelected(true);
         }
     }
     
