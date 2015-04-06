@@ -8,7 +8,9 @@ package arduino.control.center.utils;
 import com.bric.swing.ColorPicker;
 import java.awt.Color;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -115,9 +117,32 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         playerexecutor.shutdown();
         chp.stop();
     }
+    public static void clean(int num){
+        PrintWriter writer = null;   
+    try {
+        File file = new File(path + File.separator+"secuence"+num+".properties");
+        writer = new PrintWriter(file);
+        writer.print("");
+        writer.close();
+// TODO add your handling code here:
+    
+    }   catch (FileNotFoundException ex) {
+            Logger.getLogger(secuences.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        writer.close();
+    }
+    }
     
     public void record(ColorPicker picker1, int number){
         file = new File(path + File.separator+"secuence"+number+".properties");
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(secuences.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        clean(number);
         file.setWritable(true);
         try {       file.createNewFile();    } catch (IOException ex) {   Logger.getLogger(secuences.class.getName()).log(Level.SEVERE, null, ex); }
         Color initial = picker1.getColor();

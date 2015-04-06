@@ -7,6 +7,7 @@ package arduino.control.center;
 
 import arduino.control.center.utils.config;
 import arduino.control.center.utils.methods;
+import arduino.control.center.utils.secuences;
 import static arduino.control.center.utils.secuences.path;
 import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
@@ -24,6 +25,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
@@ -62,7 +64,7 @@ ScheduledExecutorService executor =
      * Creates new form mainGUI
      */
     public mainGUI() {
-        //loadSecuencePreview();
+        
         initComponents(); 
         makeJPanels(bigpanel);
         methods.initialicePicker(picker);
@@ -72,6 +74,7 @@ ScheduledExecutorService executor =
         ports();
         rpmData();
         rpm();
+        loadsecpreviews();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
@@ -90,16 +93,30 @@ ScheduledExecutorService executor =
             picker.setColor(Color.getHSBColor(bHue - (i * (bHue - gHue) / N), 1, 1));
         }
     }
-        public void loadSecuencePreview(){
-            File file = new File(path + File.separator+"secuence"+1+".properties");
-            int period = Integer.parseInt(config.getValue("iFinal", file))/100;
+    public void loadsecpreviews(){
+        loadSecuencePreview(1,this.playButton, this.cleanButton, bigpanel);
+    }
+        public void loadSecuencePreview(int number, JButton play, JButton clear, JPanel bigpanel){
+            File file = new File(path + File.separator+"secuence"+number+".properties");
+            if (!file.exists() || config.getValue("iFinal",file)==""|| config.getValue("iFinal",file)==null){
+                play.setEnabled(false);
+                clear.setEnabled(false);
+                
+            }else{
+            String ifinal =config.getValue("iFinal", file);
+            
+            if (ifinal =="" ||ifinal== null){
+                
+            }else{
+            int period = Integer.parseInt(ifinal)/100;
             for(int u= 0;u<100;u++){
             
             int rd = Integer.parseInt(config.getValue("c"+period*u+"r", file));
             int gd = Integer.parseInt(config.getValue("c"+period*u+"g", file));
             int bd = Integer.parseInt(config.getValue("c"+period*u+"b", file));
                     bigpanel.getComponent(u).setBackground(new Color(rd,gd,bd));
-
+            }
+            }
         }
         }
         
@@ -232,8 +249,8 @@ ScheduledExecutorService executor =
         JPanel p100 = new JPanel();
         
         
-               int i = 1;
-               int a = 50;
+               int i = 2;
+               int a = 35;
                p1.setPreferredSize(new Dimension(i,a));
                p2.setPreferredSize(new Dimension(i,a));
                p3.setPreferredSize(new Dimension(i,a));
@@ -477,7 +494,8 @@ ScheduledExecutorService executor =
             recordButton.setEnabled(false);
             playButton.setEnabled(false);
             Refresh2.setEnabled(false);
-            picker.setEnabled(testmode);
+            picker.setEnabled(false);
+            this.clearButton.setEnabled(false);
         }
         refreshSecondsSpinner.setEnabled(false);
         jLabel19.setEnabled(false);
@@ -1239,7 +1257,7 @@ ScheduledExecutorService executor =
                         .addGroup(favColorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(setButtonColor12)
                             .addComponent(getButtonColor12))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(cleanButton)
                 .addContainerGap())
         );
@@ -1250,6 +1268,7 @@ ScheduledExecutorService executor =
         SecuencesTitle.setText("Secuences");
 
         bigpanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
         recordButton.setText("Record");
@@ -1285,16 +1304,18 @@ ScheduledExecutorService executor =
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecuencesPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(recordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearButton))
-                    .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(clearButton)))
                 .addGap(59, 59, 59))
         );
         SecuencesPanelLayout.setVerticalGroup(
@@ -1308,9 +1329,9 @@ ScheduledExecutorService executor =
                     .addComponent(playButton)
                     .addComponent(clearButton)
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(501, Short.MAX_VALUE))
+                .addContainerGap(517, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
@@ -1373,7 +1394,7 @@ ScheduledExecutorService executor =
                         .addComponent(musicRadioButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(colors_secuencesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         colorTabLayout.setVerticalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1412,7 +1433,7 @@ ScheduledExecutorService executor =
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -1659,9 +1680,8 @@ ScheduledExecutorService executor =
                                             .addComponent(refreshSecondsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(15, 15, 15)
                                             .addComponent(jLabel19))
-                                        .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                                            .addComponent(RefreshCheckBox)
-                                            .addGap(34, 34, 34))))))
+                                        .addComponent(RefreshCheckBox))
+                                    .addGap(12, 12, 12))))
                         .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FanPumpPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1677,7 +1697,7 @@ ScheduledExecutorService executor =
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(fan1max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(408, Short.MAX_VALUE))
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
@@ -1696,7 +1716,7 @@ ScheduledExecutorService executor =
                             .addComponent(fan2slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rmpLabelFan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rpmlabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(fan2max, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2090,6 +2110,7 @@ if (methods.isConnected()) {
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
                 Refresh2.setEnabled(true);
+                loadsecpreviews();
 
             } catch (Exception ex) {
                 Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
@@ -2276,6 +2297,7 @@ if (testMode.isSelected()){
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
                 Refresh2.setEnabled(true);
+                clearButton.setEnabled(true);
                 
             
             recordButton.setEnabled(true);
@@ -2314,18 +2336,7 @@ ub1 = new arduino.control.center.utils.secuences();
     }//GEN-LAST:event_playButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        PrintWriter writer = null;   
-    try {
-        File file = new File(path + File.separator+"secuence"+1+".properties");
-        writer = new PrintWriter(file);
-        writer.print("");
-        writer.close();
-// TODO add your handling code here:
-    } catch (FileNotFoundException ex) {
-        Logger.getLogger(mainGUI.class.getName()).log(Level.SEVERE, null, ex);
-    } finally {
-        writer.close();
-    }
+        secuences.clean(1);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     
