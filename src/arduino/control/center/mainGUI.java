@@ -37,8 +37,9 @@ import panamahitek.Arduino.PanamaHitek_multiMessage;
 public class mainGUI extends javax.swing.JFrame {
 private int mode = 0;
 private methods methods = new methods();
-arduino.control.center.utils.secuences ub;
-arduino.control.center.utils.secuences ub1;
+arduino.control.center.utils.secuences s1record;
+arduino.control.center.utils.secuences s1play;
+
 
 private boolean testmode = false;
 ScheduledExecutorService executor = 
@@ -66,7 +67,7 @@ ScheduledExecutorService executor =
     public mainGUI() {
         
         initComponents(); 
-        makeJPanels(bigpanel);
+        makeJPanels(bigpanel1);
         methods.initialicePicker(picker);
         methods.initialiceArrays(picker);
         initPanel();
@@ -94,7 +95,7 @@ ScheduledExecutorService executor =
         }
     }
     public void loadsecpreviews(){
-        loadSecuencePreview(1,this.playButton, this.cleanButton, bigpanel);
+        loadSecuencePreview(1,this.playButton1, this.cleanButton, bigpanel1);
     }
         public void loadSecuencePreview(int number, JButton play, JButton clear, JPanel bigpanel){
             File file = new File(path + File.separator+"secuence"+number+".properties");
@@ -491,11 +492,11 @@ ScheduledExecutorService executor =
             normalRadioButton.setEnabled(false);
             musicRadioButton.setEnabled(false);
             notConnectedLabel.setVisible(true);
-            recordButton.setEnabled(false);
-            playButton.setEnabled(false);
+            recordButton1.setEnabled(false);
+            playButton1.setEnabled(false);
             Refresh2.setEnabled(false);
             picker.setEnabled(false);
-            this.clearButton.setEnabled(false);
+            this.clearButton1.setEnabled(false);
         }
         refreshSecondsSpinner.setEnabled(false);
         jLabel19.setEnabled(false);
@@ -575,11 +576,31 @@ ScheduledExecutorService executor =
         setButtonColor12 = new javax.swing.JButton();
         SecuencesPanel = new javax.swing.JPanel();
         SecuencesTitle = new javax.swing.JLabel();
-        bigpanel = new javax.swing.JPanel();
-        recordButton = new javax.swing.JToggleButton();
-        playButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
+        bigpanel1 = new javax.swing.JPanel();
+        recordButton1 = new javax.swing.JToggleButton();
+        playButton1 = new javax.swing.JButton();
+        clearButton1 = new javax.swing.JButton();
+        sec1label = new javax.swing.JLabel();
+        sec2label = new javax.swing.JLabel();
+        recordButton2 = new javax.swing.JToggleButton();
+        playButton2 = new javax.swing.JButton();
+        clearButton2 = new javax.swing.JButton();
+        bigpanel2 = new javax.swing.JPanel();
+        sec3label = new javax.swing.JLabel();
+        recordButton3 = new javax.swing.JToggleButton();
+        playButton3 = new javax.swing.JButton();
+        clearButton3 = new javax.swing.JButton();
+        bigpanel3 = new javax.swing.JPanel();
+        sec4label = new javax.swing.JLabel();
+        bigpanel4 = new javax.swing.JPanel();
+        recordButton4 = new javax.swing.JToggleButton();
+        playButton4 = new javax.swing.JButton();
+        clearButton4 = new javax.swing.JButton();
+        sec5label = new javax.swing.JLabel();
+        bigpanel5 = new javax.swing.JPanel();
+        recordButton5 = new javax.swing.JToggleButton();
+        playButton5 = new javax.swing.JButton();
+        clearButton5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         LedC1 = new javax.swing.JCheckBox();
         LedC2 = new javax.swing.JCheckBox();
@@ -1267,56 +1288,214 @@ ScheduledExecutorService executor =
         SecuencesTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SecuencesTitle.setText("Secuences");
 
-        bigpanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        bigpanel.setPreferredSize(new java.awt.Dimension(100, 37));
-        bigpanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+        bigpanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel1.setPreferredSize(new java.awt.Dimension(100, 37));
+        bigpanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        recordButton.setText("Record");
-        recordButton.addItemListener(new java.awt.event.ItemListener() {
+        recordButton1.setText("Record");
+        recordButton1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                recordButtonItemStateChanged(evt);
+                recordButton1ItemStateChanged(evt);
             }
         });
 
-        playButton.setText("Play");
-        playButton.addActionListener(new java.awt.event.ActionListener() {
+        playButton1.setText("Play");
+        playButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButtonActionPerformed(evt);
+                playButton1ActionPerformed(evt);
             }
         });
 
-        clearButton.setText("Clear");
-        clearButton.addActionListener(new java.awt.event.ActionListener() {
+        clearButton1.setText("Clear");
+        clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearButtonActionPerformed(evt);
+                clearButton1ActionPerformed(evt);
             }
         });
 
-        jLabel20.setText("Sec. 1");
+        sec1label.setText("Sec. 1");
+
+        sec2label.setText("Sec. 2");
+
+        recordButton2.setText("Record");
+        recordButton2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                recordButton2ItemStateChanged(evt);
+            }
+        });
+
+        playButton2.setText("Play");
+        playButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButton2ActionPerformed(evt);
+            }
+        });
+
+        clearButton2.setText("Clear");
+        clearButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButton2ActionPerformed(evt);
+            }
+        });
+
+        bigpanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel2.setPreferredSize(new java.awt.Dimension(100, 37));
+        bigpanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        sec3label.setText("Sec. 3");
+
+        recordButton3.setText("Record");
+        recordButton3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                recordButton3ItemStateChanged(evt);
+            }
+        });
+
+        playButton3.setText("Play");
+        playButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButton3ActionPerformed(evt);
+            }
+        });
+
+        clearButton3.setText("Clear");
+        clearButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButton3ActionPerformed(evt);
+            }
+        });
+
+        bigpanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel3.setPreferredSize(new java.awt.Dimension(100, 37));
+        bigpanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        sec4label.setText("Sec. 4");
+
+        bigpanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel4.setPreferredSize(new java.awt.Dimension(100, 37));
+        bigpanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        recordButton4.setText("Record");
+        recordButton4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                recordButton4ItemStateChanged(evt);
+            }
+        });
+
+        playButton4.setText("Play");
+        playButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButton4ActionPerformed(evt);
+            }
+        });
+
+        clearButton4.setText("Clear");
+        clearButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButton4ActionPerformed(evt);
+            }
+        });
+
+        sec5label.setText("Sec. 5");
+
+        bigpanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel5.setPreferredSize(new java.awt.Dimension(100, 37));
+        bigpanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        recordButton5.setText("Record");
+        recordButton5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                recordButton5ItemStateChanged(evt);
+            }
+        });
+
+        playButton5.setText("Play");
+        playButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButton5ActionPerformed(evt);
+            }
+        });
+
+        clearButton5.setText("Clear");
+        clearButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SecuencesPanelLayout = new javax.swing.GroupLayout(SecuencesPanel);
         SecuencesPanel.setLayout(SecuencesPanelLayout);
         SecuencesPanelLayout.setHorizontalGroup(
             SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(SecuencesTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecuencesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
+                        .addComponent(sec2label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(recordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bigpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(recordButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearButton2))))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(sec1label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(recordButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(playButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearButton)))
+                        .addComponent(clearButton1)))
                 .addGap(59, 59, 59))
+            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(SecuencesTitle))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sec3label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                                .addComponent(recordButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearButton3))))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sec4label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                                .addComponent(recordButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearButton4))))
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sec5label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                                .addComponent(recordButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearButton5)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SecuencesPanelLayout.setVerticalGroup(
             SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1325,13 +1504,45 @@ ScheduledExecutorService executor =
                 .addComponent(SecuencesTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recordButton)
-                    .addComponent(playButton)
-                    .addComponent(clearButton)
-                    .addComponent(jLabel20))
+                    .addComponent(recordButton1)
+                    .addComponent(playButton1)
+                    .addComponent(clearButton1)
+                    .addComponent(sec1label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(517, Short.MAX_VALUE))
+                .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(recordButton2)
+                    .addComponent(playButton2)
+                    .addComponent(clearButton2)
+                    .addComponent(sec2label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bigpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(recordButton3)
+                    .addComponent(playButton3)
+                    .addComponent(clearButton3)
+                    .addComponent(sec3label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(recordButton4)
+                    .addComponent(playButton4)
+                    .addComponent(clearButton4)
+                    .addComponent(sec4label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(recordButton5)
+                    .addComponent(playButton5)
+                    .addComponent(clearButton5)
+                    .addComponent(sec5label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
@@ -2094,8 +2305,8 @@ if (methods.isConnected()) {
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
                 musicRadioButton.setEnabled(false);
-                recordButton.setEnabled(false);
-                playButton.setEnabled(false);
+                recordButton1.setEnabled(false);
+                playButton1.setEnabled(false);
                 Refresh2.setEnabled(false);
             
 
@@ -2297,11 +2508,11 @@ if (testMode.isSelected()){
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
                 Refresh2.setEnabled(true);
-                clearButton.setEnabled(true);
+                clearButton1.setEnabled(true);
                 
             
-            recordButton.setEnabled(true);
-            playButton.setEnabled(true);
+            recordButton1.setEnabled(true);
+            playButton1.setEnabled(true);
 }else {
   notConnectedLabel.setVisible(true);
                 connectButton.setText("Connect");
@@ -2309,35 +2520,83 @@ if (testMode.isSelected()){
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
                 musicRadioButton.setEnabled(false);
-                recordButton.setEnabled(false);
-                playButton.setEnabled(false);
+                recordButton1.setEnabled(false);
+                playButton1.setEnabled(false);
                 Refresh2.setEnabled(false); 
                 
 }
     }//GEN-LAST:event_testModeItemStateChanged
 
-    private void recordButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButtonItemStateChanged
-if (recordButton.isSelected()){
-    ub = new arduino.control.center.utils.secuences();
-ub.record(picker, 1);
+    private void recordButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton1ItemStateChanged
+if (recordButton1.isSelected()){
+    s1record = new arduino.control.center.utils.secuences();
+s1record.record(picker, 1);
     
 }else{
     
     
-    ub.recorderStop(bigpanel);
+    s1record.recorderStop(bigpanel1);
     
 }
     // TODO add your handling code here:
-    }//GEN-LAST:event_recordButtonItemStateChanged
+    }//GEN-LAST:event_recordButton1ItemStateChanged
 
-    private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-ub1 = new arduino.control.center.utils.secuences();
-    ub1.play(picker, 1);        // TODO add your handling code here:
-    }//GEN-LAST:event_playButtonActionPerformed
+    private void playButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton1ActionPerformed
+s1play = new arduino.control.center.utils.secuences();
+    s1play.play(picker, 1);        // TODO add your handling code here:
+    }//GEN-LAST:event_playButton1ActionPerformed
 
-    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+    private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         secuences.clean(1);
-    }//GEN-LAST:event_clearButtonActionPerformed
+    }//GEN-LAST:event_clearButton1ActionPerformed
+
+    private void recordButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_recordButton2ItemStateChanged
+
+    private void playButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playButton2ActionPerformed
+
+    private void clearButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearButton2ActionPerformed
+
+    private void recordButton3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton3ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_recordButton3ItemStateChanged
+
+    private void playButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playButton3ActionPerformed
+
+    private void clearButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearButton3ActionPerformed
+
+    private void recordButton4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton4ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_recordButton4ItemStateChanged
+
+    private void playButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playButton4ActionPerformed
+
+    private void clearButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearButton4ActionPerformed
+
+    private void recordButton5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton5ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_recordButton5ItemStateChanged
+
+    private void playButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playButton5ActionPerformed
+
+    private void clearButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearButton5ActionPerformed
 
     
     Runnable refreshTemp = new Runnable() {
@@ -2371,10 +2630,18 @@ ub1 = new arduino.control.center.utils.secuences();
     private javax.swing.JTextField Temp5;
     private javax.swing.JTextField Temp6;
     private javax.swing.JPanel ambilightTab;
-    private javax.swing.JPanel bigpanel;
+    private javax.swing.JPanel bigpanel1;
+    private javax.swing.JPanel bigpanel2;
+    private javax.swing.JPanel bigpanel3;
+    private javax.swing.JPanel bigpanel4;
+    private javax.swing.JPanel bigpanel5;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cleanButton;
-    private javax.swing.JButton clearButton;
+    private javax.swing.JButton clearButton1;
+    private javax.swing.JButton clearButton2;
+    private javax.swing.JButton clearButton3;
+    private javax.swing.JButton clearButton4;
+    private javax.swing.JButton clearButton5;
     private javax.swing.JPanel colorTab;
     private javax.swing.JTabbedPane colors_secuencesPanel;
     private javax.swing.JButton connectButton;
@@ -2410,7 +2677,6 @@ ub1 = new arduino.control.center.utils.secuences();
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2450,13 +2716,21 @@ ub1 = new arduino.control.center.utils.secuences();
     private javax.swing.JPanel panelColor8;
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
-    private javax.swing.JButton playButton;
+    private javax.swing.JButton playButton1;
+    private javax.swing.JButton playButton2;
+    private javax.swing.JButton playButton3;
+    private javax.swing.JButton playButton4;
+    private javax.swing.JButton playButton5;
     private javax.swing.JLabel pump1label;
     private javax.swing.JTextField pump1max;
     private javax.swing.JSlider pump1slider;
     private javax.swing.JLabel pump2label;
     private javax.swing.JLabel pumpsTitleLabel;
-    private javax.swing.JToggleButton recordButton;
+    private javax.swing.JToggleButton recordButton1;
+    private javax.swing.JToggleButton recordButton2;
+    private javax.swing.JToggleButton recordButton3;
+    private javax.swing.JToggleButton recordButton4;
+    private javax.swing.JToggleButton recordButton5;
     private javax.swing.JButton refreshPortsButton;
     private javax.swing.JSpinner refreshSecondsSpinner;
     private javax.swing.JTextField rmpLabelFan1;
@@ -2465,6 +2739,11 @@ ub1 = new arduino.control.center.utils.secuences();
     private javax.swing.JLabel rpmlabel1;
     private javax.swing.JLabel rpmlabel3;
     private javax.swing.JLabel rpmlabel4;
+    private javax.swing.JLabel sec1label;
+    private javax.swing.JLabel sec2label;
+    private javax.swing.JLabel sec3label;
+    private javax.swing.JLabel sec4label;
+    private javax.swing.JLabel sec5label;
     private javax.swing.JButton sendbutton;
     private javax.swing.JButton setButtonColor1;
     private javax.swing.JButton setButtonColor10;
