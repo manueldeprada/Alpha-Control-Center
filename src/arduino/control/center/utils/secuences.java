@@ -98,8 +98,8 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         config.setValue("iFinal", Integer.toString(i), file);
         chr.stop();
         
-        for(int u= 0;u<50;u++){
-            int period = i/50;
+        for(int u= 0;u<100;u++){
+            int period = i/100;
             int rd = Integer.parseInt(config.getValue("c"+period*u+"r", file));
             int gd = Integer.parseInt(config.getValue("c"+period*u+"g", file));
             int bd = Integer.parseInt(config.getValue("c"+period*u+"b", file));
