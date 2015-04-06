@@ -6,18 +6,24 @@
 package arduino.control.center;
 
 import arduino.control.center.utils.methods;
+import static arduino.control.center.utils.secuences.path;
 import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Window;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
 
@@ -28,6 +34,9 @@ import panamahitek.Arduino.PanamaHitek_multiMessage;
 public class mainGUI extends javax.swing.JFrame {
 private int mode = 0;
 private methods methods = new methods();
+arduino.control.center.utils.secuences ub;
+arduino.control.center.utils.secuences ub1;
+
 private boolean testmode = false;
 ScheduledExecutorService executor = 
             Executors.newScheduledThreadPool(1);
@@ -53,6 +62,7 @@ ScheduledExecutorService executor =
      */
     public mainGUI() {
         initComponents(); 
+        makeJPanels(bigpanel);
         methods.initialicePicker(picker);
         methods.initialiceArrays(picker);
         initPanel();
@@ -105,6 +115,166 @@ ScheduledExecutorService executor =
             methods.write(mode, picker, fan1slider, fan2slider,pump1slider, LedC1, LedC2, LedC3,LedC4,testmode);
         }
     }
+    public void makeJPanels(JPanel bigPanel){
+       
+        JPanel p1 = new JPanel();   
+        JPanel p2 = new JPanel();
+        JPanel p3 = new JPanel();
+        JPanel p4 = new JPanel();
+        JPanel p5 = new JPanel();
+        JPanel p6 = new JPanel();
+        JPanel p7 = new JPanel();
+        JPanel p8 = new JPanel();
+        JPanel p9 = new JPanel();
+        JPanel p10 = new JPanel();
+        JPanel p11 = new JPanel();
+        JPanel p12 = new JPanel();
+        JPanel p13 = new JPanel();
+        JPanel p14 = new JPanel();
+        JPanel p15 = new JPanel();
+        JPanel p16 = new JPanel();
+        JPanel p17 = new JPanel();
+        JPanel p18 = new JPanel();
+        JPanel p19 = new JPanel();
+        JPanel p20 = new JPanel();
+        JPanel p21 = new JPanel();
+        JPanel p22 = new JPanel();
+        JPanel p23 = new JPanel();
+        JPanel p24 = new JPanel();
+        JPanel p25 = new JPanel();
+        JPanel p26 = new JPanel();
+        JPanel p27 = new JPanel();
+        JPanel p28 = new JPanel();
+        JPanel p29 = new JPanel();
+        JPanel p30 = new JPanel();
+        JPanel p31 = new JPanel();
+        JPanel p32 = new JPanel();
+        JPanel p33 = new JPanel();
+        JPanel p34 = new JPanel();
+        JPanel p35 = new JPanel();
+        JPanel p36 = new JPanel();
+        JPanel p37 = new JPanel();
+        JPanel p38 = new JPanel();
+        JPanel p39 = new JPanel();
+        JPanel p40 = new JPanel();
+        JPanel p41 = new JPanel();
+        JPanel p42 = new JPanel();
+        JPanel p43 = new JPanel();
+        JPanel p44 = new JPanel();
+        JPanel p45 = new JPanel();
+        JPanel p46 = new JPanel();
+        JPanel p47 = new JPanel();
+        JPanel p48 = new JPanel();
+        JPanel p49 = new JPanel();
+        JPanel p50 = new JPanel();
+        
+        
+              int i = 2;
+               p1.setPreferredSize(new Dimension(i,35));
+               p2.setPreferredSize(new Dimension(i,35));
+               p3.setPreferredSize(new Dimension(i,35));
+               p4.setPreferredSize(new Dimension(i,35));
+               p5.setPreferredSize(new Dimension(i,35));
+               p6.setPreferredSize(new Dimension(i,35));
+               p7.setPreferredSize(new Dimension(i,35));
+               p8.setPreferredSize(new Dimension(i,35));
+               p9.setPreferredSize(new Dimension(i,35));
+               p10.setPreferredSize(new Dimension(i,35));
+               p11.setPreferredSize(new Dimension(i,35));
+               p12.setPreferredSize(new Dimension(i,35));
+               p13.setPreferredSize(new Dimension(i,35));
+               p14.setPreferredSize(new Dimension(i,35));
+               p15.setPreferredSize(new Dimension(i,35));
+               p16.setPreferredSize(new Dimension(i,35));
+               p17.setPreferredSize(new Dimension(i,35));
+               p18.setPreferredSize(new Dimension(i,35));
+               p19.setPreferredSize(new Dimension(i,35));
+               p20.setPreferredSize(new Dimension(i,35));
+               p21.setPreferredSize(new Dimension(i,35));
+               p22.setPreferredSize(new Dimension(i,35));
+               p23.setPreferredSize(new Dimension(i,35));
+               p24.setPreferredSize(new Dimension(i,35));
+               p25.setPreferredSize(new Dimension(i,35));
+               p26.setPreferredSize(new Dimension(i,35));
+               p27.setPreferredSize(new Dimension(i,35));
+               p28.setPreferredSize(new Dimension(i,35));
+               p29.setPreferredSize(new Dimension(i,35));
+               p30.setPreferredSize(new Dimension(i,35));
+               p31.setPreferredSize(new Dimension(i,35));
+               p32.setPreferredSize(new Dimension(i,35));
+               p33.setPreferredSize(new Dimension(i,35));
+               p34.setPreferredSize(new Dimension(i,35));
+               p35.setPreferredSize(new Dimension(i,35));
+               p36.setPreferredSize(new Dimension(i,35));
+               p37.setPreferredSize(new Dimension(i,35));
+               p38.setPreferredSize(new Dimension(i,35));
+               p39.setPreferredSize(new Dimension(i,35));
+               p40.setPreferredSize(new Dimension(i,35));
+               p41.setPreferredSize(new Dimension(i,35));
+               p42.setPreferredSize(new Dimension(i,35));
+               p43.setPreferredSize(new Dimension(i,35));
+               p44.setPreferredSize(new Dimension(i,35));
+               p45.setPreferredSize(new Dimension(i,35));
+               p46.setPreferredSize(new Dimension(i,35));
+               p47.setPreferredSize(new Dimension(i,35));
+               p48.setPreferredSize(new Dimension(i,35));
+               p49.setPreferredSize(new Dimension(i,35));
+               p50.setPreferredSize(new Dimension(i,35));
+      
+               
+        bigPanel.add(p1);
+        bigPanel.add(p2);
+        bigPanel.add(p3);
+        bigPanel.add(p4);
+        bigPanel.add(p5);
+        bigPanel.add(p6);
+        bigPanel.add(p7);
+        bigPanel.add(p8);
+        bigPanel.add(p9);
+        bigPanel.add(p10);
+        bigPanel.add(p11);
+        bigPanel.add(p12);
+        bigPanel.add(p13);
+        bigPanel.add(p14);
+        bigPanel.add(p15);
+        bigPanel.add(p16);
+        bigPanel.add(p17);
+        bigPanel.add(p18);
+        bigPanel.add(p19);
+        bigPanel.add(p20);
+        bigPanel.add(p21);
+        bigPanel.add(p22);
+        bigPanel.add(p23);
+        bigPanel.add(p24);
+        bigPanel.add(p25);
+        bigPanel.add(p26);
+        bigPanel.add(p27);
+        bigPanel.add(p28);
+        bigPanel.add(p29);
+        bigPanel.add(p30);
+        bigPanel.add(p31);
+        bigPanel.add(p32);
+        bigPanel.add(p33);
+        bigPanel.add(p34);
+        bigPanel.add(p35);
+        bigPanel.add(p36);
+        bigPanel.add(p37);
+        bigPanel.add(p38);
+        bigPanel.add(p39);
+        bigPanel.add(p40);
+        bigPanel.add(p41);
+        bigPanel.add(p42);
+        bigPanel.add(p43);
+        bigPanel.add(p44);
+        bigPanel.add(p45);
+        bigPanel.add(p46);
+        bigPanel.add(p47);
+        bigPanel.add(p48);
+        bigPanel.add(p49);
+        bigPanel.add(p50);
+        
+        
+    }
    
     public void loadpreviews(){
         methods.loadpreview(1, panelColor1);
@@ -140,8 +310,8 @@ ScheduledExecutorService executor =
             normalRadioButton.setEnabled(false);
             musicRadioButton.setEnabled(false);
             notConnectedLabel.setVisible(true);
-            SecuencesRecordButton.setEnabled(false);
-            SecuencesPlayButton.setEnabled(false);
+            recordButton.setEnabled(false);
+            playButton.setEnabled(false);
             Refresh2.setEnabled(false);
             picker.setEnabled(testmode);
         }
@@ -223,8 +393,11 @@ ScheduledExecutorService executor =
         setButtonColor12 = new javax.swing.JButton();
         SecuencesPanel = new javax.swing.JPanel();
         SecuencesTitle = new javax.swing.JLabel();
-        SecuencesRecordButton = new javax.swing.JButton();
-        SecuencesPlayButton = new javax.swing.JButton();
+        bigpanel = new javax.swing.JPanel();
+        recordButton = new javax.swing.JToggleButton();
+        playButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         LedC1 = new javax.swing.JCheckBox();
         LedC2 = new javax.swing.JCheckBox();
@@ -912,45 +1085,68 @@ ScheduledExecutorService executor =
         SecuencesTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SecuencesTitle.setText("Secuences");
 
-        SecuencesRecordButton.setText("Record");
-        SecuencesRecordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SecuencesRecordButtonActionPerformed(evt);
+        bigpanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        bigpanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        recordButton.setText("Record");
+        recordButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                recordButtonItemStateChanged(evt);
             }
         });
 
-        SecuencesPlayButton.setText("Play");
-        SecuencesPlayButton.addActionListener(new java.awt.event.ActionListener() {
+        playButton.setText("Play");
+        playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SecuencesPlayButtonActionPerformed(evt);
+                playButtonActionPerformed(evt);
             }
         });
+
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Sec. 1");
 
         javax.swing.GroupLayout SecuencesPanelLayout = new javax.swing.GroupLayout(SecuencesPanel);
         SecuencesPanel.setLayout(SecuencesPanelLayout);
         SecuencesPanelLayout.setHorizontalGroup(
             SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(SecuencesRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(SecuencesPlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-            .addGroup(SecuencesPanelLayout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(SecuencesTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecuencesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(recordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearButton))
+                    .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59))
         );
         SecuencesPanelLayout.setVerticalGroup(
             SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SecuencesTitle)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SecuencesRecordButton)
-                    .addComponent(SecuencesPlayButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(recordButton)
+                    .addComponent(playButton)
+                    .addComponent(clearButton)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bigpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(451, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
@@ -1038,7 +1234,7 @@ ScheduledExecutorService executor =
                 .addComponent(testMode))
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(colors_secuencesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                .addComponent(colors_secuencesPanel)
                 .addContainerGap())
         );
 
@@ -1048,11 +1244,11 @@ ScheduledExecutorService executor =
         ambilightTab.setLayout(ambilightTabLayout);
         ambilightTabLayout.setHorizontalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 815, Short.MAX_VALUE)
+            .addGap(0, 812, Short.MAX_VALUE)
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -1696,16 +1892,6 @@ methods.cleanFavourites();
 loadpreviews();// TODO add your handling code here:
     }//GEN-LAST:event_cleanButtonActionPerformed
 
-    private void SecuencesRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesRecordButtonActionPerformed
-arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
-ub.record(picker, 1);// TODO add your handling code here:
-    }//GEN-LAST:event_SecuencesRecordButtonActionPerformed
-
-    private void SecuencesPlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecuencesPlayButtonActionPerformed
-     arduino.control.center.utils.secuences ub = new arduino.control.center.utils.secuences();
-ub.play(picker, 1);   // TODO add your handling code here:
-    }//GEN-LAST:event_SecuencesPlayButtonActionPerformed
-
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
 if (methods.isConnected()) {
     
@@ -1716,8 +1902,8 @@ if (methods.isConnected()) {
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
                 musicRadioButton.setEnabled(false);
-                SecuencesRecordButton.setEnabled(false);
-                SecuencesPlayButton.setEnabled(false);
+                recordButton.setEnabled(false);
+                playButton.setEnabled(false);
                 Refresh2.setEnabled(false);
             
 
@@ -1918,6 +2104,10 @@ if (testMode.isSelected()){
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
                 Refresh2.setEnabled(true);
+                
+            
+            recordButton.setEnabled(true);
+            playButton.setEnabled(true);
 }else {
   notConnectedLabel.setVisible(true);
                 connectButton.setText("Connect");
@@ -1925,11 +2115,46 @@ if (testMode.isSelected()){
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
                 musicRadioButton.setEnabled(false);
-                SecuencesRecordButton.setEnabled(false);
-                SecuencesPlayButton.setEnabled(false);
-                Refresh2.setEnabled(false);   
+                recordButton.setEnabled(false);
+                playButton.setEnabled(false);
+                Refresh2.setEnabled(false); 
+                
 }
     }//GEN-LAST:event_testModeItemStateChanged
+
+    private void recordButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButtonItemStateChanged
+if (recordButton.isSelected()){
+    ub = new arduino.control.center.utils.secuences();
+ub.record(picker, 1);
+    
+}else{
+    
+    
+    ub.recorderStop(bigpanel);
+    
+}
+    // TODO add your handling code here:
+    }//GEN-LAST:event_recordButtonItemStateChanged
+
+    private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+ub1 = new arduino.control.center.utils.secuences();
+    ub1.play(picker, 1);        // TODO add your handling code here:
+    }//GEN-LAST:event_playButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        PrintWriter writer = null;   
+    try {
+        File file = new File(path + File.separator+"secuence"+1+".properties");
+        writer = new PrintWriter(file);
+        writer.print("");
+        writer.close();
+// TODO add your handling code here:
+    } catch (FileNotFoundException ex) {
+        Logger.getLogger(mainGUI.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+        writer.close();
+    }
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     
     Runnable refreshTemp = new Runnable() {
@@ -1955,8 +2180,6 @@ if (testMode.isSelected()){
     private javax.swing.JButton Refresh2;
     private javax.swing.JCheckBox RefreshCheckBox;
     private javax.swing.JPanel SecuencesPanel;
-    private javax.swing.JButton SecuencesPlayButton;
-    private javax.swing.JButton SecuencesRecordButton;
     private javax.swing.JLabel SecuencesTitle;
     private javax.swing.JTextField Temp1;
     private javax.swing.JTextField Temp2;
@@ -1965,8 +2188,10 @@ if (testMode.isSelected()){
     private javax.swing.JTextField Temp5;
     private javax.swing.JTextField Temp6;
     private javax.swing.JPanel ambilightTab;
+    private javax.swing.JPanel bigpanel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cleanButton;
+    private javax.swing.JButton clearButton;
     private javax.swing.JPanel colorTab;
     private javax.swing.JTabbedPane colors_secuencesPanel;
     private javax.swing.JButton connectButton;
@@ -2002,6 +2227,7 @@ if (testMode.isSelected()){
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2041,11 +2267,13 @@ if (testMode.isSelected()){
     private javax.swing.JPanel panelColor8;
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
+    private javax.swing.JButton playButton;
     private javax.swing.JLabel pump1label;
     private javax.swing.JTextField pump1max;
     private javax.swing.JSlider pump1slider;
     private javax.swing.JLabel pump2label;
     private javax.swing.JLabel pumpsTitleLabel;
+    private javax.swing.JToggleButton recordButton;
     private javax.swing.JButton refreshPortsButton;
     private javax.swing.JSpinner refreshSecondsSpinner;
     private javax.swing.JTextField rmpLabelFan1;

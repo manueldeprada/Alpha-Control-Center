@@ -14,6 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -40,7 +41,7 @@ public class secuences {
             config.setValue("c"+i+"r", r,file);
             config.setValue("c"+i+"g", g,file);
             config.setValue("c"+i+"b", b,file);
-            config.setValue("t"+i, Long.toString(ch.getMilliseconds()),file);
+            config.setValue("t"+i, Long.toString(chr.getMilliseconds()),file);
             i++;
             
             
@@ -63,28 +64,56 @@ public class secuences {
 
        
         long timeNext = Long.parseLong(config.getValue("t"+i, file));
-                    System.out.println(ch.getMilliseconds());
-
-        if (ch.getMilliseconds() > timeNext){
+if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
+        System.out.println("biennn");
+        playerexecutor.shutdown();
+        }
+        if (chp.getMilliseconds() > timeNext){
 
              
             picker.setColor(now);
             
            
             i++;
-            System.out.println("go");
             
             
         }
-        
-        
+        if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
+        System.out.println("biennn");
+        playerexecutor.shutdown();
+        }
         
     }
 };
 
     
-    ScheduledExecutorService executor = 
+    ScheduledExecutorService recorderexecutor = 
             Executors.newScheduledThreadPool(1);
+    ScheduledExecutorService playerexecutor = 
+            Executors.newScheduledThreadPool(1);
+    
+    public void recorderStop(JPanel panel){
+        recorderexecutor.shutdown();
+        config.setValue("endTime", Long.toString(chr.getTime()), file);
+        chr.stop();
+        
+        for(int u= 0;u<50;u++){
+            int period = i/50;
+            int rd = Integer.parseInt(config.getValue("c"+period*u+"r", file));
+            int gd = Integer.parseInt(config.getValue("c"+period*u+"g", file));
+            int bd = Integer.parseInt(config.getValue("c"+period*u+"b", file));
+                    panel.getComponent(u).setBackground(new Color(rd,gd,bd));
+
+        }
+        
+        
+        
+    }
+    
+    public void playerStop(){
+        playerexecutor.shutdown();
+        chp.stop();
+    }
     
     public void record(ColorPicker picker1, int number){
         file = new File(path + File.separator+"secuence"+number+".properties");
@@ -96,8 +125,8 @@ public class secuences {
         config.setValue("initialB", Integer.toString(initial.getBlue()), file);
         picker = picker1; 
         saved = initial;
-        ch.start();
-        executor.scheduleAtFixedRate(recorder, 0, 10, TimeUnit.MILLISECONDS);
+        chr.start();
+        recorderexecutor.scheduleAtFixedRate(recorder, 0, 10, TimeUnit.MILLISECONDS);
           
         
                     
@@ -115,8 +144,8 @@ public class secuences {
         picker1.setColor(initial);
         picker = picker1; 
         saved = initial;
-        ch.start();
-        executor.scheduleAtFixedRate(player, 0, 10, TimeUnit.MILLISECONDS);
+        chp.start();
+        playerexecutor.scheduleAtFixedRate(player, 0, 10, TimeUnit.MILLISECONDS);
     }
     public final class Chronometer{
     private long begin, end;
@@ -166,6 +195,8 @@ public class secuences {
        public Color saved;
        public int i = 0;
        File file = null;
-       Chronometer ch = new Chronometer();
-    
+              Chronometer chr = new Chronometer();
+                     Chronometer chp = new Chronometer();
+
+
 }
