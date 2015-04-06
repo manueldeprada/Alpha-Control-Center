@@ -610,7 +610,7 @@ ScheduledExecutorService executor =
         LedC3 = new javax.swing.JCheckBox();
         LedC4 = new javax.swing.JCheckBox();
         testMode = new javax.swing.JToggleButton();
-        ambilightTab = new javax.swing.JPanel();
+        ambilightTab = new arduino.control.center.ambilight();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
         fan1slider = new javax.swing.JSlider();
@@ -1646,10 +1646,10 @@ ScheduledExecutorService executor =
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        tabPanel.addTab("Ambilight", ambilightTab);
+        tabPanel.addTab("tab4", ambilightTab);
 
         fan1label.setText("Channel 1");
 
@@ -2642,7 +2642,7 @@ if (testMode.isSelected()){
     private javax.swing.JTextField Temp4;
     private javax.swing.JTextField Temp5;
     private javax.swing.JTextField Temp6;
-    private javax.swing.JPanel ambilightTab;
+    private arduino.control.center.ambilight ambilightTab;
     private javax.swing.JPanel bigpanel1;
     private javax.swing.JPanel bigpanel2;
     private javax.swing.JPanel bigpanel3;
