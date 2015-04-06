@@ -172,6 +172,7 @@ String OutputR, OutputG, OutputB;
         } else {
         OutputR = Integer.toString(rx);
         }
+        
 
         if (gx < 10) {
         OutputG = "00" + gx;
@@ -189,6 +190,7 @@ String OutputR, OutputG, OutputB;
         OutputB = Integer.toString(bx);
         
         }
+        
         String[] output = new String[3];
         output[0] = OutputR;
         output[1] = OutputG;
@@ -230,10 +232,10 @@ String OutputR, OutputG, OutputB;
     }
     
     public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode) {
-  String[] output1;
-  String[] output2;
-  String[] output3;
-  String[] output4;
+  String[] output1= {"000", "000","000"};
+  String[] output2= {"000", "000","000"};
+  String[] output3= {"000", "000","000"};
+  String[] output4= {"000", "000","000"};
   String[] motors = {"000", "000","000"};
         if (mode == 0){ //normal
             
@@ -277,6 +279,8 @@ String OutputR, OutputG, OutputB;
             output2 = SetData(channel2);
             output3 = SetData(channel3);
             output4 = SetData(channel4);
+                   // System.out.println(output4[0] + output4[1]+ output4[2]);
+
             
             int Fan1 = fan1slider.getValue()*255/100;
             int Fan2 = fan2slider.getValue()*255/100;
@@ -291,8 +295,9 @@ String OutputR, OutputG, OutputB;
                
         }
         
-        
-        String send = channel1[0] + channel1[1] + channel1[2] + channel2[0] + channel2[1] + channel2[2] +  channel3[0] + channel3[1] + channel3[2] + channel4[0] + channel4[1] + channel4[2] + motors[0] + motors[1] + motors[2];
+                
+                
+        String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + motors[0] + motors[1] + motors[2];
         try {
                     System.out.println(send);
                     if(!testmode){
