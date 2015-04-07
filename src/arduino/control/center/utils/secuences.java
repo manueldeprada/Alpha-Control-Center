@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -24,7 +25,7 @@ import javax.swing.JPanel;
  */
 public class secuences {
    
-    
+    private boolean loop = false;
     Runnable recorder = new Runnable() {
 
     public void run() {
@@ -57,7 +58,14 @@ public class secuences {
     Runnable player = new Runnable() {
 
     public void run() {
-        
+if (i==Integer.parseInt(config.getValue("iFinal", file))){
+           if (loop){
+               i=0;
+           }else{
+               button.setSelected(false);
+               playerexecutor.shutdown();
+           }
+        }
         int r =Integer.parseInt(config.getValue("c"+i+"r", file));
             int g =Integer.parseInt(config.getValue("c"+i+"g", file));
             int b =Integer.parseInt(config.getValue("c"+i+"b", file));
@@ -66,10 +74,7 @@ public class secuences {
 
        
         long timeNext = Long.parseLong(config.getValue("t"+i, file));
-if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
-        System.out.println("biennn");
-        playerexecutor.shutdown();
-        }
+
         if (chp.getMilliseconds() > timeNext){
 
              
@@ -82,7 +87,6 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         }
         if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         System.out.println("biennn");
-        playerexecutor.shutdown();
         }
         
     }
@@ -95,9 +99,10 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
             Executors.newScheduledThreadPool(1);
     
     public void recorderStop(JPanel panel){
-        recorderexecutor.shutdown();
-        config.setValue("endTime", Long.toString(chr.getTime()), file);
+        
+        config.setValue("endTime", Long.toString(chr.getMilliseconds()), file);
         config.setValue("iFinal", Integer.toString(i), file);
+        recorderexecutor.shutdown();
         chr.stop();
         
         for(int u= 0;u<100;u++){
@@ -111,6 +116,10 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         
         
         
+    }
+    
+    public void setLoop(boolean ub){
+        loop = ub;
     }
     
     public void playerStop(){
@@ -159,7 +168,7 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
                     
 
     }
-    public void play(ColorPicker picker1, int number){
+    public void play(ColorPicker picker1, int number, JToggleButton btn){
         file = new File(path + File.separator+"secuence"+number+".properties");
         
         
@@ -170,8 +179,10 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
         picker1.setColor(initial);
         picker = picker1; 
         saved = initial;
+        button = btn;
         chp.start();
         playerexecutor.scheduleAtFixedRate(player, 0, 10, TimeUnit.MILLISECONDS);
+        
     }
     public final class Chronometer{
     private long begin, end;
@@ -220,6 +231,7 @@ if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
        public ColorPicker picker = null;
        public Color saved;
        public int i = 0;
+       JToggleButton button;
        File file = null;
               Chronometer chr = new Chronometer();
                      Chronometer chp = new Chronometer();

@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
 
 /**
@@ -38,7 +39,7 @@ public class mainGUI extends javax.swing.JFrame {
 private int mode = 0;
 private methods methods = new methods();
 arduino.control.center.utils.secuences s1record;
-arduino.control.center.utils.secuences s1play;
+arduino.control.center.utils.secuences s1play = new arduino.control.center.utils.secuences();
 
 
 private boolean testmode = false;
@@ -98,7 +99,7 @@ ScheduledExecutorService executor =
     public void loadsecpreviews(){
         loadSecuencePreview(1,this.playButton1, this.cleanButton, bigpanel1);
     }
-        public void loadSecuencePreview(int number, JButton play, JButton clear, JPanel bigpanel){
+        public void loadSecuencePreview(int number, JToggleButton play, JButton clear, JPanel bigpanel){
             File file = new File(path + File.separator+"secuence"+number+".properties");
             if (!file.exists() || config.getValue("iFinal",file)==""|| config.getValue("iFinal",file)==null){
                 play.setEnabled(false);
@@ -581,7 +582,6 @@ ScheduledExecutorService executor =
         SecuencesTitle = new javax.swing.JLabel();
         bigpanel1 = new javax.swing.JPanel();
         recordButton1 = new javax.swing.JToggleButton();
-        playButton1 = new javax.swing.JButton();
         clearButton1 = new javax.swing.JButton();
         sec1label = new javax.swing.JLabel();
         sec2label = new javax.swing.JLabel();
@@ -604,6 +604,8 @@ ScheduledExecutorService executor =
         recordButton5 = new javax.swing.JToggleButton();
         playButton5 = new javax.swing.JButton();
         clearButton5 = new javax.swing.JButton();
+        loopCheckBox = new javax.swing.JCheckBox();
+        playButton1 = new javax.swing.JToggleButton();
         jLabel17 = new javax.swing.JLabel();
         LedC1 = new javax.swing.JCheckBox();
         LedC2 = new javax.swing.JCheckBox();
@@ -1302,13 +1304,6 @@ ScheduledExecutorService executor =
             }
         });
 
-        playButton1.setText("Play");
-        playButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButton1ActionPerformed(evt);
-            }
-        });
-
         clearButton1.setText("Clear");
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1426,6 +1421,20 @@ ScheduledExecutorService executor =
             }
         });
 
+        loopCheckBox.setText("Loop");
+        loopCheckBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                loopCheckBoxItemStateChanged(evt);
+            }
+        });
+
+        playButton1.setText("Play");
+        playButton1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playButton1ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout SecuencesPanelLayout = new javax.swing.GroupLayout(SecuencesPanel);
         SecuencesPanel.setLayout(SecuencesPanelLayout);
         SecuencesPanelLayout.setHorizontalGroup(
@@ -1445,14 +1454,15 @@ ScheduledExecutorService executor =
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(clearButton2))))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(loopCheckBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addComponent(sec1label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(recordButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(playButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(playButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearButton1)))
                 .addGap(59, 59, 59))
@@ -1464,8 +1474,8 @@ ScheduledExecutorService executor =
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sec3label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1476,8 +1486,8 @@ ScheduledExecutorService executor =
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sec4label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1488,8 +1498,8 @@ ScheduledExecutorService executor =
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sec5label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1507,11 +1517,13 @@ ScheduledExecutorService executor =
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recordButton1)
-                    .addComponent(playButton1)
                     .addComponent(clearButton1)
-                    .addComponent(sec1label))
+                    .addComponent(sec1label)
+                    .addComponent(playButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loopCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recordButton2)
@@ -1544,7 +1556,7 @@ ScheduledExecutorService executor =
                     .addComponent(sec5label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
@@ -2554,11 +2566,6 @@ if (testMode.isSelected()){
     // TODO add your handling code here:
     }//GEN-LAST:event_recordButton1ItemStateChanged
 
-    private void playButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton1ActionPerformed
-    s1play = new arduino.control.center.utils.secuences();
-    s1play.play(picker, 1);        // TODO add your handling code here:
-    }//GEN-LAST:event_playButton1ActionPerformed
-
     private void clearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton1ActionPerformed
         secuences.clean(1);
     }//GEN-LAST:event_clearButton1ActionPerformed
@@ -2610,6 +2617,26 @@ if (testMode.isSelected()){
     private void clearButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clearButton5ActionPerformed
+
+    private void loopCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBoxItemStateChanged
+if (loopCheckBox.isSelected()){
+
+    s1play.setLoop(true);
+    
+
+}else{
+    
+    s1play.setLoop(false);
+    
+}
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBoxItemStateChanged
+
+    private void playButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton1ItemStateChanged
+s1play.play(picker, 1, playButton1);          // TODO add your handling code here:
+    }//GEN-LAST:event_playButton1ItemStateChanged
 
     
     Runnable refreshTemp = new Runnable() {
@@ -2712,6 +2739,7 @@ if (testMode.isSelected()){
     private javax.swing.JLabel labelColor8;
     private javax.swing.JLabel labelColor9;
     private javax.swing.JLabel ledModeLabel;
+    private javax.swing.JCheckBox loopCheckBox;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JRadioButton musicRadioButton;
     private javax.swing.JRadioButton normalRadioButton;
@@ -2729,7 +2757,7 @@ if (testMode.isSelected()){
     private javax.swing.JPanel panelColor8;
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
-    private javax.swing.JButton playButton1;
+    private javax.swing.JToggleButton playButton1;
     private javax.swing.JButton playButton2;
     private javax.swing.JButton playButton3;
     private javax.swing.JButton playButton4;
