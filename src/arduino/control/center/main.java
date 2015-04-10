@@ -44,10 +44,8 @@ public class main {
                 new mainGUI().setVisible(true);
             }
         });
-        
-        
-        
     }
+    
     public static String getLaF(){
             if (isWindows()) {
 			return "Windows";

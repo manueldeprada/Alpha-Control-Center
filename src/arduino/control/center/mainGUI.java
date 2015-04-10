@@ -12,9 +12,25 @@ import static arduino.control.center.utils.secuences.path;
 import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
+import static java.awt.Frame.ICONIFIED;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import static java.awt.Frame.NORMAL;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -61,13 +77,81 @@ ScheduledExecutorService executor =
         }
     }
 };
+
+    
+    public void trayIcon(){
+        TrayIcon trayIcon;
+
+        if (SystemTray.isSupported()) {
+
+            SystemTray tray = SystemTray.getSystemTray();
+            Image image = Toolkit.getDefaultToolkit().getImage("Icon.png");
+
+            ActionListener exitListener = new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            };
+            
+            ActionListener openListener = new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(true);
+                }
+            };
+            
+            PopupMenu popup = new PopupMenu();
+            MenuItem openItem = new MenuItem("Open");
+            openItem.addActionListener(openListener);
+            popup.add(openItem);
+            MenuItem exitItem = new MenuItem("Exit");
+            exitItem.addActionListener(exitListener);
+            popup.addSeparator();
+            popup.add(exitItem);
+            
+            trayIcon = new TrayIcon(image, "Right click for options", popup);
+            trayIcon.setImageAutoSize(true);
+
+            try {
+                tray.add(trayIcon);
+            } catch (AWTException e) {
+            System.err.println("TrayIcon could not be added.");
+            }
+            
+            addWindowStateListener(new WindowStateListener() {
+            public void windowStateChanged(WindowEvent e) {
+                if(e.getNewState()==ICONIFIED){        
+                    setVisible(false); 
+                }
+                
+                if(e.getNewState()==7){
+                    setVisible(false);
+                }
+                
+                if(e.getNewState()==MAXIMIZED_BOTH){
+                    setVisible(true);  
+                }
+                
+                if(e.getNewState()==NORMAL){
+                    setVisible(true);
+                }
+            }
+        });
+        setDefaultCloseOperation(mainGUI.EXIT_ON_CLOSE);
+            
+
+        } else {
+            System.err.println("System tray is currently not supported.");
+        }
+    }
+
     
     /**
      * Creates new form mainGUI
      */
     public mainGUI() {
-        
-        initComponents(); 
+        initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage("Icon.png"));
+        trayIcon();
         makeJPanels(bigpanel1);
         methods.initialicePicker(picker);
         methods.initialiceArrays(picker);
@@ -1661,7 +1745,7 @@ ScheduledExecutorService executor =
             .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        tabPanel.addTab("tab4", ambilightTab);
+        tabPanel.addTab("Ambilight", ambilightTab);
 
         fan1label.setText("Channel 1");
 
