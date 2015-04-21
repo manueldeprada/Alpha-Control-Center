@@ -96,6 +96,9 @@ ScheduledExecutorService executor =
             ActionListener openListener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     setVisible(true);
+                    requestFocusInWindow();
+                    
+                   
                 }
             };
             
@@ -697,6 +700,7 @@ ScheduledExecutorService executor =
         LedC4 = new javax.swing.JCheckBox();
         testMode = new javax.swing.JToggleButton();
         ambilightTab = new arduino.control.center.ambilight();
+        jButton1 = new javax.swing.JButton();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
         fan1slider = new javax.swing.JSlider();
@@ -1734,15 +1738,28 @@ ScheduledExecutorService executor =
 
         tabPanel.addTab("Color", colorTab);
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout ambilightTabLayout = new javax.swing.GroupLayout(ambilightTab);
         ambilightTab.setLayout(ambilightTabLayout);
         ambilightTabLayout.setHorizontalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
+            .addGroup(ambilightTabLayout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(jButton1)
+                .addContainerGap(475, Short.MAX_VALUE))
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(ambilightTabLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(jButton1)
+                .addContainerGap(528, Short.MAX_VALUE))
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -2722,6 +2739,12 @@ if (loopCheckBox.isSelected()){
 s1play.play(picker, 1, playButton1);          // TODO add your handling code here:
     }//GEN-LAST:event_playButton1ItemStateChanged
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+Adalight light = new Adalight();
+
+light.startUP();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
     
     Runnable refreshTemp = new Runnable() {
 
@@ -2789,6 +2812,7 @@ s1play.play(picker, 1, playButton1);          // TODO add your handling code her
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

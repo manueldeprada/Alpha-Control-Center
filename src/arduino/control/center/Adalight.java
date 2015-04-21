@@ -449,9 +449,13 @@ public class DisposeHandler {
     if(port != null) port.write(serialData);
   }
 }
+public void startUP(){
+    String[] appletArgs = new String[] { "Adalight" };
+    PApplet.main(appletArgs);
+}
 
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "Adalight" };
+    String[] appletArgs = new String[] { "p" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
