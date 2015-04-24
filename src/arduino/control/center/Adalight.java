@@ -3,8 +3,7 @@ package arduino.control.center;
 import processing.core.*; 
 import processing.data.*; 
 import processing.event.*; 
-import processing.opengl.*; 
-
+import processing.opengl.*;
 import java.awt.*; 
 import java.awt.image.*; 
 import processing.serial.*; 
@@ -70,7 +69,7 @@ static final short fade = 75;
 
 // Pixel size for the live preview image.
 
-static final int pixelSize = 20;
+static final int pixelSize = 50;
 
 // Depending on many factors, it may be faster either to capture full
 // screens and process only the pixels needed, or to capture multiple
@@ -175,14 +174,14 @@ public void setup() {
   // Open serial port.  As written here, this assumes the Arduino is the
   // first/only serial device on the system.  If that's not the case,
   // change "Serial.list()[0]" to the name of the port to be used:
-  port = new Serial(this, Serial.list()[0], 115200);
+  //port = new Serial(this, "COM4", 115200);
   // Alternately, in certain situations the following line can be used
   // to detect the Arduino automatically.  But this works ONLY with SOME
   // Arduino boards and versions of Processing!  This is so convoluted
   // to explain, it's easier just to test it yourself and see whether
   // it works...if not, leave it commented out and use the prior port-
   // opening technique.
-  // port = openPort();
+  port = openPort();
   // And finally, to test the software alone without an Arduino connected,
   // don't open a port...just comment out the serial lines above.
 
