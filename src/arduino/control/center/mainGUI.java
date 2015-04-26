@@ -29,14 +29,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
@@ -78,62 +84,73 @@ ScheduledExecutorService executor =
 
         if (SystemTray.isSupported()) {
 
-            SystemTray tray = SystemTray.getSystemTray();
-            Image image = Toolkit.getDefaultToolkit().getImage("Icon.png");
-
-            ActionListener exitListener = new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
-                }
-            };
-            
-            ActionListener openListener = new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    setVisible(true);
-                    requestFocusInWindow();
-                    
-                   
-                }
-            };
-            
-            PopupMenu popup = new PopupMenu();
-            MenuItem openItem = new MenuItem("Open");
-            openItem.addActionListener(openListener);
-            popup.add(openItem);
-            MenuItem exitItem = new MenuItem("Exit");
-            exitItem.addActionListener(exitListener);
-            popup.addSeparator();
-            popup.add(exitItem);
-            
-            trayIcon = new TrayIcon(image, "Right click for options", popup);
-            trayIcon.setImageAutoSize(true);
-
             try {
-                tray.add(trayIcon);
-            } catch (AWTException e) {
-            System.err.println("TrayIcon could not be added.");
+                
+                SystemTray tray = SystemTray.getSystemTray();
+                
+                BufferedImage trayIconImage = ImageIO.read(getClass().getResource("res/icon128.png"));
+                int trayIconWidth = new TrayIcon(trayIconImage).getSize().width;
+                
+                
+                
+                ActionListener exitListener = new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        System.exit(0);
+                    }
+                };
+                
+                ActionListener openListener = new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        setVisible(true);
+                        requestFocusInWindow();
+                        
+                        
+                    }
+                };
+                
+                PopupMenu popup = new PopupMenu();
+                MenuItem openItem = new MenuItem("Open");
+                openItem.addActionListener(openListener);
+                popup.add(openItem);
+                MenuItem exitItem = new MenuItem("Exit");
+                exitItem.addActionListener(exitListener);
+                popup.addSeparator();
+                popup.add(exitItem);
+                
+                trayIcon = new TrayIcon(trayIconImage.getScaledInstance(trayIconWidth, -1, Image.SCALE_SMOOTH), "Right click for options", popup);
+                trayIcon.setImageAutoSize(true);
+                
+                try {
+                    tray.add(trayIcon);
+                } catch (AWTException e) {
+                    System.err.println("TrayIcon could not be added.");
+                }
+                
+                addWindowStateListener(new WindowStateListener() {
+                    public void windowStateChanged(WindowEvent e) {
+                        if(e.getNewState()==ICONIFIED){
+                            setVisible(false);
+                        }
+                        
+                        if(e.getNewState()==7){
+                            setVisible(false);
+                        }
+                        
+                        if(e.getNewState()==MAXIMIZED_BOTH){
+                            setVisible(true);
+                        }
+                        
+                        if(e.getNewState()==NORMAL){
+                            setVisible(true);
+                        }
+                    }
+                });
+                setDefaultCloseOperation(mainGUI.EXIT_ON_CLOSE);
+                
+                
+            } catch (IOException ex) {
+                Logger.getLogger(mainGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            addWindowStateListener(new WindowStateListener() {
-            public void windowStateChanged(WindowEvent e) {
-                if(e.getNewState()==ICONIFIED){        
-                    setVisible(false); 
-                }
-                
-                if(e.getNewState()==7){
-                    setVisible(false);
-                }
-                
-                if(e.getNewState()==MAXIMIZED_BOTH){
-                    setVisible(true);  
-                }
-                
-                if(e.getNewState()==NORMAL){
-                    setVisible(true);
-                }
-            }
-        });
-        setDefaultCloseOperation(mainGUI.EXIT_ON_CLOSE);
             
 
         } else {
@@ -147,7 +164,6 @@ ScheduledExecutorService executor =
      */
     public mainGUI() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage("Icon.png"));
         trayIcon();
         makeJPanels(bigpanel1);
         methods.initialicePicker(picker);
@@ -158,7 +174,13 @@ ScheduledExecutorService executor =
         rpmData();
         rpm();
         refreshMode();
-        loadsecpreviews();
+        loadsecpreviews();        
+        setIcons();
+
+        
+        
+        
+        
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
@@ -176,6 +198,26 @@ ScheduledExecutorService executor =
         for (int i = 0; i < N; i++) {
             picker.setColor(Color.getHSBColor(bHue - (i * (bHue - gHue) / N), 1, 1));
         }
+    }
+    
+    public void setIcons(){
+    try {
+        
+        BufferedImage icon16 = ImageIO.read(main.class.getResourceAsStream("res/icon16.png"));
+        BufferedImage icon32 = ImageIO.read(main.class.getResourceAsStream("res/icon32.png"));
+        BufferedImage icon64 = ImageIO.read(main.class.getResourceAsStream("res/icon64.png"));
+        BufferedImage icon128 = ImageIO.read(main.class.getResourceAsStream("res/icon128.png"));
+
+        List<Image> icons = new ArrayList<Image>();
+        icons.add(icon16);
+        icons.add(icon32);
+        icons.add(icon64);
+        icons.add(icon128);
+        
+        this.setIconImages(icons);
+    } catch (IOException ex) {
+        Logger.getLogger(mainGUI.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
     public void loadsecpreviews(){
         loadSecuencePreview(1,this.playButton1, this.cleanButton, bigpanel1);
@@ -694,7 +736,6 @@ ScheduledExecutorService executor =
         LedC4 = new javax.swing.JCheckBox();
         testMode = new javax.swing.JToggleButton();
         ambilightTab = new arduino.control.center.ambilight();
-        jButton1 = new javax.swing.JButton();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
         fan1slider = new javax.swing.JSlider();
@@ -752,6 +793,7 @@ ScheduledExecutorService executor =
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Arduino Control Center");
         setBackground(new java.awt.Color(66, 66, 66));
+        setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -1732,28 +1774,15 @@ ScheduledExecutorService executor =
 
         tabPanel.addTab("Color", colorTab);
 
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout ambilightTabLayout = new javax.swing.GroupLayout(ambilightTab);
         ambilightTab.setLayout(ambilightTabLayout);
         ambilightTabLayout.setHorizontalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ambilightTabLayout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(jButton1)
-                .addContainerGap(475, Short.MAX_VALUE))
+            .addGap(0, 812, Short.MAX_VALUE)
         );
         ambilightTabLayout.setVerticalGroup(
             ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ambilightTabLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jButton1)
-                .addContainerGap(528, Short.MAX_VALUE))
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
         tabPanel.addTab("Ambilight", ambilightTab);
@@ -2621,7 +2650,9 @@ executor.shutdown();
     }//GEN-LAST:event_refreshSecondsSpinnerStateChanged
 
     private void testModeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_testModeItemStateChanged
-testmode = testMode.isSelected();
+
+        setIcons();
+        testmode = testMode.isSelected();
 if (testMode.isSelected()){
     
                 connectButton.setText("testing");
@@ -2806,7 +2837,6 @@ light.startUP();// TODO add your handling code here:
     private javax.swing.JButton getButtonColor7;
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
