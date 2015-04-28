@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.StringReader;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -54,8 +55,30 @@ try {
 }
         return null;
     }
+    
+     public static String getNetValue(String key, String file){
+Properties prop = new Properties();
+try {
+ 
+ 
+		// load a properties file
+		prop.load(new StringReader(file));
+ 
+		// get the property value and print it out
+		return prop.getProperty(key);
+ 
+	} catch (IOException ex) {
+		ex.printStackTrace();
+	} finally {
+		
+}
+        return null;
+    }
+    
+    
     public static void setValue(String key, String value){
         setValue(key, value, new File(path + File.separator+"settings.properties"));
+        
     }
     
     
