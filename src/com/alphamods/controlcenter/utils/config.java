@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package arduino.control.center.utils;
+package com.alphamods.controlcenter.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

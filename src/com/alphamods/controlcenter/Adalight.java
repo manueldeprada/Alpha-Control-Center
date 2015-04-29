@@ -1,4 +1,4 @@
-package arduino.control.center;
+package com.alphamods.controlcenter;
 
 import processing.core.*; 
 import java.awt.*; 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arduino.control.center.utils;
+package com.alphamods.controlcenter.utils;
 import javax.swing.JSlider;
 import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
@@ -41,9 +41,14 @@ public class methods {
     private String[] channel2 = {"000","000","000"};
     private String[] channel3 = {"000","000","000"};
     private String[] channel4 = {"000","000","000"};
-     
+    private static double version = 1.0;
    
-
+    public static double getversion(){
+        return version;
+    }
+    
+    
+    
     public void initialicePicker(ColorPicker picker){
         picker.setHexControlsVisible(false);
         if (config.getValue("colorR") == null){

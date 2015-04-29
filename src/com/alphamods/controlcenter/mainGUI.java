@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arduino.control.center;
+package com.alphamods.controlcenter;
 
-import arduino.control.center.utils.config;
-import arduino.control.center.utils.methods;
-import arduino.control.center.utils.secuences;
-import static arduino.control.center.utils.secuences.path;
+import com.alphamods.controlcenter.utils.config;
+import com.alphamods.controlcenter.utils.methods;
+import com.alphamods.controlcenter.utils.secuences;
+import static com.alphamods.controlcenter.utils.secuences.path;
 import com.bric.swing.ColorPicker;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
@@ -54,8 +54,8 @@ import javax.swing.JToggleButton;
 public class mainGUI extends javax.swing.JFrame {
 private int mode = 0;
 private methods methods = new methods();
-arduino.control.center.utils.secuences s1record;
-arduino.control.center.utils.secuences s1play = new arduino.control.center.utils.secuences();
+    com.alphamods.controlcenter.utils.secuences s1record;
+    com.alphamods.controlcenter.utils.secuences s1play = new com.alphamods.controlcenter.utils.secuences();
 
 
 private boolean testmode = false;
@@ -197,7 +197,7 @@ ScheduledExecutorService executor =
         notificationsBar.setIndeterminate(true);
         updater updater = new updater();
         updater.start();
-        
+        updater.setIndicators(notificationsLabel, notificationsBar);
         
     }
     public void  Flash(ColorPicker picker) {
@@ -612,10 +612,10 @@ ScheduledExecutorService executor =
         methods.loadpreview(12,panelColor12);
     }
     public int refreshTime(){
-        if (arduino.control.center.utils.config.getValue("refreshTime") == null || arduino.control.center.utils.config.getValue("refreshTime") == ""){
+        if (com.alphamods.controlcenter.utils.config.getValue("refreshTime") == null || com.alphamods.controlcenter.utils.config.getValue("refreshTime") == ""){
           return 5;  
         }else {
-            return Integer.parseInt(arduino.control.center.utils.config.getValue("refreshTime"));
+            return Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("refreshTime"));
         }
     }
     private void initPanel(){
@@ -749,7 +749,6 @@ ScheduledExecutorService executor =
         LedC4 = new javax.swing.JCheckBox();
         testMode = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
-        ambilightTab = new arduino.control.center.ambilight();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
         fan1slider = new javax.swing.JSlider();
@@ -801,13 +800,15 @@ ScheduledExecutorService executor =
         sendbutton = new javax.swing.JButton();
         notConnectedLabel = new javax.swing.JLabel();
         notificationsLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         notificationsBar = new javax.swing.JProgressBar();
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        settings = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Arduino Control Center");
+        setTitle("Alpha Control Center");
         setBackground(new java.awt.Color(66, 66, 66));
         setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1696,7 +1697,7 @@ ScheduledExecutorService executor =
                     .addComponent(sec5label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
@@ -1803,19 +1804,6 @@ ScheduledExecutorService executor =
         );
 
         tabPanel.addTab("Color", colorTab);
-
-        javax.swing.GroupLayout ambilightTabLayout = new javax.swing.GroupLayout(ambilightTab);
-        ambilightTab.setLayout(ambilightTabLayout);
-        ambilightTabLayout.setHorizontalGroup(
-            ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
-        );
-        ambilightTabLayout.setVerticalGroup(
-            ambilightTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-
-        tabPanel.addTab("Ambilight", ambilightTab);
 
         fan1label.setText("Channel 1");
 
@@ -2074,7 +2062,7 @@ ScheduledExecutorService executor =
             .addGroup(FanPumpPanelLayout.createSequentialGroup()
                 .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FanPumpPanelLayout.createSequentialGroup()
-                        .addContainerGap(96, Short.MAX_VALUE)
+                        .addContainerGap(134, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGroup(FanPumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FanPumpPanelLayout.createSequentialGroup()
@@ -2203,7 +2191,35 @@ ScheduledExecutorService executor =
 
         notificationsLabel.setText("jLabel20");
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(146, 14));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 146, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(notificationsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 14, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(notificationsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         jMenu1.setText("File");
+
+        settings.setText("Settings");
+        settings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(settings);
+
         menubar.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -2235,7 +2251,7 @@ ScheduledExecutorService executor =
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(notificationsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(notificationsBar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -2243,7 +2259,7 @@ ScheduledExecutorService executor =
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(notificationsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(notificationsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
@@ -2261,9 +2277,9 @@ ScheduledExecutorService executor =
     }// </editor-fold>//GEN-END:initComponents
     
     private void getButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor6ActionPerformed
-        int color6R = Integer.parseInt(arduino.control.center.utils.config.getValue("color6R"));
-        int color6G = Integer.parseInt(arduino.control.center.utils.config.getValue("color6G"));
-        int color6B = Integer.parseInt(arduino.control.center.utils.config.getValue("color6B"));
+        int color6R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color6R"));
+        int color6G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color6G"));
+        int color6B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color6B"));
         Color color6 = new Color(color6R,color6G,color6B);
         picker.setColor(color6);
 
@@ -2273,17 +2289,17 @@ ScheduledExecutorService executor =
     private void setButtonColor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor6ActionPerformed
         Color color6 = picker.getColor();
         panelColor6.setBackground(color6);
-        arduino.control.center.utils.config.setValue("color6R", Integer.toString(color6.getRed()));
-        arduino.control.center.utils.config.setValue("color6G", Integer.toString(color6.getGreen()));
-        arduino.control.center.utils.config.setValue("color6B", Integer.toString(color6.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color6R", Integer.toString(color6.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color6G", Integer.toString(color6.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color6B", Integer.toString(color6.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor6ActionPerformed
 
     private void getButtonColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor1ActionPerformed
-        int color1R = Integer.parseInt(arduino.control.center.utils.config.getValue("color1R"));
-        int color1G = Integer.parseInt(arduino.control.center.utils.config.getValue("color1G"));
-        int color1B = Integer.parseInt(arduino.control.center.utils.config.getValue("color1B"));
+        int color1R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color1R"));
+        int color1G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color1G"));
+        int color1B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color1B"));
         Color color1 = new Color(color1R,color1G,color1B);
         picker.setColor(color1);
 
@@ -2293,9 +2309,9 @@ ScheduledExecutorService executor =
     private void setButtonColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor1ActionPerformed
         Color color1 = picker.getColor();
         panelColor1.setBackground(color1);
-        arduino.control.center.utils.config.setValue("color1R", Integer.toString(color1.getRed()));
-        arduino.control.center.utils.config.setValue("color1G", Integer.toString(color1.getGreen()));
-        arduino.control.center.utils.config.setValue("color1B", Integer.toString(color1.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color1R", Integer.toString(color1.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color1G", Integer.toString(color1.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color1B", Integer.toString(color1.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor1ActionPerformed
@@ -2303,17 +2319,17 @@ ScheduledExecutorService executor =
     private void setButtonColor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor2ActionPerformed
         Color color2 = picker.getColor();
         panelColor2.setBackground(color2);
-        arduino.control.center.utils.config.setValue("color2R", Integer.toString(color2.getRed()));
-        arduino.control.center.utils.config.setValue("color2G", Integer.toString(color2.getGreen()));
-        arduino.control.center.utils.config.setValue("color2B", Integer.toString(color2.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color2R", Integer.toString(color2.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color2G", Integer.toString(color2.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color2B", Integer.toString(color2.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor2ActionPerformed
 
     private void getButtonColor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor2ActionPerformed
-        int color2R = Integer.parseInt(arduino.control.center.utils.config.getValue("color2R"));
-        int color2G = Integer.parseInt(arduino.control.center.utils.config.getValue("color2G"));
-        int color2B = Integer.parseInt(arduino.control.center.utils.config.getValue("color2B"));
+        int color2R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color2R"));
+        int color2G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color2G"));
+        int color2B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color2B"));
         Color color2 = new Color(color2R,color2G,color2B);
         picker.setColor(color2);
 
@@ -2321,9 +2337,9 @@ ScheduledExecutorService executor =
     }//GEN-LAST:event_getButtonColor2ActionPerformed
 
     private void getButtonColor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor7ActionPerformed
-        int color7R = Integer.parseInt(arduino.control.center.utils.config.getValue("color7R"));
-        int color7G = Integer.parseInt(arduino.control.center.utils.config.getValue("color7G"));
-        int color7B = Integer.parseInt(arduino.control.center.utils.config.getValue("color7B"));
+        int color7R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color7R"));
+        int color7G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color7G"));
+        int color7B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color7B"));
         Color color7 = new Color(color7R,color7G,color7B);
         picker.setColor(color7);
 
@@ -2333,9 +2349,9 @@ ScheduledExecutorService executor =
     private void setButtonColor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor7ActionPerformed
         Color color7 = picker.getColor();
         panelColor7.setBackground(color7);
-        arduino.control.center.utils.config.setValue("color7R", Integer.toString(color7.getRed()));
-        arduino.control.center.utils.config.setValue("color7G", Integer.toString(color7.getGreen()));
-        arduino.control.center.utils.config.setValue("color7B", Integer.toString(color7.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color7R", Integer.toString(color7.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color7G", Integer.toString(color7.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color7B", Integer.toString(color7.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor7ActionPerformed
@@ -2353,17 +2369,17 @@ ScheduledExecutorService executor =
     private void setButtonColor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor8ActionPerformed
         Color color8 = picker.getColor();
         panelColor8.setBackground(color8);
-        arduino.control.center.utils.config.setValue("color8R", Integer.toString(color8.getRed()));
-        arduino.control.center.utils.config.setValue("color8G", Integer.toString(color8.getGreen()));
-        arduino.control.center.utils.config.setValue("color8B", Integer.toString(color8.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color8R", Integer.toString(color8.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color8G", Integer.toString(color8.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color8B", Integer.toString(color8.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor8ActionPerformed
 
     private void getButtonColor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor8ActionPerformed
-        int color8R = Integer.parseInt(arduino.control.center.utils.config.getValue("color8R"));
-        int color8G = Integer.parseInt(arduino.control.center.utils.config.getValue("color8G"));
-        int color8B = Integer.parseInt(arduino.control.center.utils.config.getValue("color8B"));
+        int color8R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color8R"));
+        int color8G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color8G"));
+        int color8B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color8B"));
         Color color8 = new Color(color8R,color8G,color8B);
         picker.setColor(color8);
 
@@ -2371,9 +2387,9 @@ ScheduledExecutorService executor =
     }//GEN-LAST:event_getButtonColor8ActionPerformed
 
     private void getButtonColor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor3ActionPerformed
-        int color3R = Integer.parseInt(arduino.control.center.utils.config.getValue("color3R"));
-        int color3G = Integer.parseInt(arduino.control.center.utils.config.getValue("color3G"));
-        int color3B = Integer.parseInt(arduino.control.center.utils.config.getValue("color3B"));
+        int color3R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color3R"));
+        int color3G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color3G"));
+        int color3B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color3B"));
         Color color3 = new Color(color3R,color3G,color3B);
         picker.setColor(color3);
 
@@ -2383,17 +2399,17 @@ ScheduledExecutorService executor =
     private void setButtonColor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor3ActionPerformed
         Color color3 = picker.getColor();
         panelColor3.setBackground(color3);
-        arduino.control.center.utils.config.setValue("color3R", Integer.toString(color3.getRed()));
-        arduino.control.center.utils.config.setValue("color3G", Integer.toString(color3.getGreen()));
-        arduino.control.center.utils.config.setValue("color3B", Integer.toString(color3.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color3R", Integer.toString(color3.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color3G", Integer.toString(color3.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color3B", Integer.toString(color3.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor3ActionPerformed
 
     private void getButtonColor9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor9ActionPerformed
-        int color9R = Integer.parseInt(arduino.control.center.utils.config.getValue("color9R"));
-        int color9G = Integer.parseInt(arduino.control.center.utils.config.getValue("color9G"));
-        int color9B = Integer.parseInt(arduino.control.center.utils.config.getValue("color9B"));
+        int color9R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color9R"));
+        int color9G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color9G"));
+        int color9B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color9B"));
         Color color9 = new Color(color9R,color9G,color9B);
         picker.setColor(color9);
 
@@ -2403,17 +2419,17 @@ ScheduledExecutorService executor =
     private void setButtonColor9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor9ActionPerformed
         Color color9 = picker.getColor();
         panelColor9.setBackground(color9);
-        arduino.control.center.utils.config.setValue("color9R", Integer.toString(color9.getRed()));
-        arduino.control.center.utils.config.setValue("color9G", Integer.toString(color9.getGreen()));
-        arduino.control.center.utils.config.setValue("color9B", Integer.toString(color9.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color9R", Integer.toString(color9.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color9G", Integer.toString(color9.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color9B", Integer.toString(color9.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor9ActionPerformed
 
     private void getButtonColor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor4ActionPerformed
-        int color4R = Integer.parseInt(arduino.control.center.utils.config.getValue("color4R"));
-        int color4G = Integer.parseInt(arduino.control.center.utils.config.getValue("color4G"));
-        int color4B = Integer.parseInt(arduino.control.center.utils.config.getValue("color4B"));
+        int color4R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color4R"));
+        int color4G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color4G"));
+        int color4B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color4B"));
         Color color4 = new Color(color4R,color4G,color4B);
         picker.setColor(color4);
 
@@ -2423,17 +2439,17 @@ ScheduledExecutorService executor =
     private void setButtonColor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor4ActionPerformed
         Color color4 = picker.getColor();
         panelColor4.setBackground(color4);
-        arduino.control.center.utils.config.setValue("color4R", Integer.toString(color4.getRed()));
-        arduino.control.center.utils.config.setValue("color4G", Integer.toString(color4.getGreen()));
-        arduino.control.center.utils.config.setValue("color4B", Integer.toString(color4.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color4R", Integer.toString(color4.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color4G", Integer.toString(color4.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color4B", Integer.toString(color4.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor4ActionPerformed
 
     private void getButtonColor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor5ActionPerformed
-        int color5R = Integer.parseInt(arduino.control.center.utils.config.getValue("color5R"));
-        int color5G = Integer.parseInt(arduino.control.center.utils.config.getValue("color5G"));
-        int color5B = Integer.parseInt(arduino.control.center.utils.config.getValue("color5B"));
+        int color5R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color5R"));
+        int color5G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color5G"));
+        int color5B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color5B"));
         Color color5 = new Color(color5R,color5G,color5B);
         picker.setColor(color5);
 
@@ -2443,9 +2459,9 @@ ScheduledExecutorService executor =
     private void setButtonColor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor5ActionPerformed
         Color color5 = picker.getColor();
         panelColor5.setBackground(color5);
-        arduino.control.center.utils.config.setValue("color5R", Integer.toString(color5.getRed()));
-        arduino.control.center.utils.config.setValue("color5G", Integer.toString(color5.getGreen()));
-        arduino.control.center.utils.config.setValue("color5B", Integer.toString(color5.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color5R", Integer.toString(color5.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color5G", Integer.toString(color5.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color5B", Integer.toString(color5.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor5ActionPerformed
@@ -2453,17 +2469,17 @@ ScheduledExecutorService executor =
     private void setButtonColor10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor10ActionPerformed
         Color color10 = picker.getColor();
         panelColor10.setBackground(color10);
-        arduino.control.center.utils.config.setValue("color10R", Integer.toString(color10.getRed()));
-        arduino.control.center.utils.config.setValue("color10G", Integer.toString(color10.getGreen()));
-        arduino.control.center.utils.config.setValue("color10B", Integer.toString(color10.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color10R", Integer.toString(color10.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color10G", Integer.toString(color10.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color10B", Integer.toString(color10.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor10ActionPerformed
 
     private void getButtonColor10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor10ActionPerformed
-        int color10R = Integer.parseInt(arduino.control.center.utils.config.getValue("color10R"));
-        int color10G = Integer.parseInt(arduino.control.center.utils.config.getValue("color10G"));
-        int color10B = Integer.parseInt(arduino.control.center.utils.config.getValue("color10B"));
+        int color10R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color10R"));
+        int color10G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color10G"));
+        int color10B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color10B"));
         Color color10 = new Color(color10R,color10G,color10B);
         picker.setColor(color10);
 
@@ -2515,43 +2531,43 @@ if (methods.isConnected()) {
     }//GEN-LAST:event_connectButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        arduino.control.center.utils.config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
-        arduino.control.center.utils.config.setValue("colorG", Integer.toString(picker.getColor().getGreen()));
-        arduino.control.center.utils.config.setValue("colorB", Integer.toString(picker.getColor().getBlue()));
-        arduino.control.center.utils.config.setValue("Fan1", Integer.toString(fan1slider.getValue()));
-        arduino.control.center.utils.config.setValue("Fan2", Integer.toString(fan2slider.getValue()));
-        arduino.control.center.utils.config.setValue("Pump1", Integer.toString(pump1slider.getValue()));
-        arduino.control.center.utils.config.setValue("Fan1max", fan1max.getText());
-        arduino.control.center.utils.config.setValue("Fan2max", fan2max.getText());
-        arduino.control.center.utils.config.setValue("Pump1max", pump1max.getText());
         
         if (methods.isConnected()){
-        arduino.control.center.utils.config.setValue("Port", PortsBox.getSelectedItem().toString());
+        }
+        com.alphamods.controlcenter.utils.config.setValue("Fan1", Integer.toString(fan1slider.getValue()));
+        com.alphamods.controlcenter.utils.config.setValue("Fan2", Integer.toString(fan2slider.getValue()));
+        com.alphamods.controlcenter.utils.config.setValue("Pump1", Integer.toString(pump1slider.getValue()));
+        com.alphamods.controlcenter.utils.config.setValue("Fan1max", fan1max.getText());
+        com.alphamods.controlcenter.utils.config.setValue("Fan2max", fan2max.getText());
+        com.alphamods.controlcenter.utils.config.setValue("Pump1max", pump1max.getText());
+        
+        if (methods.isConnected()){
+            com.alphamods.controlcenter.utils.config.setValue("Port", PortsBox.getSelectedItem().toString());
         }
 
-        arduino.control.center.utils.config.setValue("refreshTime", refreshSecondsSpinner.getValue().toString());
+        com.alphamods.controlcenter.utils.config.setValue("refreshTime", refreshSecondsSpinner.getValue().toString());
         if (RefreshCheckBox.isSelected()){
-        arduino.control.center.utils.config.setValue("refreshMode", "1");
+            com.alphamods.controlcenter.utils.config.setValue("refreshMode", "1");
         }
         else if (!RefreshCheckBox.isSelected()){
-        arduino.control.center.utils.config.setValue("refreshMode", "0");
+            com.alphamods.controlcenter.utils.config.setValue("refreshMode", "0");
         }
         
-        arduino.control.center.utils.config.setValue("channel1R", methods.getChannel(1)[0]);
-        arduino.control.center.utils.config.setValue("channel1G", methods.getChannel(1)[1]);
-        arduino.control.center.utils.config.setValue("channel1B", methods.getChannel(1)[2]);
+        com.alphamods.controlcenter.utils.config.setValue("channel1R", methods.getChannel(1)[0]);
+        com.alphamods.controlcenter.utils.config.setValue("channel1G", methods.getChannel(1)[1]);
+        com.alphamods.controlcenter.utils.config.setValue("channel1B", methods.getChannel(1)[2]);
         
-        arduino.control.center.utils.config.setValue("channel2R", methods.getChannel(2)[0]);
-        arduino.control.center.utils.config.setValue("channel2G", methods.getChannel(2)[1]);
-        arduino.control.center.utils.config.setValue("channel2B", methods.getChannel(2)[2]);
+        com.alphamods.controlcenter.utils.config.setValue("channel2R", methods.getChannel(2)[0]);
+        com.alphamods.controlcenter.utils.config.setValue("channel2G", methods.getChannel(2)[1]);
+        com.alphamods.controlcenter.utils.config.setValue("channel2B", methods.getChannel(2)[2]);
         
-        arduino.control.center.utils.config.setValue("channel3R", methods.getChannel(3)[0]);
-        arduino.control.center.utils.config.setValue("channel3G", methods.getChannel(3)[1]);
-        arduino.control.center.utils.config.setValue("channel3B", methods.getChannel(3)[2]);
+        com.alphamods.controlcenter.utils.config.setValue("channel3R", methods.getChannel(3)[0]);
+        com.alphamods.controlcenter.utils.config.setValue("channel3G", methods.getChannel(3)[1]);
+        com.alphamods.controlcenter.utils.config.setValue("channel3B", methods.getChannel(3)[2]);
         
-        arduino.control.center.utils.config.setValue("channel4R", methods.getChannel(4)[0]);
-        arduino.control.center.utils.config.setValue("channel4G", methods.getChannel(4)[1]);
-        arduino.control.center.utils.config.setValue("channel4B", methods.getChannel(4)[2]);
+        com.alphamods.controlcenter.utils.config.setValue("channel4R", methods.getChannel(4)[0]);
+        com.alphamods.controlcenter.utils.config.setValue("channel4G", methods.getChannel(4)[1]);
+        com.alphamods.controlcenter.utils.config.setValue("channel4B", methods.getChannel(4)[2]);
         
         
 // TODO add your handling code here:
@@ -2625,9 +2641,9 @@ rpmData();
     }//GEN-LAST:event_LedC3ActionPerformed
 
     private void getButtonColor11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor11ActionPerformed
-        int color11R = Integer.parseInt(arduino.control.center.utils.config.getValue("color11R"));
-        int color11G = Integer.parseInt(arduino.control.center.utils.config.getValue("color11G"));
-        int color11B = Integer.parseInt(arduino.control.center.utils.config.getValue("color11B"));
+        int color11R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color11R"));
+        int color11G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color11G"));
+        int color11B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color11B"));
         Color color11 = new Color(color11R,color11G,color11B);
         picker.setColor(color11);
         
@@ -2637,17 +2653,17 @@ rpmData();
     private void setButtonColor11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor11ActionPerformed
         Color color11 = picker.getColor();
         panelColor11.setBackground(color11);
-        arduino.control.center.utils.config.setValue("color11R", Integer.toString(color11.getRed()));
-        arduino.control.center.utils.config.setValue("color11G", Integer.toString(color11.getGreen()));
-        arduino.control.center.utils.config.setValue("color11B", Integer.toString(color11.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color11R", Integer.toString(color11.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color11G", Integer.toString(color11.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color11B", Integer.toString(color11.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor11ActionPerformed
 
     private void getButtonColor12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getButtonColor12ActionPerformed
-        int color12R = Integer.parseInt(arduino.control.center.utils.config.getValue("color12R"));
-        int color12G = Integer.parseInt(arduino.control.center.utils.config.getValue("color12G"));
-        int color12B = Integer.parseInt(arduino.control.center.utils.config.getValue("color12B"));
+        int color12R = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color12R"));
+        int color12G = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color12G"));
+        int color12B = Integer.parseInt(com.alphamods.controlcenter.utils.config.getValue("color12B"));
         Color color12 = new Color(color12R,color12G,color12B);
         picker.setColor(color12);
         
@@ -2657,9 +2673,9 @@ rpmData();
     private void setButtonColor12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setButtonColor12ActionPerformed
         Color color12 = picker.getColor();
         panelColor12.setBackground(color12);
-        arduino.control.center.utils.config.setValue("color12R", Integer.toString(color12.getRed()));
-        arduino.control.center.utils.config.setValue("color12G", Integer.toString(color12.getGreen()));
-        arduino.control.center.utils.config.setValue("color12B", Integer.toString(color12.getBlue()));
+        com.alphamods.controlcenter.utils.config.setValue("color12R", Integer.toString(color12.getRed()));
+        com.alphamods.controlcenter.utils.config.setValue("color12G", Integer.toString(color12.getGreen()));
+        com.alphamods.controlcenter.utils.config.setValue("color12B", Integer.toString(color12.getBlue()));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_setButtonColor12ActionPerformed
@@ -2721,7 +2737,7 @@ if (testMode.isSelected()){
 
     private void recordButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton1ItemStateChanged
     if (recordButton1.isSelected()){
-        s1record = new arduino.control.center.utils.secuences();
+        s1record = new com.alphamods.controlcenter.utils.secuences();
         s1record.record(picker, 1);
         recordButton1.setText("Stop");  
     }
@@ -2815,6 +2831,13 @@ updater up = new updater();
 up.start();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void settingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsActionPerformed
+settings settings = new settings();
+settings.setVisible(true);
+settings.requestFocusInWindow();
+// TODO add your handling code here:
+    }//GEN-LAST:event_settingsActionPerformed
+
     
     Runnable refreshTemp = new Runnable() {
 
@@ -2846,7 +2869,6 @@ up.start();// TODO add your handling code here:
     private javax.swing.JTextField Temp4;
     private javax.swing.JTextField Temp5;
     private javax.swing.JTextField Temp6;
-    private arduino.control.center.ambilight ambilightTab;
     private javax.swing.JPanel bigpanel1;
     private javax.swing.JPanel bigpanel2;
     private javax.swing.JPanel bigpanel3;
@@ -2904,6 +2926,7 @@ up.start();// TODO add your handling code here:
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelColor1;
     private javax.swing.JLabel labelColor10;
     private javax.swing.JLabel labelColor11;
@@ -2978,6 +3001,7 @@ up.start();// TODO add your handling code here:
     private javax.swing.JButton setButtonColor7;
     private javax.swing.JButton setButtonColor8;
     private javax.swing.JButton setButtonColor9;
+    private javax.swing.JMenuItem settings;
     private javax.swing.JTabbedPane tabPanel;
     private javax.swing.JToggleButton testMode;
     // End of variables declaration//GEN-END:variables

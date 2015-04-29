@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arduino.control.center;
+package com.alphamods.controlcenter;
 
 /**
  *

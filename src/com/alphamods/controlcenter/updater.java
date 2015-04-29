@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arduino.control.center;
+package com.alphamods.controlcenter;
 
-import arduino.control.center.utils.config;
+import com.alphamods.controlcenter.utils.config;
+import com.alphamods.controlcenter.utils.methods;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,7 +26,7 @@ public class updater extends Thread{
     public void run(){
         error = false;
     try {
-            URL url = new URL("http://cm.manueldeprada.com/files/info.txt");
+            URL url = new URL("http://alphamods.com/files/info.txt");
             try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
                 String str1;
                 while ((str1 = in.readLine()) != null) {
@@ -37,12 +38,37 @@ public class updater extends Thread{
         } catch (IOException ex) {
             error = true;
             Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    }
-    public void setIndicators(JLabel label1, JProgressBar bar1){
-        
+        }
+    check();
     }
     
+    private void check(){
+        
+        double netversion = Double.parseDouble(config.getNetValue("version", data));
+        if (netversion == methods.getversion()) {
+            try {
+                bar.setVisible(false);
+                label.setText("No updates found");
+                Thread.sleep(5000);
+                label.setVisible(false);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        }else if(netversion > methods.getversion()){
+                    
+                    
+
+            
+        }
+        } 
+    
+    public void setIndicators(JLabel label1, JProgressBar bar1){
+        label = label1;
+        bar = bar1;
+    }
+    JProgressBar bar;
     JLabel label;
     String data = "";
     boolean error = false;
