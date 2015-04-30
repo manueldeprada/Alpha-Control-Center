@@ -36,8 +36,16 @@ public class updater extends Thread{
         } catch (MalformedURLException ex) {
             Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            error = true;
-            Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                error = true;
+                bar.setVisible(false);
+                label.setText("Error connecting to server.");
+                Thread.sleep(5000);
+                label.setVisible(false);
+                Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex1) {
+                Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
     check();
     }
@@ -57,8 +65,8 @@ public class updater extends Thread{
             
             
         }else if(netversion > methods.getversion()){
-                    
-                    
+               bar.setVisible(false);     
+               label.setVisible(false);    
 
             
         }

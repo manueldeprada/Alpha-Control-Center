@@ -15,6 +15,8 @@ import java.util.logging.Logger;
  * @author Manu
  */
 public class settings extends javax.swing.JFrame {
+    public static String path = System.getProperty("user.dir"); 
+
 
     /**
      * Creates new form settings
@@ -130,11 +132,19 @@ public class settings extends javax.swing.JFrame {
 
     private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
         try {
-            Process process = Runtime.getRuntime().exec("cmd /c start alphamods.bat copy");
-            // TODO add your handling code here:
-        } catch (IOException ex) {
-            Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            
+                    String fpathunlockb =  path + "\\dr.vbs";
+                    String[] args = {"wscript", fpathunlockb};
+                    ProcessBuilder pb = new ProcessBuilder(args);
+                    
+                    Process pr = pb.start();
+                    
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+        
     }//GEN-LAST:event_bootstartActionPerformed
 
     private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
