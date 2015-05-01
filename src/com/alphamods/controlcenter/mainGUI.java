@@ -197,7 +197,7 @@ ScheduledExecutorService executor =
         notificationsBar.setIndeterminate(true);
         updater updater = new updater();
         updater.start();
-        updater.setIndicators(notificationsLabel, notificationsBar);
+        updater.setIndicators(notificationsLabel, notificationsBar, this);
         
     }
     public void  Flash(ColorPicker picker) {

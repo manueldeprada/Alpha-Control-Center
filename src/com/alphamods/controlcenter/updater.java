@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
@@ -66,19 +67,26 @@ public class updater extends Thread{
             
         }else if(netversion > methods.getversion()){
                bar.setVisible(false);     
-               label.setVisible(false);    
+               label.setVisible(false);
+               
+               
+               UpdaterGUI gui = new UpdaterGUI(frame, true, data);
+               gui.setVisible(true);
+               gui.requestFocusInWindow();
 
             
         }
         } 
     
-    public void setIndicators(JLabel label1, JProgressBar bar1){
+    public void setIndicators(JLabel label1, JProgressBar bar1, JFrame frame1){
         label = label1;
         bar = bar1;
+        frame = frame1;
     }
     JProgressBar bar;
     JLabel label;
     String data = "";
     boolean error = false;
+    JFrame frame;
     
 }
