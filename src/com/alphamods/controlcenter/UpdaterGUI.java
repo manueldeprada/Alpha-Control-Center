@@ -84,6 +84,11 @@ public class UpdaterGUI extends javax.swing.JDialog {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Download!!");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,6 +97,11 @@ public class UpdaterGUI extends javax.swing.JDialog {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jButton3MouseReleased(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -212,6 +222,44 @@ public void download(){
       
     }
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseReleased
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    
+        Changelog dialog = new Changelog(parentframe, true, changelog); 
+        dialog.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+                // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+try {
+                String fpathunlockb = path +"\\updater\\" + download1.getName();
+                String[] args = {"cmd","/c","start", "One Plus One Toolkit", fpathunlockb};
+                Runtime rt = Runtime.getRuntime();
+                ProcessBuilder pb = new ProcessBuilder(args);
+                Process pr = pb.start();
+                
+                
+                // TODO add your handling code here:
+            } catch (IOException ex) {
+                Logger.getLogger(UpdaterGUI.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
              
             download();
             this.jProgressBar1.setVisible(true);
@@ -226,48 +274,8 @@ public void download(){
 
 ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 executor.scheduleAtFixedRate(helloRunnable, 0, 10, TimeUnit.MILLISECONDS);
-      
-
-// TODO add your handling code here:
-    
-        
-     
-           
-
-    
-  
- 
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseReleased
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-    
-        Changelog dialog = new Changelog(parentframe, true, changelog); 
-        dialog.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-try {
-                String fpathunlockb = path +"\\updater\\" + download1.getName();
-                String[] args = {"cmd","/c","start", "One Plus One Toolkit", fpathunlockb};
-                Runtime rt = Runtime.getRuntime();
-                ProcessBuilder pb = new ProcessBuilder(args);
-                Process pr = pb.start();
-                
-                
-                // TODO add your handling code here:
-            } catch (IOException ex) {
-                Logger.getLogger(UpdaterGUI.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-System.exit(0);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-                // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowOpened
+              // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
      /** @param args the command line arguments
      */
