@@ -12,7 +12,9 @@ package com.alphamods.controlcenter;
  */
 import java.io.*;
 import java.net.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -198,20 +200,18 @@ public void run() {
                 status1 = COMPLETE;
             } catch (Exception e) {}
         }
-    
-    
+        File file1 = new File(path + "\\" + getName());
+        File file2 = new File(path + "\\updater\\" + getName());
+        file2.mkdirs();
+    Path path1 = file1.toPath();
+    Path path2 = file2.toPath();
+    System.out.println(status1);
         try {
-            String fpathunlockb = path + "\\tools\\move.exe";
-            String path2 = path + "\\" + getName();
-            String path3 = path + "\\updater\\" + getName();
-            String[] args = {"cmd","/c","start", "One Plus One Toolkit", fpathunlockb, path2, path3};
-            Runtime rt = Runtime.getRuntime();
-            ProcessBuilder pb = new ProcessBuilder(args);      
-            Process pr = pb.start();
-            
+            Files.move(path1, path2, REPLACE_EXISTING);
         } catch (IOException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            Logger.getLogger(Download.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
 public String path = System.getProperty("user.dir");
