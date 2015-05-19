@@ -2834,7 +2834,16 @@ if (loopCheckBox.isSelected()){
     }//GEN-LAST:event_loopCheckBoxItemStateChanged
 
     private void playButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton1ItemStateChanged
-s1play.play(picker, 1, playButton1);          // TODO add your handling code here:
+if (playButton1.isSelected()){
+    s1play = new com.alphamods.controlcenter.utils.secuences();
+    s1play.play(picker, 1, playButton1);
+    if (loopCheckBox.isSelected()){
+        s1play.setLoop(loopCheckBox.isSelected());
+    }
+}else {
+    s1play.playerStop();
+    
+}// TODO add your handling code here:
     }//GEN-LAST:event_playButton1ItemStateChanged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
