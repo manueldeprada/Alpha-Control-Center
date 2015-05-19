@@ -2866,7 +2866,7 @@ light.startUP();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void settingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsActionPerformed
-settings settings = new settings();
+settings settings = new settings(this, true);
 settings.setVisible(true);
 settings.requestFocusInWindow();
 // TODO add your handling code here:
