@@ -1082,21 +1082,24 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="sec2label" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sec2label" min="-2" max="-2" attributes="0"/>
+                                          <Component id="loopCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="bigpanel2" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="recordButton2" min="-2" pref="74" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="playButton2" min="-2" pref="55" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="playButton2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                               <Component id="clearButton2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="loopCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <Component id="loopCheckBox1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="bigpanel1" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
@@ -1120,45 +1123,54 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="sec3label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sec3label" min="-2" max="-2" attributes="0"/>
+                                          <Component id="loopCheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="bigpanel3" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="recordButton3" min="-2" pref="74" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="playButton3" min="-2" pref="55" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="playButton3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                               <Component id="clearButton3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="sec4label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sec4label" min="-2" max="-2" attributes="0"/>
+                                          <Component id="loopCheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="bigpanel4" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="recordButton4" min="-2" pref="74" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="playButton4" min="-2" pref="55" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="playButton4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="clearButton4" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="sec5label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sec5label" min="-2" max="-2" attributes="0"/>
+                                          <Component id="loopCheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="bigpanel5" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="recordButton5" min="-2" pref="74" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="playButton5" min="-2" pref="55" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="playButton5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                               <Component id="clearButton5" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1183,44 +1195,62 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="bigpanel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="loopCheckBox" min="-2" max="-2" attributes="0"/>
+                                  <Component id="loopCheckBox1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="recordButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="playButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="clearButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="sec2label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="playButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bigpanel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="recordButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="playButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="clearButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="sec3label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bigpanel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="recordButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="clearButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sec3label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="loopCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bigpanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="recordButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="playButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="clearButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="sec4label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bigpanel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="recordButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="clearButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sec4label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="loopCheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bigpanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="recordButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="playButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="clearButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="sec5label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="bigpanel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="recordButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="clearButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sec5label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="loopCheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bigpanel5" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bigpanel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="loopCheckBox5" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace pref="137" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1287,14 +1317,6 @@
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton2ItemStateChanged"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="playButton2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playButton2ActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="clearButton2">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Clear"/>
@@ -1332,14 +1354,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton3ItemStateChanged"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="playButton3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playButton3ActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton3">
@@ -1399,14 +1413,6 @@
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton4ItemStateChanged"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="playButton4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playButton4ActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="clearButton4">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Clear"/>
@@ -1446,14 +1452,6 @@
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton5ItemStateChanged"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="playButton5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playButton5ActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="clearButton5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Clear"/>
@@ -1462,12 +1460,13 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton5ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="loopCheckBox">
+                    <Component class="javax.swing.JCheckBox" name="loopCheckBox1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Loop"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBoxItemStateChanged"/>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox1ItemStateChanged"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loopCheckBox1ActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton1">
@@ -1476,6 +1475,71 @@
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton1ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="playButton2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Play"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton2ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="playButton3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Play"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton3ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="playButton4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Play"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton4ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="playButton5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Play"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton5ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="loopCheckBox2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Loop"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox2ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="loopCheckBox3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Loop"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox3ItemStateChanged"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loopCheckBox3ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="loopCheckBox4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Loop"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox4ItemStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="loopCheckBox5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Loop"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox5ItemStateChanged"/>
                       </Events>
                     </Component>
                   </SubComponents>

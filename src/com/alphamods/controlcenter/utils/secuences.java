@@ -88,7 +88,6 @@ if (i==Integer.parseInt(config.getValue("iFinal", file))){
             
         }
         if (chp.getTime()>Long.parseLong(config.getValue("endTime", file))){
-        System.out.println("biennn");
         }
         
     }
@@ -128,7 +127,6 @@ if (i==Integer.parseInt(config.getValue("iFinal", file))){
         playerexecutor.shutdown();
         chp.stop();
         playerexecutor.shutdownNow();
-        System.out.println("terminated. is shutdown?: " + playerexecutor.isShutdown() + " is terminated?: " + playerexecutor.isTerminated());
         i = 0;
         
     }
@@ -187,7 +185,6 @@ if (i==Integer.parseInt(config.getValue("iFinal", file))){
         saved = initial;
         button = btn;
         chp.start();
-        System.out.println(playerexecutor.isShutdown());
         playerexecutor.scheduleAtFixedRate(player, 0, 10, TimeUnit.MILLISECONDS);
         
     }

@@ -56,9 +56,20 @@ private int mode = 0;
 private methods methods = new methods();
     com.alphamods.controlcenter.utils.secuences s1record;
     com.alphamods.controlcenter.utils.secuences s1play = new com.alphamods.controlcenter.utils.secuences();
-
-
-private boolean testmode = false;
+    
+    com.alphamods.controlcenter.utils.secuences s2record;
+    com.alphamods.controlcenter.utils.secuences s2play = new com.alphamods.controlcenter.utils.secuences();
+    
+    com.alphamods.controlcenter.utils.secuences s3record;
+    com.alphamods.controlcenter.utils.secuences s3play = new com.alphamods.controlcenter.utils.secuences();
+    
+    com.alphamods.controlcenter.utils.secuences s4record;
+    com.alphamods.controlcenter.utils.secuences s4play = new com.alphamods.controlcenter.utils.secuences();
+    
+    com.alphamods.controlcenter.utils.secuences s5record;
+    com.alphamods.controlcenter.utils.secuences s5play = new com.alphamods.controlcenter.utils.secuences();
+    
+    private boolean testmode = false;
 ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
     private SerialPortEventListener evento = new SerialPortEventListener() {
@@ -165,7 +176,7 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     public mainGUI() {
         initComponents();
         trayIcon();
-        makeJPanels(bigpanel1);
+        makeBigPanels();
         methods.initialicePicker(picker);
         methods.initialiceArrays(picker);
         initPanel();
@@ -188,7 +199,14 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         public void propertyChange(PropertyChangeEvent evt) {
             PickerColorChanged(evt);}}); 
         }
-    
+    public void makeBigPanels(){
+        makeJPanels(bigpanel1);
+        makeJPanels(bigpanel2);
+        makeJPanels(bigpanel3);
+        makeJPanels(bigpanel4);
+        makeJPanels(bigpanel5);
+        
+    }
     public void checkUpdates(){
         notificationsLabel.setVisible(true);
         notificationsLabel.setText("Checking for updates...");
@@ -231,7 +249,12 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     }
     }
     public void loadsecpreviews(){
-        loadSecuencePreview(1,this.playButton1, this.cleanButton, bigpanel1);
+        loadSecuencePreview(1,this.playButton1, this.clearButton1, bigpanel1);
+        loadSecuencePreview(2,this.playButton2, this.clearButton2, bigpanel2);
+        loadSecuencePreview(3,this.playButton2, this.clearButton3, bigpanel3);
+        loadSecuencePreview(4,this.playButton2, this.clearButton4, bigpanel4);
+        loadSecuencePreview(5,this.playButton2, this.clearButton5, bigpanel5);
+        
     }
         public void loadSecuencePreview(int number, JToggleButton play, JButton clear, JPanel bigpanel){
             File file = new File(path + File.separator+"secuence"+number+".properties");
@@ -732,26 +755,30 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         sec1label = new javax.swing.JLabel();
         sec2label = new javax.swing.JLabel();
         recordButton2 = new javax.swing.JToggleButton();
-        playButton2 = new javax.swing.JButton();
         clearButton2 = new javax.swing.JButton();
         bigpanel2 = new javax.swing.JPanel();
         sec3label = new javax.swing.JLabel();
         recordButton3 = new javax.swing.JToggleButton();
-        playButton3 = new javax.swing.JButton();
         clearButton3 = new javax.swing.JButton();
         bigpanel3 = new javax.swing.JPanel();
         sec4label = new javax.swing.JLabel();
         bigpanel4 = new javax.swing.JPanel();
         recordButton4 = new javax.swing.JToggleButton();
-        playButton4 = new javax.swing.JButton();
         clearButton4 = new javax.swing.JButton();
         sec5label = new javax.swing.JLabel();
         bigpanel5 = new javax.swing.JPanel();
         recordButton5 = new javax.swing.JToggleButton();
-        playButton5 = new javax.swing.JButton();
         clearButton5 = new javax.swing.JButton();
-        loopCheckBox = new javax.swing.JCheckBox();
+        loopCheckBox1 = new javax.swing.JCheckBox();
         playButton1 = new javax.swing.JToggleButton();
+        playButton2 = new javax.swing.JToggleButton();
+        playButton3 = new javax.swing.JToggleButton();
+        playButton4 = new javax.swing.JToggleButton();
+        playButton5 = new javax.swing.JToggleButton();
+        loopCheckBox2 = new javax.swing.JCheckBox();
+        loopCheckBox3 = new javax.swing.JCheckBox();
+        loopCheckBox4 = new javax.swing.JCheckBox();
+        loopCheckBox5 = new javax.swing.JCheckBox();
         jLabel17 = new javax.swing.JLabel();
         LedC1 = new javax.swing.JCheckBox();
         LedC2 = new javax.swing.JCheckBox();
@@ -1474,13 +1501,6 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             }
         });
 
-        playButton2.setText("Play");
-        playButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButton2ActionPerformed(evt);
-            }
-        });
-
         clearButton2.setText("Clear");
         clearButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1498,13 +1518,6 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         recordButton3.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton3ItemStateChanged(evt);
-            }
-        });
-
-        playButton3.setText("Play");
-        playButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButton3ActionPerformed(evt);
             }
         });
 
@@ -1532,13 +1545,6 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             }
         });
 
-        playButton4.setText("Play");
-        playButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButton4ActionPerformed(evt);
-            }
-        });
-
         clearButton4.setText("Clear");
         clearButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1559,13 +1565,6 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             }
         });
 
-        playButton5.setText("Play");
-        playButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButton5ActionPerformed(evt);
-            }
-        });
-
         clearButton5.setText("Clear");
         clearButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1573,10 +1572,15 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             }
         });
 
-        loopCheckBox.setText("Loop");
-        loopCheckBox.addItemListener(new java.awt.event.ItemListener() {
+        loopCheckBox1.setText("Loop");
+        loopCheckBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                loopCheckBoxItemStateChanged(evt);
+                loopCheckBox1ItemStateChanged(evt);
+            }
+        });
+        loopCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loopCheckBox1ActionPerformed(evt);
             }
         });
 
@@ -1584,6 +1588,67 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         playButton1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton1ItemStateChanged(evt);
+            }
+        });
+
+        playButton2.setText("Play");
+        playButton2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playButton2ItemStateChanged(evt);
+            }
+        });
+
+        playButton3.setText("Play");
+        playButton3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playButton3ItemStateChanged(evt);
+            }
+        });
+
+        playButton4.setText("Play");
+        playButton4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playButton4ItemStateChanged(evt);
+            }
+        });
+
+        playButton5.setText("Play");
+        playButton5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playButton5ItemStateChanged(evt);
+            }
+        });
+
+        loopCheckBox2.setText("Loop");
+        loopCheckBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                loopCheckBox2ItemStateChanged(evt);
+            }
+        });
+
+        loopCheckBox3.setText("Loop");
+        loopCheckBox3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                loopCheckBox3ItemStateChanged(evt);
+            }
+        });
+        loopCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loopCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        loopCheckBox4.setText("Loop");
+        loopCheckBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                loopCheckBox4ItemStateChanged(evt);
+            }
+        });
+
+        loopCheckBox5.setText("Loop");
+        loopCheckBox5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                loopCheckBox5ItemStateChanged(evt);
             }
         });
 
@@ -1595,18 +1660,20 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
                 .addContainerGap()
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addComponent(sec2label)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sec2label)
+                            .addComponent(loopCheckBox2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bigpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(playButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton2)
+                                .addGap(8, 8, 8)
                                 .addComponent(clearButton2))))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
-                        .addComponent(loopCheckBox)
+                        .addComponent(loopCheckBox1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
@@ -1625,39 +1692,45 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
                         .addComponent(SecuencesTitle))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(sec3label)
-                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sec3label)
+                            .addComponent(loopCheckBox3))
+                        .addGap(9, 9, 9)
                         .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(playButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton3)
+                                .addGap(8, 8, 8)
                                 .addComponent(clearButton3))))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(sec4label)
-                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sec4label)
+                            .addComponent(loopCheckBox4))
+                        .addGap(9, 9, 9)
                         .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(playButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(4, 4, 4)
+                                .addComponent(playButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(clearButton4))))
                     .addGroup(SecuencesPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(sec5label)
-                        .addGap(24, 24, 24)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sec5label)
+                            .addComponent(loopCheckBox5))
+                        .addGap(9, 9, 9)
                         .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(SecuencesPanelLayout.createSequentialGroup()
                                 .addComponent(recordButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(playButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(playButton5)
+                                .addGap(8, 8, 8)
                                 .addComponent(clearButton5)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1675,39 +1748,50 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bigpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loopCheckBox))
+                    .addComponent(loopCheckBox1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recordButton2)
-                    .addComponent(playButton2)
                     .addComponent(clearButton2)
-                    .addComponent(sec2label))
+                    .addComponent(sec2label)
+                    .addComponent(playButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recordButton3)
-                    .addComponent(playButton3)
-                    .addComponent(clearButton3)
-                    .addComponent(sec3label))
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(bigpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recordButton3)
+                            .addComponent(clearButton3)
+                            .addComponent(sec3label)
+                            .addComponent(playButton3)))
+                    .addComponent(loopCheckBox2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recordButton4)
-                    .addComponent(playButton4)
-                    .addComponent(clearButton4)
-                    .addComponent(sec4label))
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(bigpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recordButton4)
+                            .addComponent(clearButton4)
+                            .addComponent(sec4label)
+                            .addComponent(playButton4)))
+                    .addComponent(loopCheckBox3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recordButton5)
-                    .addComponent(playButton5)
-                    .addComponent(clearButton5)
-                    .addComponent(sec5label))
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SecuencesPanelLayout.createSequentialGroup()
+                        .addComponent(bigpanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recordButton5)
+                            .addComponent(clearButton5)
+                            .addComponent(sec5label)
+                            .addComponent(playButton5)))
+                    .addComponent(loopCheckBox4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loopCheckBox5))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
 
@@ -2782,56 +2866,59 @@ if (testMode.isSelected()){
         secuences.clean(1);
     }//GEN-LAST:event_clearButton1ActionPerformed
 
-    private void recordButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton2ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_recordButton2ItemStateChanged
-
-    private void playButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_playButton2ActionPerformed
-
-    private void clearButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearButton2ActionPerformed
-
     private void recordButton3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton3ItemStateChanged
-        // TODO add your handling code here:
+        if (recordButton3.isSelected()){
+        s3record = new com.alphamods.controlcenter.utils.secuences();
+        s3record.record(picker, 3);
+        recordButton3.setText("Stop");  
+    }
+    else{
+        s3record.recorderStop(bigpanel3); 
+        recordButton3.setText("Record");
+    }// TODO add your handling code here:
     }//GEN-LAST:event_recordButton3ItemStateChanged
 
-    private void playButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_playButton3ActionPerformed
-
     private void clearButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton3ActionPerformed
-        // TODO add your handling code here:
+                secuences.clean(3);
+// TODO add your handling code here:
     }//GEN-LAST:event_clearButton3ActionPerformed
 
     private void recordButton4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton4ItemStateChanged
-        // TODO add your handling code here:
+      if (recordButton4.isSelected()){
+        s4record = new com.alphamods.controlcenter.utils.secuences();
+        s4record.record(picker, 4);
+        recordButton4.setText("Stop");  
+    }
+    else{
+        s4record.recorderStop(bigpanel4); 
+        recordButton4.setText("Record");
+    }  // TODO add your handling code here:
     }//GEN-LAST:event_recordButton4ItemStateChanged
 
-    private void playButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_playButton4ActionPerformed
-
     private void clearButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton4ActionPerformed
-        // TODO add your handling code here:
+              secuences.clean(4);
+  // TODO add your handling code here:
     }//GEN-LAST:event_clearButton4ActionPerformed
 
     private void recordButton5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton5ItemStateChanged
-        // TODO add your handling code here:
+      if (recordButton5.isSelected()){
+        s5record = new com.alphamods.controlcenter.utils.secuences();
+        s5record.record(picker, 5);
+        recordButton5.setText("Stop");  
+    }
+    else{
+        s5record.recorderStop(bigpanel5); 
+        recordButton5.setText("Record");
+    }  // TODO add your handling code here:
     }//GEN-LAST:event_recordButton5ItemStateChanged
 
-    private void playButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_playButton5ActionPerformed
-
     private void clearButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton5ActionPerformed
-        // TODO add your handling code here:
+               secuences.clean(5);
+ // TODO add your handling code here:
     }//GEN-LAST:event_clearButton5ActionPerformed
 
-    private void loopCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBoxItemStateChanged
-if (loopCheckBox.isSelected()){
+    private void loopCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBox1ItemStateChanged
+if (loopCheckBox1.isSelected()){
 
     s1play.setLoop(true);
     
@@ -2844,14 +2931,14 @@ if (loopCheckBox.isSelected()){
 
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_loopCheckBoxItemStateChanged
+    }//GEN-LAST:event_loopCheckBox1ItemStateChanged
 
     private void playButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton1ItemStateChanged
 if (playButton1.isSelected()){
     s1play = new com.alphamods.controlcenter.utils.secuences();
     s1play.play(picker, 1, playButton1);
-    if (loopCheckBox.isSelected()){
-        s1play.setLoop(loopCheckBox.isSelected());
+    if (loopCheckBox1.isSelected()){
+        s1play.setLoop(loopCheckBox1.isSelected());
     }
 }else {
     s1play.playerStop();
@@ -2886,6 +2973,115 @@ try {
                 Logger.getLogger(UpdaterGUI.class.getName()).log(Level.SEVERE, null, ex);
             }         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void clearButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButton2ActionPerformed
+               secuences.clean(2);
+ // TODO add your handling code here:
+    }//GEN-LAST:event_clearButton2ActionPerformed
+
+    private void recordButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_recordButton2ItemStateChanged
+       if (recordButton2.isSelected()){
+        s2record = new com.alphamods.controlcenter.utils.secuences();
+        s2record.record(picker, 2);
+        recordButton2.setText("Stop");  
+    }
+    else{
+        s2record.recorderStop(bigpanel2); 
+        recordButton2.setText("Record");
+    } // TODO add your handling code here:
+    }//GEN-LAST:event_recordButton2ItemStateChanged
+
+    private void playButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton2ItemStateChanged
+       if (playButton2.isSelected()){
+    s2play = new com.alphamods.controlcenter.utils.secuences();
+    s2play.play(picker, 2, playButton2);
+    if (loopCheckBox2.isSelected()){
+        s2play.setLoop(loopCheckBox2.isSelected());
+    }
+}else {
+    s2play.playerStop();
+    
+} // TODO add your handling code here:
+    }//GEN-LAST:event_playButton2ItemStateChanged
+
+    private void playButton3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton3ItemStateChanged
+       if (playButton3.isSelected()){
+    s3play = new com.alphamods.controlcenter.utils.secuences();
+    s3play.play(picker, 3, playButton3);
+    if (loopCheckBox3.isSelected()){
+        s3play.setLoop(loopCheckBox3.isSelected());
+    }
+}else {
+    s3play.playerStop();
+    
+} // TODO add your handling code here:
+    }//GEN-LAST:event_playButton3ItemStateChanged
+
+    private void playButton4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton4ItemStateChanged
+     if (playButton4.isSelected()){
+    s4play = new com.alphamods.controlcenter.utils.secuences();
+    s4play.play(picker, 4, playButton4);
+    if (loopCheckBox4.isSelected()){
+        s4play.setLoop(loopCheckBox4.isSelected());
+    }
+}else {
+    s4play.playerStop();
+    
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_playButton4ItemStateChanged
+
+    private void playButton5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playButton5ItemStateChanged
+    if (playButton5.isSelected()){
+    s5play = new com.alphamods.controlcenter.utils.secuences();
+    s5play.play(picker, 5, playButton5);
+    if (loopCheckBox5.isSelected()){
+        s5play.setLoop(loopCheckBox5.isSelected());
+    }
+}else {
+    s5play.playerStop();
+    
+}    // TODO add your handling code here:
+    }//GEN-LAST:event_playButton5ItemStateChanged
+
+    private void loopCheckBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBox2ItemStateChanged
+     if (loopCheckBox2.isSelected()){
+    s2play.setLoop(true);
+     }else{
+    s2play.setLoop(false);
+}   // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox2ItemStateChanged
+
+    private void loopCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loopCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox1ActionPerformed
+
+    private void loopCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loopCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox3ActionPerformed
+
+    private void loopCheckBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBox3ItemStateChanged
+if (loopCheckBox3.isSelected()){
+    s3play.setLoop(true);
+     }else{
+    s3play.setLoop(false);
+}         // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox3ItemStateChanged
+
+    private void loopCheckBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBox4ItemStateChanged
+if (loopCheckBox4.isSelected()){
+    s4play.setLoop(true);
+     }else{
+    s4play.setLoop(false);
+}         // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox4ItemStateChanged
+
+    private void loopCheckBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_loopCheckBox5ItemStateChanged
+if (loopCheckBox5.isSelected()){
+    s5play.setLoop(true);
+     }else{
+    s5play.setLoop(false);
+}         // TODO add your handling code here:
+    }//GEN-LAST:event_loopCheckBox5ItemStateChanged
 
     
     Runnable refreshTemp = new Runnable() {
@@ -2990,7 +3186,11 @@ try {
     private javax.swing.JLabel labelColor8;
     private javax.swing.JLabel labelColor9;
     private javax.swing.JLabel ledModeLabel;
-    private javax.swing.JCheckBox loopCheckBox;
+    private javax.swing.JCheckBox loopCheckBox1;
+    private javax.swing.JCheckBox loopCheckBox2;
+    private javax.swing.JCheckBox loopCheckBox3;
+    private javax.swing.JCheckBox loopCheckBox4;
+    private javax.swing.JCheckBox loopCheckBox5;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JRadioButton musicRadioButton;
     private javax.swing.JRadioButton normalRadioButton;
@@ -3011,10 +3211,10 @@ try {
     private javax.swing.JPanel panelColor9;
     private com.bric.swing.ColorPicker picker;
     private javax.swing.JToggleButton playButton1;
-    private javax.swing.JButton playButton2;
-    private javax.swing.JButton playButton3;
-    private javax.swing.JButton playButton4;
-    private javax.swing.JButton playButton5;
+    private javax.swing.JToggleButton playButton2;
+    private javax.swing.JToggleButton playButton3;
+    private javax.swing.JToggleButton playButton4;
+    private javax.swing.JToggleButton playButton5;
     private javax.swing.JLabel pump1label;
     private javax.swing.JTextField pump1max;
     private javax.swing.JSlider pump1slider;
