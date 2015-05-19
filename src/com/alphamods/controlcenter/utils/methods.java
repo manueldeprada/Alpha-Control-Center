@@ -121,13 +121,18 @@ public class methods {
         }
     }
     
-    public void refreshMode(JCheckBox RefreshCheckBox){
+    public boolean refreshMode(JCheckBox RefreshCheckBox){
         if ("0".equals(config.getValue("refreshMode"))){
             RefreshCheckBox.setSelected(false);
+            return false;
         }
         if ("1".equals(config.getValue("refreshMode"))){
             RefreshCheckBox.setSelected(true);
+            return true;
+        }else {
+            return false;
         }
+        
     }
     
     public void rpm(JTextField fan1max, JTextField fan2max, JTextField pump1max){
