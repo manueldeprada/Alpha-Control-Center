@@ -59,8 +59,7 @@ private methods methods = new methods();
 
 
 private boolean testmode = false;
-ScheduledExecutorService executor = 
-            Executors.newScheduledThreadPool(1);
+ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
     private SerialPortEventListener evento = new SerialPortEventListener() {
 
@@ -275,7 +274,14 @@ ScheduledExecutorService executor =
     }
     
     public void refreshMode(){
-        methods.refreshMode(RefreshCheckBox);
+        boolean ub = methods.refreshMode(RefreshCheckBox);
+        if (ub){
+            refreshSecondsSpinner.setEnabled(true);
+            jLabel19.setEnabled(true);
+            jLabel18.setEnabled(true);
+            executor = Executors.newScheduledThreadPool(1);
+            executor.scheduleAtFixedRate(refreshTemp, 0, Long.parseLong(refreshSecondsSpinner.getValue().toString()), TimeUnit.SECONDS);
+        }
     }
     
     public void write(){
@@ -1798,6 +1804,7 @@ ScheduledExecutorService executor =
 
         fan1label.setText("Channel 1");
 
+        fan1slider.setPaintTicks(true);
         fan1slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 fan1sliderStateChanged(evt);
@@ -1808,12 +1815,14 @@ ScheduledExecutorService executor =
 
         pump2label.setText("Channel 2");
 
+        fan2slider.setPaintTicks(true);
         fan2slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 fan2sliderStateChanged(evt);
             }
         });
 
+        pump1slider.setPaintTicks(true);
         pump1slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pump1sliderStateChanged(evt);
@@ -1922,6 +1931,7 @@ ScheduledExecutorService executor =
             }
         });
 
+        refreshSecondsSpinner.setModel(new javax.swing.SpinnerNumberModel(Long.valueOf(5L), Long.valueOf(2L), null, Long.valueOf(1L)));
         refreshSecondsSpinner.setToolTipText("");
         refreshSecondsSpinner.setValue(refreshTime());
         refreshSecondsSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -2702,6 +2712,7 @@ rpmData();
             refreshSecondsSpinner.setEnabled(true);
             jLabel19.setEnabled(true);
             jLabel18.setEnabled(true);
+            executor = Executors.newScheduledThreadPool(1);
             executor.scheduleAtFixedRate(refreshTemp, 0, Long.parseLong(refreshSecondsSpinner.getValue().toString()), TimeUnit.SECONDS);
         }
         else{
@@ -2718,6 +2729,8 @@ rpmData();
     
     private void refreshSecondsSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_refreshSecondsSpinnerStateChanged
 executor.shutdown();  
+executor = Executors.newScheduledThreadPool(1);
+
             executor.scheduleAtFixedRate(refreshTemp, 0, Long.parseLong(refreshSecondsSpinner.getValue().toString()), TimeUnit.SECONDS);
 // TODO add your handling code here:
     }//GEN-LAST:event_refreshSecondsSpinnerStateChanged
