@@ -14,14 +14,16 @@ import java.util.logging.Logger;
  *
  * @author Manu
  */
-public class settings extends javax.swing.JFrame {
-    public static String path = System.getProperty("user.dir"); 
+public class settings extends javax.swing.JDialog {
 
+    
+        public final static String path = System.getProperty("user.dir"); 
 
     /**
-     * Creates new form settings
+     * Creates new form settings1
      */
-    public settings() {
+    public settings(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -43,7 +45,7 @@ public class settings extends javax.swing.JFrame {
         bootstart = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
 
         updaterlabel.setText("Updater");
@@ -76,7 +78,7 @@ public class settings extends javax.swing.JFrame {
                     .addComponent(updaterlabel)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateatstart, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +93,7 @@ public class settings extends javax.swing.JFrame {
                 .addComponent(updaterlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(updateatstart)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         generaltab.addTab("General", jPanel1);
@@ -100,11 +102,11 @@ public class settings extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 375, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
 
         generaltab.addTab("tab2", jPanel2);
@@ -130,32 +132,30 @@ public class settings extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
+        if (updateatstart.isSelected()){
+            config.setValue("startupdate", "true");
+
+        }else{
+            config.setValue("startupdate", "false");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateatstartActionPerformed
+
     private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
         try {
-            
-                    String fpathunlockb =  path + "\\dr.vbs";
-                    String[] args = {"wscript", fpathunlockb};
-                    ProcessBuilder pb = new ProcessBuilder(args);
-                    
-                    Process pr = pb.start();
-                    
-                    
-                } catch (IOException ex) {
-                    Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        
-        
-    }//GEN-LAST:event_bootstartActionPerformed
 
-    private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
-     if (updateatstart.isSelected()){
-         config.setValue("startupdate", "true");
-         
-     }else{
-         config.setValue("startupdate", "false");
-     }
-         // TODO add your handling code here:
-    }//GEN-LAST:event_updateatstartActionPerformed
+            String fpathunlockb =  path + "\\dr.vbs";
+            String[] args = {"wscript", fpathunlockb};
+            ProcessBuilder pb = new ProcessBuilder(args);
+
+            Process pr = pb.start();
+
+        } catch (IOException ex) {
+            Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_bootstartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,10 +184,17 @@ public class settings extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new settings().setVisible(true);
+                settings dialog = new settings(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
