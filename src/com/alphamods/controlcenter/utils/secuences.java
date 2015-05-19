@@ -61,6 +61,8 @@ public class secuences {
 if (i==Integer.parseInt(config.getValue("iFinal", file))){
            if (loop){
                i=0;
+               chp.stop();
+               chp.start();
            }else{
                button.setSelected(false);
                playerexecutor.shutdown();
@@ -125,6 +127,10 @@ if (i==Integer.parseInt(config.getValue("iFinal", file))){
     public void playerStop(){
         playerexecutor.shutdown();
         chp.stop();
+        playerexecutor.shutdownNow();
+        System.out.println("terminated. is shutdown?: " + playerexecutor.isShutdown() + " is terminated?: " + playerexecutor.isTerminated());
+        i = 0;
+        
     }
     public static void clean(int num){
         PrintWriter writer = null;   
@@ -181,6 +187,7 @@ if (i==Integer.parseInt(config.getValue("iFinal", file))){
         saved = initial;
         button = btn;
         chp.start();
+        System.out.println(playerexecutor.isShutdown());
         playerexecutor.scheduleAtFixedRate(player, 0, 10, TimeUnit.MILLISECONDS);
         
     }

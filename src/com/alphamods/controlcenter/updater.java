@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -27,8 +28,15 @@ public class updater extends Thread{
     public void run(){
         error = false;
     try {
-            URL url = new URL("http://alphamods.com/files/info.txt");
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
+            URL url = new URL("https://alphamods.com/files/info.txt");
+               URLConnection uc;
+
+            uc = url.openConnection();
+            uc.addRequestProperty("User-Agent", 
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+
+   uc.connect();
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()))) {
                 String str1;
                 while ((str1 = in.readLine()) != null) {
                     data = data + str1 + System.getProperty("line.separator");

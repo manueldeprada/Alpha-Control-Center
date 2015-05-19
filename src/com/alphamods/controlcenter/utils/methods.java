@@ -313,7 +313,7 @@ String OutputR, OutputG, OutputB;
                 
         String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + motors[0] + motors[1] + motors[2];
         try {
-                    System.out.println(send);
+                    
                     if(!testmode){
                     Arduino.sendData(send);
                     }
