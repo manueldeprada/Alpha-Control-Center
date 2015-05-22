@@ -785,6 +785,7 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         LedC3 = new javax.swing.JCheckBox();
         LedC4 = new javax.swing.JCheckBox();
         testMode = new javax.swing.JToggleButton();
+        jButton2 = new javax.swing.JButton();
         FanPumpPanel = new javax.swing.JPanel();
         fan1label = new javax.swing.JLabel();
         fan1slider = new javax.swing.JSlider();
@@ -1820,42 +1821,56 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             }
         });
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout colorTabLayout = new javax.swing.GroupLayout(colorTab);
         colorTab.setLayout(colorTabLayout);
         colorTabLayout.setHorizontalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorTabLayout.createSequentialGroup()
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
-                            .addGap(74, 74, 74)
-                            .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
-                                    .addComponent(LedC1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(LedC2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(LedC3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(LedC4))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
-                                    .addGap(133, 133, 133)
-                                    .addComponent(jLabel17)))))
-                    .addComponent(testMode)
                     .addGroup(colorTabLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ledModeLabel)
+                        .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(picker, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorTabLayout.createSequentialGroup()
+                                    .addGap(74, 74, 74)
+                                    .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(colorTabLayout.createSequentialGroup()
+                                            .addGap(133, 133, 133)
+                                            .addComponent(jLabel17)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(colorTabLayout.createSequentialGroup()
+                                            .addComponent(LedC1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(LedC2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(LedC3)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(LedC4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(testMode)
                             .addGroup(colorTabLayout.createSequentialGroup()
-                                .addComponent(fadeRadioButton)
-                                .addGap(35, 35, 35)
-                                .addComponent(normalRadioButton)))
-                        .addGap(36, 36, 36)
-                        .addComponent(musicRadioButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(125, 125, 125)
+                                .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ledModeLabel)
+                                    .addGroup(colorTabLayout.createSequentialGroup()
+                                        .addComponent(fadeRadioButton)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(normalRadioButton)))
+                                .addGap(36, 36, 36)
+                                .addComponent(musicRadioButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorTabLayout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(40, 40, 40)))
                 .addComponent(colors_secuencesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         colorTabLayout.setVerticalGroup(
             colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1869,7 +1884,9 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
                     .addComponent(LedC2)
                     .addComponent(LedC3)
                     .addComponent(LedC4))
-                .addGap(70, 70, 70)
+                .addGap(45, 45, 45)
+                .addComponent(jButton2)
+                .addGap(2, 2, 2)
                 .addComponent(ledModeLabel)
                 .addGap(18, 18, 18)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3083,6 +3100,11 @@ if (loopCheckBox5.isSelected()){
 }         // TODO add your handling code here:
     }//GEN-LAST:event_loopCheckBox5ItemStateChanged
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+ConfigurationWizard ub = new ConfigurationWizard(this, true);
+ub.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
     Runnable refreshTemp = new Runnable() {
 
@@ -3150,6 +3172,7 @@ if (loopCheckBox5.isSelected()){
     private javax.swing.JButton getButtonColor8;
     private javax.swing.JButton getButtonColor9;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
