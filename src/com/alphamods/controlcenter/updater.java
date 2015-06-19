@@ -60,7 +60,6 @@ public class updater extends Thread{
     }
     
     private void check(){
-        
         double netversion = Double.parseDouble(config.getNetValue("version", data));
         if (netversion == methods.getversion()) {
             try {

@@ -74,21 +74,905 @@ public String path = System.getProperty("user.dir");
             
             switch(vfan){
                 case 1:
+                             raya4.setVisible(true);
+                            label4.setVisible(true);
+                            label4.setText("F1");
+                            
+                             raya5.setVisible(true);
+                            label5.setVisible(true);
+                            label5.setText("P1");                                                     
+                            switch(vpump){
+                                case 2:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");                                                                                                         
+                                    break;
+                                case 3:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3");                                                  
+                                    break;
+                                case 4:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4");                            
+                                    break;
+                                case 5:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");                                                                                             
+                                    break;
+                                case 6:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");                                                                          
+                                    break;
+                                    
+                                case 7:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");        
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P7");                                                                    
+                                    break;
+                                    
+                                case 8:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");        
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P7");    
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P8");                                                                  
+                                    break;
+                                    
+                                case 9:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");        
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P7");    
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P8");                                   
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P9");                                          
+                                    break;
+                                case 10:
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");        
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P7");    
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P8");                                   
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P9");                                   
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P10");                                   
+                                    break;
+                                case 11:
+                                                                 raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P2");   
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P3"); 
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P4"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P5");
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P6");        
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P7");    
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P8");                                   
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P9");                                   
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P10"); 
+                            
+                             raya15.setVisible(true);
+                            label15.setVisible(true);
+                            label15.setText("P11"); 
+                                    break;
+                            }                         
                     break;
                 
                 case 2:
+                             raya4.setVisible(true);
+                            label4.setVisible(true);
+                            label4.setText("F1");
+                            
+                             raya5.setVisible(true);
+                            label5.setVisible(true);
+                            label5.setText("F2");
+                            
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("P1");                            
+                            switch(vpump){
+                                case 2:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");                                                                                                       
+                                    break;
+                                case 3:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");                                                   
+                                    break;
+                                case 4:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");                            
+                                    break;
+                                case 5:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");                                                                                             
+                                    break;
+                                case 6:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P6");                                                                         
+                                    break;
+                                    
+                                case 7:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P6");   
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P7");                                                                     
+                                    break;
+                                    
+                                case 8:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P6");   
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P7");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P8");                                 
+                                    break;
+                                    
+                                case 9:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P6");   
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P7");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P8");                                   
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P9");          
+                                    break;
+                                case 10:
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P2");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P3");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P4");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P5");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P6");   
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P7");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P8");                                   
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P9"); 
+                            
+                             raya15.setVisible(true);
+                            label15.setVisible(true);
+                            label15.setText("P10");                                     
+                                    break;
+                            }                       
                     break;
                 
                 
                 case 3:
+                    
+                             raya4.setVisible(true);
+                            label4.setVisible(true);
+                            label4.setText("F1");
+                            
+                             raya5.setVisible(true);
+                            label5.setVisible(true);
+                            label5.setText("F2");
+                            
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("F3");
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("P1");
+                            switch(vpump){
+                                case 2:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2");                                                                                                         
+                                    break;
+                                case 3:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");                                                   
+                                    break;
+                                case 4:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");                           
+                                    break;
+                                case 5:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P5");                                                                                           
+                                    break;
+                                case 6:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P5");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P6");                                                                       
+                                    break;
+                                    
+                                case 7:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P5");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P6");                                     
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P7");                                  
+                                    break;
+                                    
+                                case 8:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P5");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P6");                                     
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P7");                                 
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P8"); 
+                                    break;
+                                    
+                                case 9:
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P2"); 
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P3");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P4");    
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P5");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P6");                                     
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P7");                                 
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P8"); 
+                            
+                             raya15.setVisible(true);
+                            label15.setVisible(true);
+                            label15.setText("P9");          
+                                    break;
+                            }   
+                    
                     break;
                 
                 
                 case 4:
+                            raya4.setVisible(true);
+                            label4.setVisible(true);
+                            label4.setText("F1");
+                            
+                             raya5.setVisible(true);
+                            label5.setVisible(true);
+                            label5.setText("F2");
+                            
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("F3");
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("F4");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("P1");   
+                            switch(vpump){
+                                case 2:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");                                                                                                        
+                                    break;
+                                case 3:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");                                                  
+                                    break;
+                                case 4:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P4");                           
+                                    break;
+                                case 5:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P4");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P5");                                                                                           
+                                    break;
+                                case 6:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P4");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P5");                                       
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P6");                                  
+                                    break;
+                                    
+                                case 7:
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P4");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P5");                                       
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P6");                                  
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P7"); 
+                                    break;
+                                    
+                                case 8:
+                                                                 raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P2");  
+                            
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P3");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P4");  
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P5");                                       
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P6");                                  
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P7"); 
+                            
+                             raya15.setVisible(true);
+                            label15.setVisible(true);
+                            label15.setText("P8");  
+                                    break;
+                            }                      
+                
+                    
                     break;
                 
                 
                 case 5:
+                     raya4.setVisible(true);
+                            label4.setVisible(true);
+                            label4.setText("F1");
+                            
+                             raya5.setVisible(true);
+                            label5.setVisible(true);
+                            label5.setText("F2");
+                            
+                             raya6.setVisible(true);
+                            label6.setVisible(true);
+                            label6.setText("F3");
+                            
+                             raya7.setVisible(true);
+                            label7.setVisible(true);
+                            label7.setText("F4");
+                            
+                             raya8.setVisible(true);
+                            label8.setVisible(true);
+                            label8.setText("F5");
+                            
+                             raya9.setVisible(true);
+                            label9.setVisible(true);
+                            label9.setText("P1");                          
+      
+                            switch(vpump){
+                                case 2:
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");                                                                                                       
+                                    break;
+                                case 3:
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P3");                                                 
+                                    break;
+                                case 4:
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P3");
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P4");                                       
+                                                          
+                                    break;
+                                case 5:
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P3");
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P4");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P5");                                                        
+                                    break;
+                                case 6:
+                             raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P3");
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P4");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P5");                                 
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P6");   
+                                    break;
+                                    
+                                case 7:
+                                                                 raya10.setVisible(true);
+                            label10.setVisible(true);
+                            label10.setText("P2");  
+                            
+                             raya11.setVisible(true);
+                            label11.setVisible(true);
+                            label11.setText("P3");
+                            
+                             raya12.setVisible(true);
+                            label12.setVisible(true);
+                            label12.setText("P4");                                    
+                                    
+                             raya13.setVisible(true);
+                            label13.setVisible(true);
+                            label13.setText("P5");                                 
+                                    
+                             raya14.setVisible(true);
+                            label14.setVisible(true);
+                            label14.setText("P6"); 
+                            
+                             raya15.setVisible(true);
+                            label15.setVisible(true);
+                            label15.setText("P7");  
+                                    break;
+                            }                      
+                
                     break;
                 
                 
