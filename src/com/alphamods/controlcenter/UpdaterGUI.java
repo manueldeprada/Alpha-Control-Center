@@ -331,7 +331,7 @@ String str1;
 public String path = System.getProperty("user.dir");
 Download download1;
 
-main bub;
+Main bub;
 java.awt.Frame parentframe;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

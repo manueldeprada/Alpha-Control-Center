@@ -7,7 +7,13 @@ package com.alphamods.controlcenter;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 /**
@@ -20,6 +26,9 @@ public int totalsteps = 7;
 int pumpfanmin = 3;
 int pumpfanmax = 12;
 public String path = System.getProperty("user.dir");
+int vled;
+int vfan;
+int vpump;
 
     /**
      * Creates new form ConfigurationWizard
@@ -28,7 +37,43 @@ public String path = System.getProperty("user.dir");
         super(parent, modal);
         initComponents();
         setModels(true, false);
+        configuremaxs();
     }
+    private void configuremaxs(){
+        List<JLabel> fanlabels = Arrays.asList(fanlabel1, fanlabel2, fanlabel3,fanlabel4,fanlabel5,fanlabel6,fanlabel7,fanlabel8,fanlabel9,fanlabel10,fanlabel11);
+        List<JSpinner> fanmaxs = Arrays.asList(fanmax1,fanmax2,fanmax3,fanmax4,fanmax5,fanmax6,fanmax7,fanmax8,fanmax9,fanmax10,fanmax11);
+        List<JLabel> pumplabels = Arrays.asList(pumplabel1, pumplabel2,pumplabel3,pumplabel4,pumplabel5,pumplabel6,pumplabel7,pumplabel8, pumplabel9, pumplabel10, pumplabel11);
+        List<JSpinner> pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
+        //make everything invisible
+        for(int i=0; i<fanlabels.size(); i++){
+            fanlabels.get(i).setVisible(false);
+        }
+        
+        for(int i=0; i<pumplabels.size(); i++){
+            pumplabels.get(i).setVisible(false);
+        }
+        
+        for(int i=0; i<fanmaxs.size(); i++){
+            fanmaxs.get(i).setVisible(false);
+        }
+        for(int i=0; i<pumpmaxs.size(); i++){
+            pumpmaxs.get(i).setVisible(false);
+        }
+        //make visible the things needed
+        
+        for(int i=0; i<vfan; i++){
+            fanlabels.get(i).setVisible(true);
+            fanmaxs.get(i).setVisible(true);
+        }
+
+        for(int i=0; i<vpump; i++){
+            pumplabels.get(i).setVisible(true);
+            pumpmaxs.get(i).setVisible(true);
+        }
+        
+        
+    }
+    
     public void represent(){
         triples1.setVisible(false);
             triples2.setVisible(false);
@@ -62,9 +107,9 @@ public String path = System.getProperty("user.dir");
             
             
             
-        int vled = Integer.parseInt(leds.getValue().toString());
-        int vfan = Integer.parseInt(fans.getValue().toString());
-        int vpump = Integer.parseInt(pumps.getValue().toString());
+        vled = Integer.parseInt(leds.getValue().toString());
+        vfan = Integer.parseInt(fans.getValue().toString());
+        vpump = Integer.parseInt(pumps.getValue().toString());
         
         if (vled == 1){
             triples1.setVisible(true);
@@ -2333,17 +2378,11 @@ public String path = System.getProperty("user.dir");
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        leds = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        fans = new javax.swing.JSpinner();
-        pumps = new javax.swing.JSpinner();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         triples1 = new javax.swing.JLabel();
@@ -2375,12 +2414,64 @@ public String path = System.getProperty("user.dir");
         label14 = new javax.swing.JLabel();
         label15 = new javax.swing.JLabel();
         triplel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel4 = new javax.swing.JPanel();
-        jSlider1 = new javax.swing.JSlider();
-        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        leds = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        fans = new javax.swing.JSpinner();
+        pumps = new javax.swing.JSpinner();
+        jPanel3 = new javax.swing.JPanel();
+        fansTitle = new javax.swing.JLabel();
+        pumpsTitle = new javax.swing.JLabel();
+        fanlabel1 = new javax.swing.JLabel();
+        fanlabel2 = new javax.swing.JLabel();
+        fanlabel3 = new javax.swing.JLabel();
+        fanlabel4 = new javax.swing.JLabel();
+        fanlabel5 = new javax.swing.JLabel();
+        fanlabel6 = new javax.swing.JLabel();
+        fanlabel7 = new javax.swing.JLabel();
+        fanlabel8 = new javax.swing.JLabel();
+        fanlabel9 = new javax.swing.JLabel();
+        fanlabel10 = new javax.swing.JLabel();
+        fanlabel11 = new javax.swing.JLabel();
+        pumplabel1 = new javax.swing.JLabel();
+        pumplabel2 = new javax.swing.JLabel();
+        pumplabel3 = new javax.swing.JLabel();
+        pumplabel4 = new javax.swing.JLabel();
+        pumplabel5 = new javax.swing.JLabel();
+        pumplabel6 = new javax.swing.JLabel();
+        pumplabel7 = new javax.swing.JLabel();
+        pumplabel8 = new javax.swing.JLabel();
+        pumplabel9 = new javax.swing.JLabel();
+        pumplabel10 = new javax.swing.JLabel();
+        pumplabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        fanmax1 = new javax.swing.JSpinner();
+        fanmax2 = new javax.swing.JSpinner();
+        fanmax3 = new javax.swing.JSpinner();
+        fanmax4 = new javax.swing.JSpinner();
+        fanmax5 = new javax.swing.JSpinner();
+        fanmax6 = new javax.swing.JSpinner();
+        fanmax7 = new javax.swing.JSpinner();
+        fanmax8 = new javax.swing.JSpinner();
+        fanmax9 = new javax.swing.JSpinner();
+        fanmax10 = new javax.swing.JSpinner();
+        fanmax11 = new javax.swing.JSpinner();
+        pumpmax1 = new javax.swing.JSpinner();
+        pumpmax2 = new javax.swing.JSpinner();
+        pumpmax3 = new javax.swing.JSpinner();
+        pumpmax4 = new javax.swing.JSpinner();
+        pumpmax5 = new javax.swing.JSpinner();
+        pumpmax6 = new javax.swing.JSpinner();
+        pumpmax7 = new javax.swing.JSpinner();
+        pumpmax8 = new javax.swing.JSpinner();
+        pumpmax9 = new javax.swing.JSpinner();
+        pumpmax10 = new javax.swing.JSpinner();
+        pumpmax11 = new javax.swing.JSpinner();
+        backButton = new javax.swing.JButton();
+        stepLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -2390,10 +2481,10 @@ public String path = System.getProperty("user.dir");
             }
         });
 
-        jButton1.setText("Next >");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        nextButton.setText("Next >");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
             }
         });
 
@@ -2408,7 +2499,7 @@ public String path = System.getProperty("user.dir");
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel2)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2419,6 +2510,116 @@ public String path = System.getProperty("user.dir");
         );
 
         mainPanel.add(jPanel1, "card1");
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/channels.png"))); // NOI18N
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+
+        triples1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
+        jPanel5.add(triples1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        triples2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
+        jPanel5.add(triples2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        triples3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
+        jPanel5.add(triples3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, 20));
+
+        triples4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
+        jPanel5.add(triples4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 20));
+
+        raya4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 30, 40));
+
+        raya5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 30, 20));
+
+        raya6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 30, 40));
+
+        raya7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 30, 20));
+
+        raya8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, 20));
+
+        raya9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, 20));
+
+        raya10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 30, 20));
+
+        raya11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 30, 20));
+
+        raya12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 30, 20));
+
+        raya13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 20, 20));
+
+        raya14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 30, 20));
+
+        raya15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
+        jPanel5.add(raya15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 30, 20));
+
+        label4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label4.setText("F1");
+        jPanel5.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
+
+        label5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label5.setText("F1");
+        jPanel5.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, -1));
+
+        label6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label6.setText("F1");
+        jPanel5.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
+
+        label7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label7.setText("F1");
+        jPanel5.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, -1));
+
+        label8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label8.setText("F1");
+        jPanel5.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, -1));
+
+        label9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label9.setText("F1");
+        jPanel5.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
+
+        label10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label10.setText("F1");
+        jPanel5.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
+        label11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label11.setText("F1");
+        jPanel5.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
+
+        label12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label12.setText("F1");
+        jPanel5.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, -1));
+
+        label13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label13.setText("F1");
+        jPanel5.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
+
+        label14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label14.setText("F1");
+        jPanel5.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, -1));
+
+        label15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        label15.setText("F1");
+        jPanel5.add(label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
+
+        triplel1.setText("triplel1");
+        jPanel5.add(triplel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("<html>Tell us about your board...<br><br>How many led strips, pumps and fans do you have?");
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Select the number of fans");
@@ -2450,134 +2651,24 @@ public String path = System.getProperty("user.dir");
             }
         });
 
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/channels.png"))); // NOI18N
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 62, -1, -1));
-
-        triples1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
-        jPanel5.add(triples1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        triples2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
-        jPanel5.add(triples2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
-
-        triples3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
-        jPanel5.add(triples3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, 20));
-
-        triples4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector3.png"))); // NOI18N
-        jPanel5.add(triples4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, 20));
-
-        raya4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 30, 40));
-
-        raya5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 30, 20));
-
-        raya6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 30, 40));
-
-        raya7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 30, 20));
-
-        raya8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 30, 20));
-
-        raya9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 30, 20));
-
-        raya10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 30, 20));
-
-        raya11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 30, 20));
-
-        raya12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 30, 20));
-
-        raya13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 20, 20));
-
-        raya14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 30, 20));
-
-        raya15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/selector1.png"))); // NOI18N
-        jPanel5.add(raya15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 30, 20));
-
-        label4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label4.setText("F1");
-        jPanel5.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
-
-        label5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label5.setText("F1");
-        jPanel5.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
-
-        label6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label6.setText("F1");
-        jPanel5.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
-
-        label7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label7.setText("F1");
-        jPanel5.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
-
-        label8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label8.setText("F1");
-        jPanel5.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
-
-        label9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label9.setText("F1");
-        jPanel5.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
-
-        label10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label10.setText("F1");
-        jPanel5.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
-
-        label11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label11.setText("F1");
-        jPanel5.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
-
-        label12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label12.setText("F1");
-        jPanel5.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
-
-        label13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label13.setText("F1");
-        jPanel5.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
-
-        label14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label14.setText("F1");
-        jPanel5.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
-
-        label15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label15.setText("F1");
-        jPanel5.add(label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
-
-        triplel1.setText("triplel1");
-        jPanel5.add(triplel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(233, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2589,61 +2680,367 @@ public String path = System.getProperty("user.dir");
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel2, "card2");
 
-        jCheckBox1.setText("jCheckBox1");
+        fansTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fansTitle.setText("Fans");
+
+        pumpsTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pumpsTitle.setText("Pumps");
+
+        fanlabel1.setText("Max. RPM Channel 1");
+
+        fanlabel2.setText("Max. RPM Channel 2");
+
+        fanlabel3.setText("Max. RPM Channel 3");
+
+        fanlabel4.setText("Max. RPM Channel 4");
+
+        fanlabel5.setText("Max. RPM Channel 5");
+
+        fanlabel6.setText("Max. RPM Channel 6");
+
+        fanlabel7.setText("Max. RPM Channel 7");
+
+        fanlabel8.setText("Max. RPM Channel 8");
+
+        fanlabel9.setText("Max. RPM Channel 9");
+
+        fanlabel10.setText("Max. RPM Channel 10");
+
+        fanlabel11.setText("Max. RPM Channel 11");
+
+        pumplabel1.setText("Max. RPM Channel 1");
+
+        pumplabel2.setText("Max. RPM Channel 2");
+
+        pumplabel3.setText("Max. RPM Channel 3");
+
+        pumplabel4.setText("Max. RPM Channel 4");
+
+        pumplabel5.setText("Max. RPM Channel 5");
+
+        pumplabel6.setText("Max. RPM Channel 6");
+
+        pumplabel7.setText("Max. RPM Channel 7");
+
+        pumplabel8.setText("Max. RPM Channel 8");
+
+        pumplabel9.setText("Max. RPM Channel 9");
+
+        pumplabel10.setText("Max. RPM Channel 10");
+
+        pumplabel11.setText("Max. RPM Channel 11");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("<html>Now we need to know the max RPM in order to calculate the percentages...");
+
+        fanmax1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax2.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax3.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax4.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax5.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax6.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax7.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax8.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax9.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax10.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        fanmax11.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        fanmax11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax2.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax3.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax4.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax5.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax6.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax7.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax8.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax9.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax10.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        pumpmax11.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        pumpmax11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(450, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
-                .addGap(174, 174, 174))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fansTitle)
+                                    .addComponent(fanlabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fanmax11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(fanlabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fanmax8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(fanlabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(fanmax10))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(fanlabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fanmax9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(208, 208, 208)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(pumpsTitle)
+                                .addGap(75, 75, 75))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(pumplabel10)
+                                    .addComponent(pumplabel11))
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pumplabel9)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(pumplabel2)
+                                        .addComponent(pumplabel1)
+                                        .addComponent(pumplabel3)
+                                        .addComponent(pumplabel4)
+                                        .addComponent(pumplabel5)
+                                        .addComponent(pumplabel6)
+                                        .addComponent(pumplabel7)
+                                        .addComponent(pumplabel8)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pumpmax11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumpmax8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(pumpmax10)
+                                .addComponent(pumpmax9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jCheckBox1)
-                .addContainerGap(313, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fansTitle)
+                    .addComponent(pumpsTitle))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel1)
+                            .addComponent(fanmax1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel2)
+                            .addComponent(fanmax2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel3)
+                            .addComponent(fanmax3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel4)
+                            .addComponent(fanmax4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel5)
+                            .addComponent(fanmax5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel6)
+                            .addComponent(fanmax6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel7)
+                            .addComponent(fanmax7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel8)
+                            .addComponent(fanmax8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fanlabel9)
+                            .addComponent(fanmax9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel10)
+                            .addComponent(fanmax10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fanlabel11)
+                            .addComponent(fanmax11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel3))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel5))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel6))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel7))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel8))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel11))))
+                .addGap(33, 33, 33))
         );
 
         mainPanel.add(jPanel3, "card3");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(369, Short.MAX_VALUE)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195))
-        );
-
-        mainPanel.add(jPanel4, "card4");
-
-        jButton2.setText("< Back");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        backButton.setText("< Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        stepLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2652,11 +3049,11 @@ public String path = System.getProperty("user.dir");
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(stepLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -2668,10 +3065,10 @@ public String path = System.getProperty("user.dir");
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stepLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1)))
+                        .addComponent(backButton)
+                        .addComponent(nextButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2679,44 +3076,11 @@ public String path = System.getProperty("user.dir");
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
-        if(step == totalsteps){
-
-        }else{
-            CardLayout card = (CardLayout)mainPanel.getLayout();
-            step = step + 1;
-            jButton2.setEnabled(true);
-            card.show(mainPanel, "card" + (step));
-            jLabel3.setText("Step " + step);
-            if(step == totalsteps){
-                jButton1.setEnabled(false);
-            }
-        }
-
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        if(step == 1){
-
-        }else{
-            CardLayout card = (CardLayout)mainPanel.getLayout();
-            step = step - 1;
-            card.show(mainPanel, "card" + (step));
-            jLabel3.setText("Step " + step);
-            jButton1.setEnabled(true);
-            if (step == 1){
-                jButton2.setEnabled(false);
-            }
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        jLabel3.setText("Step " + step);
+        stepLabel.setText("Step " + step);
         if (step == 1){
-            jButton2.setEnabled(false);
+            backButton.setEnabled(false);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
@@ -2744,6 +3108,39 @@ setModels(true, false);        // TODO add your handling code here:
     private void pumpsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpsStateChanged
 setModels(false, false);        // TODO add your handling code here:
     }//GEN-LAST:event_pumpsStateChanged
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+if(step == 1){
+
+        }else{
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            step = step - 1;
+            card.show(mainPanel, "card" + (step));
+            stepLabel.setText("Step " + step);
+            nextButton.setEnabled(true);
+            if (step == 1){
+                backButton.setEnabled(false);
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+
+        configuremaxs();
+        
+        if(step == totalsteps){
+
+        }else{
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            step = step + 1;
+            backButton.setEnabled(true);
+            card.show(mainPanel, "card" + (step));
+            stepLabel.setText("Step " + step);
+            if(step == totalsteps){
+                nextButton.setEnabled(false);
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2788,23 +3185,44 @@ setModels(false, false);        // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel fanlabel1;
+    private javax.swing.JLabel fanlabel10;
+    private javax.swing.JLabel fanlabel11;
+    private javax.swing.JLabel fanlabel2;
+    private javax.swing.JLabel fanlabel3;
+    private javax.swing.JLabel fanlabel4;
+    private javax.swing.JLabel fanlabel5;
+    private javax.swing.JLabel fanlabel6;
+    private javax.swing.JLabel fanlabel7;
+    private javax.swing.JLabel fanlabel8;
+    private javax.swing.JLabel fanlabel9;
+    private javax.swing.JSpinner fanmax1;
+    private javax.swing.JSpinner fanmax10;
+    private javax.swing.JSpinner fanmax11;
+    private javax.swing.JSpinner fanmax2;
+    private javax.swing.JSpinner fanmax3;
+    private javax.swing.JSpinner fanmax4;
+    private javax.swing.JSpinner fanmax5;
+    private javax.swing.JSpinner fanmax6;
+    private javax.swing.JSpinner fanmax7;
+    private javax.swing.JSpinner fanmax8;
+    private javax.swing.JSpinner fanmax9;
     private javax.swing.JSpinner fans;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel fansTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JLabel label10;
     private javax.swing.JLabel label11;
     private javax.swing.JLabel label12;
@@ -2819,7 +3237,31 @@ setModels(false, false);        // TODO add your handling code here:
     private javax.swing.JLabel label9;
     private javax.swing.JSpinner leds;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JLabel pumplabel1;
+    private javax.swing.JLabel pumplabel10;
+    private javax.swing.JLabel pumplabel11;
+    private javax.swing.JLabel pumplabel2;
+    private javax.swing.JLabel pumplabel3;
+    private javax.swing.JLabel pumplabel4;
+    private javax.swing.JLabel pumplabel5;
+    private javax.swing.JLabel pumplabel6;
+    private javax.swing.JLabel pumplabel7;
+    private javax.swing.JLabel pumplabel8;
+    private javax.swing.JLabel pumplabel9;
+    private javax.swing.JSpinner pumpmax1;
+    private javax.swing.JSpinner pumpmax10;
+    private javax.swing.JSpinner pumpmax11;
+    private javax.swing.JSpinner pumpmax2;
+    private javax.swing.JSpinner pumpmax3;
+    private javax.swing.JSpinner pumpmax4;
+    private javax.swing.JSpinner pumpmax5;
+    private javax.swing.JSpinner pumpmax6;
+    private javax.swing.JSpinner pumpmax7;
+    private javax.swing.JSpinner pumpmax8;
+    private javax.swing.JSpinner pumpmax9;
     private javax.swing.JSpinner pumps;
+    private javax.swing.JLabel pumpsTitle;
     private javax.swing.JLabel raya10;
     private javax.swing.JLabel raya11;
     private javax.swing.JLabel raya12;
@@ -2832,6 +3274,7 @@ setModels(false, false);        // TODO add your handling code here:
     private javax.swing.JLabel raya7;
     private javax.swing.JLabel raya8;
     private javax.swing.JLabel raya9;
+    private javax.swing.JLabel stepLabel;
     private javax.swing.JLabel triplel1;
     private javax.swing.JLabel triples1;
     private javax.swing.JLabel triples2;
