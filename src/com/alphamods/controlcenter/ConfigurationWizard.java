@@ -29,6 +29,10 @@ public String path = System.getProperty("user.dir");
 int vled;
 int vfan;
 int vpump;
+List<JLabel> fanlabels;
+List<JSpinner> fanmaxs;
+List<JLabel> pumplabels;
+List<JSpinner> pumpmaxs;
 
     /**
      * Creates new form ConfigurationWizard
@@ -36,30 +40,31 @@ int vpump;
     public ConfigurationWizard(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        fanlabels = Arrays.asList(fanlabel1, fanlabel2, fanlabel3,fanlabel4,fanlabel5,fanlabel6,fanlabel7,fanlabel8,fanlabel9,fanlabel10,fanlabel11);
+        fanmaxs = Arrays.asList(fanmax1,fanmax2,fanmax3,fanmax4,fanmax5,fanmax6,fanmax7,fanmax8,fanmax9,fanmax10,fanmax11);
+        pumplabels = Arrays.asList(pumplabel1, pumplabel2,pumplabel3,pumplabel4,pumplabel5,pumplabel6,pumplabel7,pumplabel8, pumplabel9, pumplabel10, pumplabel11);
+        pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
         setModels(true, false);
         configuremaxs();
     }
     private void configuremaxs(){
-        List<JLabel> fanlabels = Arrays.asList(fanlabel1, fanlabel2, fanlabel3,fanlabel4,fanlabel5,fanlabel6,fanlabel7,fanlabel8,fanlabel9,fanlabel10,fanlabel11);
-        List<JSpinner> fanmaxs = Arrays.asList(fanmax1,fanmax2,fanmax3,fanmax4,fanmax5,fanmax6,fanmax7,fanmax8,fanmax9,fanmax10,fanmax11);
-        List<JLabel> pumplabels = Arrays.asList(pumplabel1, pumplabel2,pumplabel3,pumplabel4,pumplabel5,pumplabel6,pumplabel7,pumplabel8, pumplabel9, pumplabel10, pumplabel11);
-        List<JSpinner> pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
-        //make everything invisible
-        for(int i=0; i<fanlabels.size(); i++){
-            fanlabels.get(i).setVisible(false);
-        }
         
-        for(int i=0; i<pumplabels.size(); i++){
-            pumplabels.get(i).setVisible(false);
-        }
+    //make everything invisible
+    for (JLabel fanlabel : fanlabels) {
+        fanlabel.setVisible(false);
+    }
         
-        for(int i=0; i<fanmaxs.size(); i++){
-            fanmaxs.get(i).setVisible(false);
-        }
-        for(int i=0; i<pumpmaxs.size(); i++){
-            pumpmaxs.get(i).setVisible(false);
-        }
-        //make visible the things needed
+    for (JLabel pumplabel : pumplabels) {
+        pumplabel.setVisible(false);
+    }
+        
+    for (JSpinner fanmax : fanmaxs) {
+        fanmax.setVisible(false);
+    }
+    for (JSpinner pumpmax : pumpmaxs) {
+        pumpmax.setVisible(false);
+    }
+    //make visible the things needed
         
         for(int i=0; i<vfan; i++){
             fanlabels.get(i).setVisible(true);
