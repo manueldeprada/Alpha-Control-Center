@@ -5,13 +5,17 @@
  */
 package com.alphamods.controlcenter;
 
+import com.alphamods.controlcenter.utils.config;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
@@ -22,7 +26,7 @@ import javax.swing.SpinnerNumberModel;
  */
 public class ConfigurationWizard extends javax.swing.JDialog {
 public int step = 1;
-public int totalsteps = 7;
+public int totalsteps = 4;
 int pumpfanmin = 3;
 int pumpfanmax = 12;
 public String path = System.getProperty("user.dir");
@@ -46,6 +50,12 @@ List<JSpinner> pumpmaxs;
         pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
         setModels(true, false);
         configuremaxs();
+    }
+    private void savedata(){
+        config.setValue("fans", Integer.toString(vfan));
+        config.setValue("pumps", Integer.toString(vpump));
+        config.setValue("leds", Integer.toString(vled));
+        
     }
     private void configuremaxs(){
         
@@ -2475,6 +2485,14 @@ List<JSpinner> pumpmaxs;
         pumpmax9 = new javax.swing.JSpinner();
         pumpmax10 = new javax.swing.JSpinner();
         pumpmax11 = new javax.swing.JSpinner();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        bootstart = new javax.swing.JCheckBox();
+        generallabel = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        updateatstart = new javax.swing.JCheckBox();
+        updaterlabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         stepLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -2937,8 +2955,8 @@ List<JSpinner> pumpmaxs;
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fansTitle)
@@ -3038,6 +3056,99 @@ List<JSpinner> pumpmaxs;
 
         mainPanel.add(jPanel3, "card3");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("We've finished!! Some further options...");
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        bootstart.setText("Start Control Center with system boot");
+        bootstart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bootstartActionPerformed(evt);
+            }
+        });
+
+        generallabel.setText("General");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bootstart)
+                    .addComponent(generallabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(generallabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bootstart)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        updateatstart.setText("Check for updates at start");
+        updateatstart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateatstartActionPerformed(evt);
+            }
+        });
+
+        updaterlabel.setText("Updater");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateatstart, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updaterlabel))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(updaterlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(updateatstart)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(jPanel6, "card4");
+
         backButton.setText("< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3134,7 +3245,8 @@ if(step == 1){
         configuremaxs();
         
         if(step == totalsteps){
-
+            savedata();
+        dispose();
         }else{
             CardLayout card = (CardLayout)mainPanel.getLayout();
             step = step + 1;
@@ -3142,10 +3254,36 @@ if(step == 1){
             card.show(mainPanel, "card" + (step));
             stepLabel.setText("Step " + step);
             if(step == totalsteps){
-                nextButton.setEnabled(false);
+                
+                nextButton.setText("Finish");
+                
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
+        try {
+
+            String fpathunlockb =  path + "\\dr.vbs";
+            String[] args = {"wscript", fpathunlockb};
+            ProcessBuilder pb = new ProcessBuilder(args);
+
+            Process pr = pb.start();
+
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigurationWizard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bootstartActionPerformed
+
+    private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
+        if (updateatstart.isSelected()){
+            config.setValue("startupdate", "true");
+
+        }else{
+            config.setValue("startupdate", "false");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateatstartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3191,6 +3329,7 @@ if(step == 1){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JCheckBox bootstart;
     private javax.swing.JLabel fanlabel1;
     private javax.swing.JLabel fanlabel10;
     private javax.swing.JLabel fanlabel11;
@@ -3215,6 +3354,7 @@ if(step == 1){
     private javax.swing.JSpinner fanmax9;
     private javax.swing.JSpinner fans;
     private javax.swing.JLabel fansTitle;
+    private javax.swing.JLabel generallabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -3222,11 +3362,15 @@ if(step == 1){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label10;
     private javax.swing.JLabel label11;
@@ -3285,5 +3429,7 @@ if(step == 1){
     private javax.swing.JLabel triples2;
     private javax.swing.JLabel triples3;
     private javax.swing.JLabel triples4;
+    private javax.swing.JCheckBox updateatstart;
+    private javax.swing.JLabel updaterlabel;
     // End of variables declaration//GEN-END:variables
 }
