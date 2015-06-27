@@ -314,6 +314,28 @@ String OutputR, OutputG, OutputB;
                
         }
         
+         if (!c1.isEnabled()){
+                output1[0] = "";
+                output1[1] = "";
+                output1[2] = "";
+            } 
+            if (!c2.isEnabled()){
+
+                output2[0] = "";
+                output2[1] = "";                 
+                output2[2] = "";                 
+            }
+            if (!c3.isEnabled()){
+
+                output3[0] = "";                 
+                output3[1] = "";                 
+                output3[2] = "";                 
+            }
+            if (!c4.isEnabled()){
+                output4[0] = "";                  
+                output4[1] = "";                 
+                output4[2] = "";                    
+            }
                 
                 
         String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + motors[0] + motors[1] + motors[2];
@@ -321,7 +343,11 @@ String OutputR, OutputG, OutputB;
                     
                     if(!testmode){
                     Arduino.sendData(send);
+                    }else{
+                        System.out.println(send);
+                        
                     }
+                        
                 } catch (Exception ex) { Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex); }
 
 }

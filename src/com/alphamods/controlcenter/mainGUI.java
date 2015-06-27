@@ -187,8 +187,8 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         refreshMode();
         loadsecpreviews();        
         setIcons();
-        checkUpdates();
-
+        if(Boolean.parseBoolean(config.getValue("startupdate"))==true){checkUpdates();}
+        
         
         
         
@@ -217,17 +217,7 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         updater.setIndicators(notificationsLabel, notificationsBar, this);
         
     }
-    public void  Flash(ColorPicker picker) {
-        int N=500000;
-        float gHue = Color.RGBtoHSB(0, 1, 0, null)[0];
-        float bHue = Color.RGBtoHSB(0, 0, 1, null)[0];
-        for (int i = 0; i < N; i++) {
-            picker.setColor(Color.getHSBColor(gHue + (i * (bHue - gHue) / N), 1, 1));
-        }
-        for (int i = 0; i < N; i++) {
-            picker.setColor(Color.getHSBColor(bHue - (i * (bHue - gHue) / N), 1, 1));
-        }
-    }
+    
     
     public void setIcons(){
     try {
@@ -677,6 +667,35 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         this.fadeRadioButton.setVisible(false);
         this.normalRadioButton.setVisible(false);
         this.musicRadioButton.setVisible(false);
+        
+        int u = Integer.parseInt(config.getValue("leds"));
+        if (u==1){
+            LedC1.setEnabled(true);
+            LedC2.setEnabled(false);
+            LedC3.setEnabled(false);
+            LedC4.setEnabled(false);
+            LedC2.setSelected(false);
+            LedC3.setSelected(false);
+            LedC4.setSelected(false);
+        }else if(u==2){
+            LedC1.setEnabled(true);
+            LedC2.setEnabled(true);
+            LedC3.setEnabled(false);
+            LedC4.setEnabled(false); 
+            LedC3.setSelected(false);
+            LedC4.setSelected(false);
+        }else if (u==3){
+            LedC1.setEnabled(true);
+            LedC2.setEnabled(true);
+            LedC3.setEnabled(true);
+            LedC4.setEnabled(false); 
+            LedC4.setSelected(false);
+        }else if (u==4){
+            LedC1.setEnabled(true);
+            LedC2.setEnabled(true);
+            LedC3.setEnabled(true);
+            LedC4.setEnabled(true);            
+        }
     }
 
     /**

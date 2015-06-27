@@ -25,6 +25,7 @@ public class settings extends javax.swing.JDialog {
     public settings(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        if(Boolean.parseBoolean(config.getValue("startupdate"))==true){updateatstart.setSelected(true);}else{updateatstart.setSelected(false);}
     }
 
     /**
