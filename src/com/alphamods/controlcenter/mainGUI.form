@@ -178,7 +178,7 @@
                           </Group>
                       </Group>
                       <Component id="colors_secuencesPanel" min="-2" pref="303" max="-2" attributes="0"/>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1619,45 +1619,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="fansTitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fan1label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pump2label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rmpLabelFan2" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                      <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rmpLabelFan1" min="-2" pref="47" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fan1max" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fan2max" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pump1max" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="pump1max" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Component id="pumpsTitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -1674,16 +1642,74 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="jScrollPane2" min="-2" pref="336" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Temp1" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Temp5" min="-2" pref="37" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="Temp3" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="Temp4" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel7" max="32767" attributes="0"/>
+                                                  <Component id="Temp6" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="refreshSecondsSpinner" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
                                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1693,69 +1719,14 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="Temp1" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Temp5" min="-2" pref="37" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="Temp3" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="Temp4" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel7" max="32767" attributes="0"/>
-                                                      <Component id="Temp6" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="refreshSecondsSpinner" min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
@@ -1770,111 +1741,76 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
-                                      <Component id="Refresh2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="refreshSecondsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="398" max="32767" attributes="0"/>
+                              <Component id="Refresh2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="Temp1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Temp2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="133" pref="133" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="Temp5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Temp6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="Temp3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Temp4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace pref="192" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="refreshSecondsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="fansTitleLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                                      <EmptySpace pref="90" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fan1max" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="Temp1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Temp2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="Temp5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Temp6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="fan1label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="rmpLabelFan1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="pump2label" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rmpLabelFan2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="Temp3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Temp4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace pref="192" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fan2max" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fansTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="rmpLabelPump1" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -1900,36 +1836,10 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="fan1label">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSlider" name="fan1slider">
-              <Properties>
-                <Property name="paintTicks" type="boolean" value="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan1sliderStateChanged"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="pump1label">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pump 1"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="pump2label">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 2"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSlider" name="fan2slider">
-              <Properties>
-                <Property name="paintTicks" type="boolean" value="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan2sliderStateChanged"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JSlider" name="pump1slider">
               <Properties>
@@ -1955,34 +1865,12 @@
                 <Property name="text" type="java.lang.String" value="Pumps"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="rpmlabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="RPM"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="rpmlabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RPM"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="rpmlabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="RPM"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="rmpLabelFan1">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="0000"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="rmpLabelPump1">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="0000"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="rmpLabelFan2">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="0000"/>
@@ -2118,32 +2006,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Refresh2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Max. RPM Channel 1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Max. RPM Channel 2"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Max. RPM"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="pump1max">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="0"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="fan1max">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="0"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="fan2max">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
@@ -2180,6 +2048,120 @@
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="refreshSecondsSpinnerStateChanged"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel3">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fan1label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pump2label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="rmpLabelFan2" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="rmpLabelFan1" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fan1label" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="pump2label" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rmpLabelFan2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JSlider" name="fan2slider">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan2sliderStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan2">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="rpmlabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="pump2label">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 2"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fan1slider">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan1sliderStateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan1">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="rpmlabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fan1label">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 1"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">

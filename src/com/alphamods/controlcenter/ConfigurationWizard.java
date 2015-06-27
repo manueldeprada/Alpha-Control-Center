@@ -56,6 +56,14 @@ List<JSpinner> pumpmaxs;
         config.setValue("pumps", Integer.toString(vpump));
         config.setValue("leds", Integer.toString(vled));
         
+        for(int i=0; i<vfan; i++){
+            config.setValue("fanmax"+i, fanmaxs.get(i).getValue().toString());
+        }
+
+        for(int i=0; i<vpump; i++){
+            config.setValue("pumpmax"+i, pumpmaxs.get(i).getValue().toString());
+        }
+        
     }
     private void configuremaxs(){
         
