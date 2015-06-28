@@ -1729,7 +1729,6 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="Refresh2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
@@ -1741,67 +1740,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="398" max="32767" attributes="0"/>
-                              <Component id="Refresh2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="refreshSecondsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="90" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="Temp1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Temp2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="Temp5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Temp6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="Temp3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Temp4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="192" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1823,6 +1761,69 @@
                                   <Component id="rpmlabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="Refresh2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="RefreshCheckBox" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="refreshSecondsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="Temp1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Temp2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="Temp5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Temp6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="Temp3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="Temp4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="192" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -2057,89 +2058,243 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fan1label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pump2label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rmpLabelFan2" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fanlabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fanlabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider1" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan1" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider2" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan2" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel2" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider3" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan3" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider4" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan4" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel4" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider5" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan5" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel5" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider6" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan6" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel6" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider7" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan7" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel7" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider8" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan8" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel8" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider9" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan9" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel9" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider10" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan10" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel10" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="fanslider11" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="rmpLabelFan11" min="-2" pref="47" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="fanrpmlabel11" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Component id="fanlabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                      <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rmpLabelFan1" min="-2" pref="47" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="filler1" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="fan1label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="fan1slider" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="rmpLabelFan1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rpmlabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="filler1" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="fanlabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fanslider1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rmpLabelFan1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="pump2label" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="fan2slider" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rmpLabelFan2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rpmlabel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider6" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider8" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan8" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider9" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan9" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider10" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="fanlabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanslider11" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rmpLabelFan11" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fanrpmlabel11" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JSlider" name="fan2slider">
+                    <Component class="javax.swing.JLabel" name="fanlabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 1"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider1">
                       <Properties>
                         <Property name="paintTicks" type="boolean" value="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan2sliderStateChanged"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="rmpLabelFan2">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="text" type="java.lang.String" value="0000"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="rpmlabel4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="RPM"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="pump2label">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 2"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JSlider" name="fan1slider">
-                      <Properties>
-                        <Property name="paintTicks" type="boolean" value="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fan1sliderStateChanged"/>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider1StateChanged"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="rmpLabelFan1">
@@ -2148,15 +2303,260 @@
                         <Property name="text" type="java.lang.String" value="0000"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="rpmlabel1">
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="RPM"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="fan1label">
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 1"/>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan2">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider2">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider2StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 2"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan3">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider3">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider3StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 3"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan4">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider4">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider4StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 4"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan5">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider5">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider5StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 5"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan6">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider6">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider6StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 6"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel7">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan7">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider7">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider7StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel7">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 7"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel8">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan8">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider8">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider8StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel8">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 8"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel9">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan9">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider9">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider9StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel9">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 9"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel10">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan10">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider10">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider10StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel10">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 10"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanlabel11">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Channel 11"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSlider" name="fanslider11">
+                      <Properties>
+                        <Property name="paintTicks" type="boolean" value="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="fanslider11StateChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="rmpLabelFan11">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="0000"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="fanrpmlabel11">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="RPM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.Box$Filler" name="filler1">
+                      <Properties>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[0, 32767]"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.VerticalGlue"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
