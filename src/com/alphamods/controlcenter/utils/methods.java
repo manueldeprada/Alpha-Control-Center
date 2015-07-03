@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 import panamahitek.Arduino.PanamaHitek_multiMessage;
@@ -105,21 +106,7 @@ public class methods {
         
     }
     
-    public void sliders(JSlider fan1slider, JSlider fan2slider, JSlider pump1slider){
-        if (config.getValue("Fan1") == null || config.getValue("Fan2") == null || config.getValue("Pump1") == null){
-        fan1slider.setValue(50);
-        fan2slider.setValue(50);
-        pump1slider.setValue(50);    
-        }
-        else{
-        int F1 = Integer.parseInt(config.getValue("Fan1"));
-        int F2 = Integer.parseInt(config.getValue("Fan2"));
-        int P1 = Integer.parseInt(config.getValue("Pump1"));
-        fan1slider.setValue(F1);
-        fan2slider.setValue(F2);
-        pump1slider.setValue(P1);
-        }
-    }
+   
     
     public boolean refreshMode(JCheckBox RefreshCheckBox){
         if ("0".equals(config.getValue("refreshMode"))){
@@ -135,8 +122,15 @@ public class methods {
         
     }
     
-    
-    
+    public int calculaterpms(int index, List<JSlider> sliders, String type){
+        
+        int maxrpm = Integer.parseInt(config.getValue(type+"max"+index));
+        int percentaje = sliders.get(index).getValue();
+        
+        return  percentaje*maxrpm/100;
+        
+    }
+  
     
     public void ports(JComboBox PortsBox){
         if (config.getValue("Port") == null){       
