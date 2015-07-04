@@ -181,46 +181,24 @@ String OutputR, OutputG, OutputB;
         output[2] = OutputB;
         return output;
     }
-
-    private  String[] SetData2(int Fan1, int Fan2, int Pump1) {
-
-        if (Fan1 < 10) {
-        OutputFan1 = "00" + Fan1;
-        } else if (Fan1 < 100) {
-        OutputFan1 = "0" + Fan1;
+    private String setmotors(int input){
+        if (input < 10) {
+        OutputFan1 = "00" + input;
+        } else if (input < 100) {
+        OutputFan1 = "0" + input;
         } else {
-        OutputFan1 = Integer.toString(Fan1);
+        OutputFan1 = Integer.toString(input);
         }
-
-        if (Fan2 < 10) {
-        OutputFan2 = "00" + Fan2;
-        } else if (Fan2 < 100) {
-        OutputFan2 = "0" + Fan2;
-        } else {
-        OutputFan2 = Integer.toString(Fan2);
-        }
-
-        if (Pump1 < 10) {
-        OutputPump1 = "00" + Pump1;
-        } else if (Pump1 < 100) {
-        OutputPump1 = "0" + Pump1;
-        } else {
-        OutputPump1 = Integer.toString(Pump1);
-        }
-        String[] output = new String[3];
-        output[0] = OutputFan1;
-        output[1] = OutputFan2;
-        output[2] = OutputPump1;
-        return output;
-        
+        return OutputFan1;
     }
     
-    public void write(int mode, ColorPicker picker, JSlider fan1slider, JSlider fan2slider, JSlider pump1slider, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode) {
+    public void write(int mode, ColorPicker picker, List<JSlider> fans, List<JSlider> pumps, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode) {
   String[] output1= {"000", "000","000"};
   String[] output2= {"000", "000","000"};
   String[] output3= {"000", "000","000"};
   String[] output4= {"000", "000","000"};
-  String[] motors = {"000", "000","000"};
+  String finalmotors = "";
+
         if (mode == 0){ //normal
             
             if (c1.isSelected()){
@@ -265,14 +243,19 @@ String OutputR, OutputG, OutputB;
             output4 = SetData(channel4);
                    // System.out.println(output4[0] + output4[1]+ output4[2]);
 
-            
-            int Fan1 = fan1slider.getValue()*255/100;
-            int Fan2 = fan2slider.getValue()*255/100;
-            int Pump1 = pump1slider.getValue()*255/100;
-            
-            
-            motors = SetData2(Fan1, Fan2, Pump1);
-                               
+            int vfan = Integer.parseInt(config.getValue("fans"));
+            int vpump = Integer.parseInt(config.getValue("pumps"));
+            for (int i=0;i<vfan;i++){
+             int u = fans.get(i).getValue()*255/100;
+             finalmotors = finalmotors + setmotors(u);
+             
+            }
+            for (int i=0;i<vpump;i++){
+             int u = pumps.get(i).getValue()*255/100;
+             finalmotors = finalmotors + setmotors(u);
+             
+            }
+                     
             }else if (mode == 1){ //fade 
                
             }else if (mode == 2){ //ambilight
@@ -303,7 +286,7 @@ String OutputR, OutputG, OutputB;
             }
                 
                 
-        String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + motors[0] + motors[1] + motors[2];
+        String send = output1[0] + output1[1] + output1[2] + output2[0] + output2[1] + output2[2] +  output3[0] + output3[1] + output3[2] + output4[0] + output4[1] + output4[2] + finalmotors;
         try {
                     
                     if(!testmode){

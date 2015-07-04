@@ -50,6 +50,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -268,6 +269,15 @@ List<JLabel> pumprpmlabels;
             indicatorpumps.get(i).setVisible(true);
             pumprpmlabels.get(i).setVisible(true);
         }
+        
+        
+         for(int i=0; i<vfan; i++){
+            fansliders.get(i).addChangeListener(this::fanslidersStateChanged);
+        }
+        for(int i=0; i<vpump; i++){
+            pumpsliders.get(i).addChangeListener(this::pumpslidersStateChanged);
+        }
+        
     }
     
     public void makeBigPanels(){
@@ -388,9 +398,9 @@ List<JLabel> pumprpmlabels;
     
     public void write(){
         if (methods.isConnected()){
-           methods.write(mode, picker, fanslider1, fanslider2, pump1slider,  LedC1, LedC2, LedC3,LedC4,testmode);
+           methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode);
         }else if (testmode){
-            methods.write(mode, picker, fanslider1, fanslider2,pump1slider, LedC1, LedC2, LedC3,LedC4,testmode);
+            methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode);
         }
     }
     public void makeJPanels(JPanel bigPanel){
@@ -2172,11 +2182,6 @@ List<JLabel> pumprpmlabels;
         fanlabel1.setText("Channel 1");
 
         fanslider1.setPaintTicks(true);
-        fanslider1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider1StateChanged(evt);
-            }
-        });
 
         indicatorfan1.setEditable(false);
         indicatorfan1.setText("0000");
@@ -2189,11 +2194,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan2.setText("0000");
 
         fanslider2.setPaintTicks(true);
-        fanslider2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider2StateChanged(evt);
-            }
-        });
 
         fanlabel2.setText("Channel 2");
 
@@ -2203,11 +2203,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan3.setText("0000");
 
         fanslider3.setPaintTicks(true);
-        fanslider3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider3StateChanged(evt);
-            }
-        });
 
         fanlabel3.setText("Channel 3");
 
@@ -2217,11 +2212,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan4.setText("0000");
 
         fanslider4.setPaintTicks(true);
-        fanslider4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider4StateChanged(evt);
-            }
-        });
 
         fanlabel4.setText("Channel 4");
 
@@ -2231,11 +2221,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan5.setText("0000");
 
         fanslider5.setPaintTicks(true);
-        fanslider5.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider5StateChanged(evt);
-            }
-        });
 
         fanlabel5.setText("Channel 5");
 
@@ -2245,11 +2230,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan6.setText("0000");
 
         fanslider6.setPaintTicks(true);
-        fanslider6.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider6StateChanged(evt);
-            }
-        });
 
         fanlabel6.setText("Channel 6");
 
@@ -2259,11 +2239,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan7.setText("0000");
 
         fanslider7.setPaintTicks(true);
-        fanslider7.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider7StateChanged(evt);
-            }
-        });
 
         fanlabel7.setText("Channel 7");
 
@@ -2273,11 +2248,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan8.setText("0000");
 
         fanslider8.setPaintTicks(true);
-        fanslider8.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider8StateChanged(evt);
-            }
-        });
 
         fanlabel8.setText("Channel 8");
 
@@ -2287,11 +2257,6 @@ List<JLabel> pumprpmlabels;
         indicatorfan9.setText("0000");
 
         fanslider9.setPaintTicks(true);
-        fanslider9.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider9StateChanged(evt);
-            }
-        });
 
         fanlabel9.setText("Channel 9");
 
@@ -2301,22 +2266,12 @@ List<JLabel> pumprpmlabels;
         indicatorfan10.setText("0000");
 
         fanslider10.setPaintTicks(true);
-        fanslider10.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider10StateChanged(evt);
-            }
-        });
 
         fanlabel10.setText("Channel 10");
 
         fanlabel11.setText("Channel 11");
 
         fanslider11.setPaintTicks(true);
-        fanslider11.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fanslider11StateChanged(evt);
-            }
-        });
 
         indicatorfan11.setEditable(false);
         indicatorfan11.setText("0000");
@@ -2516,11 +2471,6 @@ List<JLabel> pumprpmlabels;
         pumplabel1.setText("Channel 1");
 
         pumpslider1.setPaintTicks(true);
-        pumpslider1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider1StateChanged(evt);
-            }
-        });
 
         indicatorpump1.setEditable(false);
         indicatorpump1.setText("0000");
@@ -2533,11 +2483,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump2.setText("0000");
 
         pumpslider2.setPaintTicks(true);
-        pumpslider2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider2StateChanged(evt);
-            }
-        });
 
         pumplabel2.setText("Channel 2");
 
@@ -2547,11 +2492,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump3.setText("0000");
 
         pumpslider3.setPaintTicks(true);
-        pumpslider3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider3StateChanged(evt);
-            }
-        });
 
         pumplabel3.setText("Channel 3");
 
@@ -2561,11 +2501,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump4.setText("0000");
 
         pumpslider4.setPaintTicks(true);
-        pumpslider4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider4StateChanged(evt);
-            }
-        });
 
         pumplabel4.setText("Channel 4");
 
@@ -2575,11 +2510,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump5.setText("0000");
 
         pumpslider5.setPaintTicks(true);
-        pumpslider5.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider5StateChanged(evt);
-            }
-        });
 
         pumplabel5.setText("Channel 5");
 
@@ -2589,11 +2519,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump6.setText("0000");
 
         pumpslider6.setPaintTicks(true);
-        pumpslider6.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider6StateChanged(evt);
-            }
-        });
 
         pumplabel6.setText("Channel 6");
 
@@ -2603,11 +2528,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump7.setText("0000");
 
         pumpslider7.setPaintTicks(true);
-        pumpslider7.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider7StateChanged(evt);
-            }
-        });
 
         pumplabel7.setText("Channel 7");
 
@@ -2617,11 +2537,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump8.setText("0000");
 
         pumpslider8.setPaintTicks(true);
-        pumpslider8.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider8StateChanged(evt);
-            }
-        });
 
         pumplabel8.setText("Channel 8");
 
@@ -2631,11 +2546,6 @@ List<JLabel> pumprpmlabels;
         indicatorpump9.setText("0000");
 
         pumpslider9.setPaintTicks(true);
-        pumpslider9.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider9StateChanged(evt);
-            }
-        });
 
         pumplabel9.setText("Channel 9");
 
@@ -2645,22 +2555,12 @@ List<JLabel> pumprpmlabels;
         indicatorpump10.setText("0000");
 
         pumpslider10.setPaintTicks(true);
-        pumpslider10.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider10StateChanged(evt);
-            }
-        });
 
         pumplabel10.setText("Channel 10");
 
         pumplabel11.setText("Channel 11");
 
         pumpslider11.setPaintTicks(true);
-        pumpslider11.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                pumpslider11StateChanged(evt);
-            }
-        });
 
         indicatorpump11.setEditable(false);
         indicatorpump11.setText("0000");
@@ -3480,12 +3380,6 @@ write();        // TODO add your handling code here:
 write();        // TODO add your handling code here:
     }//GEN-LAST:event_musicRadioButtonItemStateChanged
 
-    private void fanslider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider1StateChanged
-write();
-rpmData();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider1StateChanged
-
     private void Refresh2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh2ActionPerformed
 write();
 rpmData();
@@ -3832,100 +3726,26 @@ if (loopCheckBox5.isSelected()){
 ConfigurationWizard ub = new ConfigurationWizard(this, true);
 ub.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+private void fanslidersStateChanged(javax.swing.event.ChangeEvent evt) {                                         
 
-    private void fanslider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider2StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider2StateChanged
+int index = fansliders.lastIndexOf(evt.getSource());
+indicatorfans.get(index).setText(Integer.toString(methods.calculaterpms(index, fansliders, "fan")));
+write();
 
-    private void fanslider3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider3StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider3StateChanged
+}
 
-    private void fanslider4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider4StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider4StateChanged
+private void pumpslidersStateChanged(javax.swing.event.ChangeEvent evt) {                                         
+int index = pumpsliders.lastIndexOf(evt.getSource());
+indicatorpumps.get(index).setText(Integer.toString(methods.calculaterpms(index, pumpsliders, "pump")));
+write();
+}
 
-    private void fanslider5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider5StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider5StateChanged
 
-    private void fanslider6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider6StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider6StateChanged
-
-    private void fanslider7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider7StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider7StateChanged
-
-    private void fanslider8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider8StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider8StateChanged
-
-    private void fanslider9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider9StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider9StateChanged
-
-    private void fanslider10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider10StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider10StateChanged
-
-    private void fanslider11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fanslider11StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fanslider11StateChanged
-
-    private void pumpslider11StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider11StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider11StateChanged
-
-    private void pumpslider10StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider10StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider10StateChanged
-
-    private void pumpslider9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider9StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider9StateChanged
-
-    private void pumpslider8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider8StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider8StateChanged
-
-    private void pumpslider7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider7StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider7StateChanged
-
-    private void pumpslider6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider6StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider6StateChanged
-
-    private void pumpslider5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider5StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider5StateChanged
-
-    private void pumpslider4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider4StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider4StateChanged
-
-    private void pumpslider3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider3StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider3StateChanged
-
-    private void pumpslider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider2StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider2StateChanged
-
-    private void pumpslider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpslider1StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpslider1StateChanged
-
-    
-    Runnable refreshTemp = new Runnable() {
-
-    public void run() {
-    write();
-    rpmData();
-        
-    }
+    Runnable refreshTemp = () -> {
+        write();
+        rpmData();
 };
+    
     /**
      * @param args the command line arguments
      */

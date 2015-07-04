@@ -8,6 +8,8 @@ package com.alphamods.controlcenter;
 import com.alphamods.controlcenter.utils.config;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.Timer;
 
 /**
  *
@@ -50,6 +53,25 @@ List<JSpinner> pumpmaxs;
         pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
         setModels(true, false);
         configuremaxs();
+        ad.setVisible(false);
+    }
+    
+    public boolean notconfigured(){
+        boolean valuefan = false;
+        boolean valuepump = false;
+    for (int i=0; i<vfan;i++) {
+        if ("0".equals(fanmaxs.get(i).getValue().toString())){
+            valuefan = true;
+        }
+    }
+    for (int i=0; i<vpump;i++) {
+        if ("0".equals(pumpmaxs.get(i).getValue().toString())){
+            valuepump = true;
+        }
+    }
+
+    return !(valuepump==false && valuefan==false);
+    
     }
     private void savedata(){
         config.setValue("fans", Integer.toString(vfan));
@@ -2405,6 +2427,7 @@ List<JSpinner> pumpmaxs;
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -2445,6 +2468,7 @@ List<JSpinner> pumpmaxs;
         jLabel6 = new javax.swing.JLabel();
         fans = new javax.swing.JSpinner();
         pumps = new javax.swing.JSpinner();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         fansTitle = new javax.swing.JLabel();
         pumpsTitle = new javax.swing.JLabel();
@@ -2504,6 +2528,7 @@ List<JSpinner> pumpmaxs;
         backButton = new javax.swing.JButton();
         stepLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        ad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -2523,6 +2548,8 @@ List<JSpinner> pumpmaxs;
 
         jLabel2.setText("welcome");
 
+        jLabel9.setText("conf code");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -2531,13 +2558,19 @@ List<JSpinner> pumpmaxs;
                 .addGap(229, 229, 229)
                 .addComponent(jLabel2)
                 .addContainerGap(440, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(145, 145, 145))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(jLabel2)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(100, 100, 100))
         );
 
         mainPanel.add(jPanel1, "card1");
@@ -2714,6 +2747,13 @@ List<JSpinner> pumpmaxs;
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
+        jCheckBox1.setText("I have a channel dedicated to music");
+        jCheckBox1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jCheckBox1StateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -2726,9 +2766,13 @@ List<JSpinner> pumpmaxs;
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(144, 144, 144)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jCheckBox1))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
+                        .addGap(151, 151, 151)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
@@ -2739,9 +2783,11 @@ List<JSpinner> pumpmaxs;
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel2, "card2");
@@ -2870,7 +2916,7 @@ List<JSpinner> pumpmaxs;
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(67, 67, 67)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2958,12 +3004,12 @@ List<JSpinner> pumpmaxs;
                                 .addComponent(pumpmax10)
                                 .addComponent(pumpmax9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3059,7 +3105,7 @@ List<JSpinner> pumpmaxs;
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pumpmax11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pumplabel11))))
-                .addGap(33, 33, 33))
+                .addGap(93, 93, 93))
         );
 
         mainPanel.add(jPanel3, "card3");
@@ -3152,7 +3198,7 @@ List<JSpinner> pumpmaxs;
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         mainPanel.add(jPanel6, "card4");
@@ -3166,6 +3212,10 @@ List<JSpinner> pumpmaxs;
 
         stepLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        ad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ad.setForeground(new java.awt.Color(255, 51, 51));
+        ad.setText("You must configure all the fans & pumps you have");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -3175,6 +3225,8 @@ List<JSpinner> pumpmaxs;
                 .addContainerGap()
                 .addComponent(stepLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ad)
+                .addGap(34, 34, 34)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3184,7 +3236,7 @@ List<JSpinner> pumpmaxs;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3192,7 +3244,8 @@ List<JSpinner> pumpmaxs;
                     .addComponent(stepLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(backButton)
-                        .addComponent(nextButton)))
+                        .addComponent(nextButton)
+                        .addComponent(ad)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -3244,6 +3297,8 @@ if(step == 1){
             nextButton.setEnabled(true);
             if (step == 1){
                 backButton.setEnabled(false);
+            }else if (step==totalsteps-1){
+                nextButton.setText("Next");                
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
@@ -3255,7 +3310,25 @@ if(step == 1){
         if(step == totalsteps){
             savedata();
         dispose();
-        }else{
+        }else if (step ==totalsteps-1 && notconfigured()==true){
+
+                
+                    if (ad.isVisible()){
+                        
+                    }else{
+                        
+                    
+                    ad.setVisible(true);
+                    int delay = 3000; //milliseconds
+                    ActionListener taskPerformer = (ActionEvent evt1) -> {
+                        ad.setVisible(false);
+                    };
+                           new Timer(delay, taskPerformer).start();
+                }  
+                
+            }
+        
+        else{
             CardLayout card = (CardLayout)mainPanel.getLayout();
             step = step + 1;
             backButton.setEnabled(true);
@@ -3266,6 +3339,7 @@ if(step == 1){
                 nextButton.setText("Finish");
                 
             }
+            
         }        // TODO add your handling code here:
     }//GEN-LAST:event_nextButtonActionPerformed
 
@@ -3292,6 +3366,14 @@ if(step == 1){
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_updateatstartActionPerformed
+
+    private void jCheckBox1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox1StateChanged
+if (jCheckBox1.isSelected()){
+
+}else{
+
+}// TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1StateChanged
 
     /**
      * @param args the command line arguments
@@ -3336,6 +3418,7 @@ if(step == 1){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ad;
     private javax.swing.JButton backButton;
     private javax.swing.JCheckBox bootstart;
     private javax.swing.JLabel fanlabel1;
@@ -3363,6 +3446,7 @@ if(step == 1){
     private javax.swing.JSpinner fans;
     private javax.swing.JLabel fansTitle;
     private javax.swing.JLabel generallabel;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -3371,6 +3455,7 @@ if(step == 1){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
