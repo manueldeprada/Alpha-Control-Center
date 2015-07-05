@@ -65,28 +65,35 @@ public class methods {
             
         }
     }
-    public void initialiceArrays(ColorPicker picker){
+    public void initialiceArrays(ColorPicker picker, boolean music){
         
         if (config.getValue("channel1R")==null || config.getValue("channel1R")==""){
+            
+            if (!music){
         channel1[0]= Integer.toString(picker.getColor().getRed());
         channel1[1]= Integer.toString(picker.getColor().getGreen());
         channel1[2]= Integer.toString(picker.getColor().getBlue());
+            }
         
-        channel2[0]=channel1[0];
-        channel2[1]=channel1[1];
-        channel2[2]=channel1[2];
         
-        channel3[0]=channel1[0];
-        channel3[1]=channel1[1];
-        channel3[2]=channel1[2];
+        channel2[0]=Integer.toString(picker.getColor().getRed());
+        channel2[1]=Integer.toString(picker.getColor().getGreen());
+        channel2[2]=Integer.toString(picker.getColor().getBlue());
         
-        channel4[0]=channel1[0];
-        channel4[1]=channel1[1];
-        channel4[2]=channel1[2];
+        channel3[0]=channel2[0];
+        channel3[1]=channel2[1];
+        channel3[2]=channel2[2];
+        
+        channel4[0]=channel2[0];
+        channel4[1]=channel2[1];
+        channel4[2]=channel2[2];
         }else{
-        channel1[0]= config.getValue("channel1R");
+            if (!music){
+               channel1[0]= config.getValue("channel1R");
         channel1[1]= config.getValue("channel1G");
-        channel1[2]= config.getValue("channel1B");
+        channel1[2]= config.getValue("channel1B"); 
+            }
+        
         
         channel2[0]= config.getValue("channel2R");
         channel2[1]= config.getValue("channel2G");
@@ -192,7 +199,7 @@ String OutputR, OutputG, OutputB;
         return OutputFan1;
     }
     
-    public void write(int mode, ColorPicker picker, List<JSlider> fans, List<JSlider> pumps, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode) {
+    public void write(int mode, ColorPicker picker, List<JSlider> fans, List<JSlider> pumps, JCheckBox c1, JCheckBox c2, JCheckBox c3, JCheckBox c4, boolean testmode, boolean music) {
   String[] output1= {"000", "000","000"};
   String[] output2= {"000", "000","000"};
   String[] output3= {"000", "000","000"};
@@ -201,15 +208,14 @@ String OutputR, OutputG, OutputB;
 
         if (mode == 0){ //normal
             
-            if (c1.isSelected()){
+            if (c1.isSelected() && !music ){
                 int R = picker.getColor().getRed();
-            int G = picker.getColor().getGreen();
-            int B = picker.getColor().getBlue();
+                int G = picker.getColor().getGreen();
+                int B = picker.getColor().getBlue();
                 channel1[0] = Integer.toString(R);
                 channel1[1] = Integer.toString(G);
                 channel1[2] = Integer.toString(B);
-                
-                
+            } else { 
             } 
             if (c2.isSelected()){
                 int R = picker.getColor().getRed();
@@ -262,7 +268,7 @@ String OutputR, OutputG, OutputB;
                
         }
         
-         if (!c1.isEnabled()){
+         if (!c1.isEnabled()&&!music){
                 output1[0] = "";
                 output1[1] = "";
                 output1[2] = "";

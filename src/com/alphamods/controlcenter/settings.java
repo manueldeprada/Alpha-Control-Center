@@ -6,6 +6,8 @@
 package com.alphamods.controlcenter;
 
 import com.alphamods.controlcenter.utils.config;
+import java.awt.Color;
+import java.awt.Font;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +33,7 @@ int vpump;
 int vled;
 int pumpfanmin = 3;
 int pumpfanmax = 12;
+boolean music;
     /**
      * Creates new form settings1
      */
@@ -47,7 +50,8 @@ int pumpfanmax = 12;
         leds.setValue(Integer.parseInt(config.getValue("leds")));
         fans.setValue(Integer.parseInt(config.getValue("fans")));
         pumps.setValue(Integer.parseInt(config.getValue("pumps")));
-    
+        music = Boolean.parseBoolean(config.getValue("music"));
+        musicbox.setSelected(music);
     
     }
     public void setmotors(){
@@ -157,6 +161,7 @@ private void savedata(){
         for(int i=0; i<vpump; i++){
             config.setValue("pumpmax"+i, pumpmaxs.get(i).getValue().toString());
         }
+        config.setValue("music", Boolean.toString(music));
         
     }
 
@@ -2392,7 +2397,14 @@ public void represent(){
              
         }
         
-        
+        if (music){
+            triplel1.setText("Music");
+            triplel1.setFont(triplel1.getFont().deriveFont(Font.BOLD));
+            triplel1.setForeground(Color.green.darker());
+        }else{
+            triplel1.setFont(triplel1.getFont().deriveFont(Font.PLAIN));
+            triplel1.setForeground(Color.black);
+        }
     }
 
     /**
@@ -2450,6 +2462,7 @@ public void represent(){
         jLabel6 = new javax.swing.JLabel();
         fans = new javax.swing.JSpinner();
         pumps = new javax.swing.JSpinner();
+        musicbox = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         fansTitle = new javax.swing.JLabel();
         pumpsTitle = new javax.swing.JLabel();
@@ -2726,6 +2739,13 @@ public void represent(){
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
+        musicbox.setText("My board has a music-dedicated channel");
+        musicbox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                musicboxStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2734,20 +2754,24 @@ public void represent(){
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(musicbox)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(23, 23, 23)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(musicbox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         generaltab.addTab("Board", jPanel3);
@@ -3108,13 +3132,7 @@ public void represent(){
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 savedata();
-        for(int i=0; i<vfan; i++){
-            config.setValue("fanmax"+i, fanmaxs.get(i).getValue().toString());
-        }
-
-        for(int i=0; i<vpump; i++){
-            config.setValue("pumpmax"+i, pumpmaxs.get(i).getValue().toString());
-        }        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
     private void ledsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ledsStateChanged
@@ -3140,6 +3158,11 @@ savedata();
     private void pumpsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpsStateChanged
         setModels(false, false);        // TODO add your handling code here:
     }//GEN-LAST:event_pumpsStateChanged
+
+    private void musicboxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicboxStateChanged
+        music = musicbox.isSelected();
+        represent();
+    }//GEN-LAST:event_musicboxStateChanged
 
     /**
      * @param args the command line arguments
@@ -3235,6 +3258,7 @@ savedata();
     private javax.swing.JLabel label8;
     private javax.swing.JLabel label9;
     private javax.swing.JSpinner leds;
+    private javax.swing.JCheckBox musicbox;
     private javax.swing.JLabel pumplabel1;
     private javax.swing.JLabel pumplabel10;
     private javax.swing.JLabel pumplabel11;

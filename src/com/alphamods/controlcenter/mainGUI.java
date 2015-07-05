@@ -15,6 +15,7 @@ import gnu.io.SerialPortEventListener;
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import static java.awt.Frame.ICONIFIED;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
@@ -101,7 +102,7 @@ List<JLabel> pumplabels;
 List<JSlider> pumpsliders;
 List<JTextField> indicatorpumps;
 List<JLabel> pumprpmlabels;
-
+boolean music = Boolean.parseBoolean(config.getValue("music"));
 
 
     
@@ -194,16 +195,17 @@ List<JLabel> pumprpmlabels;
         trayIcon();
         makeBigPanels();
         methods.initialicePicker(picker);
-        methods.initialiceArrays(picker);
+        methods.initialiceArrays(picker, music);
         initPanel();
         ports();
-        rpmData();
+        
         refreshMode();
         loadsecpreviews();        
         setIcons();
         if(Boolean.parseBoolean(config.getValue("startupdate"))==true){checkUpdates();}
         enablefansandpumps();
         loadpercentajes();
+        updaterpms();
         picker.addPropertyChangeListener(picker.SELECTED_COLOR_PROPERTY, new PropertyChangeListener() {
         
         @Override
@@ -211,9 +213,7 @@ List<JLabel> pumprpmlabels;
             PickerColorChanged(evt);}}); 
         }
     
-    private void rpmData(){
-        
-    }
+    
     
     private void enablefansandpumps(){
         fanlabels = Arrays.asList(fanlabel1,fanlabel2,fanlabel3,fanlabel4,fanlabel5,fanlabel6,fanlabel7,fanlabel8,fanlabel9,fanlabel10,fanlabel11);
@@ -395,12 +395,22 @@ List<JLabel> pumprpmlabels;
             executor.scheduleAtFixedRate(refreshTemp, 0, Long.parseLong(refreshSecondsSpinner.getValue().toString()), TimeUnit.SECONDS);
         }
     }
-    
+    private void updaterpms(){
+        
+        for (int i=0;i<Integer.parseInt(config.getValue("fans"));i++){
+            indicatorfans.get(i).setText(Integer.toString(methods.calculaterpms(i, fansliders, "fan")));
+        }
+        
+        for (int i=0;i<Integer.parseInt(config.getValue("pumps"));i++){
+            indicatorpumps.get(i).setText(Integer.toString(methods.calculaterpms(i, pumpsliders, "pump")));
+        }
+
+    }
     public void write(){
         if (methods.isConnected()){
-           methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode);
+           methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode,music);
         }else if (testmode){
-            methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode);
+            methods.write(mode, picker, fansliders, pumpsliders, LedC1, LedC2, LedC3,LedC4,testmode,music);
         }
     }
     public void makeJPanels(JPanel bigPanel){
@@ -794,6 +804,12 @@ List<JLabel> pumprpmlabels;
             LedC2.setEnabled(true);
             LedC3.setEnabled(true);
             LedC4.setEnabled(true);            
+        }
+        if (music){
+            LedC1.setText("Music Channel");
+            LedC1.setFont(LedC1.getFont().deriveFont(Font.BOLD));
+            LedC1.setForeground(Color.green.darker());
+            LedC1.setEnabled(false);
         }
     }
 
@@ -3337,6 +3353,9 @@ if (methods.isConnected()) {
         com.alphamods.controlcenter.utils.config.setValue("channel4G", methods.getChannel(4)[1]);
         com.alphamods.controlcenter.utils.config.setValue("channel4B", methods.getChannel(4)[2]);
         
+        config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
+        config.setValue("colorG", Integer.toString(picker.getColor().getGreen()));
+        config.setValue("colorB", Integer.toString(picker.getColor().getBlue()));
         
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
@@ -3381,9 +3400,7 @@ write();        // TODO add your handling code here:
     }//GEN-LAST:event_musicRadioButtonItemStateChanged
 
     private void Refresh2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh2ActionPerformed
-write();
-rpmData();
-        // TODO add your handling code here:
+write();        // TODO add your handling code here:
     }//GEN-LAST:event_Refresh2ActionPerformed
 
     private void LedC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LedC3ActionPerformed
@@ -3741,10 +3758,7 @@ write();
 }
 
 
-    Runnable refreshTemp = () -> {
-        write();
-        rpmData();
-};
+    Runnable refreshTemp = this::write;
     
     /**
      * @param args the command line arguments
