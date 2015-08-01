@@ -12,6 +12,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,9 @@ import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
@@ -120,7 +124,73 @@ boolean music = false;
         
         
     }
-    
+    public boolean decode(){
+        result.setText("");
+            String str = input.getText();
+        char[] chs  = str.toCharArray();
+        String a = "";
+        for(char ch : chs)
+        {
+            int temp = (int)ch;
+            int temp_integer = 64; //for upper case
+            if(temp<=90 & temp>=65)
+            a = a +Integer.toString(temp-temp_integer-1);
+        }
+        
+        char[] b = a.toCharArray();
+        int led = Integer.parseInt(String.valueOf(b[0]));
+        int fan = Integer.parseInt(String.valueOf(b[1])+String.valueOf(b[2]));
+        int pump = Integer.parseInt(String.valueOf(b[3])+String.valueOf(b[4]));
+        int musicc = Integer.parseInt(String.valueOf(b[5]));
+        boolean musica = false;
+        boolean resultt;
+        if (musicc == 0){
+            musica = false;
+        }else if (musicc ==1){
+            musica = true;
+        }
+        if(led<=4 && fan <=11 && pump <= 11 && musicc <=1){
+            leds.setValue(led);
+        fans.setValue(fan);
+        pumps.setValue(pump);
+        musicbox.setSelected(musica);
+        result.setText("<html>Code sucessfully redeemed");
+        
+        try {
+                ImageIcon icon16 = new ImageIcon(ImageIO.read(ConfigurationWizard.class.getResourceAsStream("res/tick.png")));
+                
+                result.setIcon(icon16);
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigurationWizard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        resultt = true;
+        }else{
+            result.setText("<html>Code is not valid");
+            
+            try {
+                ImageIcon icon16 = new ImageIcon(ImageIO.read(ConfigurationWizard.class.getResourceAsStream("res/cross.png")));
+                
+                result.setIcon(icon16);
+            } catch (IOException ex) {
+                Logger.getLogger(ConfigurationWizard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            resultt = false;
+        }
+ int temp = Integer.parseInt(fans.getValue().toString());
+        if(temp<=0 || temp > 11){
+            fans.setValue(1);
+        }
+int temp2 = Integer.parseInt(pumps.getValue().toString());
+        if(temp2 <= 0 || temp2 > 11){
+            pumps.setValue(1);
+        }
+int temp3 = Integer.parseInt(leds.getValue().toString());
+        if(temp3 <= 0 || temp3 > 4){
+            leds.setValue(1);
+        }
+    return resultt;
+    }
     public void represent(){
         triples1.setVisible(false);
             triples2.setVisible(false);
@@ -2423,7 +2493,48 @@ boolean music = false;
         
         represent();
     }
+private void next(){
+    
+        configuremaxs();
+        
+        if(step == totalsteps){
+            savedata();
+        dispose();
+        }else if (step ==totalsteps-1 && notconfigured()==true){
 
+                
+                    if (ad.isVisible()){
+                        
+                    }else{
+                        
+                    
+                    ad.setVisible(true);
+                    int delay = 3000; //milliseconds
+                    ActionListener taskPerformer = (ActionEvent evt1) -> {
+                        ad.setVisible(false);
+                    };
+                           new Timer(delay, taskPerformer).start();
+                }  
+                
+            }
+        
+        else{
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            step = step + 1;
+            backButton.setEnabled(true);
+            card.show(mainPanel, "card" + (step));
+            stepLabel.setText("Step " + step);
+            if(step == totalsteps){
+                
+                nextButton.setText("Finish");
+                
+            }
+            
+        }
+        
+        input.setText("");
+        
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2436,8 +2547,12 @@ boolean music = false;
         nextButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        input = new javax.swing.JFormattedTextField();
+        result = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -2557,31 +2672,98 @@ boolean music = false;
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        jLabel2.setText("welcome");
+        jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel9.setText("conf code");
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("<html>If you have a configuration code, write it here to skip some steps");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        try {
+            input.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("UUU-UUU")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        input.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputFocusLost(evt);
+            }
+        });
+        input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputActionPerformed(evt);
+            }
+        });
+        input.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(result, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alphamods/controlcenter/res/logo.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
+        jLabel11.setText("Welcome to Alpha Control Center");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(jLabel2)
-                .addContainerGap(440, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(145, 145, 145))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(100, 100, 100))
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         mainPanel.add(jPanel1, "card1");
@@ -2783,7 +2965,7 @@ boolean music = false;
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3013,7 +3195,7 @@ boolean music = false;
                                 .addComponent(pumpmax10)
                                 .addComponent(pumpmax9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3196,7 +3378,7 @@ boolean music = false;
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3313,43 +3495,18 @@ if(step == 1){
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-
-        configuremaxs();
-        
-        if(step == totalsteps){
-            savedata();
-        dispose();
-        }else if (step ==totalsteps-1 && notconfigured()==true){
-
-                
-                    if (ad.isVisible()){
-                        
-                    }else{
-                        
-                    
-                    ad.setVisible(true);
-                    int delay = 3000; //milliseconds
-                    ActionListener taskPerformer = (ActionEvent evt1) -> {
-                        ad.setVisible(false);
-                    };
-                           new Timer(delay, taskPerformer).start();
-                }  
-                
-            }
-        
-        else{
-            CardLayout card = (CardLayout)mainPanel.getLayout();
-            step = step + 1;
-            backButton.setEnabled(true);
-            card.show(mainPanel, "card" + (step));
-            stepLabel.setText("Step " + step);
-            if(step == totalsteps){
-                
-                nextButton.setText("Finish");
-                
-            }
-            
-        }        // TODO add your handling code here:
+   
+        if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
+    
+        if (decode()){
+        next();
+        next();
+    } else{
+        next();
+    }
+}else{
+            next();
+        }// TODO add your handling code here:
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
@@ -3381,6 +3538,29 @@ music = musicbox.isSelected();
 represent();
     }//GEN-LAST:event_musicboxStateChanged
 
+    private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
+if (decode()){
+        next();
+        next();
+    }    }//GEN-LAST:event_inputActionPerformed
+
+    private void inputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputFocusLost
+if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
+    decode();
+}    }//GEN-LAST:event_inputFocusLost
+
+    private void inputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputKeyTyped
+
+                // TODO add your handling code here:
+    }//GEN-LAST:event_inputKeyTyped
+
+    private void inputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputKeyReleased
+if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
+    decode();
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_inputKeyReleased
+
+    
     /**
      * @param args the command line arguments
      */
@@ -3452,8 +3632,10 @@ represent();
     private javax.swing.JSpinner fans;
     private javax.swing.JLabel fansTitle;
     private javax.swing.JLabel generallabel;
+    private javax.swing.JFormattedTextField input;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3469,6 +3651,7 @@ represent();
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label10;
     private javax.swing.JLabel label11;
@@ -3522,6 +3705,7 @@ represent();
     private javax.swing.JLabel raya7;
     private javax.swing.JLabel raya8;
     private javax.swing.JLabel raya9;
+    private javax.swing.JLabel result;
     private javax.swing.JLabel stepLabel;
     private javax.swing.JLabel triplel1;
     private javax.swing.JLabel triples1;

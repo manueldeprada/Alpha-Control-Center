@@ -415,6 +415,11 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
     }
     public void makeJPanels(JPanel bigPanel){
        
+        for (int i=0;i<100;i++){
+            
+        }
+        
+        
         JPanel p1 = new JPanel();   
         JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
