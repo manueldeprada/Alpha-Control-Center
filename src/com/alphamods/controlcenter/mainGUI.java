@@ -3745,7 +3745,8 @@ if (loopCheckBox5.isSelected()){
     }//GEN-LAST:event_loopCheckBox5ItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-ConfigurationWizard ub = new ConfigurationWizard(this, true);
+Adalight ub = new Adalight();
+
 ub.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 private void fanslidersStateChanged(javax.swing.event.ChangeEvent evt) {                                         
