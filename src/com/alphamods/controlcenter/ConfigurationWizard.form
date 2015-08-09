@@ -30,6 +30,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+          <Component id="mainPanel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="stepLabel" min="-2" pref="52" max="-2" attributes="0"/>
@@ -41,7 +42,6 @@
               <Component id="nextButton" min="-2" pref="89" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="mainPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -92,7 +92,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" alignment="0" pref="697" max="32767" attributes="0"/>
+                          <Component id="jLabel10" alignment="0" pref="630" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
@@ -246,7 +246,7 @@
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="115" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -818,7 +818,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -828,26 +828,6 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fanmax11" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="fanlabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fanmax1" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="fanlabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fanmax2" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="fanlabel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fanmax3" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="fanlabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="fanmax4" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="fanlabel5" min="-2" max="-2" attributes="0"/>
@@ -881,37 +861,47 @@
                                           <Component id="fanmax9" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="pumpsTitle" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="pumplabel10" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pumplabel11" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fanlabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="fanmax1" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pumplabel9" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="pumplabel2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pumplabel8" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fanlabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="fanmax2" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fanlabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="fanmax3" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fanlabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="fanmax4" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="pumplabel10" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="pumplabel9" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                          <Component id="pumplabel11" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="pumplabel7" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel6" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel5" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel4" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel3" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel2" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel1" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="pumplabel8" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="pumpsTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="pumpmax11" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                                   <Component id="pumpmax1" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
@@ -924,27 +914,27 @@
                                   <Component id="pumpmax8" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="pumpmax10" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="pumpmax9" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="pumpmax9" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Component id="jLabel7" min="-2" pref="540" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="jLabel7" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fansTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pumpsTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fansTitle" min="-2" max="-2" attributes="0"/>
+                          <Component id="pumpsTitle" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1002,7 +992,7 @@
                                   <Component id="fanmax11" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="pumpmax1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="pumplabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1229,13 +1219,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="MAX. RPM CHANNEL 10" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="pumplabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="MAX. RPM CHANNEL 11" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
               </Properties>
             </Component>
@@ -1469,6 +1452,13 @@
                 </Property>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="pumplabel11">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="MAX. RPM CHANNEL 11" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel6">
@@ -1488,7 +1478,7 @@
                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" pref="444" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="177" max="32767" attributes="0"/>
+                      <EmptySpace pref="110" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
