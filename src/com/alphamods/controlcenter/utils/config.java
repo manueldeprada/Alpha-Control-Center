@@ -30,10 +30,12 @@ public class config {
     
     public static String getValue(String key, File file){
     File propfile = file;
-Properties prop = new Properties();
-InputStream input = null;
-try {
- 
+    Properties prop = new Properties();
+    InputStream input = null;
+    try {
+ if(!propfile.exists()){
+     propfile.createNewFile();
+ }
 		input = new FileInputStream(propfile);
  
 		// load a properties file
@@ -52,7 +54,7 @@ try {
 				e.printStackTrace();
                         }
                 }
-}
+    }
         return null;
     }
     
@@ -88,7 +90,9 @@ try {
 OutputStream output = null;
 InputStream input = null;
 try {
-
+if(!propfile.exists()){
+     propfile.createNewFile();
+ }
 
  input = new FileInputStream(propfile);	
  

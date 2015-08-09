@@ -217,6 +217,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
      * Creates new form mainGUI
      */
     public mainGUI() {
+        
         initComponents();
         trayIcon();
         makeBigPanels();
@@ -237,7 +238,12 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
             PickerColorChanged(evt);}}); 
+    
+        if(config.getValue("initialize") == null){
+            System.out.println("aaa");
         }
+        
+    }
     
     
     
