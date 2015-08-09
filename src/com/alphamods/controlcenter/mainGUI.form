@@ -8,12 +8,16 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="FILE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="settings">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Settings"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SETTINGS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settingsActionPerformed"/>
@@ -23,7 +27,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="EDIT" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
         </Menu>
       </SubComponents>
@@ -31,7 +37,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Alpha Control Center"/>
+    <Property name="title" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+      <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="ALPHA CONTROL CENTER" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+    </Property>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="42" green="42" red="42" type="rgb"/>
     </Property>
@@ -227,12 +235,16 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LED Mode"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LED MODE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="fadeRadioButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fade"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="FADE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="fadeRadioButtonItemStateChanged"/>
@@ -241,7 +253,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="normalRadioButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Normal"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="NORMAL" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="normalRadioButtonItemStateChanged"/>
@@ -251,7 +265,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="musicRadioButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Music"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="MUSIC" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="musicRadioButtonItemStateChanged"/>
@@ -552,7 +568,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="labelColor1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 1"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor1">
@@ -579,7 +597,9 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="labelColor6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 6"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 6" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor6">
@@ -606,7 +626,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor6ActionPerformed"/>
@@ -614,7 +636,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor6ActionPerformed"/>
@@ -622,7 +646,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="getButtonColor1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor1ActionPerformed"/>
@@ -630,7 +656,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor1ActionPerformed"/>
@@ -638,7 +666,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 2"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor2">
@@ -665,7 +695,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="setButtonColor2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor2ActionPerformed"/>
@@ -673,7 +705,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 3"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor3">
@@ -700,7 +734,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor2ActionPerformed"/>
@@ -708,7 +744,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 7"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 7" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor7">
@@ -735,7 +773,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor7ActionPerformed"/>
@@ -743,7 +783,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor7ActionPerformed"/>
@@ -751,7 +793,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor8ActionPerformed"/>
@@ -759,12 +803,16 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 8"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 8" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="getButtonColor8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor8ActionPerformed"/>
@@ -794,7 +842,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor3ActionPerformed"/>
@@ -802,7 +852,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor3ActionPerformed"/>
@@ -810,7 +862,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 4"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor4">
@@ -837,7 +891,9 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="labelColor9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 9"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 9" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor9">
@@ -864,7 +920,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor9ActionPerformed"/>
@@ -872,7 +930,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor9ActionPerformed"/>
@@ -880,7 +940,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="getButtonColor4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor4ActionPerformed"/>
@@ -888,7 +950,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor4ActionPerformed"/>
@@ -896,7 +960,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 5"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 5" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor5">
@@ -923,7 +989,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor5ActionPerformed"/>
@@ -931,7 +999,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor5ActionPerformed"/>
@@ -939,7 +1009,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="setButtonColor10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor10ActionPerformed"/>
@@ -947,7 +1019,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 10"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 10" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="panelColor10">
@@ -974,7 +1048,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="getButtonColor10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor10ActionPerformed"/>
@@ -982,7 +1058,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="cleanButton">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clean all"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAN ALL" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cleanButtonActionPerformed"/>
@@ -990,12 +1068,16 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 11"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 11" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="getButtonColor11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor11ActionPerformed"/>
@@ -1025,7 +1107,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="setButtonColor11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor11ActionPerformed"/>
@@ -1033,12 +1117,16 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelColor12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Color 12"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="COLOR 12" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="getButtonColor12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Get"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="GET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getButtonColor12ActionPerformed"/>
@@ -1068,7 +1156,9 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="setButtonColor12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Set"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SET" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setButtonColor12ActionPerformed"/>
@@ -1080,7 +1170,9 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Secuences">
-                        <Property name="tabTitle" type="java.lang.String" value="Secuences"/>
+                        <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SECUENCES" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -1295,7 +1387,9 @@
                     </Container>
                     <Component class="javax.swing.JToggleButton" name="recordButton1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Record"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="RECORD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton1ItemStateChanged"/>
@@ -1303,7 +1397,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton1ActionPerformed"/>
@@ -1311,17 +1407,23 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="sec1label">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sec. 1"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEC. 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="sec2label">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sec. 2"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEC. 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="recordButton2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Record"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="RECORD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton2ItemStateChanged"/>
@@ -1329,7 +1431,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton2ActionPerformed"/>
@@ -1355,12 +1459,16 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="sec3label">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sec. 3"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEC. 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="recordButton3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Record"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="RECORD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton3ItemStateChanged"/>
@@ -1368,7 +1476,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton3ActionPerformed"/>
@@ -1394,7 +1504,9 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="sec4label">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sec. 4"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEC. 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="bigpanel4">
@@ -1417,7 +1529,9 @@
                     </Container>
                     <Component class="javax.swing.JToggleButton" name="recordButton4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Record"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="RECORD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton4ItemStateChanged"/>
@@ -1425,7 +1539,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton4ActionPerformed"/>
@@ -1433,7 +1549,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="sec5label">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sec. 5"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEC. 5" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="bigpanel5">
@@ -1456,7 +1574,9 @@
                     </Container>
                     <Component class="javax.swing.JToggleButton" name="recordButton5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Record"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="RECORD" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="recordButton5ItemStateChanged"/>
@@ -1464,7 +1584,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="clearButton5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CLEAR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButton5ActionPerformed"/>
@@ -1472,7 +1594,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="loopCheckBox1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Loop"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LOOP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox1ItemStateChanged"/>
@@ -1481,7 +1605,9 @@
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PLAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton1ItemStateChanged"/>
@@ -1489,7 +1615,9 @@
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PLAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton2ItemStateChanged"/>
@@ -1497,7 +1625,9 @@
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PLAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton3ItemStateChanged"/>
@@ -1505,7 +1635,9 @@
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PLAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton4ItemStateChanged"/>
@@ -1513,7 +1645,9 @@
                     </Component>
                     <Component class="javax.swing.JToggleButton" name="playButton5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Play"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PLAY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playButton5ItemStateChanged"/>
@@ -1521,7 +1655,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="loopCheckBox2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Loop"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LOOP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox2ItemStateChanged"/>
@@ -1529,7 +1665,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="loopCheckBox3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Loop"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LOOP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox3ItemStateChanged"/>
@@ -1538,7 +1676,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="loopCheckBox4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Loop"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LOOP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox4ItemStateChanged"/>
@@ -1546,7 +1686,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="loopCheckBox5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Loop"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LOOP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="loopCheckBox5ItemStateChanged"/>
@@ -1561,22 +1703,30 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LED Channels"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="LED CHANNELS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="LedC1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 1"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="LedC2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 2"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="LedC3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 3"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LedC3ActionPerformed"/>
@@ -1584,12 +1734,16 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="LedC4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Channel 4"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JToggleButton" name="testMode">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Test Mode"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEST MODE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="testModeItemStateChanged"/>
@@ -1827,7 +1981,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fans"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="FANS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="pumpsTitleLabel">
@@ -1835,7 +1991,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pumps"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="PUMPS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -1843,7 +2001,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="15" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temperatures"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMPERATURES" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Temp1">
@@ -1887,7 +2047,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 1"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -1895,7 +2057,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 2"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -1903,7 +2067,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 3"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -1911,7 +2077,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 4"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -1919,7 +2087,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 5"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 5" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -1927,7 +2097,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Temp 6"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="TEMP 6" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -1962,7 +2134,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="Refresh2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Refresh"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="REFRESH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Refresh2ActionPerformed"/>
@@ -1970,17 +2144,23 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Refresh each"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="REFRESH EACH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
-                <Property name="text" type="java.lang.String" value="seconds"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SECONDS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="RefreshCheckBox">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Refresh automatically"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="REFRESH AUTOMATICALLY" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RefreshCheckBoxActionPerformed"/>
@@ -2237,7 +2417,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="fanlabel1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 1"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSlider" name="fanslider1">
@@ -2274,7 +2456,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 2"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel3">
@@ -2295,7 +2479,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 3"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel4">
@@ -2316,7 +2502,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 4"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel5">
@@ -2337,7 +2525,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 5"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 5" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel6">
@@ -2358,7 +2548,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 6"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 6" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel7">
@@ -2379,7 +2571,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 7"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 7" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel8">
@@ -2400,7 +2594,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 8"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 8" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel9">
@@ -2421,7 +2617,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 9"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 9" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanrpmlabel10">
@@ -2442,12 +2640,16 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 10"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 10" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="fanlabel11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 11"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 11" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSlider" name="fanslider11">
@@ -2712,7 +2914,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="pumplabel1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 1"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 1" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSlider" name="pumpslider1">
@@ -2749,7 +2953,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 2"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 2" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel3">
@@ -2770,7 +2976,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 3"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 3" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel4">
@@ -2791,7 +2999,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 4"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 4" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel5">
@@ -2812,7 +3022,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 5"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 5" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel6">
@@ -2833,7 +3045,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel6">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 6"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 6" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel7">
@@ -2854,7 +3068,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel7">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 7"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 7" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel8">
@@ -2875,7 +3091,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel8">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 8"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 8" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel9">
@@ -2896,7 +3114,9 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel9">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 9"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 9" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumprpmlabel10">
@@ -2917,12 +3137,16 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel10">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 10"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 10" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="pumplabel11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Channel 11"/>
+                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CHANNEL 11" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSlider" name="pumpslider11">
@@ -2989,7 +3213,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Start Ambilight!"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="START AMBILIGHT!" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -3001,7 +3227,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="refreshPortsButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Refresh"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="REFRESH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshPortsButtonActionPerformed"/>
@@ -3017,12 +3245,16 @@
             <StringItem index="3" value="Item 4"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Avaliable Arduino Ports"/>
+        <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="AVALIABLE ARDUINO PORTS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="connectButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Connect"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="CONNECT" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectButtonActionPerformed"/>
@@ -3030,7 +3262,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="sendbutton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Send"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEND" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendbuttonActionPerformed"/>
@@ -3044,7 +3278,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1b" green="2" red="e1" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Not connected!!"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="NOT CONNECTED!!" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="notificationsLabel">

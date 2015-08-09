@@ -160,16 +160,16 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
                 
                 PopupMenu popup = new PopupMenu();
                 
-                MenuItem openItem = new MenuItem("Open");
+                MenuItem openItem = new MenuItem(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("OPEN"));
                 openItem.addActionListener(openListener);
                 popup.add(openItem);
-                MenuItem exitItem = new MenuItem("Exit");
+                MenuItem exitItem = new MenuItem(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("EXIT"));
                 exitItem.addActionListener(exitListener);
                 popup.addSeparator();
                 popup.add(exitItem);
                 
                 
-                trayIcon = new TrayIcon(trayIconImage.getScaledInstance(trayIconWidth, -1, Image.SCALE_SMOOTH), "Right click for options", popup);
+                trayIcon = new TrayIcon(trayIconImage.getScaledInstance(trayIconWidth, -1, Image.SCALE_SMOOTH), java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RIGHT CLICK FOR OPTIONS"), popup);
                 trayIcon.setImageAutoSize(true);
                 trayIcon.addActionListener(openListener);
                 trayIcon.addMouseListener(mouse);
@@ -239,9 +239,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         public void propertyChange(PropertyChangeEvent evt) {
             PickerColorChanged(evt);}}); 
     
-        if(config.getValue("initialize") == null){
-            System.out.println("aaa");
-        }
+        
         
     }
     
@@ -322,7 +320,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
     }
     public void checkUpdates(){
         notificationsLabel.setVisible(true);
-        notificationsLabel.setText("Checking for updates...");
+        notificationsLabel.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("CHECKING FOR UPDATES..."));
         notificationsBar.setVisible(true);
         notificationsBar.setIndeterminate(true);
         updater updater = new updater();
@@ -809,6 +807,32 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         
         PortsBox.removeAllItems();
         methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        if(config.getValue("port")!=null ||config.getValue("port")!=""){
+            
+            
+            try {
+                PortsBox.setSelectedItem(config.getValue("port"));
+                methods.connect(evento, PortsBox);
+                
+
+            } catch (Exception ex) {
+                Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(methods.isConnected()){
+                connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DISCONNECT"));
+                fadeRadioButton.setEnabled(true);
+                normalRadioButton.setEnabled(true);
+                musicRadioButton.setEnabled(true);
+                recordButton1.setEnabled(true);
+                playButton1.setEnabled(true);
+                picker.setEnabled(true);
+                notConnectedLabel.setVisible(false);
+                Refresh2.setEnabled(true);
+                clearButton1.setEnabled(true);
+                loadsecpreviews();
+            }
+                
+        }
         this.ledModeLabel.setVisible(false);
         this.fadeRadioButton.setVisible(false);
         this.normalRadioButton.setVisible(false);
@@ -843,7 +867,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             LedC4.setEnabled(true);            
         }
         if (music){
-            LedC1.setText("Music Channel");
+            LedC1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("MUSIC CHANNEL"));
             LedC1.setFont(LedC1.getFont().deriveFont(Font.BOLD));
             LedC1.setForeground(Color.green.darker());
             LedC1.setEnabled(false);
@@ -1094,7 +1118,8 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Alpha Control Center");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle"); // NOI18N
+        setTitle(bundle.getString("ALPHA CONTROL CENTER")); // NOI18N
         setBackground(new java.awt.Color(66, 66, 66));
         setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1110,9 +1135,9 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         });
 
         ledModeLabel.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        ledModeLabel.setText("LED Mode");
+        ledModeLabel.setText(bundle.getString("LED MODE")); // NOI18N
 
-        fadeRadioButton.setText("Fade");
+        fadeRadioButton.setText(bundle.getString("FADE")); // NOI18N
         fadeRadioButton.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fadeRadioButtonItemStateChanged(evt);
@@ -1124,7 +1149,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             }
         });
 
-        normalRadioButton.setText("Normal");
+        normalRadioButton.setText(bundle.getString("NORMAL")); // NOI18N
         normalRadioButton.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 normalRadioButtonItemStateChanged(evt);
@@ -1141,7 +1166,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             }
         });
 
-        musicRadioButton.setText("Music");
+        musicRadioButton.setText(bundle.getString("MUSIC")); // NOI18N
         musicRadioButton.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 musicRadioButtonItemStateChanged(evt);
@@ -1155,7 +1180,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         favColorsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Favourite colors")));
 
-        labelColor1.setText("Color 1");
+        labelColor1.setText(bundle.getString("COLOR 1")); // NOI18N
 
         panelColor1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1170,7 +1195,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        labelColor6.setText("Color 6");
+        labelColor6.setText(bundle.getString("COLOR 6")); // NOI18N
 
         panelColor6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1185,35 +1210,35 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor6.setText("Get");
+        getButtonColor6.setText(bundle.getString("GET")); // NOI18N
         getButtonColor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor6ActionPerformed(evt);
             }
         });
 
-        setButtonColor6.setText("Set");
+        setButtonColor6.setText(bundle.getString("SET")); // NOI18N
         setButtonColor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor6ActionPerformed(evt);
             }
         });
 
-        getButtonColor1.setText("Get");
+        getButtonColor1.setText(bundle.getString("GET")); // NOI18N
         getButtonColor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor1ActionPerformed(evt);
             }
         });
 
-        setButtonColor1.setText("Set");
+        setButtonColor1.setText(bundle.getString("SET")); // NOI18N
         setButtonColor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor1ActionPerformed(evt);
             }
         });
 
-        labelColor2.setText("Color 2");
+        labelColor2.setText(bundle.getString("COLOR 2")); // NOI18N
 
         panelColor2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1228,14 +1253,14 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        setButtonColor2.setText("Set");
+        setButtonColor2.setText(bundle.getString("SET")); // NOI18N
         setButtonColor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor2ActionPerformed(evt);
             }
         });
 
-        labelColor3.setText("Color 3");
+        labelColor3.setText(bundle.getString("COLOR 3")); // NOI18N
 
         panelColor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1250,14 +1275,14 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor2.setText("Get");
+        getButtonColor2.setText(bundle.getString("GET")); // NOI18N
         getButtonColor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor2ActionPerformed(evt);
             }
         });
 
-        labelColor7.setText("Color 7");
+        labelColor7.setText(bundle.getString("COLOR 7")); // NOI18N
 
         panelColor7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1272,30 +1297,30 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor7.setText("Get");
+        getButtonColor7.setText(bundle.getString("GET")); // NOI18N
         getButtonColor7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor7ActionPerformed(evt);
             }
         });
 
-        setButtonColor7.setText("Set");
+        setButtonColor7.setText(bundle.getString("SET")); // NOI18N
         setButtonColor7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor7ActionPerformed(evt);
             }
         });
 
-        setButtonColor8.setText("Set");
+        setButtonColor8.setText(bundle.getString("SET")); // NOI18N
         setButtonColor8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor8ActionPerformed(evt);
             }
         });
 
-        labelColor8.setText("Color 8");
+        labelColor8.setText(bundle.getString("COLOR 8")); // NOI18N
 
-        getButtonColor8.setText("Get");
+        getButtonColor8.setText(bundle.getString("GET")); // NOI18N
         getButtonColor8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor8ActionPerformed(evt);
@@ -1315,21 +1340,21 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor3.setText("Get");
+        getButtonColor3.setText(bundle.getString("GET")); // NOI18N
         getButtonColor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor3ActionPerformed(evt);
             }
         });
 
-        setButtonColor3.setText("Set");
+        setButtonColor3.setText(bundle.getString("SET")); // NOI18N
         setButtonColor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor3ActionPerformed(evt);
             }
         });
 
-        labelColor4.setText("Color 4");
+        labelColor4.setText(bundle.getString("COLOR 4")); // NOI18N
 
         panelColor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1344,7 +1369,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        labelColor9.setText("Color 9");
+        labelColor9.setText(bundle.getString("COLOR 9")); // NOI18N
 
         panelColor9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1359,35 +1384,35 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor9.setText("Get");
+        getButtonColor9.setText(bundle.getString("GET")); // NOI18N
         getButtonColor9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor9ActionPerformed(evt);
             }
         });
 
-        setButtonColor9.setText("Set");
+        setButtonColor9.setText(bundle.getString("SET")); // NOI18N
         setButtonColor9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor9ActionPerformed(evt);
             }
         });
 
-        getButtonColor4.setText("Get");
+        getButtonColor4.setText(bundle.getString("GET")); // NOI18N
         getButtonColor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor4ActionPerformed(evt);
             }
         });
 
-        setButtonColor4.setText("Set");
+        setButtonColor4.setText(bundle.getString("SET")); // NOI18N
         setButtonColor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor4ActionPerformed(evt);
             }
         });
 
-        labelColor5.setText("Color 5");
+        labelColor5.setText(bundle.getString("COLOR 5")); // NOI18N
 
         panelColor5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1402,28 +1427,28 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor5.setText("Get");
+        getButtonColor5.setText(bundle.getString("GET")); // NOI18N
         getButtonColor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor5ActionPerformed(evt);
             }
         });
 
-        setButtonColor5.setText("Set");
+        setButtonColor5.setText(bundle.getString("SET")); // NOI18N
         setButtonColor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor5ActionPerformed(evt);
             }
         });
 
-        setButtonColor10.setText("Set");
+        setButtonColor10.setText(bundle.getString("SET")); // NOI18N
         setButtonColor10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor10ActionPerformed(evt);
             }
         });
 
-        labelColor10.setText("Color 10");
+        labelColor10.setText(bundle.getString("COLOR 10")); // NOI18N
 
         panelColor10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1438,23 +1463,23 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        getButtonColor10.setText("Get");
+        getButtonColor10.setText(bundle.getString("GET")); // NOI18N
         getButtonColor10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor10ActionPerformed(evt);
             }
         });
 
-        cleanButton.setText("Clean all");
+        cleanButton.setText(bundle.getString("CLEAN ALL")); // NOI18N
         cleanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cleanButtonActionPerformed(evt);
             }
         });
 
-        labelColor11.setText("Color 11");
+        labelColor11.setText(bundle.getString("COLOR 11")); // NOI18N
 
-        getButtonColor11.setText("Get");
+        getButtonColor11.setText(bundle.getString("GET")); // NOI18N
         getButtonColor11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor11ActionPerformed(evt);
@@ -1474,16 +1499,16 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        setButtonColor11.setText("Set");
+        setButtonColor11.setText(bundle.getString("SET")); // NOI18N
         setButtonColor11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor11ActionPerformed(evt);
             }
         });
 
-        labelColor12.setText("Color 12");
+        labelColor12.setText(bundle.getString("COLOR 12")); // NOI18N
 
-        getButtonColor12.setText("Get");
+        getButtonColor12.setText(bundle.getString("GET")); // NOI18N
         getButtonColor12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getButtonColor12ActionPerformed(evt);
@@ -1503,7 +1528,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             .addGap(0, 21, Short.MAX_VALUE)
         );
 
-        setButtonColor12.setText("Set");
+        setButtonColor12.setText(bundle.getString("SET")); // NOI18N
         setButtonColor12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setButtonColor12ActionPerformed(evt);
@@ -1724,32 +1749,32 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         bigpanel1.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        recordButton1.setText("Record");
+        recordButton1.setText(bundle.getString("RECORD")); // NOI18N
         recordButton1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton1ItemStateChanged(evt);
             }
         });
 
-        clearButton1.setText("Clear");
+        clearButton1.setText(bundle.getString("CLEAR")); // NOI18N
         clearButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton1ActionPerformed(evt);
             }
         });
 
-        sec1label.setText("Sec. 1");
+        sec1label.setText(bundle.getString("SEC. 1")); // NOI18N
 
-        sec2label.setText("Sec. 2");
+        sec2label.setText(bundle.getString("SEC. 2")); // NOI18N
 
-        recordButton2.setText("Record");
+        recordButton2.setText(bundle.getString("RECORD")); // NOI18N
         recordButton2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton2ItemStateChanged(evt);
             }
         });
 
-        clearButton2.setText("Clear");
+        clearButton2.setText(bundle.getString("CLEAR")); // NOI18N
         clearButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton2ActionPerformed(evt);
@@ -1760,16 +1785,16 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         bigpanel2.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        sec3label.setText("Sec. 3");
+        sec3label.setText(bundle.getString("SEC. 3")); // NOI18N
 
-        recordButton3.setText("Record");
+        recordButton3.setText(bundle.getString("RECORD")); // NOI18N
         recordButton3.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton3ItemStateChanged(evt);
             }
         });
 
-        clearButton3.setText("Clear");
+        clearButton3.setText(bundle.getString("CLEAR")); // NOI18N
         clearButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton3ActionPerformed(evt);
@@ -1780,47 +1805,47 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         bigpanel3.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        sec4label.setText("Sec. 4");
+        sec4label.setText(bundle.getString("SEC. 4")); // NOI18N
 
         bigpanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         bigpanel4.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        recordButton4.setText("Record");
+        recordButton4.setText(bundle.getString("RECORD")); // NOI18N
         recordButton4.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton4ItemStateChanged(evt);
             }
         });
 
-        clearButton4.setText("Clear");
+        clearButton4.setText(bundle.getString("CLEAR")); // NOI18N
         clearButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton4ActionPerformed(evt);
             }
         });
 
-        sec5label.setText("Sec. 5");
+        sec5label.setText(bundle.getString("SEC. 5")); // NOI18N
 
         bigpanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         bigpanel5.setPreferredSize(new java.awt.Dimension(100, 37));
         bigpanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        recordButton5.setText("Record");
+        recordButton5.setText(bundle.getString("RECORD")); // NOI18N
         recordButton5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 recordButton5ItemStateChanged(evt);
             }
         });
 
-        clearButton5.setText("Clear");
+        clearButton5.setText(bundle.getString("CLEAR")); // NOI18N
         clearButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButton5ActionPerformed(evt);
             }
         });
 
-        loopCheckBox1.setText("Loop");
+        loopCheckBox1.setText(bundle.getString("LOOP")); // NOI18N
         loopCheckBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 loopCheckBox1ItemStateChanged(evt);
@@ -1832,49 +1857,49 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             }
         });
 
-        playButton1.setText("Play");
+        playButton1.setText(bundle.getString("PLAY")); // NOI18N
         playButton1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton1ItemStateChanged(evt);
             }
         });
 
-        playButton2.setText("Play");
+        playButton2.setText(bundle.getString("PLAY")); // NOI18N
         playButton2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton2ItemStateChanged(evt);
             }
         });
 
-        playButton3.setText("Play");
+        playButton3.setText(bundle.getString("PLAY")); // NOI18N
         playButton3.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton3ItemStateChanged(evt);
             }
         });
 
-        playButton4.setText("Play");
+        playButton4.setText(bundle.getString("PLAY")); // NOI18N
         playButton4.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton4ItemStateChanged(evt);
             }
         });
 
-        playButton5.setText("Play");
+        playButton5.setText(bundle.getString("PLAY")); // NOI18N
         playButton5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 playButton5ItemStateChanged(evt);
             }
         });
 
-        loopCheckBox2.setText("Loop");
+        loopCheckBox2.setText(bundle.getString("LOOP")); // NOI18N
         loopCheckBox2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 loopCheckBox2ItemStateChanged(evt);
             }
         });
 
-        loopCheckBox3.setText("Loop");
+        loopCheckBox3.setText(bundle.getString("LOOP")); // NOI18N
         loopCheckBox3.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 loopCheckBox3ItemStateChanged(evt);
@@ -1886,14 +1911,14 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             }
         });
 
-        loopCheckBox4.setText("Loop");
+        loopCheckBox4.setText(bundle.getString("LOOP")); // NOI18N
         loopCheckBox4.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 loopCheckBox4ItemStateChanged(evt);
             }
         });
 
-        loopCheckBox5.setText("Loop");
+        loopCheckBox5.setText(bundle.getString("LOOP")); // NOI18N
         loopCheckBox5.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 loopCheckBox5ItemStateChanged(evt);
@@ -2043,25 +2068,25 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
                 .addContainerGap(137, Short.MAX_VALUE))
         );
 
-        colors_secuencesPanel.addTab("Secuences", SecuencesPanel);
+        colors_secuencesPanel.addTab(bundle.getString("SECUENCES"), SecuencesPanel); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel17.setText("LED Channels");
+        jLabel17.setText(bundle.getString("LED CHANNELS")); // NOI18N
 
-        LedC1.setText("Channel 1");
+        LedC1.setText(bundle.getString("CHANNEL 1")); // NOI18N
 
-        LedC2.setText("Channel 2");
+        LedC2.setText(bundle.getString("CHANNEL 2")); // NOI18N
 
-        LedC3.setText("Channel 3");
+        LedC3.setText(bundle.getString("CHANNEL 3")); // NOI18N
         LedC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LedC3ActionPerformed(evt);
             }
         });
 
-        LedC4.setText("Channel 4");
+        LedC4.setText(bundle.getString("CHANNEL 4")); // NOI18N
 
-        testMode.setText("Test Mode");
+        testMode.setText(bundle.getString("TEST MODE")); // NOI18N
         testMode.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 testModeItemStateChanged(evt);
@@ -2149,13 +2174,13 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         tabPanel.addTab("Color", colorTab);
 
         fansTitleLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        fansTitleLabel.setText("Fans");
+        fansTitleLabel.setText(bundle.getString("FANS")); // NOI18N
 
         pumpsTitleLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        pumpsTitleLabel.setText("Pumps");
+        pumpsTitleLabel.setText(bundle.getString("PUMPS")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel1.setText("Temperatures");
+        jLabel1.setText(bundle.getString("TEMPERATURES")); // NOI18N
 
         Temp1.setEditable(false);
         Temp1.setText("0");
@@ -2176,22 +2201,22 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         Temp6.setText("0");
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel2.setText("Temp 1");
+        jLabel2.setText(bundle.getString("TEMP 1")); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel3.setText("Temp 2");
+        jLabel3.setText(bundle.getString("TEMP 2")); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel4.setText("Temp 3");
+        jLabel4.setText(bundle.getString("TEMP 3")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel5.setText("Temp 4");
+        jLabel5.setText(bundle.getString("TEMP 4")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel6.setText("Temp 5");
+        jLabel6.setText(bundle.getString("TEMP 5")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 11)); // NOI18N
-        jLabel7.setText("Temp 6");
+        jLabel7.setText(bundle.getString("TEMP 6")); // NOI18N
 
         jLabel8.setText("ºC");
 
@@ -2205,18 +2230,18 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         jLabel13.setText("ºC");
 
-        Refresh2.setText("Refresh");
+        Refresh2.setText(bundle.getString("REFRESH")); // NOI18N
         Refresh2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Refresh2ActionPerformed(evt);
             }
         });
 
-        jLabel18.setText("Refresh each");
+        jLabel18.setText(bundle.getString("REFRESH EACH")); // NOI18N
 
-        jLabel19.setText("seconds");
+        jLabel19.setText(bundle.getString("SECONDS")); // NOI18N
 
-        RefreshCheckBox.setText("Refresh automatically");
+        RefreshCheckBox.setText(bundle.getString("REFRESH AUTOMATICALLY")); // NOI18N
         RefreshCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RefreshCheckBoxActionPerformed(evt);
@@ -2232,7 +2257,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
             }
         });
 
-        fanlabel1.setText("Channel 1");
+        fanlabel1.setText(bundle.getString("CHANNEL 1")); // NOI18N
 
         fanslider1.setPaintTicks(true);
 
@@ -2248,7 +2273,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider2.setPaintTicks(true);
 
-        fanlabel2.setText("Channel 2");
+        fanlabel2.setText(bundle.getString("CHANNEL 2")); // NOI18N
 
         fanrpmlabel3.setText("RPM");
 
@@ -2257,7 +2282,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider3.setPaintTicks(true);
 
-        fanlabel3.setText("Channel 3");
+        fanlabel3.setText(bundle.getString("CHANNEL 3")); // NOI18N
 
         fanrpmlabel4.setText("RPM");
 
@@ -2266,7 +2291,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider4.setPaintTicks(true);
 
-        fanlabel4.setText("Channel 4");
+        fanlabel4.setText(bundle.getString("CHANNEL 4")); // NOI18N
 
         fanrpmlabel5.setText("RPM");
 
@@ -2275,7 +2300,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider5.setPaintTicks(true);
 
-        fanlabel5.setText("Channel 5");
+        fanlabel5.setText(bundle.getString("CHANNEL 5")); // NOI18N
 
         fanrpmlabel6.setText("RPM");
 
@@ -2284,7 +2309,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider6.setPaintTicks(true);
 
-        fanlabel6.setText("Channel 6");
+        fanlabel6.setText(bundle.getString("CHANNEL 6")); // NOI18N
 
         fanrpmlabel7.setText("RPM");
 
@@ -2293,7 +2318,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider7.setPaintTicks(true);
 
-        fanlabel7.setText("Channel 7");
+        fanlabel7.setText(bundle.getString("CHANNEL 7")); // NOI18N
 
         fanrpmlabel8.setText("RPM");
 
@@ -2302,7 +2327,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider8.setPaintTicks(true);
 
-        fanlabel8.setText("Channel 8");
+        fanlabel8.setText(bundle.getString("CHANNEL 8")); // NOI18N
 
         fanrpmlabel9.setText("RPM");
 
@@ -2311,7 +2336,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider9.setPaintTicks(true);
 
-        fanlabel9.setText("Channel 9");
+        fanlabel9.setText(bundle.getString("CHANNEL 9")); // NOI18N
 
         fanrpmlabel10.setText("RPM");
 
@@ -2320,9 +2345,9 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         fanslider10.setPaintTicks(true);
 
-        fanlabel10.setText("Channel 10");
+        fanlabel10.setText(bundle.getString("CHANNEL 10")); // NOI18N
 
-        fanlabel11.setText("Channel 11");
+        fanlabel11.setText(bundle.getString("CHANNEL 11")); // NOI18N
 
         fanslider11.setPaintTicks(true);
 
@@ -2521,7 +2546,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         jScrollPane2.setViewportView(jPanel3);
 
-        pumplabel1.setText("Channel 1");
+        pumplabel1.setText(bundle.getString("CHANNEL 1")); // NOI18N
 
         pumpslider1.setPaintTicks(true);
 
@@ -2537,7 +2562,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider2.setPaintTicks(true);
 
-        pumplabel2.setText("Channel 2");
+        pumplabel2.setText(bundle.getString("CHANNEL 2")); // NOI18N
 
         pumprpmlabel3.setText("RPM");
 
@@ -2546,7 +2571,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider3.setPaintTicks(true);
 
-        pumplabel3.setText("Channel 3");
+        pumplabel3.setText(bundle.getString("CHANNEL 3")); // NOI18N
 
         pumprpmlabel4.setText("RPM");
 
@@ -2555,7 +2580,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider4.setPaintTicks(true);
 
-        pumplabel4.setText("Channel 4");
+        pumplabel4.setText(bundle.getString("CHANNEL 4")); // NOI18N
 
         pumprpmlabel5.setText("RPM");
 
@@ -2564,7 +2589,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider5.setPaintTicks(true);
 
-        pumplabel5.setText("Channel 5");
+        pumplabel5.setText(bundle.getString("CHANNEL 5")); // NOI18N
 
         pumprpmlabel6.setText("RPM");
 
@@ -2573,7 +2598,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider6.setPaintTicks(true);
 
-        pumplabel6.setText("Channel 6");
+        pumplabel6.setText(bundle.getString("CHANNEL 6")); // NOI18N
 
         pumprpmlabel7.setText("RPM");
 
@@ -2582,7 +2607,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider7.setPaintTicks(true);
 
-        pumplabel7.setText("Channel 7");
+        pumplabel7.setText(bundle.getString("CHANNEL 7")); // NOI18N
 
         pumprpmlabel8.setText("RPM");
 
@@ -2591,7 +2616,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider8.setPaintTicks(true);
 
-        pumplabel8.setText("Channel 8");
+        pumplabel8.setText(bundle.getString("CHANNEL 8")); // NOI18N
 
         pumprpmlabel9.setText("RPM");
 
@@ -2600,7 +2625,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider9.setPaintTicks(true);
 
-        pumplabel9.setText("Channel 9");
+        pumplabel9.setText(bundle.getString("CHANNEL 9")); // NOI18N
 
         pumprpmlabel10.setText("RPM");
 
@@ -2609,9 +2634,9 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         pumpslider10.setPaintTicks(true);
 
-        pumplabel10.setText("Channel 10");
+        pumplabel10.setText(bundle.getString("CHANNEL 10")); // NOI18N
 
-        pumplabel11.setText("Channel 11");
+        pumplabel11.setText(bundle.getString("CHANNEL 11")); // NOI18N
 
         pumpslider11.setPaintTicks(true);
 
@@ -2965,7 +2990,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         tabPanel.addTab("Fans & Pumps", FanPumpPanel);
 
-        jButton1.setText("Start Ambilight!");
+        jButton1.setText(bundle.getString("START AMBILIGHT!")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -2991,7 +3016,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         tabPanel.addTab("Ambilight", jPanel2);
 
-        refreshPortsButton.setText("Refresh");
+        refreshPortsButton.setText(bundle.getString("REFRESH")); // NOI18N
         refreshPortsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshPortsButtonActionPerformed(evt);
@@ -2999,16 +3024,16 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
         });
 
         PortsBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        PortsBox.setToolTipText("Avaliable Arduino Ports");
+        PortsBox.setToolTipText(bundle.getString("AVALIABLE ARDUINO PORTS")); // NOI18N
 
-        connectButton.setText("Connect");
+        connectButton.setText(bundle.getString("CONNECT")); // NOI18N
         connectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectButtonActionPerformed(evt);
             }
         });
 
-        sendbutton.setText("Send");
+        sendbutton.setText(bundle.getString("SEND")); // NOI18N
         sendbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendbuttonActionPerformed(evt);
@@ -3017,7 +3042,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         notConnectedLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         notConnectedLabel.setForeground(new java.awt.Color(225, 2, 27));
-        notConnectedLabel.setText("Not connected!!");
+        notConnectedLabel.setText(bundle.getString("NOT CONNECTED!!")); // NOI18N
 
         notificationsLabel.setText("jLabel20");
 
@@ -3040,9 +3065,9 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText(bundle.getString("FILE")); // NOI18N
 
-        settings.setText("Settings");
+        settings.setText(bundle.getString("SETTINGS")); // NOI18N
         settings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settingsActionPerformed(evt);
@@ -3052,7 +3077,7 @@ boolean music = Boolean.parseBoolean(config.getValue("music"));
 
         menubar.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText(bundle.getString("EDIT")); // NOI18N
         menubar.add(jMenu2);
 
         setJMenuBar(menubar);
@@ -3327,7 +3352,7 @@ if (methods.isConnected()) {
     
                 methods.disconnect();
                 notConnectedLabel.setVisible(true);
-                connectButton.setText("Connect");
+                connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("CONNECT"));
                 picker.setEnabled(false);
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
@@ -3342,7 +3367,7 @@ if (methods.isConnected()) {
 
             try {
                 methods.connect(evento, PortsBox);
-                connectButton.setText("Disconnect");
+                connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DISCONNECT"));
                 fadeRadioButton.setEnabled(true);
                 normalRadioButton.setEnabled(true);
                 musicRadioButton.setEnabled(true);
@@ -3397,7 +3422,9 @@ if (methods.isConnected()) {
         config.setValue("colorR", Integer.toString(picker.getColor().getRed()));
         config.setValue("colorG", Integer.toString(picker.getColor().getGreen()));
         config.setValue("colorB", Integer.toString(picker.getColor().getBlue()));
-        
+        if(methods.isConnected()){
+            config.setValue("port", PortsBox.getSelectedItem().toString());
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
@@ -3534,7 +3561,7 @@ if (testMode.isSelected()){
                 playButton1.setEnabled(true);
 }else {
                 notConnectedLabel.setVisible(true);
-                connectButton.setText("Connect");
+                connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("CONNECT"));
                 picker.setEnabled(false);
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
@@ -3550,11 +3577,11 @@ if (testMode.isSelected()){
     if (recordButton1.isSelected()){
         s1record = new com.alphamods.controlcenter.utils.secuences();
         s1record.record(picker, 1);
-        recordButton1.setText("Stop");  
+        recordButton1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STOP"));  
     }
     else{
         s1record.recorderStop(bigpanel1); 
-        recordButton1.setText("Record");
+        recordButton1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RECORD"));
     }
     // TODO add your handling code here:
     }//GEN-LAST:event_recordButton1ItemStateChanged
@@ -3567,11 +3594,11 @@ if (testMode.isSelected()){
         if (recordButton3.isSelected()){
         s3record = new com.alphamods.controlcenter.utils.secuences();
         s3record.record(picker, 3);
-        recordButton3.setText("Stop");  
+        recordButton3.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STOP"));  
     }
     else{
         s3record.recorderStop(bigpanel3); 
-        recordButton3.setText("Record");
+        recordButton3.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RECORD"));
     }// TODO add your handling code here:
     }//GEN-LAST:event_recordButton3ItemStateChanged
 
@@ -3584,11 +3611,11 @@ if (testMode.isSelected()){
       if (recordButton4.isSelected()){
         s4record = new com.alphamods.controlcenter.utils.secuences();
         s4record.record(picker, 4);
-        recordButton4.setText("Stop");  
+        recordButton4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STOP"));  
     }
     else{
         s4record.recorderStop(bigpanel4); 
-        recordButton4.setText("Record");
+        recordButton4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RECORD"));
     }  // TODO add your handling code here:
     }//GEN-LAST:event_recordButton4ItemStateChanged
 
@@ -3601,11 +3628,11 @@ if (testMode.isSelected()){
       if (recordButton5.isSelected()){
         s5record = new com.alphamods.controlcenter.utils.secuences();
         s5record.record(picker, 5);
-        recordButton5.setText("Stop");  
+        recordButton5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STOP"));  
     }
     else{
         s5record.recorderStop(bigpanel5); 
-        recordButton5.setText("Record");
+        recordButton5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RECORD"));
     }  // TODO add your handling code here:
     }//GEN-LAST:event_recordButton5ItemStateChanged
 
@@ -3680,11 +3707,11 @@ try {
        if (recordButton2.isSelected()){
         s2record = new com.alphamods.controlcenter.utils.secuences();
         s2record.record(picker, 2);
-        recordButton2.setText("Stop");  
+        recordButton2.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STOP"));  
     }
     else{
         s2record.recorderStop(bigpanel2); 
-        recordButton2.setText("Record");
+        recordButton2.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("RECORD"));
     } // TODO add your handling code here:
     }//GEN-LAST:event_recordButton2ItemStateChanged
 

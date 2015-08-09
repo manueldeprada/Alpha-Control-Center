@@ -42,7 +42,7 @@ public class UpdaterGUI extends javax.swing.JDialog {
         jLabel5.setText(Double.toString(methods.getversion()));
         jLabel3.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel3.setVerticalAlignment(SwingConstants.CENTER);
-        jLabel3.setText("New version avaliable!!");
+        jLabel3.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("NEW VERSION AVALIABLE!!"));
         jButton1.setEnabled(false);
     }
 
@@ -66,20 +66,21 @@ public class UpdaterGUI extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Updater");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle"); // NOI18N
+        setTitle(bundle.getString("UPDATER")); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jLabel4.setText("Newest version:");
+        jLabel4.setText(bundle.getString("NEWEST VERSION:")); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setText("Install!");
+        jButton1.setText(bundle.getString("INSTALL!")); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -91,7 +92,7 @@ public class UpdaterGUI extends javax.swing.JDialog {
             }
         });
 
-        jButton3.setText("Download!!");
+        jButton3.setText(bundle.getString("DOWNLOAD!!")); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -109,14 +110,14 @@ public class UpdaterGUI extends javax.swing.JDialog {
         jProgressBar1.setStringPainted(true);
         jProgressBar1.setVisible(false);
 
-        jButton4.setText("Open changelog!");
+        jButton4.setText(bundle.getString("OPEN CHANGELOG!")); // NOI18N
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
         });
 
-        jLabel1.setText("Actual version:");
+        jLabel1.setText(bundle.getString("ACTUAL VERSION:")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +216,7 @@ public void download(){
         this.jProgressBar1.setValue(progress);
         if (download1.getStatus() == 2) {
            
-            this.jLabel3.setText("Download complete!!!!");
+            this.jLabel3.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DOWNLOAD COMPLETE!!!!"));
             jButton1.setEnabled(true);
             jButton3.setEnabled(false);
             executor.shutdown();
@@ -264,7 +265,7 @@ System.exit(0);        // TODO add your handling code here:
              
             download();
             this.jProgressBar1.setVisible(true);
-            this.jLabel3.setText("Downloading..."); 
+            this.jLabel3.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DOWNLOADING...")); 
             Runnable helloRunnable = new Runnable() {
     @Override
     public void run() {

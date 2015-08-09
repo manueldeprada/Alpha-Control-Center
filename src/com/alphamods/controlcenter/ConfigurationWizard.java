@@ -175,7 +175,7 @@ boolean music = false;
         fans.setValue(fan);
         pumps.setValue(pump);
         musicbox.setSelected(musica);
-        result.setText("<html>Code sucessfully redeemed");
+        result.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("<HTML>CODE SUCESSFULLY REDEEMED"));
         
         try {
                 ImageIcon icon16 = new ImageIcon(ImageIO.read(ConfigurationWizard.class.getResourceAsStream("res/tick.png")));
@@ -186,7 +186,7 @@ boolean music = false;
             }
         resultt = true;
         }else{
-            result.setText("<html>Code is not valid");
+            result.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("<HTML>CODE IS NOT VALID"));
             
             try {
                 ImageIcon icon16 = new ImageIcon(ImageIO.read(ConfigurationWizard.class.getResourceAsStream("res/cross.png")));
@@ -253,250 +253,250 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
             triples1.setVisible(true);
             triplel1.setVisible(true);
             
-            triplel1.setText("LED 1");
+            triplel1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 1"));
             
             switch(vfan){
                 case 1:
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("P1");                                                     
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));                                                     
                             switch(vpump){
                                 case 2:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");                                                                                                         
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                         
                                     break;
                                 case 3:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3");                                                  
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                  
                                     break;
                                 case 4:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4");                            
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                            
                                     break;
                                 case 5:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");                                                                                             
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                                                                             
                                     break;
                                 case 6:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");                                                                          
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                                                          
                                     break;
                                     
                                 case 7:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");        
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));        
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P7");                                                                    
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                                                    
                                     break;
                                     
                                 case 8:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");        
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));        
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P7");    
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));    
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P8");                                                                  
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                                                  
                                     break;
                                     
                                 case 9:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");        
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));        
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P7");    
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));    
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P8");                                   
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                   
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P9");                                          
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9"));                                          
                                     break;
                                 case 10:
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");        
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));        
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P7");    
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));    
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P8");                                   
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                   
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P9");                                   
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9"));                                   
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P10");                                   
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P10"));                                   
                                     break;
                                 case 11:
                                                                  raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P2");   
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));   
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P3"); 
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P4"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P5");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P6");        
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));        
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P7");    
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));    
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P8");                                   
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                   
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P9");                                   
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9"));                                   
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P10"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P10")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P11"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P11")); 
                                     break;
                             }                         
                     break;
@@ -504,207 +504,207 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 2:
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("P1");                            
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));                            
                             switch(vpump){
                                 case 2:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");                                                                                                       
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                       
                                     break;
                                 case 3:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");                                                   
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                   
                                     break;
                                 case 4:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");                            
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                            
                                     break;
                                 case 5:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");                                                                                             
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                                                                             
                                     break;
                                 case 6:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P6");                                                                         
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                                                         
                                     break;
                                     
                                 case 7:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P6");   
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));   
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P7");                                                                     
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                                                     
                                     break;
                                     
                                 case 8:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P6");   
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));   
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P7");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P8");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                 
                                     break;
                                     
                                 case 9:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P6");   
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));   
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P7");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P8");                                   
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                   
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P9");          
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9"));          
                                     break;
                                 case 10:
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P2");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P3");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P4");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P5");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P6");   
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));   
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P7");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P8");                                   
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));                                   
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P9"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P10");                                     
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P10"));                                     
                                     break;
                             }                       
                     break;
@@ -714,174 +714,174 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("P1");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                             switch(vpump){
                                 case 2:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2");                                                                                                         
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                         
                                     break;
                                 case 3:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");                                                   
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                   
                                     break;
                                 case 4:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");                           
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                           
                                     break;
                                 case 5:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P5");                                                                                           
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                                                                           
                                     break;
                                 case 6:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P5");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P6");                                                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                                                       
                                     break;
                                     
                                 case 7:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P5");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P6");                                     
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                     
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P7");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                  
                                     break;
                                     
                                 case 8:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P5");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P6");                                     
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                     
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P7");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P8"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8")); 
                                     break;
                                     
                                 case 9:
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P2"); 
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P3");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P4");    
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));    
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P5");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P6");                                     
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                     
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P7");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P8"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P9");          
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P9"));          
                                     break;
                             }   
                     
@@ -891,144 +891,144 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 4:
                             raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("P1");   
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));   
                             switch(vpump){
                                 case 2:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");                                                                                                        
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                        
                                     break;
                                 case 3:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                                                  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                  
                                     break;
                                 case 4:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");                           
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                           
                                     break;
                                 case 5:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");                                                                                           
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                                                                           
                                     break;
                                 case 6:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                  
                                     break;
                                     
                                 case 7:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P7"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7")); 
                                     break;
                                     
                                 case 8:
                                                                  raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");  
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");  
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));  
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P7"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P8");  
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8"));  
                                     break;
                             }                      
                 
@@ -1039,120 +1039,120 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 5:
                      raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P1");                          
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));                          
       
                             switch(vpump){
                                 case 2:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                                                                                                       
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                       
                                     break;
                                 case 3:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");                                                 
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                 
                                     break;
                                 case 4:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                       
                                                           
                                     break;
                                 case 5:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");                                                        
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                                        
                                     break;
                                 case 6:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P6");   
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));   
                                     break;
                                     
                                 case 7:
                                                                  raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");  
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));  
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");                                    
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                    
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P6"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P7");  
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));  
                                     break;
                             }                      
                 
@@ -1162,98 +1162,98 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 6:
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P1");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));                            
       
                             switch(vpump){
                                 case 2:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");                                                                                                     
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                     
                                     break;
                                 case 3:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");                                                   
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                                   
                                     break;
                                 case 4:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");                                                            
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                                            
                                     break;
                                 case 5:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P5"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5")); 
                                
                                     break;
                                 case 6:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                       
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");                                 
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                                 
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P5"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P6");    
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));    
                                     break;
                             }                      
                     
@@ -1264,80 +1264,80 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 7:
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("F7");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P1");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
        
                             switch(vpump){
                                 case 2:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");                                                                                                       
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                                                       
                                     break;
                                 case 3:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");                                        
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                        
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                  
                                     break;
                                 case 4:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");                                        
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                        
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P4");                             
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));                             
                                     break;
                                 case 5:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");                                        
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                        
                                     
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P4"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P5");                                    
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));                                    
                                     break;
                             }                    
                     break;
@@ -1346,67 +1346,67 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 8:
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("F7");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("F8");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F8"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P1");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                
                             switch(vpump){
                                 case 2:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");                                                                       
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                                                       
                                     break;
                                 case 3:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P3"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                                     break;
                                 case 4:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");                                  
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                  
                                     
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P3"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3")); 
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P3");
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                                     
                                     break;
                             }
@@ -1418,57 +1418,57 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("F7");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("F8");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F8"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("F9");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F9"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P1");                       
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));                       
                             switch(vpump){
                                 case 2:
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P2");                                   
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                                   
                                     break;
                                 case 3:
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P2"); 
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2")); 
                                      
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P3");
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                                     
                                     break;
                             }
@@ -1480,54 +1480,54 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("F7");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("F8");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F8"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("F9");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F9"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("F10");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F10"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P1");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                             
                             switch(vpump){
                                 case 2:
                                     
                                      raya15.setVisible(true);
                                     label15.setVisible(true);
-                                    label15.setText("P1");
+                                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                                     
                                     break;
                             }
@@ -1540,51 +1540,51 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 11: 
                              raya4.setVisible(true);
                             label4.setVisible(true);
-                            label4.setText("F1");
+                            label4.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                             
                              raya5.setVisible(true);
                             label5.setVisible(true);
-                            label5.setText("F2");
+                            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                             
                              raya6.setVisible(true);
                             label6.setVisible(true);
-                            label6.setText("F3");
+                            label6.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                             
                              raya7.setVisible(true);
                             label7.setVisible(true);
-                            label7.setText("F4");
+                            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                             
                              raya8.setVisible(true);
                             label8.setVisible(true);
-                            label8.setText("F5");
+                            label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                             
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("F6");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("F7");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("F8");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F8"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("F9");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F9"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("F10");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F10"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("F11");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F11"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P1"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1")); 
                     
                     break;
                 
@@ -1597,139 +1597,139 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
             triplel1.setVisible(true);
             label5.setVisible(true);
             
-            triplel1.setText("LED 1");
-            label5.setText("LED 2");
+            triplel1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 1"));
+            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 2"));
             
             switch(vfan){
                 case 1:
                     
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("P1");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
 
                     switch(vpump){
                         case 2:
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("P2");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                             
                         case 3:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             break;
                         case 4:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             break;
                         case 5:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             break;
                         case 6:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));
                         case 7:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P7");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));
                             break;
                         case 8:
                              raya9.setVisible(true);
                             label9.setVisible(true);
-                            label9.setText("P2");
+                            label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P3");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P4");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P5");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P6");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P7");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P8"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P8")); 
                             break;
                     }
                     
@@ -1737,196 +1737,196 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 2:
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("P1");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     switch(vpump){
                         case 2:
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("P2");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                             
                         case 3:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             break;
                         case 4:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             break;
                         case 5:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
 
                             break;
                         case 6:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P6");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));
                             
                             break;
                         case 7:
                              raya10.setVisible(true);
                             label10.setVisible(true);
-                            label10.setText("P2");                            
+                            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));                            
                             
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P3");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P4");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P5");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P6");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P7"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P7")); 
                             break;
                     }
                     break;
                 case 3:
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("P1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
 
                     switch(vpump){
                         case 2:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                             
                         case 3:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             break;
                         case 4:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             break;
                         case 5:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P5");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                             break;
                         case 6:
                              raya11.setVisible(true);
                             label11.setVisible(true);
-                            label11.setText("P2");
+                            label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P3");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P4");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P5");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P6"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P6")); 
                             break;
                     }
                     break;
@@ -1934,69 +1934,69 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F4");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("P1");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
 
                     switch(vpump){
                         case 2:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                             
                         case 3:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             break;
                         case 4:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P4");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             break;
                         case 5:
                              raya12.setVisible(true);
                             label12.setVisible(true);
-                            label12.setText("P2");
+                            label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P3");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P4");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P5"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5")); 
                             break;
                     }
                     
@@ -2005,27 +2005,27 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F4");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F5");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("P1");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     
                     
@@ -2033,31 +2033,31 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                         case 2:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                     
                             break;
                             
                         case 3:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P3");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             break;
                         case 4:
                              raya13.setVisible(true);
                             label13.setVisible(true);
-                            label13.setText("P2");
+                            label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P3");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                             
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P4"); 
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4")); 
                             break;
                     }
                     
@@ -2068,38 +2068,38 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F4");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F5");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F6");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("P1");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     
                     switch(vpump){
                         case 2:
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P2");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                     
                             break;
                             
@@ -2107,10 +2107,10 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                             
                              raya14.setVisible(true);
                             label14.setVisible(true);
-                            label14.setText("P2");
+                            label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                              raya15.setVisible(true);
                             label15.setVisible(true);
-                            label15.setText("P3");  
+                            label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));  
                             
                             break;
                     }
@@ -2121,41 +2121,41 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                     
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F4");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F5");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F6");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F7");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));
                     
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("P1");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     switch(vpump){
                         case 2:
                             
                      raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P2");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                     }
                     
@@ -2164,39 +2164,39 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 8:
                      raya7.setVisible(true);
                     label7.setVisible(true);
-                    label7.setText("F1");
+                    label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya8.setVisible(true);
                     label8.setVisible(true);
-                    label8.setText("F2");
+                    label8.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya9.setVisible(true);
                     label9.setVisible(true);
-                    label9.setText("F3");
+                    label9.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F4");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F5");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F6");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F6"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F7");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F7"));
                     
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("F8");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F8"));
                     
                      raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P1");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     break;
             }
@@ -2209,51 +2209,51 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
             label5.setVisible(true);
             label7.setVisible(true);
             
-            triplel1.setText("LED 1");
-            label5.setText("LED 2");
-            label7.setText("LED 3");
+            triplel1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 1"));
+            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 2"));
+            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 3"));
             switch(vfan){
                 case 1:
                      raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("P1");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("P2");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                     
                      switch (vpump){
                          case 3:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P3");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                              break;
                          case 4:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P3");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                     
                              raya14.setVisible(true);
                              label14.setVisible(true);
-                             label14.setText("P4");
+                             label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                              break;
                          case 5:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P3");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                     
                              raya14.setVisible(true);
                              label14.setVisible(true);
-                             label14.setText("P4");
+                             label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                              
                              
                              raya15.setVisible(true);
                              label15.setVisible(true);
-                             label15.setText("P5");
+                             label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P5"));
                              break;
                         
                      
@@ -2263,77 +2263,77 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 2:
                     raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F2");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("P1");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     switch (vpump){
                          case 2:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P2");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                              break;
                          case 3:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P2");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                              
                              raya14.setVisible(true);
                              label14.setVisible(true);
-                             label14.setText("P3");
+                             label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                              break;
                          case 4:
                              raya13.setVisible(true);
                              label13.setVisible(true);
-                             label13.setText("P2");
+                             label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                              
                              raya14.setVisible(true);
                              label14.setVisible(true);
-                             label14.setText("P3");
+                             label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                              
                              raya15.setVisible(true);
                              label15.setVisible(true);
-                             label15.setText("P4");
+                             label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P4"));
                              break;
                     }
                 break;
                 case 3: 
                     raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F2");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F3");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("P1");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     switch(vpump){
                         case 2:
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("P2");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                         case 3:
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("P2");        
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));        
 
                     raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P3");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P3"));
                     break; 
                     }
                     break;
@@ -2342,56 +2342,56 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
                 case 4:
                     raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F2");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F3");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F4");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("P1");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     switch(vpump){
                         case 2:
                      raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P2");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                             break;
                     }
                     break;
                 case 5:
                     raya10.setVisible(true);
                     label10.setVisible(true);
-                    label10.setText("F1");
+                    label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                      raya11.setVisible(true);
                     label11.setVisible(true);
-                    label11.setText("F2");
+                    label11.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                      raya12.setVisible(true);
                     label12.setVisible(true);
-                    label12.setText("F3");
+                    label12.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F3"));
                     
                      raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F4");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F4"));
                     
                      raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("F5");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F5"));
                     
                      raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P1");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     break;
                     
                     
@@ -2407,45 +2407,45 @@ int temp3 = Integer.parseInt(leds.getValue().toString());
             label7.setVisible(true);
             label10.setVisible(true);
             
-            triplel1.setText("LED 1");
-            label5.setText("LED 2");
-            label7.setText("LED 3");
-            label10.setText("LED 4");
+            triplel1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 1"));
+            label5.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 2"));
+            label7.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 3"));
+            label10.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("LED 4"));
             
             switch(vfan){
                 case 1:
                     raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F1");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                     raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("P1");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                     
                     raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P2");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P2"));
                 break;
                     
                 case 2:
                     raya13.setVisible(true);
                     label13.setVisible(true);
-                    label13.setText("F1");
+                    label13.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F1"));
                     
                     raya14.setVisible(true);
                     label14.setVisible(true);
-                    label14.setText("F2");
+                    label14.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("F2"));
                     
                     raya15.setVisible(true);
                     label15.setVisible(true);
-                    label15.setText("P1");
+                    label15.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("P1"));
                 break;
             }
              
         }
         
         if (music){
-            triplel1.setText("Music");
+            triplel1.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("MUSIC"));
             triplel1.setFont(triplel1.getFont().deriveFont(Font.BOLD));
             triplel1.setForeground(Color.green.darker());
         }else{
@@ -2575,7 +2575,7 @@ private void next(){
             step = step + 1;
             backButton.setEnabled(true);
             card.show(mainPanel, "card" + (step));
-            stepLabel.setText("Step " + step);
+            stepLabel.setText(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STEP {0}"), new Object[] {step}));
             if(step == totalsteps){
                 
                 nextButton.setText("Finish");
@@ -2708,14 +2708,15 @@ private void next(){
         ad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Welcome to Alpha Control Center");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle"); // NOI18N
+        setTitle(bundle.getString("WELCOME TO ALPHA CONTROL CENTER")); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        nextButton.setText("Next >");
+        nextButton.setText(bundle.getString("NEXT >")); // NOI18N
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -2727,7 +2728,7 @@ private void next(){
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("<html>If you have a configuration code, write it here");
+        jLabel9.setText(bundle.getString("<HTML>IF YOU HAVE A CONFIGURATION CODE, WRITE IT HERE")); // NOI18N
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         try {
@@ -2791,7 +2792,7 @@ private void next(){
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Welcome to Alpha Control Center");
+        jLabel11.setText(bundle.getString("WELCOME TO ALPHA CONTROL CENTER")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2876,63 +2877,63 @@ private void next(){
         jPanel5.add(raya15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 30, 20));
 
         label4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label4.setText("F1");
+        label4.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         label5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label5.setText("F1");
+        label5.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, -1));
 
         label6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label6.setText("F1");
+        label6.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         label7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label7.setText("F1");
+        label7.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, -1));
 
         label8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label8.setText("F1");
+        label8.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, -1));
 
         label9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label9.setText("F1");
+        label9.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
 
         label10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label10.setText("F1");
+        label10.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         label11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label11.setText("F1");
+        label11.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
 
         label12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label12.setText("F1");
+        label12.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, -1));
 
         label13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label13.setText("F1");
+        label13.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
 
         label14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label14.setText("F1");
+        label14.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, -1));
 
         label15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label15.setText("F1");
+        label15.setText(bundle.getString("F1")); // NOI18N
         jPanel5.add(label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
 
         triplel1.setText("triplel1");
         jPanel5.add(triplel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("<html>Tell us about your board...<br><br>How many led strips, pumps and fans do you have?");
+        jLabel3.setText(bundle.getString("<HTML>TELL US ABOUT YOUR BOARD...<BR><BR>HOW MANY LED STRIPS, PUMPS AND FANS DO YOU HAVE?")); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Select the number of fans");
+        jLabel4.setText(bundle.getString("SELECT THE NUMBER OF FANS")); // NOI18N
 
         leds.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
         leds.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -2942,10 +2943,10 @@ private void next(){
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Select the number of pumps");
+        jLabel5.setText(bundle.getString("SELECT THE NUMBER OF PUMPS")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Select the number of  LED strips");
+        jLabel6.setText(bundle.getString("SELECT THE NUMBER OF  LED STRIPS")); // NOI18N
 
         fans.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
         fans.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -2993,7 +2994,7 @@ private void next(){
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        musicbox.setText("My board has a music-dedicated channel");
+        musicbox.setText(bundle.getString("MY BOARD HAS A MUSIC-DEDICATED CHANNEL")); // NOI18N
         musicbox.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 musicboxStateChanged(evt);
@@ -3037,57 +3038,57 @@ private void next(){
         mainPanel.add(jPanel2, "card2");
 
         fansTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fansTitle.setText("Fans");
+        fansTitle.setText(bundle.getString("FANS")); // NOI18N
 
         pumpsTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pumpsTitle.setText("Pumps");
+        pumpsTitle.setText(bundle.getString("PUMPS")); // NOI18N
 
-        fanlabel1.setText("Max. RPM Channel 1");
+        fanlabel1.setText(bundle.getString("MAX. RPM CHANNEL 1")); // NOI18N
 
-        fanlabel2.setText("Max. RPM Channel 2");
+        fanlabel2.setText(bundle.getString("MAX. RPM CHANNEL 2")); // NOI18N
 
-        fanlabel3.setText("Max. RPM Channel 3");
+        fanlabel3.setText(bundle.getString("MAX. RPM CHANNEL 3")); // NOI18N
 
-        fanlabel4.setText("Max. RPM Channel 4");
+        fanlabel4.setText(bundle.getString("MAX. RPM CHANNEL 4")); // NOI18N
 
-        fanlabel5.setText("Max. RPM Channel 5");
+        fanlabel5.setText(bundle.getString("MAX. RPM CHANNEL 5")); // NOI18N
 
-        fanlabel6.setText("Max. RPM Channel 6");
+        fanlabel6.setText(bundle.getString("MAX. RPM CHANNEL 6")); // NOI18N
 
-        fanlabel7.setText("Max. RPM Channel 7");
+        fanlabel7.setText(bundle.getString("MAX. RPM CHANNEL 7")); // NOI18N
 
-        fanlabel8.setText("Max. RPM Channel 8");
+        fanlabel8.setText(bundle.getString("MAX. RPM CHANNEL 8")); // NOI18N
 
-        fanlabel9.setText("Max. RPM Channel 9");
+        fanlabel9.setText(bundle.getString("MAX. RPM CHANNEL 9")); // NOI18N
 
-        fanlabel10.setText("Max. RPM Channel 10");
+        fanlabel10.setText(bundle.getString("MAX. RPM CHANNEL 10")); // NOI18N
 
-        fanlabel11.setText("Max. RPM Channel 11");
+        fanlabel11.setText(bundle.getString("MAX. RPM CHANNEL 11")); // NOI18N
 
-        pumplabel1.setText("Max. RPM Channel 1");
+        pumplabel1.setText(bundle.getString("MAX. RPM CHANNEL 1")); // NOI18N
 
-        pumplabel2.setText("Max. RPM Channel 2");
+        pumplabel2.setText(bundle.getString("MAX. RPM CHANNEL 2")); // NOI18N
 
-        pumplabel3.setText("Max. RPM Channel 3");
+        pumplabel3.setText(bundle.getString("MAX. RPM CHANNEL 3")); // NOI18N
 
-        pumplabel4.setText("Max. RPM Channel 4");
+        pumplabel4.setText(bundle.getString("MAX. RPM CHANNEL 4")); // NOI18N
 
-        pumplabel5.setText("Max. RPM Channel 5");
+        pumplabel5.setText(bundle.getString("MAX. RPM CHANNEL 5")); // NOI18N
 
-        pumplabel6.setText("Max. RPM Channel 6");
+        pumplabel6.setText(bundle.getString("MAX. RPM CHANNEL 6")); // NOI18N
 
-        pumplabel7.setText("Max. RPM Channel 7");
+        pumplabel7.setText(bundle.getString("MAX. RPM CHANNEL 7")); // NOI18N
 
-        pumplabel8.setText("Max. RPM Channel 8");
+        pumplabel8.setText(bundle.getString("MAX. RPM CHANNEL 8")); // NOI18N
 
-        pumplabel9.setText("Max. RPM Channel 9");
+        pumplabel9.setText(bundle.getString("MAX. RPM CHANNEL 9")); // NOI18N
 
-        pumplabel10.setText("Max. RPM Channel 10");
+        pumplabel10.setText(bundle.getString("MAX. RPM CHANNEL 10")); // NOI18N
 
-        pumplabel11.setText("Max. RPM Channel 11");
+        pumplabel11.setText(bundle.getString("MAX. RPM CHANNEL 11")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("<html>Now we need to know the max RPM in order to calculate the percentages...");
+        jLabel7.setText(bundle.getString("<HTML>NOW WE NEED TO KNOW THE MAX RPM IN ORDER TO CALCULATE THE PERCENTAGES...")); // NOI18N
 
         fanmax1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         fanmax1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -3355,18 +3356,18 @@ private void next(){
         mainPanel.add(jPanel3, "card3");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("We've finished!! Some further options...");
+        jLabel8.setText(bundle.getString("WE'VE FINISHED!! SOME FURTHER OPTIONS...")); // NOI18N
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        bootstart.setText("Start Control Center with system boot");
+        bootstart.setText(bundle.getString("START CONTROL CENTER WITH SYSTEM BOOT")); // NOI18N
         bootstart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bootstartActionPerformed(evt);
             }
         });
 
-        generallabel.setText("General");
+        generallabel.setText(bundle.getString("GENERAL")); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3391,14 +3392,14 @@ private void next(){
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        updateatstart.setText("Check for updates at start");
+        updateatstart.setText(bundle.getString("CHECK FOR UPDATES AT START")); // NOI18N
         updateatstart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateatstartActionPerformed(evt);
             }
         });
 
-        updaterlabel.setText("Updater");
+        updaterlabel.setText(bundle.getString("UPDATER")); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -3447,7 +3448,7 @@ private void next(){
 
         mainPanel.add(jPanel6, "card4");
 
-        backButton.setText("< Back");
+        backButton.setText(bundle.getString("< BACK")); // NOI18N
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -3458,7 +3459,7 @@ private void next(){
 
         ad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ad.setForeground(new java.awt.Color(255, 51, 51));
-        ad.setText("You must configure all the fans & pumps you have");
+        ad.setText(bundle.getString("YOU MUST CONFIGURE ALL THE FANS & PUMPS YOU HAVE")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -3499,7 +3500,7 @@ private void next(){
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        stepLabel.setText("Step " + step);
+        stepLabel.setText(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STEP {0}"), new Object[] {step}));
         if (step == 1){
             backButton.setEnabled(false);
         }        // TODO add your handling code here:
@@ -3537,12 +3538,12 @@ if(step == 1){
             CardLayout card = (CardLayout)mainPanel.getLayout();
             step = step - 1;
             card.show(mainPanel, "card" + (step));
-            stepLabel.setText("Step " + step);
+            stepLabel.setText(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("STEP {0}"), new Object[] {step}));
             nextButton.setEnabled(true);
             if (step == 1){
                 backButton.setEnabled(false);
             }else if (step==totalsteps-1){
-                nextButton.setText("Next");                
+                nextButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("NEXT >"));                
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed

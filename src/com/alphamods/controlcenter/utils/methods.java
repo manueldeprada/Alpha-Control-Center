@@ -338,7 +338,7 @@ String OutputR, OutputG, OutputB;
              Arduino.arduinoRXTX(PortsBox.getSelectedItem().toString(), 9600, evento);
              connected = true;
          } catch (Exception ex) {
-             Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
+         //    Logger.getLogger(methods.class.getName()).log(Level.SEVERE, null, ex);
          }
         
     }

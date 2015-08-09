@@ -33,7 +33,8 @@ public class Changelog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Changelog");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle"); // NOI18N
+        setTitle(bundle.getString("CHANGELOG")); // NOI18N
 
         jLabel1.setText(change);
 

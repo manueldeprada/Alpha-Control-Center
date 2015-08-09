@@ -48,7 +48,7 @@ public class updater extends Thread{
             try {
                 error = true;
                 bar.setVisible(false);
-                label.setText("Error connecting to server.");
+                label.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("ERROR CONNECTING TO SERVER."));
                 Thread.sleep(5000);
                 label.setVisible(false);
                 Logger.getLogger(updater.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,7 +64,7 @@ public class updater extends Thread{
         if (netversion == methods.getversion()) {
             try {
                 bar.setVisible(false);
-                label.setText("No updates found");
+                label.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("NO UPDATES FOUND"));
                 Thread.sleep(5000);
                 label.setVisible(false);
             } catch (InterruptedException ex) {
