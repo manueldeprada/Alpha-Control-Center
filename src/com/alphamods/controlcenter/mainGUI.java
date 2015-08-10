@@ -25,6 +25,7 @@ import static java.awt.Frame.NORMAL;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
+import java.awt.Shape;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
@@ -61,12 +62,20 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+import javax.swing.WindowConstants;
 import javax.swing.event.ChangeListener;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -104,7 +113,7 @@ ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             Temp4.setText(methods.getMulti().getMessage(3));
             Temp5.setText(methods.getMulti().getMessage(4));
             Temp6.setText(methods.getMulti().getMessage(5));
-            tochart(methods.getMulti().getMessage(0),methods.getMulti().getMessage(1),methods.getMulti().getMessage(2),methods.getMulti().getMessage(3),methods.getMulti().getMessage(4),methods.getMulti().getMessage(5));
+            tochart2(methods.getMulti().getMessage(0),methods.getMulti().getMessage(1),methods.getMulti().getMessage(2),methods.getMulti().getMessage(3),methods.getMulti().getMessage(4),methods.getMulti().getMessage(5));
 
             methods.getMulti().flushBuffer();
         }
@@ -114,15 +123,15 @@ List<JLabel> fanlabels;
 List<JSlider> fansliders;
 List<JTextField> indicatorfans;
 List<JLabel> fanrpmlabels;
-
 List<JLabel> pumplabels;
 List<JSlider> pumpsliders;
 List<JTextField> indicatorpumps;
 List<JLabel> pumprpmlabels;
 boolean music = Boolean.parseBoolean(config.getValue("music"));
 JFreeChart chart;
-DefaultCategoryDataset Datos;
-int i = 1;
+DefaultCategoryDataset Datos = new DefaultCategoryDataset();
+XYSeriesCollection xyseriescollection;
+int i = 0;
 
     
     public void trayIcon(){
@@ -253,7 +262,7 @@ int i = 1;
         public void propertyChange(PropertyChangeEvent evt) {
             PickerColorChanged(evt);}}); 
     
-        chart();
+        chart2();
         
     }
     
@@ -885,52 +894,98 @@ int i = 1;
             LedC1.setEnabled(false);
         }
     }
-public void chart(){
-    Datos = new DefaultCategoryDataset();
-    
 
-chart = ChartFactory.createLineChart("Temperatura", "Tiempo", "Grados ºC", Datos);
-Panel = new ChartPanel(chart);
-chart.setBackgroundPaint(new Color(240,240,240));
-chart.getCategoryPlot().getRenderer().setSeriesStroke(1,new BasicStroke(2.0f));
-
-grafica.setLayout(new BorderLayout());
-grafica.add(Panel,BorderLayout.CENTER);
-grafica.validate();
-Panel.addMouseListener(mousa);
-grafica.setToolTipText("Click for a detailed view");
-}
 JFrame frame = this;
 ChartPanel Panel;
 MouseListener mousa = new MouseAdapter()  {
                 public void mouseClicked(MouseEvent e) {
                         JDialog dialog = new JDialog(frame);
                         dialog.add(Panel);
-                        dialog.setTitle("Temperature chart");
+                        dialog.setTitle(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("TEMPERATURE CHART"));
                         dialog.pack();
                         dialog.setLocationRelativeTo(frame);
                         dialog.setVisible(true);
                         dialog.addWindowListener(null);
-                        
+                        dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                        dialog.addWindowListener(window);
                     }
 
                     
                 };
 WindowListener window = new WindowAdapter(){
     public void windowClosing(WindowEvent e){
-        
+       System.out.println("aaa");
+       // grafica.removeAll();
+       
+        chart2();
     }
 };
 
-public void tochart(String a, String b, String c,String d,String e,String f){
-    Datos.addValue(i, "Temp. 1", a);
-Datos.addValue(i, "Temp. 2", b);
-Datos.addValue(i, "Temp. 3", c);
-Datos.addValue(i, "Temp. 4", d);
-Datos.addValue(i, "Temp. 5", e);
-Datos.addValue(i, "Temp. 6", f);
+public void chart2(){
+     xyseriescollection = new XYSeriesCollection();
+      JFreeChart jfreechart = createChart(createDataset());
+      Panel = new ChartPanel(jfreechart);
+    grafica.setLayout(new BorderLayout());
+grafica.add(Panel,BorderLayout.CENTER);
+grafica.validate();
+grafica.setToolTipText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("CLICK FOR A DETAILED VIEW"));
+Panel.addMouseListener(mousa);
+
+}
+private static JFreeChart createChart(XYDataset xydataset)
+        {
+                JFreeChart jfreechart = ChartFactory.createXYLineChart(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("GRÁFICA"), java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("TIEMPO"), java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("GRADOS ºC"), xydataset, PlotOrientation.VERTICAL, true, true, false);
+                jfreechart.setBackgroundPaint(new Color(240,240,240));
+                
+                XYPlot xyplot = (XYPlot)jfreechart.getPlot();
+                for (int u = 0; u<6;u++){
+    xyplot.getRenderer().setSeriesStroke(u,new BasicStroke(3.0f));
+
+        
+}
+                XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)xyplot.getRenderer();
+                xylineandshaperenderer.setBaseShapesVisible(true);
+                xylineandshaperenderer.setBaseShapesFilled(true);
+                xylineandshaperenderer.setDrawOutlines(true);
+                NumberAxis numberaxis = (NumberAxis)xyplot.getRangeAxis();
+                numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+                return jfreechart;
+        }
+private  XYDataset createDataset()
+        { 
+    XYSeries xyseries = new XYSeries("Temp. 1");
+    xyseriescollection.addSeries(xyseries);
+    
+    XYSeries xyseries2 = new XYSeries("Temp. 2");
+    xyseriescollection.addSeries(xyseries2);
+    
+    XYSeries xyseries3 = new XYSeries("Temp. 3");
+    xyseriescollection.addSeries(xyseries3);
+    
+    XYSeries xyseries4 = new XYSeries("Temp. 4");
+    xyseriescollection.addSeries(xyseries4);
+    
+    XYSeries xyseries5 = new XYSeries("Temp. 5");
+    xyseriescollection.addSeries(xyseries5);
+    
+    XYSeries xyseries6 = new XYSeries("Temp. 6");
+    xyseriescollection.addSeries(xyseries6);
+      
+                return xyseriescollection;
+        }
+public void tochart2(String a, String b, String c,String d,String e,String f){
+    List<String> args = Arrays.asList(a,b,c,d,e,f);
+    for (int i = 0; i < 6; i++)
+        
+                {
+                        XYSeries xyseries = xyseriescollection.getSeries(i);
+                        xyseries.add(this.i, Integer.parseInt(args.get(i)));
+
+
+                }
     i++;
 }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1802,10 +1857,10 @@ Datos.addValue(i, "Temp. 6", f);
                 .addContainerGap())
         );
 
-        colors_secuencesPanel.addTab("Saved colors", favColorsPanel);
+        colors_secuencesPanel.addTab(bundle.getString("SAVED COLORS"), favColorsPanel); // NOI18N
 
         SecuencesTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        SecuencesTitle.setText("Secuences");
+        SecuencesTitle.setText(bundle.getString("SECUENCES")); // NOI18N
 
         bigpanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         bigpanel1.setPreferredSize(new java.awt.Dimension(100, 37));
@@ -2132,7 +2187,7 @@ Datos.addValue(i, "Temp. 6", f);
                 .addGroup(SecuencesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bigpanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loopCheckBox5))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         colors_secuencesPanel.addTab(bundle.getString("SECUENCES"), SecuencesPanel); // NOI18N
