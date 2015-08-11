@@ -81,8 +81,6 @@
                       <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       <Component id="notConnectedLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="sendbutton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="connectButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -110,7 +108,6 @@
                   <Component id="PortsBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="refreshPortsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="connectButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="sendbutton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="notConnectedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -3281,16 +3278,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="connectButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="sendbutton">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/alphamods/controlcenter/res/Bundle.properties" key="SEND" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendbuttonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="notConnectedLabel">

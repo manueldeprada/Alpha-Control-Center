@@ -130,7 +130,7 @@ List<JLabel> pumprpmlabels;
 boolean music = Boolean.parseBoolean(config.getValue("music"));
 JFreeChart chart;
 DefaultCategoryDataset Datos = new DefaultCategoryDataset();
-XYSeriesCollection xyseriescollection;
+XYSeriesCollection xyseriescollection = new XYSeriesCollection();
 int i = 0;
 
     
@@ -828,6 +828,11 @@ int i = 0;
         
         PortsBox.removeAllItems();
         methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));
+        if(PortsBox.getSelectedItem()==null){
+            connectButton.setEnabled(false);
+        }else{
+            connectButton.setEnabled(true);            
+        }
         if(config.getValue("port")!=null ||config.getValue("port")!=""){
             
             
@@ -894,11 +899,14 @@ int i = 0;
             LedC1.setEnabled(false);
         }
     }
-
+boolean dialogdone =false;
 JFrame frame = this;
 ChartPanel Panel;
 MouseListener mousa = new MouseAdapter()  {
                 public void mouseClicked(MouseEvent e) {
+                    if(dialogdone==true){
+                        
+                    }else{
                         JDialog dialog = new JDialog(frame);
                         dialog.add(Panel);
                         dialog.setTitle(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("TEMPERATURE CHART"));
@@ -908,21 +916,23 @@ MouseListener mousa = new MouseAdapter()  {
                         dialog.addWindowListener(null);
                         dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
                         dialog.addWindowListener(window);
+                        dialogdone=true;
+                    }
+                        
                     }
 
                     
                 };
 WindowListener window = new WindowAdapter(){
     public void windowClosing(WindowEvent e){
-       System.out.println("aaa");
-       // grafica.removeAll();
        
         chart2();
+        dialogdone=false;
     }
 };
 
 public void chart2(){
-     xyseriescollection = new XYSeriesCollection();
+     
       JFreeChart jfreechart = createChart(createDataset());
       Panel = new ChartPanel(jfreechart);
     grafica.setLayout(new BorderLayout());
@@ -939,7 +949,7 @@ private static JFreeChart createChart(XYDataset xydataset)
                 
                 XYPlot xyplot = (XYPlot)jfreechart.getPlot();
                 for (int u = 0; u<6;u++){
-    xyplot.getRenderer().setSeriesStroke(u,new BasicStroke(3.0f));
+    xyplot.getRenderer().setSeriesStroke(u,new BasicStroke(2.0f));
 
         
 }
@@ -953,6 +963,10 @@ private static JFreeChart createChart(XYDataset xydataset)
         }
 private  XYDataset createDataset()
         { 
+
+            if(xyseriescollection.getSeries().size()>1){
+                return xyseriescollection;
+            }else {
     XYSeries xyseries = new XYSeries("Temp. 1");
     xyseriescollection.addSeries(xyseries);
     
@@ -971,7 +985,9 @@ private  XYDataset createDataset()
     XYSeries xyseries6 = new XYSeries("Temp. 6");
     xyseriescollection.addSeries(xyseries6);
       
-                return xyseriescollection;
+                return xyseriescollection;                
+            }
+
         }
 public void tochart2(String a, String b, String c,String d,String e,String f){
     List<String> args = Arrays.asList(a,b,c,d,e,f);
@@ -1220,7 +1236,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
         refreshPortsButton = new javax.swing.JButton();
         PortsBox = new javax.swing.JComboBox();
         connectButton = new javax.swing.JButton();
-        sendbutton = new javax.swing.JButton();
         notConnectedLabel = new javax.swing.JLabel();
         notificationsLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -3164,13 +3179,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
             }
         });
 
-        sendbutton.setText(bundle.getString("SEND")); // NOI18N
-        sendbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendbuttonActionPerformed(evt);
-            }
-        });
-
         notConnectedLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         notConnectedLabel.setForeground(new java.awt.Color(225, 2, 27));
         notConnectedLabel.setText(bundle.getString("NOT CONNECTED!!")); // NOI18N
@@ -3228,8 +3236,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
                         .addGap(196, 196, 196)
                         .addComponent(notConnectedLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sendbutton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(connectButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -3251,7 +3257,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
                     .addComponent(PortsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshPortsButton)
                     .addComponent(connectButton)
-                    .addComponent(sendbutton)
                     .addComponent(notConnectedLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -3495,7 +3500,10 @@ if (methods.isConnected()) {
         } else {
 
             try {
-                methods.connect(evento, PortsBox);
+                if (PortsBox.getSelectedItem()==null){
+                    
+                }else{
+                    methods.connect(evento, PortsBox);
                 connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DISCONNECT"));
                 fadeRadioButton.setEnabled(true);
                 normalRadioButton.setEnabled(true);
@@ -3507,6 +3515,8 @@ if (methods.isConnected()) {
                 Refresh2.setEnabled(true);
                 clearButton1.setEnabled(true);
                 loadsecpreviews();
+                }
+                
 
             } catch (Exception ex) {
                 Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
@@ -3559,12 +3569,13 @@ if (methods.isConnected()) {
 
     private void refreshPortsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPortsButtonActionPerformed
    PortsBox.removeAllItems();
-        methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));     // TODO add your handling code here:
+        methods.getArduino().getSerialPorts().forEach(i -> PortsBox.addItem(i));   
+        if(PortsBox.getSelectedItem()==null){
+            connectButton.setEnabled(false);
+        }else{
+            connectButton.setEnabled(true);            
+        }// TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
-
-    private void sendbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendbuttonActionPerformed
-    write();        // TODO add your handling code here:
-    }//GEN-LAST:event_sendbuttonActionPerformed
 
     private void musicRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicRadioButtonStateChanged
     }//GEN-LAST:event_musicRadioButtonStateChanged
@@ -4182,7 +4193,6 @@ write();
     private javax.swing.JLabel sec3label;
     private javax.swing.JLabel sec4label;
     private javax.swing.JLabel sec5label;
-    private javax.swing.JButton sendbutton;
     private javax.swing.JButton setButtonColor1;
     private javax.swing.JButton setButtonColor10;
     private javax.swing.JButton setButtonColor11;
