@@ -42,7 +42,7 @@ public class methods {
     private String[] channel2 = {"000","000","000"};
     private String[] channel3 = {"000","000","000"};
     private String[] channel4 = {"000","000","000"};
-    private static double version = 1.0;
+    private static final double version = 1.0;
    
     public static double getversion(){
         return version;

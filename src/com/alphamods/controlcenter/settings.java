@@ -9,6 +9,7 @@ import com.alphamods.controlcenter.utils.config;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -3117,17 +3118,30 @@ public void represent(){
     }//GEN-LAST:event_updateatstartActionPerformed
 
     private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
-        try {
+           if(bootstart.isSelected()) {
+              try {
+                WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center", "\""+path+"\\start.bat"+"\"");
+                
+                   } catch (IllegalArgumentException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+           }else{
+               try {
+                   WinRegistry.deleteValue(WinRegistry.HKEY_CURRENT_USER,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center");
+               } catch (IllegalArgumentException ex) {
+                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+               } catch (IllegalAccessException ex) {
+                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+               } catch (InvocationTargetException ex) {
+                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+               }
 
-            String fpathunlockb =  path + "\\dr.vbs";
-            String[] args = {"wscript", fpathunlockb};
-            ProcessBuilder pb = new ProcessBuilder(args);
-
-            Process pr = pb.start();
-
-        } catch (IOException ex) {
-            Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           }
+            
 
     }//GEN-LAST:event_bootstartActionPerformed
 

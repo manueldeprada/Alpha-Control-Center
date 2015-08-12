@@ -807,14 +807,12 @@ int i = 0;
         
         buttonGroup1.add(fadeRadioButton);
         buttonGroup1.add(normalRadioButton);
-        buttonGroup1.add(musicRadioButton);
         normalRadioButton.setSelected(true);
         notificationsLabel.setVisible(false);
         notificationsBar.setVisible(false);
         if (!methods.isConnected()){
             fadeRadioButton.setEnabled(false);
             normalRadioButton.setEnabled(false);
-            musicRadioButton.setEnabled(false);
             notConnectedLabel.setVisible(true);
             recordButton1.setEnabled(false);
             playButton1.setEnabled(false);
@@ -848,7 +846,6 @@ int i = 0;
                 connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DISCONNECT"));
                 fadeRadioButton.setEnabled(true);
                 normalRadioButton.setEnabled(true);
-                musicRadioButton.setEnabled(true);
                 recordButton1.setEnabled(true);
                 playButton1.setEnabled(true);
                 picker.setEnabled(true);
@@ -856,13 +853,13 @@ int i = 0;
                 Refresh2.setEnabled(true);
                 clearButton1.setEnabled(true);
                 loadsecpreviews();
+                write();
             }
                 
         }
         this.ledModeLabel.setVisible(false);
         this.fadeRadioButton.setVisible(false);
         this.normalRadioButton.setVisible(false);
-        this.musicRadioButton.setVisible(false);
         
         int u = Integer.parseInt(config.getValue("leds"));
         if (u==1){
@@ -1018,7 +1015,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
         ledModeLabel = new javax.swing.JLabel();
         fadeRadioButton = new javax.swing.JRadioButton();
         normalRadioButton = new javax.swing.JRadioButton();
-        musicRadioButton = new javax.swing.JRadioButton();
         colors_secuencesPanel = new javax.swing.JTabbedPane();
         favColorsPanel = new javax.swing.JPanel();
         labelColor1 = new javax.swing.JLabel();
@@ -1243,7 +1239,9 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
         menubar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         settings = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle"); // NOI18N
@@ -1291,18 +1289,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
         normalRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 normalRadioButtonActionPerformed(evt);
-            }
-        });
-
-        musicRadioButton.setText(bundle.getString("MUSIC")); // NOI18N
-        musicRadioButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                musicRadioButtonItemStateChanged(evt);
-            }
-        });
-        musicRadioButton.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                musicRadioButtonStateChanged(evt);
             }
         });
 
@@ -2267,9 +2253,7 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
                             .addGroup(colorTabLayout.createSequentialGroup()
                                 .addComponent(fadeRadioButton)
                                 .addGap(35, 35, 35)
-                                .addComponent(normalRadioButton)))
-                        .addGap(36, 36, 36)
-                        .addComponent(musicRadioButton))
+                                .addComponent(normalRadioButton))))
                     .addComponent(jButton2))
                 .addGap(10, 10, 10)
                 .addComponent(colors_secuencesPanel)
@@ -2294,7 +2278,6 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
                 .addGap(18, 18, 18)
                 .addGroup(colorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(normalRadioButton)
-                    .addComponent(musicRadioButton)
                     .addComponent(fadeRadioButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(testMode))
@@ -3183,7 +3166,9 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
         notConnectedLabel.setForeground(new java.awt.Color(225, 2, 27));
         notConnectedLabel.setText(bundle.getString("NOT CONNECTED!!")); // NOI18N
 
+        notificationsLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         notificationsLabel.setText("jLabel20");
+        notificationsLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(146, 14));
 
@@ -3216,8 +3201,25 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
 
         menubar.add(jMenu1);
 
-        jMenu2.setText(bundle.getString("EDIT")); // NOI18N
-        menubar.add(jMenu2);
+        jMenu3.setText(bundle.getString("ABOUT")); // NOI18N
+
+        jMenuItem1.setText(bundle.getString("CHECK FOR UPDATES")); // NOI18N
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuItem2.setText(bundle.getString("ABOUT")); // NOI18N
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        menubar.add(jMenu3);
 
         setJMenuBar(menubar);
 
@@ -3239,7 +3241,7 @@ public void tochart2(String a, String b, String c,String d,String e,String f){
                         .addComponent(connectButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(notificationsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(notificationsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -3490,7 +3492,6 @@ if (methods.isConnected()) {
                 picker.setEnabled(false);
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
-                musicRadioButton.setEnabled(false);
                 recordButton1.setEnabled(false);
                 playButton1.setEnabled(false);
                 Refresh2.setEnabled(false);
@@ -3507,7 +3508,6 @@ if (methods.isConnected()) {
                 connectButton.setText(java.util.ResourceBundle.getBundle("com/alphamods/controlcenter/res/Bundle").getString("DISCONNECT"));
                 fadeRadioButton.setEnabled(true);
                 normalRadioButton.setEnabled(true);
-                musicRadioButton.setEnabled(true);
                 recordButton1.setEnabled(true);
                 playButton1.setEnabled(true);
                 picker.setEnabled(true);
@@ -3515,6 +3515,7 @@ if (methods.isConnected()) {
                 Refresh2.setEnabled(true);
                 clearButton1.setEnabled(true);
                 loadsecpreviews();
+                write();
                 }
                 
 
@@ -3577,35 +3578,9 @@ if (methods.isConnected()) {
         }// TODO add your handling code here:
     }//GEN-LAST:event_refreshPortsButtonActionPerformed
 
-    private void musicRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicRadioButtonStateChanged
-    }//GEN-LAST:event_musicRadioButtonStateChanged
-
-    private void fadeRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fadeRadioButtonStateChanged
-    }//GEN-LAST:event_fadeRadioButtonStateChanged
-
-    private void normalRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_normalRadioButtonActionPerformed
-
-    private void normalRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_normalRadioButtonStateChanged
-                // TODO add your handling code here:
-    }//GEN-LAST:event_normalRadioButtonStateChanged
-
     private void pickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pickerPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_pickerPropertyChange
-
-    private void normalRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_normalRadioButtonItemStateChanged
-write();        // TODO add your handling code here:
-    }//GEN-LAST:event_normalRadioButtonItemStateChanged
-
-    private void fadeRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fadeRadioButtonItemStateChanged
-write();        // TODO add your handling code here:
-    }//GEN-LAST:event_fadeRadioButtonItemStateChanged
-
-    private void musicRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_musicRadioButtonItemStateChanged
-write();        // TODO add your handling code here:
-    }//GEN-LAST:event_musicRadioButtonItemStateChanged
 
     private void Refresh2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh2ActionPerformed
 write();        // TODO add your handling code here:
@@ -3692,7 +3667,6 @@ if (testMode.isSelected()){
                 connectButton.setText("testing");
                 fadeRadioButton.setEnabled(true);
                 normalRadioButton.setEnabled(true);
-                musicRadioButton.setEnabled(true);
                 picker.setEnabled(true);
                 notConnectedLabel.setVisible(false);
                 Refresh2.setEnabled(true);
@@ -3705,7 +3679,6 @@ if (testMode.isSelected()){
                 picker.setEnabled(false);
                 fadeRadioButton.setEnabled(false);
                 normalRadioButton.setEnabled(false);
-                musicRadioButton.setEnabled(false);
                 recordButton1.setEnabled(false);
                 playButton1.setEnabled(false);
                 Refresh2.setEnabled(false); 
@@ -3952,6 +3925,34 @@ Adalight Adalight = new Adalight();
 Adalight.startUP();
 Adalight.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void normalRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_normalRadioButtonActionPerformed
+
+    private void normalRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_normalRadioButtonStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_normalRadioButtonStateChanged
+
+    private void normalRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_normalRadioButtonItemStateChanged
+        write();        // TODO add your handling code here:
+    }//GEN-LAST:event_normalRadioButtonItemStateChanged
+
+    private void fadeRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fadeRadioButtonStateChanged
+
+    }//GEN-LAST:event_fadeRadioButtonStateChanged
+
+    private void fadeRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fadeRadioButtonItemStateChanged
+        write();        // TODO add your handling code here:
+    }//GEN-LAST:event_fadeRadioButtonItemStateChanged
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+this.checkUpdates();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+new About(this,true).setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 private void fanslidersStateChanged(javax.swing.event.ChangeEvent evt) {                                         
 
 int index = fansliders.lastIndexOf(evt.getSource());
@@ -4098,7 +4099,9 @@ write();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -4124,7 +4127,6 @@ write();
     private javax.swing.JCheckBox loopCheckBox4;
     private javax.swing.JCheckBox loopCheckBox5;
     private javax.swing.JMenuBar menubar;
-    private javax.swing.JRadioButton musicRadioButton;
     private javax.swing.JRadioButton normalRadioButton;
     private javax.swing.JLabel notConnectedLabel;
     private javax.swing.JProgressBar notificationsBar;
