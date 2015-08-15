@@ -8,15 +8,19 @@ package com.alphamods.controlcenter.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.io.StringReader;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +31,20 @@ public class config {
         return getValue(key, new File(path + File.separator+"settings.properties"));
     }
     
+    public static void clean(){
+        clean(new File(path+File.separator+"settings.properties"));
+    }
+    public static void clean(File file){
+        try {
+    try (PrintWriter out = new PrintWriter(file)) {
+        out.println("");
+        out.close();
+// TODO add your handling code here:
+    }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(config.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public static String getValue(String key, File file){
     File propfile = file;

@@ -47,15 +47,51 @@ boolean music;
         pumplabels = Arrays.asList(pumplabel1, pumplabel2,pumplabel3,pumplabel4,pumplabel5,pumplabel6,pumplabel7,pumplabel8, pumplabel9, pumplabel10, pumplabel11);
         pumpmaxs = Arrays.asList(pumpmax1,pumpmax2,pumpmax3,pumpmax4,pumpmax5,pumpmax6,pumpmax7,pumpmax8,pumpmax9,pumpmax10,pumpmax11);
         
-        setmotors();
+        initmotors();
         leds.setValue(Integer.parseInt(config.getValue("leds")));
         fans.setValue(Integer.parseInt(config.getValue("fans")));
         pumps.setValue(Integer.parseInt(config.getValue("pumps")));
         music = Boolean.parseBoolean(config.getValue("music"));
         musicbox.setSelected(music);
+        sensors.setValue(Integer.parseInt(config.getValue("sensors")));
     
     }
-    public void setmotors(){
+    public void initmotors(){
+        for (JLabel fanlabel : fanlabels) {
+        fanlabel.setVisible(false);
+    }
+        
+    for (JLabel pumplabel : pumplabels) {
+        pumplabel.setVisible(false);
+    }
+        
+    for (JSpinner fanmax : fanmaxs) {
+        fanmax.setVisible(false);
+    }
+    for (JSpinner pumpmax : pumpmaxs) {
+        pumpmax.setVisible(false);
+    }
+    //make visible the things needed
+        
+        for(int i=0; i<Integer.parseInt(config.getValue("fans")); i++){
+            fanlabels.get(i).setVisible(true);
+            fanmaxs.get(i).setVisible(true);
+            if(config.getValue("fanmax"+i)!= null || config.getValue("fanmax"+i)!= ""){
+                                System.out.println(i+"aaa"+config.getValue("pumpmax"+i));
+
+                fanmaxs.get(i).setValue(Integer.parseInt(config.getValue("fanmax"+i)));
+            }
+        }
+
+        for(int i=0; i<Integer.parseInt(config.getValue("pumps")); i++){
+            pumplabels.get(i).setVisible(true);
+            pumpmaxs.get(i).setVisible(true);
+            if(config.getValue("pumpmax"+i)!= null || config.getValue("pumpmax"+i)!= ""){
+            pumpmaxs.get(i).setValue(Integer.parseInt(config.getValue("pumpmax"+i)));
+            }
+        }
+    }
+        public void setmotors(){
         for (JLabel fanlabel : fanlabels) {
         fanlabel.setVisible(false);
     }
@@ -154,7 +190,7 @@ private void savedata(){
         config.setValue("fans", Integer.toString(vfan));
         config.setValue("pumps", Integer.toString(vpump));
         config.setValue("leds", Integer.toString(vled));
-        
+        config.setValue("sensors", sensors.getValue().toString());
         for(int i=0; i<vfan; i++){
             config.setValue("fanmax"+i, fanmaxs.get(i).getValue().toString());
         }
@@ -2463,6 +2499,8 @@ public void represent(){
         jLabel6 = new javax.swing.JLabel();
         fans = new javax.swing.JSpinner();
         pumps = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        sensors = new javax.swing.JSpinner();
         musicbox = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         fansTitle = new javax.swing.JLabel();
@@ -2709,6 +2747,11 @@ public void represent(){
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText(bundle.getString("SELECT THE NUMBER OF TEMPERATURE SENSORS")); // NOI18N
+
+        sensors.setModel(new javax.swing.SpinnerNumberModel(0, 0, 11, 1));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -2716,29 +2759,43 @@ public void represent(){
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(sensors, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pumps, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pumps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sensors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         musicbox.setText(bundle.getString("MY BOARD HAS A MUSIC-DEDICATED CHANNEL")); // NOI18N
@@ -2756,12 +2813,14 @@ public void represent(){
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(musicbox)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(musicbox))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -2769,7 +2828,7 @@ public void represent(){
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(musicbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3107,48 +3166,23 @@ public void represent(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
-        if (updateatstart.isSelected()){
-            config.setValue("startupdate", "true");
-
-        }else{
-            config.setValue("startupdate", "false");
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateatstartActionPerformed
-
-    private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
-           if(bootstart.isSelected()) {
-              try {
-                WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center", "\""+path+"\\start.bat"+"\"");
-                
-                   } catch (IllegalArgumentException ex) {
-                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InvocationTargetException ex) {
-                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-           }else{
-               try {
-                   WinRegistry.deleteValue(WinRegistry.HKEY_CURRENT_USER,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center");
-               } catch (IllegalArgumentException ex) {
-                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-               } catch (IllegalAccessException ex) {
-                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-               } catch (InvocationTargetException ex) {
-                   Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
-               }
-
-           }
-            
-
-    }//GEN-LAST:event_bootstartActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 savedata();
                 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void musicboxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicboxStateChanged
+        music = musicbox.isSelected();
+        represent();
+    }//GEN-LAST:event_musicboxStateChanged
+
+    private void pumpsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpsStateChanged
+        setModels(false, false);        // TODO add your handling code here:
+    }//GEN-LAST:event_pumpsStateChanged
+
+    private void fansStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fansStateChanged
+        setModels(true, false);        // TODO add your handling code here:
+    }//GEN-LAST:event_fansStateChanged
 
     private void ledsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ledsStateChanged
         int value = Integer.parseInt(leds.getValue().toString());
@@ -3166,18 +3200,42 @@ savedata();
         // TODO add your handling code here:
     }//GEN-LAST:event_ledsStateChanged
 
-    private void fansStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fansStateChanged
-        setModels(true, false);        // TODO add your handling code here:
-    }//GEN-LAST:event_fansStateChanged
+    private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
+        if(bootstart.isSelected()) {
+            try {
+                WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center", "\""+path+"\\start.bat"+"\"");
 
-    private void pumpsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pumpsStateChanged
-        setModels(false, false);        // TODO add your handling code here:
-    }//GEN-LAST:event_pumpsStateChanged
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            try {
+                WinRegistry.deleteValue(WinRegistry.HKEY_CURRENT_USER,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center");
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InvocationTargetException ex) {
+                Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-    private void musicboxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_musicboxStateChanged
-        music = musicbox.isSelected();
-        represent();
-    }//GEN-LAST:event_musicboxStateChanged
+        }
+
+    }//GEN-LAST:event_bootstartActionPerformed
+
+    private void updateatstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateatstartActionPerformed
+        if (updateatstart.isSelected()){
+            config.setValue("startupdate", "true");
+
+        }else{
+            config.setValue("startupdate", "false");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateatstartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3254,6 +3312,7 @@ savedata();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -3310,6 +3369,7 @@ savedata();
     private javax.swing.JLabel raya7;
     private javax.swing.JLabel raya8;
     private javax.swing.JLabel raya9;
+    private javax.swing.JSpinner sensors;
     private javax.swing.JLabel triplel1;
     private javax.swing.JLabel triples1;
     private javax.swing.JLabel triples2;

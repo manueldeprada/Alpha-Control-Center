@@ -37,7 +37,7 @@ import javax.swing.Timer;
  */
 public class ConfigurationWizard extends javax.swing.JFrame {
 public int step = 1;
-public int totalsteps = 4;
+public int totalsteps = 5;
 int pumpfanmin = 3;
 int pumpfanmax = 12;
 public String path = System.getProperty("user.dir");
@@ -101,6 +101,7 @@ boolean music = false;
     
     }
     private void savedata(){
+        config.clean();
         config.setValue("fans", Integer.toString(vfan));
         config.setValue("pumps", Integer.toString(vpump));
         config.setValue("leds", Integer.toString(vled));
@@ -113,6 +114,7 @@ boolean music = false;
             config.setValue("pumpmax"+i, pumpmaxs.get(i).getValue().toString());
         }
         config.setValue("music", Boolean.toString(music));
+        config.setValue("sensors", sensors.getValue().toString());
     }
     private void configuremaxs(){
         
@@ -2552,7 +2554,7 @@ private void next(){
         });
         
         config.setValue("initialize", "true");
-        }else if (step ==totalsteps-1 && notconfigured()==true){
+        }else if (step ==totalsteps-2 && notconfigured()==true){
 
                 
                     if (ad.isVisible()){
@@ -2694,6 +2696,10 @@ private void next(){
         pumpmax10 = new javax.swing.JSpinner();
         pumpmax11 = new javax.swing.JSpinner();
         pumplabel12 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        sensors = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -2927,7 +2933,7 @@ private void next(){
         triplel1.setText("triplel1");
         jPanel5.add(triplel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel3.setText(bundle.getString("<HTML>TELL US ABOUT YOUR BOARD...<BR><BR>HOW MANY LED STRIPS, PUMPS AND FANS DO YOU HAVE?")); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3085,7 +3091,7 @@ private void next(){
 
         pumplabel10.setText(bundle.getString("MAX. RPM CHANNEL 10")); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel7.setText(bundle.getString("<HTML>NOW WE NEED TO KNOW THE MAX RPM IN ORDER TO CALCULATE THE PERCENTAGES...")); // NOI18N
 
         fanmax1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
@@ -3154,7 +3160,7 @@ private void next(){
         pumpmax11.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         pumpmax11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        pumplabel12.setText(bundle.getString("MAX. RPM CHANNEL 10")); // NOI18N
+        pumplabel12.setText(bundle.getString("MAX. RPM CHANNEL 11")); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -3217,7 +3223,8 @@ private void next(){
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(pumplabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pumplabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(pumplabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pumplabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(pumplabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pumplabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pumplabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3243,11 +3250,6 @@ private void next(){
                                 .addComponent(pumpmax9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(444, 444, 444)
-                    .addComponent(pumplabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(101, 101, 101)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3345,18 +3347,54 @@ private void next(){
                             .addComponent(pumpmax10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pumplabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pumpmax11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pumpmax11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pumplabel12))))
                 .addGap(93, 93, 93))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addContainerGap(355, Short.MAX_VALUE)
-                    .addComponent(pumplabel12)
-                    .addGap(112, 112, 112)))
         );
 
         mainPanel.add(jPanel3, "card3");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        jLabel12.setText(bundle.getString("TEMPERATURE SENSORS")); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("How many temperature sensors do you have connected to your board?");
+
+        sensors.setModel(new javax.swing.SpinnerNumberModel(2, 0, 11, 1));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(sensors, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
+                .addComponent(jLabel2)
+                .addGap(71, 71, 71)
+                .addComponent(sensors, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(jPanel10, "card4");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel8.setText(bundle.getString("WE'VE FINISHED!! SOME FURTHER OPTIONS...")); // NOI18N
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -3430,9 +3468,10 @@ private void next(){
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -3447,7 +3486,7 @@ private void next(){
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
-        mainPanel.add(jPanel6, "card4");
+        mainPanel.add(jPanel6, "card5");
 
         backButton.setText(bundle.getString("< BACK")); // NOI18N
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3691,6 +3730,8 @@ if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3699,6 +3740,7 @@ if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3761,6 +3803,7 @@ if (input.getText().replaceAll(" ", "").replaceAll("-", "").length()==6){
     private javax.swing.JLabel raya8;
     private javax.swing.JLabel raya9;
     private javax.swing.JLabel result;
+    private javax.swing.JSpinner sensors;
     private javax.swing.JLabel stepLabel;
     private javax.swing.JLabel triplel1;
     private javax.swing.JLabel triples1;
