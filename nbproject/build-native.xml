@@ -390,9 +390,9 @@ Portions Copyrighted 2013 Sun Microsystems, Inc.
         <echo message="exec-result:${exec-result}" level="verbose"/>
         <condition property="missing.WiX">
             <not><and>
-                <contains string="${exec-output}" substring="Windows Installer Xml Compiler version"/>
-                <not><contains string="${exec-output}" substring="Windows Installer Xml Compiler version 1"/></not>
-                <not><contains string="${exec-output}" substring="Windows Installer Xml Compiler version 2"/></not>
+                <contains string="${exec-output}" substring="Windows Installer XML Toolset Compiler version"/>
+                <not><contains string="${exec-output}" substring="Windows Installer XML Toolset Compiler version 1"/></not>
+                <not><contains string="${exec-output}" substring="Windows Installer XML Toolset Compiler version 2"/></not>
             </and></not>
         </condition>
     </target>
