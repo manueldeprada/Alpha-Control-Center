@@ -3203,7 +3203,7 @@ savedata();
     private void bootstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bootstartActionPerformed
         if(bootstart.isSelected()) {
             try {
-                WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center", "\""+path+"\\start.bat"+"\"");
+                WinRegistry.writeStringValue(WinRegistry.HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", "Alphamods Control Center", "\""+path+"\\Alpha Control Center.exe"+"\"");
 
             } catch (IllegalArgumentException ex) {
                 Logger.getLogger(settings.class.getName()).log(Level.SEVERE, null, ex);
