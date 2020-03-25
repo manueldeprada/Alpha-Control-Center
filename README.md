@@ -17,4 +17,5 @@ I will always remember this project with a smile, with [@Charlio99](https://gith
 ![](https://raw.githubusercontent.com/manudroid19/Alpha-Control-Center/master/photos/photo_2020-03-25_20-18-50.jpg)
 ![](https://raw.githubusercontent.com/manudroid19/Alpha-Control-Center/master/photos/photo_2020-03-25_20-18-24.jpg)
 ![](https://raw.githubusercontent.com/manudroid19/Alpha-Control-Center/master/photos/photo_2020-03-25_20-18-30.jpg)
+![](https://raw.githubusercontent.com/manudroid19/Alpha-Control-Center/master/photos/Anotaci%C3%B3n%202020-03-25%20210207.png)
 
